@@ -4,24 +4,48 @@ import { getDueCards, getAllCards, getLifeQuestions, getStudyStats, getUserSetti
 import { MainClientApp } from '@/components/MainClientApp';
 
 async function SsrAppLoader() {
-  // Opt into request-time SSR for real-time SQLite database queries
-  await connection();
+  try {
+    // Opt into request-time SSR for real-time database queries
+    await connection();
+  } catch {
+    // Ignore connection error if running outside standard request scope
+  }
 
-  const userSettings = getUserSettings();
-  const dueCards = getDueCards(userSettings.daily_limit);
-  const allCards = getAllCards();
-  const lifeQuestions = getLifeQuestions();
-  const studyStats = getStudyStats();
+  try {
+    const userSettings = getUserSettings();
+    const dueCards = getDueCards(userSettings.daily_limit);
+    const allCards = getAllCards();
+    const lifeQuestions = getLifeQuestions();
+    const studyStats = getStudyStats();
 
-  return (
-    <MainClientApp
-      initialDueCards={dueCards}
-      initialAllCards={allCards}
-      initialQuestions={lifeQuestions}
-      initialStats={studyStats}
-      initialSettings={userSettings}
-    />
-  );
+    return (
+      <MainClientApp
+        initialDueCards={dueCards}
+        initialAllCards={allCards}
+        initialQuestions={lifeQuestions}
+        initialStats={studyStats}
+        initialSettings={userSettings}
+      />
+    );
+  } catch (error) {
+    console.error('SSR App Loader error:', error);
+    // Safe fallback defaults to avoid React error #441 on server render
+    const defaultSettings = getUserSettings();
+    const defaultDue = getDueCards(15);
+    const defaultAll = getAllCards();
+    const defaultQuestions = getLifeQuestions();
+    const defaultStats = getStudyStats();
+
+    return (
+      <MainClientApp
+        initialDueCards={defaultDue}
+        initialAllCards={defaultAll}
+        initialQuestions={defaultQuestions}
+        initialStats={defaultStats}
+        initialSettings={defaultSettings}
+      />
+    );
+  }
 }
 
 export default function HomePage() {
