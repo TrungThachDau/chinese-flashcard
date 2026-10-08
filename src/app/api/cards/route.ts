@@ -1,6 +1,13 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { connection } from 'next/server';
-import { getAllCards, getDueCards, recordCardReview, getStudyStats } from '@/lib/db';
+import {
+  getAllCards,
+  getDueCards,
+  getLearnedCards,
+  getNewCards,
+  recordCardReview,
+  getStudyStats,
+} from '@/lib/db';
 import { ReviewRating } from '@/lib/types';
 
 export async function GET(request: NextRequest) {
@@ -10,11 +17,23 @@ export async function GET(request: NextRequest) {
     const category = searchParams.get('category') || undefined;
     const status = searchParams.get('status') || undefined;
     const search = searchParams.get('search') || undefined;
+    const mode = searchParams.get('mode') || undefined;
     const dueOnly = searchParams.get('dueOnly') === 'true';
     const limit = searchParams.get('limit') ? parseInt(searchParams.get('limit')!, 10) : 30;
 
+    if (mode === 'learn_more') {
+      const cards = getNewCards(limit);
+      return NextResponse.json({ ok: true, cards });
+    }
+
+    if (mode === 'review_learned') {
+      const cards = getLearnedCards(limit);
+      return NextResponse.json({ ok: true, cards });
+    }
+
     if (dueOnly) {
-      const cards = getDueCards(limit);
+      const allowNew = searchParams.get('allowNew') !== 'false';
+      const cards = getDueCards(limit, allowNew);
       return NextResponse.json({ ok: true, cards });
     }
 

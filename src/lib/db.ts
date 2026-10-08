@@ -464,7 +464,55 @@ export function getCardById(id: number): Card | null {
   return card ? toPlain(card) : null;
 }
 
-export function getDueCards(limit?: number): Card[] {
+export function getLearnedCards(limit: number = 20): Card[] {
+  const db = getDatabase();
+  if (db) {
+    try {
+      const rows = db.prepare(`
+        SELECT * FROM cards
+        WHERE status != 'new' OR last_reviewed IS NOT NULL
+        ORDER BY last_reviewed DESC, due_date ASC
+        LIMIT ?
+      `).all(limit);
+      return toPlain(rows as unknown as Card[]);
+    } catch (err) {
+      console.warn('SQLite getLearnedCards error, falling back to memory store:', err);
+    }
+  }
+
+  const store = getMemoryStore();
+  const learned = store.cards
+    .filter((c) => c.status !== 'new' || c.last_reviewed !== null)
+    .sort((a, b) => {
+      const timeA = a.last_reviewed || '';
+      const timeB = b.last_reviewed || '';
+      return timeB.localeCompare(timeA);
+    });
+  return toPlain(learned.slice(0, limit));
+}
+
+export function getNewCards(limit: number = 5): Card[] {
+  const db = getDatabase();
+  if (db) {
+    try {
+      const rows = db.prepare(`
+        SELECT * FROM cards
+        WHERE status = 'new'
+        ORDER BY id ASC
+        LIMIT ?
+      `).all(limit);
+      return toPlain(rows as unknown as Card[]);
+    } catch (err) {
+      console.warn('SQLite getNewCards error, falling back to memory store:', err);
+    }
+  }
+
+  const store = getMemoryStore();
+  const newCards = store.cards.filter((c) => c.status === 'new');
+  return toPlain(newCards.slice(0, limit));
+}
+
+export function getDueCards(limit?: number, allowNew: boolean = true): Card[] {
   const settings = getUserSettings();
   const maxLimit = limit ?? settings.daily_limit;
   const now = new Date().toISOString();
@@ -472,20 +520,41 @@ export function getDueCards(limit?: number): Card[] {
   const db = getDatabase();
   if (db) {
     try {
-      const rows = db.prepare(`
-        SELECT * FROM cards 
-        WHERE due_date <= ? OR status = 'new'
-        ORDER BY 
-          CASE status 
-            WHEN 'learning' THEN 1 
-            WHEN 'new' THEN 2 
-            WHEN 'reviewing' THEN 3 
-            ELSE 4 
-          END,
-          due_date ASC 
-        LIMIT ?
-      `).all(now, maxLimit);
+      let query: string;
+      const params: (string | number)[] = [];
 
+      if (allowNew) {
+        query = `
+          SELECT * FROM cards 
+          WHERE due_date <= ? OR status = 'new'
+          ORDER BY 
+            CASE status 
+              WHEN 'learning' THEN 1 
+              WHEN 'new' THEN 2 
+              WHEN 'reviewing' THEN 3 
+              ELSE 4 
+            END,
+            due_date ASC 
+          LIMIT ?
+        `;
+        params.push(now, maxLimit);
+      } else {
+        query = `
+          SELECT * FROM cards 
+          WHERE due_date <= ? AND status != 'new'
+          ORDER BY 
+            CASE status 
+              WHEN 'learning' THEN 1 
+              WHEN 'reviewing' THEN 2 
+              ELSE 3 
+            END,
+            due_date ASC 
+          LIMIT ?
+        `;
+        params.push(now, maxLimit);
+      }
+
+      const rows = db.prepare(query).all(...params);
       return toPlain(rows as unknown as Card[]);
     } catch (err) {
       console.warn('SQLite getDueCards error, falling back to memory store:', err);
@@ -494,7 +563,12 @@ export function getDueCards(limit?: number): Card[] {
 
   // In-Memory Fallback
   const store = getMemoryStore();
-  const due = store.cards.filter((c) => c.due_date <= now || c.status === 'new');
+  const due = store.cards.filter((c) => {
+    if (allowNew) {
+      return c.due_date <= now || c.status === 'new';
+    }
+    return c.due_date <= now && c.status !== 'new';
+  });
 
   const statusPriority: Record<string, number> = {
     learning: 1,
@@ -799,7 +873,7 @@ export function getStudyStats(tzOffsetMinutes: number = new Date().getTimezoneOf
       const totalReviewsRow = db.prepare('SELECT COUNT(*) as count FROM review_logs').get() as { count: number };
 
       const todayReviewsRow = db
-        .prepare('SELECT COUNT(*) as count FROM review_logs WHERE reviewed_at >= ? AND reviewed_at < ?')
+        .prepare('SELECT COUNT(DISTINCT card_id) as count FROM review_logs WHERE reviewed_at >= ? AND reviewed_at < ?')
         .get(day.startIso, day.endIso) as { count: number };
 
       const successReviewsRow = db.prepare('SELECT COUNT(*) as count FROM review_logs WHERE rating >= 3').get() as { count: number };
@@ -864,9 +938,11 @@ export function getStudyStats(tzOffsetMinutes: number = new Date().getTimezoneOf
   const dueToday = store.cards.filter((c) => c.due_date <= now || c.status === 'new').length;
 
   const totalReviews = store.reviewLogs.length;
-  const todayReviews = store.reviewLogs.filter(
-    (l) => l.reviewed_at >= day.startIso && l.reviewed_at < day.endIso
-  ).length;
+  const todayReviews = new Set(
+    store.reviewLogs
+      .filter((l) => l.reviewed_at >= day.startIso && l.reviewed_at < day.endIso)
+      .map((l) => l.card_id)
+  ).size;
 
   const successReviews = store.reviewLogs.filter((l) => l.rating >= 3).length;
   const retentionRate = totalReviews > 0 ? Math.round((successReviews / totalReviews) * 100) : 100;

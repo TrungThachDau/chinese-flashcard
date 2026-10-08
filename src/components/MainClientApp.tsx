@@ -27,6 +27,7 @@ import { VocabularyList } from "./VocabularyList";
 import { ProgressStats } from "./ProgressStats";
 import { SettingsModal } from "./SettingsModal";
 import { OnboardingModal } from "./OnboardingModal";
+import { GoalCompletionModal } from "./GoalCompletionModal";
 
 export type AppTab = "flashcards" | "life_questions" | "vocab" | "stats";
 
@@ -123,6 +124,7 @@ export const MainClientApp: React.FC<MainClientAppProps> = ({
   });
 
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
+  const [showGoalModal, setShowGoalModal] = useState(false);
 
   // Sync state if initialSettings changes
   useEffect(() => {
@@ -215,6 +217,36 @@ export const MainClientApp: React.FC<MainClientAppProps> = ({
     }
   };
 
+  // Handle Learn More (load next new cards)
+  const handleLearnMore = async (count: number = 5) => {
+    try {
+      const res = await fetch(`/api/cards?mode=learn_more&limit=${count}`);
+      const data = await res.json();
+      if (data.ok && data.cards && data.cards.length > 0) {
+        setDueCards(data.cards);
+      } else {
+        handleRefreshDue(count);
+      }
+    } catch (err) {
+      console.error("Error loading more cards:", err);
+    }
+  };
+
+  // Handle Review Learned (load previously learned cards)
+  const handleReviewLearned = async (count: number = 10) => {
+    try {
+      const res = await fetch(`/api/cards?mode=review_learned&limit=${count}`);
+      const data = await res.json();
+      if (data.ok && data.cards && data.cards.length > 0) {
+        setDueCards(data.cards);
+      } else {
+        setDueCards(allCards.slice(0, count));
+      }
+    } catch (err) {
+      console.error("Error loading learned cards:", err);
+    }
+  };
+
   // Review card action handler
   const handleReviewCard = async (cardId: number, rating: ReviewRating) => {
     try {
@@ -234,7 +266,13 @@ export const MainClientApp: React.FC<MainClientAppProps> = ({
           prev.map((c) => (c.id === data.card.id ? data.card : c)),
         );
         if (data.stats) {
+          const prevCount = stats.today_reviewed_count || 0;
+          const nextCount = data.stats.today_reviewed_count || 0;
           setStats(data.stats);
+          // If reaching the daily limit on this review, trigger celebration modal
+          if (nextCount >= settings.daily_limit && prevCount < settings.daily_limit) {
+            setShowGoalModal(true);
+          }
         }
       }
     } catch (err) {
@@ -357,7 +395,23 @@ export const MainClientApp: React.FC<MainClientAppProps> = ({
         {activeTab === "flashcards" && (
           <div className="space-y-2 sm:space-y-4">
             {/* User Greeting & Daily Goal Progress (Compact on mobile) */}
-            <div className="max-w-md mx-auto p-2 sm:p-4 rounded-2xl sm:rounded-3xl bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border border-slate-200/80 dark:border-slate-800 shadow-xs flex items-center justify-between gap-2.5">
+            <div
+              className={`max-w-md mx-auto p-2 sm:p-4 rounded-2xl sm:rounded-3xl bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border border-slate-200/80 dark:border-slate-800 shadow-xs flex items-center justify-between gap-2.5 transition-all ${
+                (stats.today_reviewed_count || 0) >= settings.daily_limit
+                  ? "ring-1 ring-emerald-500/40 cursor-pointer hover:bg-emerald-50/20 dark:hover:bg-emerald-950/20"
+                  : ""
+              }`}
+              onClick={() => {
+                if ((stats.today_reviewed_count || 0) >= settings.daily_limit) {
+                  setShowGoalModal(true);
+                }
+              }}
+              title={
+                (stats.today_reviewed_count || 0) >= settings.daily_limit
+                  ? "Bấm để xem tùy chọn học thêm hoặc ôn lại từ cũ"
+                  : undefined
+              }
+            >
               <div className="flex items-center gap-2 min-w-0">
                 <div className="w-7 h-7 sm:w-10 sm:h-10 rounded-xl sm:rounded-2xl bg-gradient-to-tr from-amber-400 via-rose-500 to-indigo-600 text-white flex items-center justify-center text-xs sm:text-base font-bold shadow-xs shadow-rose-500/20 shrink-0">
                   👋
@@ -369,12 +423,18 @@ export const MainClientApp: React.FC<MainClientAppProps> = ({
                       HSK {settings.hsk_level || 1}
                     </span>
                   </div>
-                  <div className="text-[10px] sm:text-[11px] text-slate-500 dark:text-slate-400 leading-tight">
-                    Mục tiêu:{" "}
+                  <div className="text-[10px] sm:text-[11px] text-slate-500 dark:text-slate-400 leading-tight flex items-center gap-1 flex-wrap">
+                    <span>Mục tiêu:</span>{" "}
                     <span className="font-bold text-rose-600 dark:text-rose-400">
                       {stats.today_reviewed_count || 0}
                     </span>{" "}
-                    / {settings.daily_limit} từ
+                    <span>/ {settings.daily_limit} từ</span>
+                    {(stats.today_reviewed_count || 0) >= settings.daily_limit && (
+                      <span className="text-[9px] px-1.5 py-0.2 rounded-full bg-emerald-100 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 font-bold border border-emerald-300/40 inline-flex items-center gap-0.5">
+                        <CheckCircle2 className="w-2.5 h-2.5" />
+                        <span>Đã đạt</span>
+                      </span>
+                    )}
                   </div>
                 </div>
               </div>
@@ -389,15 +449,21 @@ export const MainClientApp: React.FC<MainClientAppProps> = ({
                   />
                 </div>
                 <span className="text-[9px] sm:text-[10px] font-bold text-slate-500 dark:text-slate-400">
-                  {Math.min(
-                    100,
-                    Math.round(
-                      ((stats.today_reviewed_count || 0) /
-                        Math.max(1, settings.daily_limit)) *
-                        100,
-                    ),
+                  {(stats.today_reviewed_count || 0) >= settings.daily_limit ? (
+                    <span className="text-emerald-600 dark:text-emerald-400 font-extrabold flex items-center gap-0.5">
+                      <Sparkles className="w-2.5 h-2.5" />
+                      Hoàn thành!
+                    </span>
+                  ) : (
+                    `${Math.min(
+                      100,
+                      Math.round(
+                        ((stats.today_reviewed_count || 0) /
+                          Math.max(1, settings.daily_limit)) *
+                          100,
+                      ),
+                    )}% mục tiêu`
                   )}
-                  % mục tiêu
                 </span>
               </div>
             </div>
@@ -417,6 +483,16 @@ export const MainClientApp: React.FC<MainClientAppProps> = ({
               speechRate={settings.speech_rate}
               autoPlayAudio={settings.auto_play_audio}
               audioEngine={settings.audio_engine}
+              isGoalReached={(stats.today_reviewed_count || 0) >= settings.daily_limit}
+              todayReviewedCount={stats.today_reviewed_count || 0}
+              dailyLimit={settings.daily_limit}
+              onLearnMore={handleLearnMore}
+              onReviewLearned={handleReviewLearned}
+              onDeckCompleted={() => {
+                if ((stats.today_reviewed_count || 0) >= settings.daily_limit) {
+                  setShowGoalModal(true);
+                }
+              }}
             />
           </div>
         )}
@@ -518,6 +594,17 @@ export const MainClientApp: React.FC<MainClientAppProps> = ({
         onUpdateSettings={handleUpdateSettings}
         onResetDatabase={handleResetDatabase}
       />
+
+      {/* Goal Completion Celebration Modal */}
+      <GoalCompletionModal
+        isOpen={showGoalModal}
+        onClose={() => setShowGoalModal(false)}
+        reviewedCount={stats.today_reviewed_count || 0}
+        dailyLimit={settings.daily_limit}
+        onLearnMore={handleLearnMore}
+        onReviewLearned={handleReviewLearned}
+      />
     </div>
   );
 };
+

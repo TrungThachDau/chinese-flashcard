@@ -30,6 +30,12 @@ interface FlashcardViewProps {
   speechRate?: number;
   autoPlayAudio?: boolean;
   audioEngine?: "online" | "browser";
+  isGoalReached?: boolean;
+  todayReviewedCount?: number;
+  dailyLimit?: number;
+  onLearnMore?: (count?: number) => void;
+  onReviewLearned?: (count?: number) => void;
+  onDeckCompleted?: () => void;
 }
 
 export const FlashcardView: React.FC<FlashcardViewProps> = ({
@@ -42,6 +48,12 @@ export const FlashcardView: React.FC<FlashcardViewProps> = ({
   speechRate = 0.85,
   autoPlayAudio = false,
   audioEngine = "online",
+  isGoalReached = false,
+  todayReviewedCount = 0,
+  dailyLimit = 15,
+  onLearnMore,
+  onReviewLearned,
+  onDeckCompleted,
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isFlipped, setIsFlipped] = useState(false);
@@ -140,6 +152,7 @@ export const FlashcardView: React.FC<FlashcardViewProps> = ({
           origin: { y: 0.6 },
           colors: ["#f59e0b", "#ec4899", "#3b82f6", "#10b981", "#8b5cf6"],
         });
+        onDeckCompleted?.();
       }
     } finally {
       setIsSubmitting(false);
@@ -168,6 +181,54 @@ export const FlashcardView: React.FC<FlashcardViewProps> = ({
 
   // If no cards or completed
   if (!cards || cards.length === 0 || isCompleted) {
+    if (isGoalReached) {
+      return (
+        <div className="flex flex-col items-center justify-center p-6 sm:p-8 text-center bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl rounded-3xl border border-slate-200/80 dark:border-slate-800 shadow-xl max-w-lg mx-auto animate-in fade-in zoom-in-95 duration-200">
+          <div className="w-18 h-18 sm:w-20 sm:h-20 rounded-3xl bg-gradient-to-tr from-amber-400 via-rose-500 to-indigo-500 flex items-center justify-center shadow-lg shadow-rose-500/25 mb-4 text-white animate-bounce">
+            <Trophy className="w-9 h-9 sm:w-10 sm:h-10" />
+          </div>
+          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-emerald-100 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 border border-emerald-300/50 mb-2">
+            <Check className="w-3.5 h-3.5" />
+            <span>Mục tiêu hoàn thành!</span>
+          </span>
+          <h2 className="text-xl sm:text-2xl font-black text-slate-800 dark:text-slate-100">
+            Xuất sắc! Bạn đã đạt mục tiêu!
+          </h2>
+          <p className="mt-1.5 text-xs text-slate-600 dark:text-slate-400 max-w-xs">
+            Bạn đã hoàn thành <span className="font-bold text-rose-600 dark:text-rose-400">{todayReviewedCount}</span> / {dailyLimit} từ vựng hôm nay. Bạn muốn tiếp tục như thế nào?
+          </p>
+
+          <div className="mt-5 flex flex-col gap-2.5 w-full">
+            <button
+              type="button"
+              onClick={() => {
+                setIsCompleted(false);
+                setCurrentIndex(0);
+                onLearnMore?.(5);
+              }}
+              className="w-full py-3.5 px-4 rounded-2xl bg-gradient-to-r from-amber-500 via-rose-500 to-indigo-600 text-white font-bold text-xs sm:text-sm shadow-lg shadow-rose-500/20 hover:opacity-95 transition-transform active:scale-95 flex items-center justify-center gap-2 cursor-pointer"
+            >
+              <Sparkles className="w-4 h-4" />
+              <span>Học thêm từ mới (+5 từ)</span>
+            </button>
+
+            <button
+              type="button"
+              onClick={() => {
+                setIsCompleted(false);
+                setCurrentIndex(0);
+                onReviewLearned?.(10);
+              }}
+              className="w-full py-3.5 px-4 rounded-2xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 font-bold text-xs sm:text-sm border border-slate-200 dark:border-slate-700 transition-transform active:scale-95 flex items-center justify-center gap-2 cursor-pointer"
+            >
+              <RotateCw className="w-4 h-4 text-indigo-500" />
+              <span>Ôn tập lại từ cũ</span>
+            </button>
+          </div>
+        </div>
+      );
+    }
+
     return (
       <div className="flex flex-col items-center justify-center p-8 text-center bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl rounded-3xl border border-slate-200/80 dark:border-slate-800 shadow-xl max-w-lg mx-auto">
         <div className="w-20 h-20 rounded-full bg-gradient-to-tr from-amber-400 via-rose-500 to-indigo-500 flex items-center justify-center shadow-lg shadow-rose-500/25 mb-5 text-white animate-bounce">
