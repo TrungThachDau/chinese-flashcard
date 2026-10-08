@@ -18,6 +18,7 @@ async function SsrVocabLoader() {
     <MainClientApp
       initialDueCards={data.dueCards}
       initialAllCards={data.allCards}
+      initialTotalCards={data.totalCards}
       initialQuestions={data.lifeQuestions}
       initialStats={data.studyStats}
       initialSettings={data.userSettings}
@@ -33,4 +34,3 @@ export default function VocabPage() {
     </Suspense>
   );
 }
-

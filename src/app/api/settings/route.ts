@@ -6,7 +6,10 @@ export async function GET() {
   await connection();
   try {
     const settings = getUserSettings();
-    return NextResponse.json({ ok: true, settings });
+    return NextResponse.json(
+      { ok: true, settings },
+      { headers: { 'Cache-Control': 'no-store, must-revalidate' } }
+    );
   } catch (error) {
     console.error('Error fetching settings:', error);
     return NextResponse.json({ ok: false, error: 'Failed to fetch settings' }, { status: 500 });

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useRef } from "react";
 import {
   Sparkles,
   BookOpen,
@@ -11,6 +11,7 @@ import {
   Layers,
   MessageSquareText,
 } from "lucide-react";
+import dynamic from "next/dynamic";
 import {
   Card,
   LifeQuestion,
@@ -21,13 +22,55 @@ import {
 import { Navbar } from "./Navbar";
 import { BottomNav } from "./BottomNav";
 import { FlashcardView } from "./FlashcardView";
-import { LifeQuestionsView } from "./LifeQuestionsView";
 import { usePathname } from "next/navigation";
-import { VocabularyList } from "./VocabularyList";
-import { ProgressStats } from "./ProgressStats";
-import { SettingsModal } from "./SettingsModal";
-import { OnboardingModal } from "./OnboardingModal";
-import { GoalCompletionModal } from "./GoalCompletionModal";
+
+const LifeQuestionsView = dynamic(
+  () => import("./LifeQuestionsView").then((mod) => mod.LifeQuestionsView),
+  {
+    loading: () => (
+      <div className="p-8 text-center animate-pulse text-slate-400 font-medium">
+        Đang tải câu hỏi đời sống...
+      </div>
+    ),
+  }
+);
+
+const VocabularyList = dynamic(
+  () => import("./VocabularyList").then((mod) => mod.VocabularyList),
+  {
+    loading: () => (
+      <div className="p-8 text-center animate-pulse text-slate-400 font-medium">
+        Đang tải kho từ vựng...
+      </div>
+    ),
+  }
+);
+
+const ProgressStats = dynamic(
+  () => import("./ProgressStats").then((mod) => mod.ProgressStats),
+  {
+    loading: () => (
+      <div className="p-8 text-center animate-pulse text-slate-400 font-medium">
+        Đang tải thống kê tiến độ...
+      </div>
+    ),
+  }
+);
+
+const SettingsModal = dynamic(
+  () => import("./SettingsModal").then((mod) => mod.SettingsModal),
+  { ssr: false }
+);
+
+const OnboardingModal = dynamic(
+  () => import("./OnboardingModal").then((mod) => mod.OnboardingModal),
+  { ssr: false }
+);
+
+const GoalCompletionModal = dynamic(
+  () => import("./GoalCompletionModal").then((mod) => mod.GoalCompletionModal),
+  { ssr: false }
+);
 
 export type AppTab = "flashcards" | "life_questions" | "vocab" | "stats";
 
@@ -55,6 +98,7 @@ export function getPathFromTab(tab: AppTab): string {
 interface MainClientAppProps {
   initialDueCards: Card[];
   initialAllCards: Card[];
+  initialTotalCards?: number;
   initialQuestions: LifeQuestion[];
   initialStats: StudyStats;
   initialSettings?: UserSettings;
@@ -64,6 +108,7 @@ interface MainClientAppProps {
 export const MainClientApp: React.FC<MainClientAppProps> = ({
   initialDueCards,
   initialAllCards,
+  initialTotalCards,
   initialQuestions,
   initialStats,
   initialSettings,
@@ -99,29 +144,24 @@ export const MainClientApp: React.FC<MainClientAppProps> = ({
     return () => window.removeEventListener("popstate", handlePopState);
   }, []);
 
-  // Lock window and document scroll when on flashcards view
-  useEffect(() => {
-    if (activeTab === "flashcards") {
-      document.documentElement.style.overflow = "hidden";
-      document.body.style.overflow = "hidden";
-    } else {
-      document.documentElement.style.overflow = "";
-      document.body.style.overflow = "";
-    }
-    return () => {
-      document.documentElement.style.overflow = "";
-      document.body.style.overflow = "";
-    };
-  }, [activeTab]);
-
   const [dueCards, setDueCards] = useState<Card[]>(initialDueCards);
   const [allCards, setAllCards] = useState<Card[]>(initialAllCards);
+  const [totalCards, setTotalCards] = useState<number>(
+    initialTotalCards || (initialAllCards.length > 0 ? initialAllCards.length : 500),
+  );
   const [questions, setQuestions] = useState<LifeQuestion[]>(initialQuestions);
   const [stats, setStats] = useState<StudyStats>(initialStats);
   const [selectedReviewCategory, setSelectedReviewCategory] =
     useState<string>("all");
   const [isLoadingAllCards, setIsLoadingAllCards] = useState(false);
   const [isLoadingQuestions, setIsLoadingQuestions] = useState(false);
+
+  // Synchronize totalCards when server prop changes
+  useEffect(() => {
+    if (initialTotalCards) {
+      setTotalCards(initialTotalCards);
+    }
+  }, [initialTotalCards]);
 
   // Lazy-load all vocabulary cards when user visits or switches to the vocab tab
   useEffect(() => {
@@ -131,14 +171,17 @@ export const MainClientApp: React.FC<MainClientAppProps> = ({
       !isLoadingAllCards
     ) {
       setIsLoadingAllCards(true);
-      fetch("/api/cards")
+      fetch("/api/cards?limit=30&offset=0")
         .then((res) => res.json())
         .then((data) => {
           if (data.ok && data.cards) {
             setAllCards(data.cards);
+            if (typeof data.total === 'number') {
+              setTotalCards(data.total);
+            }
           }
         })
-        .catch((err) => console.error("Error loading all cards:", err))
+        .catch((err) => console.error("Error loading initial cards:", err))
         .finally(() => setIsLoadingAllCards(false));
     }
   }, [activeTab, pathname, allCards.length, isLoadingAllCards]);
@@ -196,6 +239,20 @@ export const MainClientApp: React.FC<MainClientAppProps> = ({
     }
   }, [initialSettings]);
 
+  // Sync dueCards when server props change (ensures reload always shows fresh cards)
+  useEffect(() => {
+    if (initialDueCards) {
+      setDueCards(initialDueCards);
+    }
+  }, [initialDueCards]);
+
+  // Sync stats when server props change
+  useEffect(() => {
+    if (initialStats) {
+      setStats(initialStats);
+    }
+  }, [initialStats]);
+
   // Sync with localStorage on client mount & fetch fresh settings from database
   useEffect(() => {
     try {
@@ -222,28 +279,30 @@ export const MainClientApp: React.FC<MainClientAppProps> = ({
       // Ignore localStorage errors
     }
 
-    // Always fetch latest settings from server to guarantee sync with database
-    fetch("/api/settings", { cache: "no-store" })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.ok && data.settings) {
-          setSettings(data.settings);
-          try {
-            localStorage.setItem(
-              "chinese_flashcard_settings",
-              JSON.stringify(data.settings),
-            );
-            if (data.settings.has_onboarded) {
-              localStorage.setItem("hsk_has_onboarded", "true");
-              setHasOnboarded(true);
-            }
-          } catch {}
-        }
-      })
-      .catch((err) => {
-        console.warn("Could not fetch fresh settings on mount:", err);
-      });
-  }, []);
+    // Fetch latest settings from server only if not already provided via SSR
+    if (!initialSettings) {
+      fetch("/api/settings", { cache: "no-store" })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.ok && data.settings) {
+            setSettings(data.settings);
+            try {
+              localStorage.setItem(
+                "chinese_flashcard_settings",
+                JSON.stringify(data.settings),
+              );
+              if (data.settings.has_onboarded) {
+                localStorage.setItem("hsk_has_onboarded", "true");
+                setHasOnboarded(true);
+              }
+            } catch {}
+          }
+        })
+        .catch((err) => {
+          console.warn("Could not fetch fresh settings on mount:", err);
+        });
+    }
+  }, [initialSettings]);
 
   const handleUpdateSettings = async (newSettings: Partial<UserSettings>) => {
     const payload: Partial<UserSettings> = {
@@ -337,8 +396,11 @@ export const MainClientApp: React.FC<MainClientAppProps> = ({
       });
       const data = await res.json();
       if (data.ok && data.card) {
-        // Update in all cards
+        // Update in all cards and due cards
         setAllCards((prev) =>
+          prev.map((c) => (c.id === data.card.id ? data.card : c)),
+        );
+        setDueCards((prev) =>
           prev.map((c) => (c.id === data.card.id ? data.card : c)),
         );
         if (data.stats) {
@@ -377,10 +439,17 @@ export const MainClientApp: React.FC<MainClientAppProps> = ({
     }
   }, []);
 
-  // SSR can't know the browser timezone: re-sync "today" / streak once on mount,
-  // and whenever the user opens a screen that displays progress.
+  // Re-sync "today" / streak with client timezone when user views stats tab
+  const isFirstMountStatsRef = useRef(true);
   useEffect(() => {
-    if (activeTab === "stats" || activeTab === "flashcards") {
+    if (isFirstMountStatsRef.current) {
+      isFirstMountStatsRef.current = false;
+      if (activeTab === "stats") {
+        refreshStats();
+      }
+      return;
+    }
+    if (activeTab === "stats") {
       refreshStats();
     }
   }, [activeTab, refreshStats]);
@@ -573,6 +642,7 @@ export const MainClientApp: React.FC<MainClientAppProps> = ({
               }
               todayReviewedCount={stats.today_reviewed_count || 0}
               dailyLimit={settings.daily_limit}
+              targetRetention={settings.fsrs_retention ?? 0.9}
               onLearnMore={handleLearnMore}
               onReviewLearned={handleReviewLearned}
               onDeckCompleted={() => {
@@ -610,7 +680,7 @@ export const MainClientApp: React.FC<MainClientAppProps> = ({
           <div className="space-y-4">
             <div className="text-center max-w-md mx-auto mb-4">
               <h2 className="text-2xl font-black tracking-tight bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">
-                Kho Từ Vựng HSK 1 ({allCards.length})
+                Kho Từ Vựng HSK 1 ({totalCards})
               </h2>
               <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
                 Tra cứu đầy đủ 500+ từ vựng HSK 1, bộ thủ, số nét, âm Hán Việt
@@ -620,6 +690,8 @@ export const MainClientApp: React.FC<MainClientAppProps> = ({
 
             <VocabularyList
               cards={allCards}
+              initialCards={allCards}
+              initialTotal={totalCards}
               categories={stats.categories}
               speechRate={settings.speech_rate}
             />
@@ -659,38 +731,44 @@ export const MainClientApp: React.FC<MainClientAppProps> = ({
       />
 
       {/* Onboarding Welcome Modal (Only shown once when no config yet) */}
-      <OnboardingModal
-        isOpen={!hasOnboarded && !settings.has_onboarded}
-        initialSettings={settings}
-        onSave={handleUpdateSettings}
-        onClose={() => {
-          setHasOnboarded(true);
-          if (typeof window !== "undefined") {
-            try {
-              localStorage.setItem("hsk_has_onboarded", "true");
-            } catch {}
-          }
-        }}
-      />
+      {!hasOnboarded && !settings.has_onboarded && (
+        <OnboardingModal
+          isOpen={true}
+          initialSettings={settings}
+          onSave={handleUpdateSettings}
+          onClose={() => {
+            setHasOnboarded(true);
+            if (typeof window !== "undefined") {
+              try {
+                localStorage.setItem("hsk_has_onboarded", "true");
+              } catch {}
+            }
+          }}
+        />
+      )}
 
       {/* Settings Modal (Configurable anytime) */}
-      <SettingsModal
-        isOpen={isSettingsOpen}
-        onClose={() => setIsSettingsOpen(false)}
-        settings={settings}
-        onUpdateSettings={handleUpdateSettings}
-        onResetDatabase={handleResetDatabase}
-      />
+      {isSettingsOpen && (
+        <SettingsModal
+          isOpen={true}
+          onClose={() => setIsSettingsOpen(false)}
+          settings={settings}
+          onUpdateSettings={handleUpdateSettings}
+          onResetDatabase={handleResetDatabase}
+        />
+      )}
 
       {/* Goal Completion Celebration Modal */}
-      <GoalCompletionModal
-        isOpen={showGoalModal}
-        onClose={() => setShowGoalModal(false)}
-        reviewedCount={stats.today_reviewed_count || 0}
-        dailyLimit={settings.daily_limit}
-        onLearnMore={handleLearnMore}
-        onReviewLearned={handleReviewLearned}
-      />
+      {showGoalModal && (
+        <GoalCompletionModal
+          isOpen={true}
+          onClose={() => setShowGoalModal(false)}
+          reviewedCount={stats.today_reviewed_count || 0}
+          dailyLimit={settings.daily_limit}
+          onLearnMore={handleLearnMore}
+          onReviewLearned={handleReviewLearned}
+        />
+      )}
     </div>
   );
 };

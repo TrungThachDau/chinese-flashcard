@@ -2,6 +2,7 @@ import { connection } from 'next/server';
 import {
   getDueCards,
   getAllCards,
+  getCardsCount,
   getLifeQuestions,
   getStudyStats,
   getUserSettings,
@@ -10,10 +11,11 @@ import {
 export interface LoadServerAppDataOptions {
   includeAllCards?: boolean;
   includeQuestions?: boolean;
+  cardsLimit?: number;
 }
 
 export async function loadServerAppData(options: LoadServerAppDataOptions = {}) {
-  const { includeAllCards = false, includeQuestions = false } = options;
+  const { includeAllCards = false, includeQuestions = false, cardsLimit = 30 } = options;
 
   try {
     // Opt into request-time SSR for real-time database queries
@@ -25,7 +27,8 @@ export async function loadServerAppData(options: LoadServerAppDataOptions = {}) 
   try {
     const userSettings = getUserSettings();
     const dueCards = getDueCards(userSettings.daily_limit);
-    const allCards = includeAllCards ? getAllCards() : [];
+    const totalCards = includeAllCards ? getCardsCount() : 0;
+    const allCards = includeAllCards ? getAllCards({ limit: cardsLimit, offset: 0 }) : [];
     const lifeQuestions = includeQuestions ? getLifeQuestions() : [];
     const studyStats = getStudyStats();
 
@@ -33,6 +36,7 @@ export async function loadServerAppData(options: LoadServerAppDataOptions = {}) 
       userSettings,
       dueCards,
       allCards,
+      totalCards,
       lifeQuestions,
       studyStats,
     };
@@ -40,7 +44,8 @@ export async function loadServerAppData(options: LoadServerAppDataOptions = {}) 
     console.error('loadServerAppData error:', error);
     const defaultSettings = getUserSettings();
     const defaultDue = getDueCards(15);
-    const defaultAll = includeAllCards ? getAllCards() : [];
+    const defaultTotal = includeAllCards ? getCardsCount() : 0;
+    const defaultAll = includeAllCards ? getAllCards({ limit: cardsLimit, offset: 0 }) : [];
     const defaultQuestions = includeQuestions ? getLifeQuestions() : [];
     const defaultStats = getStudyStats();
 
@@ -48,6 +53,7 @@ export async function loadServerAppData(options: LoadServerAppDataOptions = {}) 
       userSettings: defaultSettings,
       dueCards: defaultDue,
       allCards: defaultAll,
+      totalCards: defaultTotal,
       lifeQuestions: defaultQuestions,
       studyStats: defaultStats,
     };

@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState } from 'react';
-import confetti from 'canvas-confetti';
 import {
   Volume2,
   CheckCircle,
@@ -85,12 +84,16 @@ export const LifeQuestionsView: React.FC<LifeQuestionsViewProps> = ({
     setShowAnswer(true);
 
     if (correct) {
-      confetti({
-        particleCount: 80,
-        spread: 60,
-        origin: { y: 0.7 },
-        colors: ['#10b981', '#3b82f6', '#f59e0b', '#ec4899'],
-      });
+      import('canvas-confetti')
+        .then((m) => {
+          m.default({
+            particleCount: 80,
+            spread: 60,
+            origin: { y: 0.7 },
+            colors: ['#10b981', '#3b82f6', '#f59e0b', '#ec4899'],
+          });
+        })
+        .catch(() => {});
       await onCompleteQuestion(currentQ.id);
     }
   };

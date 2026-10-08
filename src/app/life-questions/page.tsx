@@ -5,8 +5,8 @@ import { MainClientApp } from '@/components/MainClientApp';
 import { AppSkeleton } from '@/components/AppSkeleton';
 
 export const metadata: Metadata = {
-  title: 'Hội Thoại Đời Sống HSK 1 | Hán Ngữ',
-  description: 'Luyện phản xạ giao tiếp tiếng Trung các tình huống thực tế hàng ngày.',
+  title: 'Luyện Phản Xạ Đời Sống | Hán Ngữ',
+  description: 'Thực hành các mẫu câu đối thoại thực tế theo tình huống thông dụng.',
 };
 
 async function SsrLifeQuestionsLoader() {
@@ -33,4 +33,3 @@ export default function LifeQuestionsPage() {
     </Suspense>
   );
 }
-

@@ -4,8 +4,10 @@ import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { createPortal } from 'react-dom';
 import { Volume2, Sparkles, Layers, PenTool, X } from 'lucide-react';
 import { CharDetail } from '@/lib/types';
-import { INITIAL_CHAR_DETAILS } from '@/lib/initialData';
 import { playChineseAudio } from '@/lib/tts';
+
+const clientCharCache = new Map<string, CharDetail>();
+let activeCloseHandler: (() => void) | null = null;
 
 interface HanziHoverProps {
   char: string;
@@ -28,19 +30,14 @@ export const HanziHover: React.FC<HanziHoverProps> = ({
     placeAbove: false,
     width: 310,
   });
-  const [detail, setDetail] = useState<CharDetail | null>(INITIAL_CHAR_DETAILS[char] || null);
+  const [detail, setDetail] = useState<CharDetail | null>(() => clientCharCache.get(char) || null);
   const [loading, setLoading] = useState(false);
-  const [mounted, setMounted] = useState(false);
 
   const containerRef = useRef<HTMLSpanElement>(null);
   const popoverRef = useRef<HTMLDivElement>(null);
   const closeTimerRef = useRef<NodeJS.Timeout | null>(null);
 
   const isHanzi = /[\u4e00-\u9fa5]/.test(char);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   // Calculate safe, unclamped position without causing off-screen overflow or inner scrollbar
   const updatePosition = useCallback(() => {
@@ -105,6 +102,7 @@ export const HanziHover: React.FC<HanziHoverProps> = ({
         .then((res) => res.json())
         .then((data) => {
           if (data.ok && data.detail) {
+            clientCharCache.set(char, data.detail);
             setDetail(data.detail);
           }
         })
@@ -132,17 +130,42 @@ export const HanziHover: React.FC<HanziHoverProps> = ({
     }
   }, [isPinned]);
 
+  const closeImmediate = useCallback(() => {
+    if (closeTimerRef.current) {
+      clearTimeout(closeTimerRef.current);
+      closeTimerRef.current = null;
+    }
+    setIsOpen(false);
+    setIsPinned(false);
+  }, []);
+
+  useEffect(() => {
+    return () => {
+      if (closeTimerRef.current) {
+        clearTimeout(closeTimerRef.current);
+      }
+      if (activeCloseHandler === closeImmediate) {
+        activeCloseHandler = null;
+      }
+    };
+  }, [closeImmediate]);
+
   if (!isHanzi || !showTooltip) {
     return <span className={className}>{char}</span>;
   }
 
   const handleMouseEnter = () => {
+    // Immediately close any other open Hanzi popover when hovering a new character
+    if (activeCloseHandler && activeCloseHandler !== closeImmediate) {
+      activeCloseHandler();
+    }
     if (closeTimerRef.current) {
       clearTimeout(closeTimerRef.current);
       closeTimerRef.current = null;
     }
     updatePosition();
     setIsOpen(true);
+    activeCloseHandler = closeImmediate;
   };
 
   const handleMouseLeave = () => {
@@ -150,16 +173,48 @@ export const HanziHover: React.FC<HanziHoverProps> = ({
     if (closeTimerRef.current) clearTimeout(closeTimerRef.current);
     closeTimerRef.current = setTimeout(() => {
       setIsOpen(false);
-    }, 300);
+      if (activeCloseHandler === closeImmediate) {
+        activeCloseHandler = null;
+      }
+    }, 80);
+  };
+
+  const handlePopoverMouseEnter = () => {
+    if (closeTimerRef.current) {
+      clearTimeout(closeTimerRef.current);
+      closeTimerRef.current = null;
+    }
+  };
+
+  const handlePopoverMouseLeave = () => {
+    if (isPinned) return;
+    closeImmediate();
+    if (activeCloseHandler === closeImmediate) {
+      activeCloseHandler = null;
+    }
   };
 
   const handleClick = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
-    if (closeTimerRef.current) clearTimeout(closeTimerRef.current);
-    updatePosition();
-    setIsOpen((prev) => !prev);
-    setIsPinned((prev) => !prev);
+    if (closeTimerRef.current) {
+      clearTimeout(closeTimerRef.current);
+      closeTimerRef.current = null;
+    }
+    if (!isOpen) {
+      if (activeCloseHandler && activeCloseHandler !== closeImmediate) {
+        activeCloseHandler();
+      }
+      updatePosition();
+      setIsOpen(true);
+      setIsPinned(true);
+      activeCloseHandler = closeImmediate;
+    } else {
+      closeImmediate();
+      if (activeCloseHandler === closeImmediate) {
+        activeCloseHandler = null;
+      }
+    }
   };
 
   const handlePlayAudio = (e: React.MouseEvent) => {
@@ -185,15 +240,15 @@ export const HanziHover: React.FC<HanziHoverProps> = ({
       </span>
 
       {/* Render Portal directly to document.body */}
-      {mounted &&
-        isOpen &&
+      {isOpen &&
+        typeof document !== 'undefined' &&
         createPortal(
           <div
             ref={popoverRef}
             role="dialog"
             aria-label={`Thông tin chữ ${char}`}
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
+            onMouseEnter={handlePopoverMouseEnter}
+            onMouseLeave={handlePopoverMouseLeave}
             onClick={(e) => e.stopPropagation()}
             onMouseDown={(e) => e.stopPropagation()}
             style={{
@@ -241,8 +296,10 @@ export const HanziHover: React.FC<HanziHoverProps> = ({
                 type="button"
                 onClick={(e) => {
                   e.stopPropagation();
-                  setIsPinned(false);
-                  setIsOpen(false);
+                  closeImmediate();
+                  if (activeCloseHandler === closeImmediate) {
+                    activeCloseHandler = null;
+                  }
                 }}
                 className="p-1 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
                 title="Đóng"

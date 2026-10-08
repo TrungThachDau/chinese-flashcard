@@ -104,7 +104,7 @@ export const ProgressStats: React.FC<ProgressStatsProps> = ({ stats, onStartRevi
                 Chuỗi ngày học: {stats.streak_days} ngày
               </div>
               <div className="text-xs text-slate-400">
-                Tỷ lệ nhớ đúng: {stats.retention_rate}% • Tổng {stats.total_reviews} lượt ôn
+                Tỷ lệ nhớ đúng: {stats.retention_rate}% • Tổng {stats.total_reviews} lượt ôn • FSRS
               </div>
             </div>
           </div>

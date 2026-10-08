@@ -6,7 +6,7 @@ import { AppSkeleton } from '@/components/AppSkeleton';
 
 export const metadata: Metadata = {
   title: 'Thẻ Flashcard SRS | Hán Ngữ',
-  description: 'Ôn tập từ vựng HSK 1 với thuật toán lặp lại ngắt quãng SM-2.',
+  description: 'Ôn tập từ vựng HSK 1 với thuật toán lặp lại ngắt quãng FSRS.',
 };
 
 async function SsrAppLoader() {

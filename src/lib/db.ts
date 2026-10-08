@@ -14,7 +14,7 @@ import {
 } from './types';
 import { INITIAL_CHAR_DETAILS, INITIAL_LIFE_QUESTIONS, CATEGORIES_CONFIG } from './initialData';
 import { HSK30_LEVEL1_CARDS, HSK30_CHAR_DETAILS } from './hsk30Data';
-import { calculateSM2 } from './srs';
+import { calculateFSRS, calculateSM2 } from './srs';
 
 import { createRequire } from 'node:module';
 
@@ -73,6 +73,10 @@ function initMemoryStore(): MemoryStore {
     due_date: now,
     last_reviewed: null,
     status: 'new' as CardStatus,
+    stability: 0,
+    difficulty: 0,
+    lapses: 0,
+    state: 0,
   }));
 
   const charDetails = new Map<string, CharDetail>();
@@ -98,6 +102,7 @@ function initMemoryStore(): MemoryStore {
     auto_play_audio: false,
     has_onboarded: false,
     hsk_level: 1,
+    fsrs_retention: 0.9,
   };
 
   return {
@@ -194,9 +199,28 @@ function initDatabase(db: any) {
       ease_factor REAL DEFAULT 2.5,
       due_date TEXT NOT NULL,
       last_reviewed TEXT,
-      status TEXT DEFAULT 'new'
+      status TEXT DEFAULT 'new',
+      stability REAL DEFAULT 0,
+      difficulty REAL DEFAULT 0,
+      lapses INTEGER DEFAULT 0,
+      state INTEGER DEFAULT 0
     );
   `);
+
+  // Safe migrations for cards table
+  const cardMigrations = [
+    'ALTER TABLE cards ADD COLUMN stability REAL DEFAULT 0',
+    'ALTER TABLE cards ADD COLUMN difficulty REAL DEFAULT 0',
+    'ALTER TABLE cards ADD COLUMN lapses INTEGER DEFAULT 0',
+    'ALTER TABLE cards ADD COLUMN state INTEGER DEFAULT 0',
+  ];
+  for (const sql of cardMigrations) {
+    try {
+      db.exec(sql);
+    } catch {
+      // Column likely already exists
+    }
+  }
 
   // 2. Character Details Table
   db.exec(`
@@ -240,9 +264,24 @@ function initDatabase(db: any) {
       rating INTEGER NOT NULL,
       reviewed_at TEXT NOT NULL,
       interval INTEGER NOT NULL,
-      ease_factor REAL NOT NULL
+      ease_factor REAL NOT NULL,
+      stability REAL DEFAULT 0,
+      difficulty REAL DEFAULT 0
     );
   `);
+
+  // Safe migrations for review_logs table
+  const reviewLogMigrations = [
+    'ALTER TABLE review_logs ADD COLUMN stability REAL DEFAULT 0',
+    'ALTER TABLE review_logs ADD COLUMN difficulty REAL DEFAULT 0',
+  ];
+  for (const sql of reviewLogMigrations) {
+    try {
+      db.exec(sql);
+    } catch {
+      // Column likely already exists
+    }
+  }
 
   // 5. User Settings Table
   db.exec(`
@@ -261,6 +300,7 @@ function initDatabase(db: any) {
     auto_play_audio: 'false',
     has_onboarded: 'false',
     hsk_level: '1',
+    fsrs_retention: '0.9',
   };
 
   for (const [k, v] of Object.entries(defaultSettings)) {
@@ -379,7 +419,15 @@ export function toPlain<T>(data: T): T {
 // 3. PUBLIC DATA ACCESS FUNCTIONS (DUAL SQLITE / IN-MEMORY FALLBACK)
 // ---------------------------------------------------------------------------
 
-export function getAllCards(filters?: { category?: string; status?: string; search?: string }): Card[] {
+export interface CardFilterOptions {
+  category?: string;
+  status?: string;
+  search?: string;
+  limit?: number;
+  offset?: number;
+}
+
+export function getAllCards(filters?: CardFilterOptions): Card[] {
   const db = getDatabase();
   if (db) {
     try {
@@ -409,6 +457,16 @@ export function getAllCards(filters?: { category?: string; status?: string; sear
       }
 
       query += ' ORDER BY id ASC';
+
+      if (typeof filters?.limit === 'number' && filters.limit > 0) {
+        query += ' LIMIT ?';
+        params.push(filters.limit);
+        if (typeof filters?.offset === 'number' && filters.offset > 0) {
+          query += ' OFFSET ?';
+          params.push(filters.offset);
+        }
+      }
+
       const rows = db.prepare(query).all(...params);
       return toPlain(rows as unknown as Card[]);
     } catch (err) {
@@ -445,8 +503,82 @@ export function getAllCards(filters?: { category?: string; status?: string; sear
   }
 
   result.sort((a, b) => a.id - b.id);
+
+  if (typeof filters?.limit === 'number' && filters.limit > 0) {
+    const offset = typeof filters?.offset === 'number' && filters.offset > 0 ? filters.offset : 0;
+    result = result.slice(offset, offset + filters.limit);
+  }
+
   return toPlain(result);
 }
+
+export function getCardsCount(filters?: CardFilterOptions): number {
+  const db = getDatabase();
+  if (db) {
+    try {
+      let query = 'SELECT COUNT(*) as count FROM cards WHERE 1=1';
+      const params: (string | number | null)[] = [];
+
+      if (filters?.category && filters.category !== 'all') {
+        query += ' AND category = ?';
+        params.push(filters.category);
+      }
+
+      if (filters?.status && filters.status !== 'all') {
+        if (filters.status === 'reviewing') {
+          const now = new Date().toISOString();
+          query += ' AND due_date <= ?';
+          params.push(now);
+        } else {
+          query += ' AND status = ?';
+          params.push(filters.status);
+        }
+      }
+
+      if (filters?.search && filters.search.trim()) {
+        const term = `%${filters.search.trim()}%`;
+        query += ' AND (hanzi LIKE ? OR pinyin LIKE ? OR meaning LIKE ? OR sino_vietnamese LIKE ?)';
+        params.push(term, term, term, term);
+      }
+
+      const row = db.prepare(query).get(...params) as { count: number } | undefined;
+      return row?.count ?? 0;
+    } catch (err) {
+      console.warn('SQLite getCardsCount error, falling back to memory store:', err);
+    }
+  }
+
+  // Memory fallback
+  const store = getMemoryStore();
+  const now = new Date().toISOString();
+  let result = store.cards;
+
+  if (filters?.category && filters.category !== 'all') {
+    result = result.filter((c) => c.category === filters.category);
+  }
+
+  if (filters?.status && filters.status !== 'all') {
+    if (filters.status === 'reviewing') {
+      result = result.filter((c) => c.due_date <= now);
+    } else {
+      result = result.filter((c) => c.status === filters.status);
+    }
+  }
+
+  if (filters?.search && filters.search.trim()) {
+    const term = filters.search.trim().toLowerCase();
+    result = result.filter(
+      (c) =>
+        c.hanzi.toLowerCase().includes(term) ||
+        c.pinyin.toLowerCase().includes(term) ||
+        c.meaning.toLowerCase().includes(term) ||
+        c.sino_vietnamese.toLowerCase().includes(term)
+    );
+  }
+
+  return result.length;
+}
+
 
 export function getCardById(id: number): Card | null {
   const db = getDatabase();
@@ -592,7 +724,9 @@ export function recordCardReview(cardId: number, rating: ReviewRating): Card | n
   if (!currentCard) return null;
 
   const now = new Date();
-  const srsResult = calculateSM2(currentCard, rating, now);
+  const settings = getUserSettings();
+  const targetRetention = settings.fsrs_retention ?? 0.9;
+  const srsResult = calculateFSRS(currentCard, rating, now, targetRetention);
 
   const db = getDatabase();
   if (db) {
@@ -606,7 +740,11 @@ export function recordCardReview(cardId: number, rating: ReviewRating): Card | n
           ease_factor = ?,
           due_date = ?,
           last_reviewed = ?,
-          status = ?
+          status = ?,
+          stability = ?,
+          difficulty = ?,
+          lapses = ?,
+          state = ?
         WHERE id = ?
       `).run(
         srsResult.repetition,
@@ -615,18 +753,24 @@ export function recordCardReview(cardId: number, rating: ReviewRating): Card | n
         srsResult.due_date,
         now.toISOString(),
         srsResult.status,
+        srsResult.stability ?? 0,
+        srsResult.difficulty ?? 0,
+        srsResult.lapses ?? 0,
+        srsResult.state ?? 0,
         cardId
       );
 
       db.prepare(`
-        INSERT INTO review_logs (card_id, rating, reviewed_at, interval, ease_factor)
-        VALUES (?, ?, ?, ?, ?)
+        INSERT INTO review_logs (card_id, rating, reviewed_at, interval, ease_factor, stability, difficulty)
+        VALUES (?, ?, ?, ?, ?, ?, ?)
       `).run(
         cardId,
         rating,
         now.toISOString(),
         srsResult.interval,
-        srsResult.ease_factor
+        srsResult.ease_factor,
+        srsResult.stability ?? 0,
+        srsResult.difficulty ?? 0
       );
       db.exec('COMMIT');
 
@@ -650,6 +794,10 @@ export function recordCardReview(cardId: number, rating: ReviewRating): Card | n
     due_date: srsResult.due_date,
     last_reviewed: now.toISOString(),
     status: srsResult.status,
+    stability: srsResult.stability,
+    difficulty: srsResult.difficulty,
+    lapses: srsResult.lapses,
+    state: srsResult.state,
   };
 
   store.cards[cardIndex] = updated;
@@ -661,6 +809,8 @@ export function recordCardReview(cardId: number, rating: ReviewRating): Card | n
     reviewed_at: now.toISOString(),
     interval: srsResult.interval,
     ease_factor: srsResult.ease_factor,
+    stability: srsResult.stability,
+    difficulty: srsResult.difficulty,
   });
 
   return toPlain(updated);
@@ -773,6 +923,7 @@ export function getUserSettings(): UserSettings {
       const parsedDailyLimit = parseInt(map.daily_limit || '15', 10);
       const parsedHskLevel = parseInt(map.hsk_level || '1', 10);
       const parsedSpeechRate = parseFloat(map.speech_rate || '0.85');
+      const parsedFsrsRetention = parseFloat(map.fsrs_retention || '0.9');
 
       return toPlain({
         user_name: map.user_name || 'Học viên',
@@ -782,6 +933,7 @@ export function getUserSettings(): UserSettings {
         auto_play_audio: map.auto_play_audio === 'true',
         has_onboarded: map.has_onboarded === 'true',
         hsk_level: Number.isNaN(parsedHskLevel) ? 1 : parsedHskLevel,
+        fsrs_retention: Number.isNaN(parsedFsrsRetention) ? 0.9 : Math.min(0.97, Math.max(0.75, parsedFsrsRetention)),
       });
     } catch (err) {
       console.warn('SQLite getUserSettings error, falling back to memory store:', err);
@@ -800,6 +952,7 @@ export function updateUserSettings(settings: Partial<UserSettings>): UserSetting
     ...settings,
     daily_limit: settings.daily_limit !== undefined ? Math.max(5, settings.daily_limit) : store.userSettings.daily_limit,
     user_name: settings.user_name !== undefined ? settings.user_name.trim() || 'Học viên' : store.userSettings.user_name,
+    fsrs_retention: settings.fsrs_retention !== undefined ? Math.min(0.97, Math.max(0.75, settings.fsrs_retention)) : store.userSettings.fsrs_retention,
   };
 
   const db = getDatabase();
@@ -814,6 +967,10 @@ export function updateUserSettings(settings: Partial<UserSettings>): UserSetting
       if (settings.auto_play_audio !== undefined) updateStmt.run('auto_play_audio', settings.auto_play_audio ? 'true' : 'false');
       if (settings.has_onboarded !== undefined) updateStmt.run('has_onboarded', settings.has_onboarded ? 'true' : 'false');
       if (settings.hsk_level !== undefined) updateStmt.run('hsk_level', settings.hsk_level.toString());
+      if (settings.fsrs_retention !== undefined) {
+        const clamped = Math.min(0.97, Math.max(0.75, settings.fsrs_retention));
+        updateStmt.run('fsrs_retention', clamped.toString());
+      }
 
       return getUserSettings();
     } catch (err) {
@@ -1039,6 +1196,10 @@ export interface BackupCardProgress {
   due_date: string;
   last_reviewed: string | null;
   status: CardStatus;
+  stability?: number;
+  difficulty?: number;
+  lapses?: number;
+  state?: number;
 }
 
 export interface BackupReviewLog {
@@ -1047,6 +1208,8 @@ export interface BackupReviewLog {
   reviewed_at: string;
   interval: number;
   ease_factor: number;
+  stability?: number;
+  difficulty?: number;
 }
 
 export interface BackupLifeProgress {
@@ -1099,6 +1262,10 @@ export function exportProgress(): ProgressBackup {
         due_date: c.due_date,
         last_reviewed: c.last_reviewed,
         status: c.status,
+        stability: c.stability ?? 0,
+        difficulty: c.difficulty ?? 0,
+        lapses: c.lapses ?? 0,
+        state: c.state ?? 0,
       })),
     review_logs: getAllReviewLogs()
       .filter((l) => keyById.has(l.card_id))
@@ -1108,6 +1275,8 @@ export function exportProgress(): ProgressBackup {
         reviewed_at: l.reviewed_at,
         interval: l.interval,
         ease_factor: l.ease_factor,
+        stability: l.stability ?? 0,
+        difficulty: l.difficulty ?? 0,
       })),
     life_questions: getLifeQuestions()
       .filter((q) => q.completed || q.last_practiced)
@@ -1143,24 +1312,29 @@ export function importProgress(backup: ProgressBackup): ImportResult {
     try {
       db.exec('BEGIN');
       const updateCard = db.prepare(`
-        UPDATE cards SET repetition = ?, interval = ?, ease_factor = ?, due_date = ?, last_reviewed = ?, status = ?
+        UPDATE cards SET repetition = ?, interval = ?, ease_factor = ?, due_date = ?, last_reviewed = ?, status = ?,
+                         stability = ?, difficulty = ?, lapses = ?, state = ?
         WHERE id = ?
       `);
       for (const c of backup.cards) {
         const id = idByKey.get(c.key);
         if (!id) { result.skipped_cards += 1; continue; }
-        updateCard.run(c.repetition, c.interval, c.ease_factor, c.due_date, c.last_reviewed, c.status, id);
+        updateCard.run(
+          c.repetition, c.interval, c.ease_factor, c.due_date, c.last_reviewed, c.status,
+          c.stability ?? 0, c.difficulty ?? 0, c.lapses ?? 0, c.state ?? 0,
+          id
+        );
         result.cards += 1;
       }
 
       const existsLog = db.prepare('SELECT 1 FROM review_logs WHERE card_id = ? AND reviewed_at = ?');
       const insertLog = db.prepare(
-        'INSERT INTO review_logs (card_id, rating, reviewed_at, interval, ease_factor) VALUES (?, ?, ?, ?, ?)'
+        'INSERT INTO review_logs (card_id, rating, reviewed_at, interval, ease_factor, stability, difficulty) VALUES (?, ?, ?, ?, ?, ?, ?)'
       );
       for (const l of backup.review_logs || []) {
         const id = idByKey.get(l.card_key);
         if (!id || existsLog.get(id, l.reviewed_at)) continue;
-        insertLog.run(id, l.rating, l.reviewed_at, l.interval, l.ease_factor);
+        insertLog.run(id, l.rating, l.reviewed_at, l.interval, l.ease_factor, l.stability ?? 0, l.difficulty ?? 0);
         result.review_logs += 1;
       }
 

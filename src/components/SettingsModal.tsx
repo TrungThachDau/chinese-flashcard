@@ -50,6 +50,9 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
   const [selectedHskLevel, setSelectedHskLevel] = useState(
     settings.hsk_level || 1,
   );
+  const [fsrsRetention, setFsrsRetention] = useState(
+    settings.fsrs_retention ?? 0.9,
+  );
   const [levelNotice, setLevelNotice] = useState<string | null>(null);
 
   const [isResetting, setIsResetting] = useState(false);
@@ -66,6 +69,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
     setAudioEngine(settings.audio_engine);
     setAutoPlayAudio(settings.auto_play_audio);
     setSelectedHskLevel(settings.hsk_level || 1);
+    setFsrsRetention(settings.fsrs_retention ?? 0.9);
   }, [settings]);
 
   if (!isOpen) return null;
@@ -107,6 +111,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
         audio_engine: audioEngine,
         auto_play_audio: autoPlayAudio,
         hsk_level: selectedHskLevel,
+        fsrs_retention: fsrsRetention,
         has_onboarded: true,
       });
       setShowSavedToast(true);
@@ -404,6 +409,52 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
                 }`}
               />
             </button>
+          </div>
+        </div>
+
+        {/* Section 3: Spaced Repetition (FSRS) */}
+        <div className="space-y-3 pt-2 border-t border-slate-100 dark:border-slate-800">
+          <div className="flex items-center justify-between">
+            <div className="text-xs font-bold uppercase tracking-wider text-slate-400 flex items-center gap-1.5">
+              <BrainCircuit className="w-3.5 h-3.5 text-indigo-500" />
+              <span>Thuật toán lặp lại ngắt quãng (FSRS)</span>
+            </div>
+            <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-indigo-100 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400 border border-indigo-200/50">
+              FSRS v5 • Anki
+            </span>
+          </div>
+
+          <div className="p-3.5 rounded-2xl bg-indigo-50/50 dark:bg-indigo-950/30 border border-indigo-100 dark:border-indigo-900/40 space-y-2.5">
+            <div className="flex items-center justify-between text-xs font-semibold text-slate-700 dark:text-slate-300">
+              <span>Mục tiêu độ nhớ (Target Retention):</span>
+              <span className="font-bold text-indigo-600 dark:text-indigo-400 font-sans">
+                {Math.round(fsrsRetention * 100)}%
+              </span>
+            </div>
+
+            <div className="grid grid-cols-4 gap-1.5">
+              {[0.85, 0.90, 0.92, 0.95].map((val) => (
+                <button
+                  key={val}
+                  type="button"
+                  onClick={() => {
+                    setFsrsRetention(val);
+                    updateField({ fsrs_retention: val });
+                  }}
+                  className={`py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${
+                    fsrsRetention === val
+                      ? "bg-indigo-600 text-white shadow-sm"
+                      : "bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-200/60 dark:border-slate-700"
+                  }`}
+                >
+                  {Math.round(val * 100)}% {val === 0.9 ? "⭐" : ""}
+                </button>
+              ))}
+            </div>
+
+            <p className="text-[11px] text-slate-500 dark:text-slate-400 leading-relaxed pt-0.5">
+              FSRS mô hình hóa trí nhớ bằng 3 biến: <b>Độ khó (D)</b>, <b>Độ bền (S)</b> và <b>Khả năng nhớ lại (R)</b>. Giúp giảm 20–30% số lần ôn so với SM-2 cùng mức ghi nhớ.
+            </p>
           </div>
         </div>
 

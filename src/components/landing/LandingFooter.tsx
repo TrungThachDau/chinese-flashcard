@@ -150,7 +150,7 @@ export const LandingFooter: React.FC = () => {
         {/* Bottom copyright row */}
         <div className="pt-8 border-t border-orange-200/60 flex flex-col sm:flex-row items-center justify-between text-xs text-[#7c4d35] gap-3">
           <div>
-            © {new Date().getFullYear()} BaoBao Chinese (Hán Ngữ Bảo Bảo). Bản quyền được bảo lưu.
+            © 2026 BaoBao Chinese (Hán Ngữ Bảo Bảo). Bản quyền được bảo lưu.
           </div>
           <div className="flex items-center gap-1.5">
             <span>Thiết kế claymorphism ấm áp</span>

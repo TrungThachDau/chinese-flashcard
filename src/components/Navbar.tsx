@@ -35,6 +35,7 @@ export const Navbar: React.FC<NavbarProps> = ({
         {/* Brand */}
         <Link
           href="/"
+          prefetch={false}
           onClick={(e) => handleLinkClick(e, "flashcards")}
           className="flex items-center gap-2.5 cursor-pointer select-none group"
         >
@@ -43,6 +44,8 @@ export const Navbar: React.FC<NavbarProps> = ({
             alt="Logo Hán Ngữ"
             width={36}
             height={36}
+            loading="eager"
+            decoding="async"
             className="w-9 h-9 rounded-xl shadow-xs object-contain group-hover:scale-105 transition-transform shrink-0"
           />
           <div>
@@ -70,6 +73,7 @@ export const Navbar: React.FC<NavbarProps> = ({
         <nav className="hidden md:flex items-center gap-1 bg-slate-100/80 dark:bg-slate-800/80 p-1 rounded-2xl border border-slate-200/60 dark:border-slate-700/60 text-xs font-semibold">
           <Link
             href="/"
+            prefetch={false}
             onClick={(e) => handleLinkClick(e, "flashcards")}
             className={`px-3.5 py-1.5 rounded-xl transition-all ${
               activeTab === "flashcards"
@@ -81,6 +85,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           </Link>
           <Link
             href="/life-questions"
+            prefetch={false}
             onClick={(e) => handleLinkClick(e, "life_questions")}
             className={`px-3.5 py-1.5 rounded-xl transition-all ${
               activeTab === "life_questions"
@@ -92,6 +97,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           </Link>
           <Link
             href="/vocab"
+            prefetch={false}
             onClick={(e) => handleLinkClick(e, "vocab")}
             className={`px-3.5 py-1.5 rounded-xl transition-all ${
               activeTab === "vocab"
@@ -103,6 +109,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           </Link>
           <Link
             href="/stats"
+            prefetch={false}
             onClick={(e) => handleLinkClick(e, "stats")}
             className={`px-3.5 py-1.5 rounded-xl transition-all ${
               activeTab === "stats"

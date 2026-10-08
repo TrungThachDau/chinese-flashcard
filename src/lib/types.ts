@@ -17,6 +17,12 @@ export interface Card {
   due_date: string; // ISO date string
   last_reviewed: string | null;
   status: CardStatus;
+  // FSRS parameters
+  stability?: number;
+  difficulty?: number;
+  retrievability?: number;
+  lapses?: number;
+  state?: number;
 }
 
 export type ReviewRating = 1 | 2 | 3 | 4; // 1: Again, 2: Hard, 3: Good, 4: Easy
@@ -56,6 +62,8 @@ export interface ReviewLog {
   reviewed_at: string;
   interval: number;
   ease_factor: number;
+  stability?: number;
+  difficulty?: number;
 }
 
 export interface CategoryInfo {
@@ -78,6 +86,7 @@ export interface UserSettings {
   auto_play_audio: boolean;
   has_onboarded: boolean;
   hsk_level: number;
+  fsrs_retention?: number;
 }
 
 export interface StudyStats {

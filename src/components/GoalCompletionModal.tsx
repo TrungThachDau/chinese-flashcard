@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useEffect } from 'react';
-import confetti from 'canvas-confetti';
 import {
   Trophy,
   Sparkles,
@@ -32,14 +31,16 @@ export const GoalCompletionModal: React.FC<GoalCompletionModalProps> = ({
   // Trigger celebration confetti when opened
   useEffect(() => {
     if (isOpen) {
-      try {
-        confetti({
-          particleCount: 100,
-          spread: 70,
-          origin: { y: 0.6 },
-          colors: ['#f59e0b', '#ec4899', '#3b82f6', '#10b981', '#8b5cf6'],
-        });
-      } catch {}
+      import('canvas-confetti')
+        .then((m) => {
+          m.default({
+            particleCount: 100,
+            spread: 70,
+            origin: { y: 0.6 },
+            colors: ['#f59e0b', '#ec4899', '#3b82f6', '#10b981', '#8b5cf6'],
+          });
+        })
+        .catch(() => {});
     }
   }, [isOpen]);
 

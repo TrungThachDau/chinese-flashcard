@@ -75,6 +75,7 @@ export const BottomNav: React.FC<BottomNavProps> = ({
             <Link
               key={tab.id}
               href={tab.href}
+              prefetch={false}
               onClick={(e) => handleLinkClick(e, tab.id)}
               className={`relative flex flex-col items-center justify-center py-1.5 px-3 rounded-[20px] transition-all duration-200 active:scale-95 ${
                 isActive
@@ -89,7 +90,7 @@ export const BottomNav: React.FC<BottomNavProps> = ({
                   }`}
                 />
                 {tab.badge !== null && (
-                  <span className="absolute -top-1.5 -right-2.5 min-w-4 h-4 px-1 rounded-full bg-gradient-to-r from-rose-500 to-amber-500 text-[10px] font-black text-white flex items-center justify-center shadow-md ring-2 ring-white/80 dark:ring-slate-900/80 animate-pulse">
+                  <span className="absolute -top-1.5 -right-2.5 min-w-4 h-4 px-1 rounded-full bg-gradient-to-r from-rose-500 to-amber-500 text-[10px] font-black text-white flex items-center justify-center shadow-md ring-2 ring-white/80 dark:ring-slate-900/80">
                     {tab.badge}
                   </span>
                 )}

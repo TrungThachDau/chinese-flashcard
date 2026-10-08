@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState, useEffect, useCallback, useRef } from "react";
-import confetti from "canvas-confetti";
 import {
   Volume2,
   RotateCw,
@@ -36,6 +35,7 @@ interface FlashcardViewProps {
   onLearnMore?: (count?: number) => void;
   onReviewLearned?: (count?: number) => void;
   onDeckCompleted?: () => void;
+  targetRetention?: number;
 }
 
 export const FlashcardView: React.FC<FlashcardViewProps> = ({
@@ -54,6 +54,7 @@ export const FlashcardView: React.FC<FlashcardViewProps> = ({
   onLearnMore,
   onReviewLearned,
   onDeckCompleted,
+  targetRetention = 0.9,
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isFlipped, setIsFlipped] = useState(false);
@@ -84,7 +85,13 @@ export const FlashcardView: React.FC<FlashcardViewProps> = ({
   }, [isCategoryMenuOpen]);
 
   // Auto-play audio when switching cards if enabled
+  const isFirstMountRef = useRef(true);
   useEffect(() => {
+    // Avoid firing audio requests on initial page load before user interaction
+    if (isFirstMountRef.current) {
+      isFirstMountRef.current = false;
+      return;
+    }
     if (currentCard && autoPlayAudio && !isFlipped) {
       setIsPlayingAudio(true);
       playChineseAudio(currentCard.hanzi, {
@@ -146,12 +153,16 @@ export const FlashcardView: React.FC<FlashcardViewProps> = ({
         setIsFlipped(false);
       } else {
         setIsCompleted(true);
-        confetti({
-          particleCount: 120,
-          spread: 70,
-          origin: { y: 0.6 },
-          colors: ["#f59e0b", "#ec4899", "#3b82f6", "#10b981", "#8b5cf6"],
-        });
+        import("canvas-confetti")
+          .then((m) => {
+            m.default({
+              particleCount: 120,
+              spread: 70,
+              origin: { y: 0.6 },
+              colors: ["#f59e0b", "#ec4899", "#3b82f6", "#10b981", "#8b5cf6"],
+            });
+          })
+          .catch(() => {});
         onDeckCompleted?.();
       }
     } finally {
@@ -260,7 +271,7 @@ export const FlashcardView: React.FC<FlashcardViewProps> = ({
     );
   }
 
-  const intervalPreviews = getIntervalPreviews(currentCard);
+  const intervalPreviews = getIntervalPreviews(currentCard, targetRetention);
   const progressPercent = Math.round((currentIndex / cards.length) * 100);
 
   const currentCategoryObj = categories.find((c) => c.id === selectedCategory);
@@ -529,15 +540,25 @@ export const FlashcardView: React.FC<FlashcardViewProps> = ({
               )}
             </div>
 
-            {/* Bottom reminder */}
-            <div className="shrink-0 text-[10px] sm:text-[11px] text-slate-400 font-sans">
-              Chọn mức độ nhớ bên dưới để SRS lên lịch ôn tập
+            {/* Bottom reminder & FSRS memory metrics */}
+            <div className="shrink-0 text-[10px] sm:text-[11px] text-slate-400 font-sans flex items-center justify-between px-1">
+              <span className="flex items-center gap-1 text-slate-400">
+                <Sparkles className="w-3 h-3 text-amber-500" />
+                <span>FSRS ({Math.round(targetRetention * 100)}% nhớ)</span>
+              </span>
+              {currentCard.stability ? (
+                <span className="text-[10px] text-indigo-600 dark:text-indigo-400 font-medium">
+                  Độ bền: {currentCard.stability}d • Khó: {currentCard.difficulty}/10
+                </span>
+              ) : (
+                <span className="text-[10px] text-slate-400">Thẻ mới (New)</span>
+              )}
             </div>
           </div>
         </div>
       </div>
 
-      {/* SRS RATING BUTTONS (SM-2) */}
+      {/* SRS RATING BUTTONS (FSRS) */}
       <div className="w-full shrink-0 mt-2 sm:mt-2.5">
         {isFlipped ? (
           <div className="grid grid-cols-4 gap-1.5 sm:gap-2">

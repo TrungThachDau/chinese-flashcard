@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { connection } from 'next/server';
 import {
   getAllCards,
+  getCardsCount,
   getDueCards,
   getLearnedCards,
   getNewCards,
@@ -19,26 +20,49 @@ export async function GET(request: NextRequest) {
     const search = searchParams.get('search') || undefined;
     const mode = searchParams.get('mode') || undefined;
     const dueOnly = searchParams.get('dueOnly') === 'true';
-    const limit = searchParams.get('limit') ? parseInt(searchParams.get('limit')!, 10) : 30;
+    const limitParam = searchParams.get('limit');
+    const offsetParam = searchParams.get('offset');
+
+    const noStoreHeader = { headers: { 'Cache-Control': 'no-store, must-revalidate' } };
 
     if (mode === 'learn_more') {
+      const limit = limitParam ? parseInt(limitParam, 10) : 30;
       const cards = getNewCards(limit);
-      return NextResponse.json({ ok: true, cards });
+      return NextResponse.json({ ok: true, cards }, noStoreHeader);
     }
 
     if (mode === 'review_learned') {
+      const limit = limitParam ? parseInt(limitParam, 10) : 30;
       const cards = getLearnedCards(limit);
-      return NextResponse.json({ ok: true, cards });
+      return NextResponse.json({ ok: true, cards }, noStoreHeader);
     }
 
     if (dueOnly) {
+      const limit = limitParam ? parseInt(limitParam, 10) : 30;
       const allowNew = searchParams.get('allowNew') !== 'false';
       const cards = getDueCards(limit, allowNew);
-      return NextResponse.json({ ok: true, cards });
+      return NextResponse.json({ ok: true, cards }, noStoreHeader);
     }
 
-    const cards = getAllCards({ category, status, search });
-    return NextResponse.json({ ok: true, cards });
+    // Default: Vocabulary exploration with optional pagination
+    const limit = limitParam === 'all' ? undefined : limitParam ? parseInt(limitParam, 10) : 30;
+    const offset = offsetParam ? parseInt(offsetParam, 10) : 0;
+
+    const cards = getAllCards({ category, status, search, limit, offset });
+    const total = getCardsCount({ category, status, search });
+    const hasMore = typeof limit === 'number' ? offset + cards.length < total : false;
+
+    return NextResponse.json(
+      {
+        ok: true,
+        cards,
+        total,
+        hasMore,
+        offset,
+        limit: limit ?? total,
+      },
+      noStoreHeader
+    );
   } catch (error) {
     console.error('Error fetching cards:', error);
     return NextResponse.json({ ok: false, error: 'Failed to fetch cards' }, { status: 500 });

@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import { LandingPage } from '@/components/landing/LandingPage';
+import './landing.css';
 
 export const metadata: Metadata = {
   title: 'BaoBao Chinese | Nền Tảng Học Tiếng Trung Claymorphism Thú Vị',
