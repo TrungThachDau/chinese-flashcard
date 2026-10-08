@@ -13,7 +13,10 @@ export const metadata: Metadata = {
     title: "Hán Ngữ",
   },
   icons: {
-    icon: "/favicon.ico",
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/icons/icon.svg", type: "image/svg+xml" },
+    ],
     apple: "/apple-touch-icon.png",
   },
   formatDetection: {

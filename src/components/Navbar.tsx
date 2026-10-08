@@ -36,8 +36,15 @@ export const Navbar: React.FC<NavbarProps> = ({
         <Link
           href="/"
           onClick={(e) => handleLinkClick(e, "flashcards")}
-          className="flex flex-col cursor-pointer select-none group"
+          className="flex items-center gap-2.5 cursor-pointer select-none group"
         >
+          <img
+            src="/icons/icon.svg"
+            alt="Logo Hán Ngữ"
+            width={36}
+            height={36}
+            className="w-9 h-9 rounded-xl shadow-xs object-contain group-hover:scale-105 transition-transform shrink-0"
+          />
           <div>
             <div className="font-extrabold text-base tracking-tight bg-gradient-to-r from-slate-900 via-indigo-900 to-slate-800 dark:from-white dark:via-indigo-200 dark:to-slate-200 bg-clip-text text-transparent flex items-center gap-1.5">
               <span>Hán Ngữ</span>
@@ -52,6 +59,9 @@ export const Navbar: React.FC<NavbarProps> = ({
               >
                 HSK {settings?.hsk_level || 1} ▾
               </span>
+            </div>
+            <div className="text-[10px] text-slate-400 font-medium">
+              Spaced Repetition System
             </div>
           </div>
         </Link>
