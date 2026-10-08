@@ -102,6 +102,48 @@ export const MainClientApp: React.FC<MainClientAppProps> = ({
   const [stats, setStats] = useState<StudyStats>(initialStats);
   const [selectedReviewCategory, setSelectedReviewCategory] =
     useState<string>("all");
+  const [isLoadingAllCards, setIsLoadingAllCards] = useState(false);
+  const [isLoadingQuestions, setIsLoadingQuestions] = useState(false);
+
+  // Lazy-load all vocabulary cards when user visits or switches to the vocab tab
+  useEffect(() => {
+    if (
+      (activeTab === "vocab" || pathname?.startsWith("/vocab")) &&
+      allCards.length === 0 &&
+      !isLoadingAllCards
+    ) {
+      setIsLoadingAllCards(true);
+      fetch("/api/cards")
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.ok && data.cards) {
+            setAllCards(data.cards);
+          }
+        })
+        .catch((err) => console.error("Error loading all cards:", err))
+        .finally(() => setIsLoadingAllCards(false));
+    }
+  }, [activeTab, pathname, allCards.length, isLoadingAllCards]);
+
+  // Lazy-load life questions when user visits or switches to the questions tab
+  useEffect(() => {
+    if (
+      (activeTab === "life_questions" || pathname?.startsWith("/life-questions")) &&
+      questions.length === 0 &&
+      !isLoadingQuestions
+    ) {
+      setIsLoadingQuestions(true);
+      fetch("/api/life-questions")
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.ok && data.questions) {
+            setQuestions(data.questions);
+          }
+        })
+        .catch((err) => console.error("Error loading life questions:", err))
+        .finally(() => setIsLoadingQuestions(false));
+    }
+  }, [activeTab, pathname, questions.length, isLoadingQuestions]);
 
   // User Settings state
   const [settings, setSettings] = useState<UserSettings>(
@@ -470,11 +512,7 @@ export const MainClientApp: React.FC<MainClientAppProps> = ({
 
             {/* Flashcard Component */}
             <FlashcardView
-              cards={
-                dueCards.length > 0
-                  ? dueCards
-                  : allCards.slice(0, settings.daily_limit)
-              }
+              cards={dueCards}
               categories={stats.categories}
               selectedCategory={selectedReviewCategory}
               onSelectCategory={handleSelectReviewCategory}

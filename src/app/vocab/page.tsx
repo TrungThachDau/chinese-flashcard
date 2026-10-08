@@ -2,7 +2,7 @@ import { Suspense } from 'react';
 import { Metadata } from 'next';
 import { loadServerAppData } from '@/lib/serverAppData';
 import { MainClientApp } from '@/components/MainClientApp';
-import { SplashScreen } from '@/components/SplashScreen';
+import { AppSkeleton } from '@/components/AppSkeleton';
 
 export const metadata: Metadata = {
   title: 'Kho Từ Vựng HSK 1 | Hán Ngữ',
@@ -10,7 +10,10 @@ export const metadata: Metadata = {
 };
 
 async function SsrVocabLoader() {
-  const data = await loadServerAppData();
+  const data = await loadServerAppData({
+    includeAllCards: true,
+    includeQuestions: false,
+  });
   return (
     <MainClientApp
       initialDueCards={data.dueCards}
@@ -25,7 +28,7 @@ async function SsrVocabLoader() {
 
 export default function VocabPage() {
   return (
-    <Suspense fallback={<SplashScreen />}>
+    <Suspense fallback={<AppSkeleton />}>
       <SsrVocabLoader />
     </Suspense>
   );

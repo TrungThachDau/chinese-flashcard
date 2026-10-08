@@ -2,7 +2,7 @@ import { Suspense } from 'react';
 import { Metadata } from 'next';
 import { loadServerAppData } from '@/lib/serverAppData';
 import { MainClientApp } from '@/components/MainClientApp';
-import { SplashScreen } from '@/components/SplashScreen';
+import { AppSkeleton } from '@/components/AppSkeleton';
 
 export const metadata: Metadata = {
   title: 'Hội Thoại Đời Sống HSK 1 | Hán Ngữ',
@@ -10,7 +10,10 @@ export const metadata: Metadata = {
 };
 
 async function SsrLifeQuestionsLoader() {
-  const data = await loadServerAppData();
+  const data = await loadServerAppData({
+    includeAllCards: false,
+    includeQuestions: true,
+  });
   return (
     <MainClientApp
       initialDueCards={data.dueCards}
@@ -25,7 +28,7 @@ async function SsrLifeQuestionsLoader() {
 
 export default function LifeQuestionsPage() {
   return (
-    <Suspense fallback={<SplashScreen />}>
+    <Suspense fallback={<AppSkeleton />}>
       <SsrLifeQuestionsLoader />
     </Suspense>
   );

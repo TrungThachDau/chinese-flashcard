@@ -2,7 +2,7 @@ import { Suspense } from 'react';
 import { Metadata } from 'next';
 import { loadServerAppData } from '@/lib/serverAppData';
 import { MainClientApp } from '@/components/MainClientApp';
-import { SplashScreen } from '@/components/SplashScreen';
+import { AppSkeleton } from '@/components/AppSkeleton';
 
 export const metadata: Metadata = {
   title: 'Thẻ Flashcard SRS | Hán Ngữ',
@@ -10,7 +10,11 @@ export const metadata: Metadata = {
 };
 
 async function SsrAppLoader() {
-  const data = await loadServerAppData();
+  const data = await loadServerAppData({
+    includeAllCards: false,
+    includeQuestions: false,
+  });
+
   return (
     <MainClientApp
       initialDueCards={data.dueCards}
@@ -25,7 +29,7 @@ async function SsrAppLoader() {
 
 export default function HomePage() {
   return (
-    <Suspense fallback={<SplashScreen />}>
+    <Suspense fallback={<AppSkeleton />}>
       <SsrAppLoader />
     </Suspense>
   );

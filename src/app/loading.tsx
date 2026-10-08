@@ -1,6 +1,6 @@
-import { SplashScreen } from "@/components/SplashScreen";
+import { AppSkeleton } from "@/components/AppSkeleton";
 
 export default function Loading() {
-  return <SplashScreen />;
+  return <AppSkeleton />;
 }
 

@@ -7,7 +7,14 @@ import {
   getUserSettings,
 } from '@/lib/db';
 
-export async function loadServerAppData() {
+export interface LoadServerAppDataOptions {
+  includeAllCards?: boolean;
+  includeQuestions?: boolean;
+}
+
+export async function loadServerAppData(options: LoadServerAppDataOptions = {}) {
+  const { includeAllCards = false, includeQuestions = false } = options;
+
   try {
     // Opt into request-time SSR for real-time database queries
     await connection();
@@ -18,8 +25,8 @@ export async function loadServerAppData() {
   try {
     const userSettings = getUserSettings();
     const dueCards = getDueCards(userSettings.daily_limit);
-    const allCards = getAllCards();
-    const lifeQuestions = getLifeQuestions();
+    const allCards = includeAllCards ? getAllCards() : [];
+    const lifeQuestions = includeQuestions ? getLifeQuestions() : [];
     const studyStats = getStudyStats();
 
     return {
@@ -33,8 +40,8 @@ export async function loadServerAppData() {
     console.error('loadServerAppData error:', error);
     const defaultSettings = getUserSettings();
     const defaultDue = getDueCards(15);
-    const defaultAll = getAllCards();
-    const defaultQuestions = getLifeQuestions();
+    const defaultAll = includeAllCards ? getAllCards() : [];
+    const defaultQuestions = includeQuestions ? getLifeQuestions() : [];
     const defaultStats = getStudyStats();
 
     return {
