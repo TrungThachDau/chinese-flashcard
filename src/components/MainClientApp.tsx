@@ -80,7 +80,10 @@ export const MainClientApp: React.FC<MainClientAppProps> = ({
   const handleTabChange = (newTab: AppTab) => {
     setActiveTab(newTab);
     const targetPath = getPathFromTab(newTab);
-    if (typeof window !== "undefined" && window.location.pathname !== targetPath) {
+    if (
+      typeof window !== "undefined" &&
+      window.location.pathname !== targetPath
+    ) {
       window.history.pushState({ tab: newTab }, "", targetPath);
     }
   };
@@ -95,6 +98,21 @@ export const MainClientApp: React.FC<MainClientAppProps> = ({
     window.addEventListener("popstate", handlePopState);
     return () => window.removeEventListener("popstate", handlePopState);
   }, []);
+
+  // Lock window and document scroll when on flashcards view
+  useEffect(() => {
+    if (activeTab === "flashcards") {
+      document.documentElement.style.overflow = "hidden";
+      document.body.style.overflow = "hidden";
+    } else {
+      document.documentElement.style.overflow = "";
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.documentElement.style.overflow = "";
+      document.body.style.overflow = "";
+    };
+  }, [activeTab]);
 
   const [dueCards, setDueCards] = useState<Card[]>(initialDueCards);
   const [allCards, setAllCards] = useState<Card[]>(initialAllCards);
@@ -128,7 +146,8 @@ export const MainClientApp: React.FC<MainClientAppProps> = ({
   // Lazy-load life questions when user visits or switches to the questions tab
   useEffect(() => {
     if (
-      (activeTab === "life_questions" || pathname?.startsWith("/life-questions")) &&
+      (activeTab === "life_questions" ||
+        pathname?.startsWith("/life-questions")) &&
       questions.length === 0 &&
       !isLoadingQuestions
     ) {
@@ -161,7 +180,8 @@ export const MainClientApp: React.FC<MainClientAppProps> = ({
   // Check if user already has config (onboarded flag, or has configured custom settings)
   const [hasOnboarded, setHasOnboarded] = useState<boolean>(() => {
     if (initialSettings?.has_onboarded) return true;
-    if (initialSettings?.user_name && initialSettings.user_name !== "Học viên") return true;
+    if (initialSettings?.user_name && initialSettings.user_name !== "Học viên")
+      return true;
     return false;
   });
 
@@ -179,12 +199,17 @@ export const MainClientApp: React.FC<MainClientAppProps> = ({
   // Sync with localStorage on client mount & fetch fresh settings from database
   useEffect(() => {
     try {
-      const localSettingsStr = localStorage.getItem("chinese_flashcard_settings");
+      const localSettingsStr = localStorage.getItem(
+        "chinese_flashcard_settings",
+      );
       if (localSettingsStr) {
         const parsed = JSON.parse(localSettingsStr);
         if (parsed && typeof parsed === "object") {
           setSettings((prev) => ({ ...prev, ...parsed }));
-          if (parsed.has_onboarded || (parsed.user_name && parsed.user_name !== "Học viên")) {
+          if (
+            parsed.has_onboarded ||
+            (parsed.user_name && parsed.user_name !== "Học viên")
+          ) {
             setHasOnboarded(true);
           }
         }
@@ -204,7 +229,10 @@ export const MainClientApp: React.FC<MainClientAppProps> = ({
         if (data.ok && data.settings) {
           setSettings(data.settings);
           try {
-            localStorage.setItem("chinese_flashcard_settings", JSON.stringify(data.settings));
+            localStorage.setItem(
+              "chinese_flashcard_settings",
+              JSON.stringify(data.settings),
+            );
             if (data.settings.has_onboarded) {
               localStorage.setItem("hsk_has_onboarded", "true");
               setHasOnboarded(true);
@@ -229,7 +257,10 @@ export const MainClientApp: React.FC<MainClientAppProps> = ({
       if (typeof window !== "undefined") {
         try {
           localStorage.setItem("hsk_has_onboarded", "true");
-          localStorage.setItem("chinese_flashcard_settings", JSON.stringify(merged));
+          localStorage.setItem(
+            "chinese_flashcard_settings",
+            JSON.stringify(merged),
+          );
         } catch {}
       }
       return merged;
@@ -250,7 +281,10 @@ export const MainClientApp: React.FC<MainClientAppProps> = ({
         setSettings(data.settings);
         if (typeof window !== "undefined") {
           try {
-            localStorage.setItem("chinese_flashcard_settings", JSON.stringify(data.settings));
+            localStorage.setItem(
+              "chinese_flashcard_settings",
+              JSON.stringify(data.settings),
+            );
           } catch {}
         }
       }
@@ -312,7 +346,10 @@ export const MainClientApp: React.FC<MainClientAppProps> = ({
           const nextCount = data.stats.today_reviewed_count || 0;
           setStats(data.stats);
           // If reaching the daily limit on this review, trigger celebration modal
-          if (nextCount >= settings.daily_limit && prevCount < settings.daily_limit) {
+          if (
+            nextCount >= settings.daily_limit &&
+            prevCount < settings.daily_limit
+          ) {
             setShowGoalModal(true);
           }
         }
@@ -325,9 +362,12 @@ export const MainClientApp: React.FC<MainClientAppProps> = ({
   // Fetch fresh progress stats (always bypass caches, use the learner's timezone)
   const refreshStats = useCallback(async () => {
     try {
-      const res = await fetch(`/api/stats?tz=${new Date().getTimezoneOffset()}`, {
-        cache: "no-store",
-      });
+      const res = await fetch(
+        `/api/stats?tz=${new Date().getTimezoneOffset()}`,
+        {
+          cache: "no-store",
+        },
+      );
       const data = await res.json();
       if (data.ok && data.stats) {
         setStats(data.stats);
@@ -415,7 +455,13 @@ export const MainClientApp: React.FC<MainClientAppProps> = ({
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-gradient-to-br from-amber-50/50 via-rose-50/30 to-indigo-50/50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 text-slate-800 dark:text-slate-100">
+    <div
+      className={`flex flex-col bg-linear-to-br from-amber-50/50 via-rose-50/30 to-indigo-50/50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 text-slate-800 dark:text-slate-100 ${
+        activeTab === "flashcards"
+          ? "h-screen h-dvh overflow-hidden max-h-screen max-h-dvh"
+          : "min-h-screen"
+      }`}
+    >
       {/* Navbar */}
       <Navbar
         stats={stats}
@@ -427,18 +473,18 @@ export const MainClientApp: React.FC<MainClientAppProps> = ({
 
       {/* Main Container */}
       <main
-        className={`flex-1 w-full max-w-5xl mx-auto px-3 sm:px-4 ${
+        className={`w-full mx-auto px-3 sm:px-4 ${
           activeTab === "flashcards"
-            ? "py-2 sm:py-5 pb-20 sm:pb-24"
-            : "py-4 sm:py-8 pb-24"
+            ? "overflow-hidden max-w-md md:max-w-xl flex-1 min-h-0 flex flex-col pt-1 sm:pt-2 pb-14 md:pb-2"
+            : "max-w-5xl flex-1 py-4 sm:py-8 pb-24 overflow-y-auto"
         }`}
       >
         {/* TAB 1: FLASHCARDS SRS */}
         {activeTab === "flashcards" && (
-          <div className="space-y-2 sm:space-y-4">
+          <div className="flex-1 min-h-0 flex flex-col w-full gap-1 sm:gap-1.5 overflow-hidden">
             {/* User Greeting & Daily Goal Progress (Compact on mobile) */}
             <div
-              className={`max-w-md mx-auto p-2 sm:p-4 rounded-2xl sm:rounded-3xl bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border border-slate-200/80 dark:border-slate-800 shadow-xs flex items-center justify-between gap-2.5 transition-all ${
+              className={`shrink-0 w-full mx-auto px-2.5 py-1.5 sm:px-3.5 sm:py-2 rounded-2xl sm:rounded-3xl bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border border-slate-200/80 dark:border-slate-800 shadow-xs flex items-center justify-between gap-2.5 transition-all ${
                 (stats.today_reviewed_count || 0) >= settings.daily_limit
                   ? "ring-1 ring-emerald-500/40 cursor-pointer hover:bg-emerald-50/20 dark:hover:bg-emerald-950/20"
                   : ""
@@ -455,7 +501,7 @@ export const MainClientApp: React.FC<MainClientAppProps> = ({
               }
             >
               <div className="flex items-center gap-2 min-w-0">
-                <div className="w-7 h-7 sm:w-10 sm:h-10 rounded-xl sm:rounded-2xl bg-gradient-to-tr from-amber-400 via-rose-500 to-indigo-600 text-white flex items-center justify-center text-xs sm:text-base font-bold shadow-xs shadow-rose-500/20 shrink-0">
+                <div className="w-7 h-7 sm:w-10 sm:h-10 rounded-xl sm:rounded-2xl bg-linear-to-tr from-amber-400 via-rose-500 to-indigo-600 text-white flex items-center justify-center text-xs sm:text-base font-bold shadow-xs shadow-rose-500/20 shrink-0">
                   👋
                 </div>
                 <div className="min-w-0">
@@ -471,7 +517,8 @@ export const MainClientApp: React.FC<MainClientAppProps> = ({
                       {stats.today_reviewed_count || 0}
                     </span>{" "}
                     <span>/ {settings.daily_limit} từ</span>
-                    {(stats.today_reviewed_count || 0) >= settings.daily_limit && (
+                    {(stats.today_reviewed_count || 0) >=
+                      settings.daily_limit && (
                       <span className="text-[9px] px-1.5 py-0.2 rounded-full bg-emerald-100 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 font-bold border border-emerald-300/40 inline-flex items-center gap-0.5">
                         <CheckCircle2 className="w-2.5 h-2.5" />
                         <span>Đã đạt</span>
@@ -521,7 +568,9 @@ export const MainClientApp: React.FC<MainClientAppProps> = ({
               speechRate={settings.speech_rate}
               autoPlayAudio={settings.auto_play_audio}
               audioEngine={settings.audio_engine}
-              isGoalReached={(stats.today_reviewed_count || 0) >= settings.daily_limit}
+              isGoalReached={
+                (stats.today_reviewed_count || 0) >= settings.daily_limit
+              }
               todayReviewedCount={stats.today_reviewed_count || 0}
               dailyLimit={settings.daily_limit}
               onLearnMore={handleLearnMore}
@@ -645,4 +694,3 @@ export const MainClientApp: React.FC<MainClientAppProps> = ({
     </div>
   );
 };
-
