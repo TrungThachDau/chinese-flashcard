@@ -475,7 +475,7 @@ export const MainClientApp: React.FC<MainClientAppProps> = ({
       <main
         className={`w-full mx-auto px-3 sm:px-4 ${
           activeTab === "flashcards"
-            ? "overflow-hidden max-w-md md:max-w-xl flex-1 min-h-0 flex flex-col pt-1 sm:pt-2 pb-14 md:pb-2"
+            ? "overflow-hidden max-w-md md:max-w-xl flex-1 min-h-0 flex flex-col pt-1 sm:pt-2 pb-18 md:pb-2"
             : "max-w-5xl flex-1 py-4 sm:py-8 pb-24 overflow-y-auto"
         }`}
       >

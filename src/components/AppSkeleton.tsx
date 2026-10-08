@@ -75,8 +75,8 @@ export function AppSkeleton() {
               <div className="h-full w-1/5 bg-gradient-to-r from-amber-400 via-rose-500 to-indigo-500 rounded-full" />
             </div>
 
-            {/* Flashcard Box (550px mobile, 350px PC) */}
-            <div className="w-full h-[550px] md:h-[350px] relative rounded-2xl sm:rounded-3xl p-3.5 sm:p-5 flex flex-col justify-between items-center bg-white/95 dark:bg-slate-900/95 backdrop-blur-2xl border-2 border-slate-200/90 dark:border-slate-800 shadow-2xl shadow-indigo-500/10 overflow-hidden shrink-0">
+            {/* Flashcard Box responsive height */}
+            <div className="w-full h-[clamp(310px,44vh,380px)] relative rounded-2xl sm:rounded-3xl p-3.5 sm:p-5 flex flex-col justify-between items-center bg-white/95 dark:bg-slate-900/95 backdrop-blur-2xl border-2 border-slate-200/90 dark:border-slate-800 shadow-2xl shadow-indigo-500/10 overflow-hidden shrink-0">
               <div className="w-full shrink-0 flex justify-between items-center">
                 <div className="h-4 w-20 bg-slate-100 dark:bg-slate-800 rounded-full animate-pulse" />
                 <div className="w-7 h-7 rounded-xl bg-slate-100 dark:bg-slate-800 animate-pulse" />

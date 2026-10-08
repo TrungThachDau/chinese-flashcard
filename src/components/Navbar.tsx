@@ -54,13 +54,13 @@ export const Navbar: React.FC<NavbarProps> = ({
                   e.stopPropagation();
                   onOpenSettings();
                 }}
-                className="text-[10px] px-2 py-0.5 rounded-full bg-amber-100 hover:bg-amber-200 dark:bg-amber-950/60 dark:hover:bg-amber-900/60 text-amber-700 dark:text-amber-300 font-bold border border-amber-300/40 transition-colors"
+                className="text-[10px] px-2 py-0.5 rounded-full bg-amber-100 hover:bg-amber-200 dark:bg-amber-950/60 dark:hover:bg-amber-900/60 text-amber-700 dark:text-amber-300 font-bold border border-amber-300/40 transition-colors shrink-0"
                 title="Nhấn để đổi cấp độ HSK hoặc cài đặt"
               >
                 HSK {settings?.hsk_level || 1} ▾
               </span>
             </div>
-            <div className="text-[10px] text-slate-400 font-medium">
+            <div className="text-[10px] text-slate-400 font-medium hidden sm:block">
               Spaced Repetition System
             </div>
           </div>
@@ -115,15 +115,15 @@ export const Navbar: React.FC<NavbarProps> = ({
         </nav>
 
         {/* Right Action Icons: User Badge, Streak & Settings */}
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
           {settings?.user_name && (
             <button
               type="button"
               onClick={onOpenSettings}
-              className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-2xl bg-indigo-50 dark:bg-indigo-950/40 border border-indigo-200/80 dark:border-indigo-900/60 text-indigo-700 dark:text-indigo-300 font-bold text-xs shadow-sm hover:bg-indigo-100 dark:hover:bg-indigo-900/60 transition-colors"
+              className="flex items-center gap-1.5 px-1.5 py-1 sm:px-2.5 sm:py-1.5 rounded-xl sm:rounded-2xl bg-indigo-50 dark:bg-indigo-950/40 border border-indigo-200/80 dark:border-indigo-900/60 text-indigo-700 dark:text-indigo-300 font-bold text-xs shadow-sm hover:bg-indigo-100 dark:hover:bg-indigo-900/60 transition-colors cursor-pointer"
               title="Cài đặt hồ sơ & mục tiêu"
             >
-              <div className="w-5 h-5 rounded-full bg-gradient-to-tr from-amber-400 to-rose-500 text-white flex items-center justify-center text-[10px] font-black shadow-xs">
+              <div className="w-5 h-5 rounded-full bg-gradient-to-tr from-amber-400 to-rose-500 text-white flex items-center justify-center text-[10px] font-black shadow-xs shrink-0">
                 {settings.user_name.charAt(0).toUpperCase()}
               </div>
               <span className="hidden sm:inline-block max-w-[90px] truncate">
@@ -133,8 +133,8 @@ export const Navbar: React.FC<NavbarProps> = ({
           )}
 
           {stats && (
-            <div className="flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-2xl bg-amber-50 dark:bg-amber-950/40 border border-amber-200/80 dark:border-amber-900/60 text-amber-600 dark:text-amber-400 font-bold text-xs shadow-sm">
-              <Flame className="w-4 h-4 fill-amber-500 text-amber-500 animate-pulse" />
+            <div className="flex items-center gap-1 sm:gap-1.5 px-2 sm:px-3 py-1 sm:py-1.5 rounded-xl sm:rounded-2xl bg-amber-50 dark:bg-amber-950/40 border border-amber-200/80 dark:border-amber-900/60 text-amber-600 dark:text-amber-400 font-bold text-xs shadow-sm shrink-0">
+              <Flame className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-amber-500 text-amber-500 animate-pulse" />
               <span>{stats.streak_days} ngày</span>
             </div>
           )}
@@ -142,7 +142,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           <button
             type="button"
             onClick={onOpenSettings}
-            className="p-2.5 rounded-2xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 transition-colors"
+            className="p-1.5 sm:p-2.5 rounded-xl sm:rounded-2xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 transition-colors cursor-pointer shrink-0"
             title="Cài đặt phát âm & mục tiêu"
           >
             <Settings className="w-4 h-4" />

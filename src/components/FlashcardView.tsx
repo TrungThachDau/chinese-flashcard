@@ -368,7 +368,7 @@ export const FlashcardView: React.FC<FlashcardViewProps> = ({
 
       {/* 3D Flip Card Container */}
       <div
-        className="w-full h-[550px] md:h-[350px] relative cursor-pointer select-none perspective-1000 shrink-0"
+        className="w-full h-[clamp(310px,44vh,380px)] relative cursor-pointer select-none perspective-1000 shrink-0"
         onClick={() => setIsFlipped((prev) => !prev)}
       >
         <div
@@ -383,8 +383,14 @@ export const FlashcardView: React.FC<FlashcardViewProps> = ({
         >
           {/* FRONT SIDE */}
           <div
-            className="absolute inset-0 w-full h-full rounded-2xl sm:rounded-3xl p-3.5 sm:p-5 flex flex-col justify-between items-center backface-hidden bg-white/95 dark:bg-slate-900/95 backdrop-blur-2xl border-2 border-slate-200/90 dark:border-slate-800 shadow-2xl shadow-indigo-500/10 text-center overflow-hidden"
-            style={{ backfaceVisibility: "hidden" }}
+            className={`absolute inset-0 w-full h-full rounded-2xl sm:rounded-3xl p-3.5 sm:p-5 flex flex-col justify-between items-center bg-white dark:bg-slate-900 border-2 border-slate-200/90 dark:border-slate-800 shadow-xl shadow-indigo-500/10 text-center overflow-hidden transition-opacity duration-300 ${
+              isFlipped ? "opacity-0 pointer-events-none" : "opacity-100"
+            }`}
+            style={{
+              backfaceVisibility: "hidden",
+              WebkitBackfaceVisibility: "hidden",
+              transform: "rotateY(0deg)",
+            }}
           >
             {/* Top utility row */}
             <div className="w-full shrink-0 flex justify-between items-center">
@@ -424,7 +430,7 @@ export const FlashcardView: React.FC<FlashcardViewProps> = ({
               className="flex-1 min-h-0 flex flex-col items-center justify-center my-auto"
               onClick={(e) => e.stopPropagation()}
             >
-              <div className="text-6xl sm:text-7xl md:text-8xl font-extrabold tracking-wider mb-2 text-slate-900 dark:text-white drop-shadow-sm">
+              <div className="text-5xl sm:text-6xl md:text-7xl font-extrabold tracking-wider mb-2 text-slate-900 dark:text-white drop-shadow-sm">
                 <HanziText text={currentCard.hanzi} />
               </div>
 
@@ -448,9 +454,12 @@ export const FlashcardView: React.FC<FlashcardViewProps> = ({
 
           {/* BACK SIDE */}
           <div
-            className="absolute inset-0 w-full h-full rounded-2xl sm:rounded-3xl p-3.5 sm:p-5 flex flex-col justify-between backface-hidden bg-gradient-to-b from-white via-slate-50 to-amber-50/30 dark:from-slate-900 dark:via-slate-900/95 dark:to-amber-950/20 backdrop-blur-2xl border-2 border-amber-500/30 dark:border-amber-500/20 shadow-2xl shadow-amber-500/10 text-center overflow-hidden"
+            className={`absolute inset-0 w-full h-full rounded-2xl sm:rounded-3xl p-3.5 sm:p-5 flex flex-col justify-between bg-white dark:bg-slate-900 border-2 border-amber-500/30 dark:border-amber-500/20 shadow-xl shadow-amber-500/10 text-center overflow-hidden transition-opacity duration-300 ${
+              isFlipped ? "opacity-100" : "opacity-0 pointer-events-none"
+            }`}
             style={{
               backfaceVisibility: "hidden",
+              WebkitBackfaceVisibility: "hidden",
               transform: "rotateY(180deg)",
             }}
           >
