@@ -79,6 +79,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
         audio_engine: audioEngine,
         auto_play_audio: autoPlayAudio,
         hsk_level: selectedHskLevel,
+        has_onboarded: true,
       });
       setShowSavedToast(true);
       setTimeout(() => setShowSavedToast(false), 2000);

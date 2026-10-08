@@ -8,6 +8,7 @@ import {
   Volume2,
   ArrowRight,
   BookOpen,
+  X,
 } from "lucide-react";
 import { UserSettings } from "@/lib/types";
 import { playChineseAudio } from "@/lib/tts";
@@ -61,12 +62,14 @@ interface OnboardingModalProps {
   isOpen: boolean;
   initialSettings: UserSettings;
   onSave: (settings: Partial<UserSettings>) => Promise<void>;
+  onClose?: () => void;
 }
 
 export const OnboardingModal: React.FC<OnboardingModalProps> = ({
   isOpen,
   initialSettings,
   onSave,
+  onClose,
 }) => {
   const [userName, setUserName] = useState(
     initialSettings.user_name === "Học viên" ? "" : initialSettings.user_name,
@@ -107,6 +110,19 @@ export const OnboardingModal: React.FC<OnboardingModalProps> = ({
         hsk_level: selectedHskLevel,
         has_onboarded: true,
       });
+      onClose?.();
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const handleSkip = async () => {
+    setIsSubmitting(true);
+    try {
+      await onSave({
+        has_onboarded: true,
+      });
+      onClose?.();
     } finally {
       setIsSubmitting(false);
     }
@@ -120,9 +136,22 @@ export const OnboardingModal: React.FC<OnboardingModalProps> = ({
       className="fixed inset-0 z-[999999] flex items-center justify-center p-4 bg-black/70 backdrop-blur-md animate-in fade-in duration-300"
     >
       <div
-        className="w-full max-w-lg bg-white dark:bg-slate-900 rounded-3xl shadow-2xl border-2 border-amber-500/40 p-6 sm:p-8 space-y-6 max-h-[95vh] overflow-y-auto"
+        className="relative w-full max-w-lg bg-white dark:bg-slate-900 rounded-3xl shadow-2xl border-2 border-amber-500/40 p-6 sm:p-8 space-y-6 max-h-[95vh] overflow-y-auto"
         onClick={(e) => e.stopPropagation()}
       >
+        {/* Close / Skip button */}
+        {onClose && (
+          <button
+            type="button"
+            onClick={handleSkip}
+            className="absolute top-4 right-4 p-2 rounded-full text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors cursor-pointer"
+            title="Đóng / Bỏ qua"
+            aria-label="Đóng"
+          >
+            <X className="w-5 h-5" />
+          </button>
+        )}
+
         {/* Welcome Header */}
         <div className="text-center space-y-1.5 pt-1">
           <h2 className="text-2xl sm:text-3xl font-black bg-gradient-to-r from-slate-900 via-indigo-900 to-slate-800 dark:from-white dark:via-indigo-200 dark:to-slate-200 bg-clip-text text-transparent">
@@ -301,16 +330,27 @@ export const OnboardingModal: React.FC<OnboardingModalProps> = ({
           </div>
 
           {/* Submit CTA */}
-          <button
-            type="submit"
-            disabled={isSubmitting}
-            className="w-full py-4 rounded-2xl bg-gradient-to-r from-amber-500 via-rose-500 to-indigo-600 text-white font-extrabold text-base shadow-xl shadow-rose-500/25 hover:opacity-95 transition-all active:scale-98 flex items-center justify-center gap-2 cursor-pointer"
-          >
-            <span>
-              {isSubmitting ? "Đang lưu thiết lập..." : "Bắt đầu học ngay 🚀"}
-            </span>
-            <ArrowRight className="w-5 h-5" />
-          </button>
+          <div className="space-y-2">
+            <button
+              type="submit"
+              disabled={isSubmitting}
+              className="w-full py-4 rounded-2xl bg-gradient-to-r from-amber-500 via-rose-500 to-indigo-600 text-white font-extrabold text-base shadow-xl shadow-rose-500/25 hover:opacity-95 transition-all active:scale-98 flex items-center justify-center gap-2 cursor-pointer"
+            >
+              <span>
+                {isSubmitting ? "Đang lưu thiết lập..." : "Bắt đầu học ngay 🚀"}
+              </span>
+              <ArrowRight className="w-5 h-5" />
+            </button>
+
+            <button
+              type="button"
+              onClick={handleSkip}
+              disabled={isSubmitting}
+              className="w-full py-2 text-xs text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200 font-medium transition-colors text-center cursor-pointer"
+            >
+              Bỏ qua và dùng cấu hình mặc định
+            </button>
+          </div>
         </form>
       </div>
     </div>

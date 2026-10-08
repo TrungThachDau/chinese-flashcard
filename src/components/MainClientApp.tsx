@@ -22,10 +22,34 @@ import { Navbar } from "./Navbar";
 import { BottomNav } from "./BottomNav";
 import { FlashcardView } from "./FlashcardView";
 import { LifeQuestionsView } from "./LifeQuestionsView";
+import { usePathname, useRouter } from "next/navigation";
 import { VocabularyList } from "./VocabularyList";
 import { ProgressStats } from "./ProgressStats";
 import { SettingsModal } from "./SettingsModal";
 import { OnboardingModal } from "./OnboardingModal";
+
+export type AppTab = "flashcards" | "life_questions" | "vocab" | "stats";
+
+export function getTabFromPath(path: string): AppTab {
+  if (path.startsWith("/life-questions")) return "life_questions";
+  if (path.startsWith("/vocab")) return "vocab";
+  if (path.startsWith("/stats")) return "stats";
+  return "flashcards";
+}
+
+export function getPathFromTab(tab: AppTab): string {
+  switch (tab) {
+    case "life_questions":
+      return "/life-questions";
+    case "vocab":
+      return "/vocab";
+    case "stats":
+      return "/stats";
+    case "flashcards":
+    default:
+      return "/";
+  }
+}
 
 interface MainClientAppProps {
   initialDueCards: Card[];
@@ -33,6 +57,7 @@ interface MainClientAppProps {
   initialQuestions: LifeQuestion[];
   initialStats: StudyStats;
   initialSettings?: UserSettings;
+  initialTab?: AppTab;
 }
 
 export const MainClientApp: React.FC<MainClientAppProps> = ({
@@ -41,10 +66,33 @@ export const MainClientApp: React.FC<MainClientAppProps> = ({
   initialQuestions,
   initialStats,
   initialSettings,
+  initialTab,
 }) => {
-  const [activeTab, setActiveTab] = useState<
-    "flashcards" | "life_questions" | "vocab" | "stats"
-  >("flashcards");
+  const pathname = usePathname();
+  const router = useRouter();
+
+  const [activeTab, setActiveTab] = useState<AppTab>(() => {
+    if (initialTab) return initialTab;
+    if (pathname) return getTabFromPath(pathname);
+    return "flashcards";
+  });
+
+  // Synchronize activeTab when browser URL changes (e.g. back/forward navigation)
+  useEffect(() => {
+    if (pathname) {
+      const targetTab = getTabFromPath(pathname);
+      setActiveTab((prev) => (prev !== targetTab ? targetTab : prev));
+    }
+  }, [pathname]);
+
+  const handleTabChange = (newTab: AppTab) => {
+    setActiveTab(newTab);
+    const targetPath = getPathFromTab(newTab);
+    if (pathname !== targetPath) {
+      router.push(targetPath, { scroll: false });
+    }
+  };
+
   const [dueCards, setDueCards] = useState<Card[]>(initialDueCards);
   const [allCards, setAllCards] = useState<Card[]>(initialAllCards);
   const [questions, setQuestions] = useState<LifeQuestion[]>(initialQuestions);
@@ -64,18 +112,66 @@ export const MainClientApp: React.FC<MainClientAppProps> = ({
       hsk_level: 1,
     },
   );
+
+  // Check if user already has config (onboarded flag, or has configured custom settings)
+  const [hasOnboarded, setHasOnboarded] = useState<boolean>(() => {
+    if (initialSettings?.has_onboarded) return true;
+    if (initialSettings?.user_name && initialSettings.user_name !== "Học viên") return true;
+    return false;
+  });
+
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
 
+  // Sync with localStorage on client mount & remember config state
+  useEffect(() => {
+    try {
+      const localOnboarded = localStorage.getItem("hsk_has_onboarded");
+      const localSettingsStr = localStorage.getItem("chinese_flashcard_settings");
+
+      if (localOnboarded === "true") {
+        setHasOnboarded(true);
+      } else if (localSettingsStr) {
+        const parsed = JSON.parse(localSettingsStr);
+        if (parsed?.has_onboarded || (parsed?.user_name && parsed.user_name !== "Học viên")) {
+          setHasOnboarded(true);
+          localStorage.setItem("hsk_has_onboarded", "true");
+        }
+      } else if (settings.has_onboarded || (settings.user_name && settings.user_name !== "Học viên")) {
+        setHasOnboarded(true);
+        localStorage.setItem("hsk_has_onboarded", "true");
+      }
+    } catch {
+      // Ignore localStorage errors
+    }
+  }, [settings.has_onboarded, settings.user_name]);
+
   const handleUpdateSettings = async (newSettings: Partial<UserSettings>) => {
+    const payload: Partial<UserSettings> = {
+      ...newSettings,
+      has_onboarded: true,
+    };
+
+    setHasOnboarded(true);
+    if (typeof window !== "undefined") {
+      try {
+        localStorage.setItem("hsk_has_onboarded", "true");
+      } catch {}
+    }
+
     try {
       const res = await fetch("/api/settings", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(newSettings),
+        body: JSON.stringify(payload),
       });
       const data = await res.json();
       if (data.ok && data.settings) {
         setSettings(data.settings);
+        if (typeof window !== "undefined") {
+          try {
+            localStorage.setItem("chinese_flashcard_settings", JSON.stringify(data.settings));
+          } catch {}
+        }
         if (newSettings.daily_limit !== undefined) {
           handleRefreshDue(newSettings.daily_limit);
         }
@@ -189,7 +285,7 @@ export const MainClientApp: React.FC<MainClientAppProps> = ({
         settings={settings}
         onOpenSettings={() => setIsSettingsOpen(true)}
         activeTab={activeTab}
-        setActiveTab={(t) => setActiveTab(t as typeof activeTab)}
+        setActiveTab={handleTabChange}
       />
 
       {/* Main Container */}
@@ -320,7 +416,7 @@ export const MainClientApp: React.FC<MainClientAppProps> = ({
             <ProgressStats
               stats={stats}
               onStartReview={() => {
-                setActiveTab("flashcards");
+                handleTabChange("flashcards");
                 setSelectedReviewCategory("all");
                 handleRefreshDue();
               }}
@@ -332,15 +428,23 @@ export const MainClientApp: React.FC<MainClientAppProps> = ({
       {/* Bottom Nav for Mobile */}
       <BottomNav
         activeTab={activeTab}
-        setActiveTab={(t) => setActiveTab(t as typeof activeTab)}
+        setActiveTab={handleTabChange}
         stats={stats}
       />
 
-      {/* Onboarding Welcome Modal (First Time Opening) */}
+      {/* Onboarding Welcome Modal (Only shown once when no config yet) */}
       <OnboardingModal
-        isOpen={!settings.has_onboarded}
+        isOpen={!hasOnboarded && !settings.has_onboarded}
         initialSettings={settings}
         onSave={handleUpdateSettings}
+        onClose={() => {
+          setHasOnboarded(true);
+          if (typeof window !== "undefined") {
+            try {
+              localStorage.setItem("hsk_has_onboarded", "true");
+            } catch {}
+          }
+        }}
       />
 
       {/* Settings Modal (Configurable anytime) */}

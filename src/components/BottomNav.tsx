@@ -1,12 +1,13 @@
 "use client";
 
-import React from "react";
+import Link from "next/link";
 import { Layers, MessageSquareText, BookMarked, BarChart3 } from "lucide-react";
 import { StudyStats } from "@/lib/types";
+import { AppTab } from "./MainClientApp";
 
 interface BottomNavProps {
-  activeTab: string;
-  setActiveTab: (tab: string) => void;
+  activeTab: AppTab | string;
+  setActiveTab: (tab: AppTab) => void;
   stats: StudyStats | null;
 }
 
@@ -15,28 +16,38 @@ export const BottomNav: React.FC<BottomNavProps> = ({
   setActiveTab,
   stats,
 }) => {
-  const tabs = [
+  const tabs: Array<{
+    id: AppTab;
+    label: string;
+    href: string;
+    icon: typeof Layers;
+    badge: number | null;
+  }> = [
     {
       id: "flashcards",
       label: "Thẻ",
+      href: "/",
       icon: Layers,
       badge: stats && stats.due_today > 0 ? stats.due_today : null,
     },
     {
       id: "life_questions",
       label: "Đời sống",
+      href: "/life-questions",
       icon: MessageSquareText,
       badge: null,
     },
     {
       id: "vocab",
       label: "Từ vựng",
+      href: "/vocab",
       icon: BookMarked,
       badge: null,
     },
     {
       id: "stats",
       label: "Tiến độ",
+      href: "/stats",
       icon: BarChart3,
       badge: null,
     },
@@ -50,9 +61,9 @@ export const BottomNav: React.FC<BottomNavProps> = ({
           const isActive = activeTab === tab.id;
 
           return (
-            <button
+            <Link
               key={tab.id}
-              type="button"
+              href={tab.href}
               onClick={() => setActiveTab(tab.id)}
               className={`relative flex flex-col items-center justify-center py-1 px-3 rounded-2xl transition-all duration-200 ${
                 isActive
@@ -74,7 +85,7 @@ export const BottomNav: React.FC<BottomNavProps> = ({
               {isActive && (
                 <span className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-amber-500 to-rose-500 mt-0.5" />
               )}
-            </button>
+            </Link>
           );
         })}
       </div>

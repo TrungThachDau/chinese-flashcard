@@ -16,15 +16,30 @@ import { INITIAL_CHAR_DETAILS, INITIAL_LIFE_QUESTIONS, CATEGORIES_CONFIG } from 
 import { HSK30_LEVEL1_CARDS, HSK30_CHAR_DETAILS } from './hsk30Data';
 import { calculateSM2 } from './srs';
 
-// Safely load node:sqlite without crashing on runtimes where it is absent (e.g. Node 20)
+import { createRequire } from 'node:module';
+
+// Safely load node:sqlite without crashing on runtimes where it is absent
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 let DatabaseSyncClass: any = null;
 try {
-  // eslint-disable-next-line @typescript-eslint/no-require-imports
-  const sqlite = require('node:sqlite');
-  DatabaseSyncClass = sqlite.DatabaseSync || null;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const proc = process as any;
+  if (typeof proc.getBuiltinModule === 'function') {
+    const sqlite = proc.getBuiltinModule('node:sqlite');
+    DatabaseSyncClass = sqlite?.DatabaseSync || null;
+  }
 } catch {
   DatabaseSyncClass = null;
+}
+
+if (!DatabaseSyncClass) {
+  try {
+    const nodeRequire = createRequire(process.cwd() + '/package.json');
+    const sqlite = nodeRequire('node:sqlite');
+    DatabaseSyncClass = sqlite.DatabaseSync || null;
+  } catch {
+    DatabaseSyncClass = null;
+  }
 }
 
 // Global declaration for hot-reloading and lambda instance caching

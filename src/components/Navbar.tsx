@@ -2,14 +2,16 @@
 
 import React from "react";
 import { Flame, Sparkles, Settings, Volume2, RotateCcw } from "lucide-react";
+import Link from "next/link";
 import { StudyStats, UserSettings } from "@/lib/types";
+import { AppTab } from "./MainClientApp";
 
 interface NavbarProps {
   stats: StudyStats | null;
   settings?: UserSettings;
   onOpenSettings: () => void;
-  activeTab: string;
-  setActiveTab: (tab: string) => void;
+  activeTab: AppTab | string;
+  setActiveTab: (tab: AppTab) => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -23,7 +25,8 @@ export const Navbar: React.FC<NavbarProps> = ({
     <header className="sticky top-0 z-40 w-full bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl border-b border-slate-200/80 dark:border-slate-800">
       <div className="max-w-5xl mx-auto px-4 h-16 flex items-center justify-between">
         {/* Brand */}
-        <div
+        <Link
+          href="/"
           onClick={() => setActiveTab("flashcards")}
           className="flex flex-col cursor-pointer select-none group"
         >
@@ -32,6 +35,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               <span>Hán Ngữ</span>
               <span
                 onClick={(e) => {
+                  e.preventDefault();
                   e.stopPropagation();
                   onOpenSettings();
                 }}
@@ -45,12 +49,12 @@ export const Navbar: React.FC<NavbarProps> = ({
               Spaced Repetition System
             </div>
           </div>
-        </div>
+        </Link>
 
         {/* Desktop Tabs */}
         <nav className="hidden md:flex items-center gap-1 bg-slate-100/80 dark:bg-slate-800/80 p-1 rounded-2xl border border-slate-200/60 dark:border-slate-700/60 text-xs font-semibold">
-          <button
-            type="button"
+          <Link
+            href="/"
             onClick={() => setActiveTab("flashcards")}
             className={`px-3.5 py-1.5 rounded-xl transition-all ${
               activeTab === "flashcards"
@@ -59,9 +63,9 @@ export const Navbar: React.FC<NavbarProps> = ({
             }`}
           >
             🎴 Thẻ
-          </button>
-          <button
-            type="button"
+          </Link>
+          <Link
+            href="/life-questions"
             onClick={() => setActiveTab("life_questions")}
             className={`px-3.5 py-1.5 rounded-xl transition-all ${
               activeTab === "life_questions"
@@ -70,9 +74,9 @@ export const Navbar: React.FC<NavbarProps> = ({
             }`}
           >
             💬 Câu hỏi đời sống
-          </button>
-          <button
-            type="button"
+          </Link>
+          <Link
+            href="/vocab"
             onClick={() => setActiveTab("vocab")}
             className={`px-3.5 py-1.5 rounded-xl transition-all ${
               activeTab === "vocab"
@@ -81,9 +85,9 @@ export const Navbar: React.FC<NavbarProps> = ({
             }`}
           >
             📚 Từ vựng ({stats?.total_cards || 0})
-          </button>
-          <button
-            type="button"
+          </Link>
+          <Link
+            href="/stats"
             onClick={() => setActiveTab("stats")}
             className={`px-3.5 py-1.5 rounded-xl transition-all ${
               activeTab === "stats"
@@ -92,7 +96,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             }`}
           >
             📊 Tiến độ
-          </button>
+          </Link>
         </nav>
 
         {/* Right Action Icons: User Badge, Streak & Settings */}
