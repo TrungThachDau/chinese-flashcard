@@ -1,6 +1,5 @@
-const CACHE_NAME = 'han-ngu-cache-v1';
+const CACHE_NAME = 'han-ngu-cache-v2';
 const PRECACHE_ASSETS = [
-  '/',
   '/favicon.ico',
   '/apple-touch-icon.png',
   '/icons/icon-192x192.png',

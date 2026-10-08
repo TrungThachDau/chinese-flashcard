@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 import {
   X,
   Volume2,
@@ -14,11 +14,16 @@ import {
   BookOpen,
   GitCommit,
   ExternalLink,
-} from 'lucide-react';
-import { UserSettings } from '@/lib/types';
-import { playChineseAudio } from '@/lib/tts';
-import { HSK_LEVELS } from './OnboardingModal';
-import { APP_VERSION, COMMIT_HASH, COMMIT_DATE, COMMIT_URL } from '@/lib/version';
+} from "lucide-react";
+import { UserSettings } from "@/lib/types";
+import { playChineseAudio } from "@/lib/tts";
+import { HSK_LEVELS } from "./OnboardingModal";
+import {
+  APP_VERSION,
+  COMMIT_HASH,
+  COMMIT_DATE,
+  COMMIT_URL,
+} from "@/lib/version";
 
 interface SettingsModalProps {
   isOpen: boolean;
@@ -38,9 +43,13 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
   const [userName, setUserName] = useState(settings.user_name);
   const [dailyLimit, setDailyLimit] = useState(settings.daily_limit);
   const [speechRate, setSpeechRate] = useState(settings.speech_rate);
-  const [audioEngine, setAudioEngine] = useState<'online' | 'browser'>(settings.audio_engine);
+  const [audioEngine, setAudioEngine] = useState<"online" | "browser">(
+    settings.audio_engine,
+  );
   const [autoPlayAudio, setAutoPlayAudio] = useState(settings.auto_play_audio);
-  const [selectedHskLevel, setSelectedHskLevel] = useState(settings.hsk_level || 1);
+  const [selectedHskLevel, setSelectedHskLevel] = useState(
+    settings.hsk_level || 1,
+  );
   const [levelNotice, setLevelNotice] = useState<string | null>(null);
 
   const [isResetting, setIsResetting] = useState(false);
@@ -61,9 +70,25 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
 
   if (!isOpen) return null;
 
+  const updateField = async (partial: Partial<UserSettings>) => {
+    try {
+      await onUpdateSettings(partial);
+    } catch (err) {
+      console.error("Auto-save setting failed:", err);
+    }
+  };
+
+  const handleClose = async () => {
+    const trimmed = userName.trim() || "Bạn";
+    if (trimmed !== settings.user_name) {
+      await updateField({ user_name: trimmed });
+    }
+    onClose();
+  };
+
   const handleTestAudio = () => {
     setIsTestingAudio(true);
-    playChineseAudio('你好，很高兴认识你！', {
+    playChineseAudio("你好，很高兴认识你！", {
       rate: speechRate,
       engine: audioEngine,
       onStart: () => setIsTestingAudio(true),
@@ -76,7 +101,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
     setIsSaving(true);
     try {
       await onUpdateSettings({
-        user_name: userName.trim() || 'Bạn',
+        user_name: userName.trim() || "Bạn",
         daily_limit: dailyLimit,
         speech_rate: speechRate,
         audio_engine: audioEngine,
@@ -108,6 +133,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
       aria-modal="true"
       aria-label="Cài đặt hệ thống"
       className="fixed inset-0 z-[999999] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-in fade-in duration-200"
+      onClick={handleClose}
     >
       <div
         className="w-full max-w-md p-6 bg-white dark:bg-slate-900 rounded-3xl shadow-2xl border border-slate-200 dark:border-slate-800 space-y-5 max-h-[90vh] overflow-y-auto"
@@ -120,7 +146,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
           </h3>
           <button
             type="button"
-            onClick={onClose}
+            onClick={handleClose}
             className="p-1.5 rounded-xl text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800"
           >
             <X className="w-5 h-5" />
@@ -148,7 +174,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
             <div className="grid grid-cols-3 sm:grid-cols-6 gap-1.5">
               {HSK_LEVELS.map((item) => {
                 const isSelected = selectedHskLevel === item.level;
-                const isAvailable = item.status === 'available';
+                const isAvailable = item.status === "available";
 
                 return (
                   <button
@@ -158,22 +184,25 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
                       if (isAvailable) {
                         setSelectedHskLevel(item.level);
                         setLevelNotice(null);
+                        updateField({ hsk_level: item.level });
                       } else {
                         setLevelNotice(
-                          `📌 Hiện tại chỉ khả dụng HSK 1. Cấp độ ${item.name} (${item.stage}) đang được hoàn thiện!`
+                          `📌 Hiện tại chỉ khả dụng HSK 1. Cấp độ ${item.name} (${item.stage}) đang được hoàn thiện!`,
                         );
                       }
                     }}
                     className={`py-2 px-1 rounded-xl text-center flex flex-col items-center justify-center transition-all cursor-pointer ${
                       isSelected
-                        ? 'bg-gradient-to-tr from-amber-500 to-rose-500 text-white font-bold shadow-sm ring-1 ring-amber-400'
+                        ? "bg-gradient-to-tr from-amber-500 to-rose-500 text-white font-bold shadow-sm ring-1 ring-amber-400"
                         : isAvailable
-                        ? 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:bg-slate-200'
-                        : 'bg-slate-50 dark:bg-slate-800/40 text-slate-400 dark:text-slate-500 border border-slate-200/50 dark:border-slate-800/60 hover:border-amber-400/50'
+                          ? "bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:bg-slate-200"
+                          : "bg-slate-50 dark:bg-slate-800/40 text-slate-400 dark:text-slate-500 border border-slate-200/50 dark:border-slate-800/60 hover:border-amber-400/50"
                     }`}
                   >
                     <span className="text-xs font-bold">{item.name}</span>
-                    <span className="text-[8px] opacity-80 mt-0.5">{isAvailable ? 'Mở' : 'Sắp có'}</span>
+                    <span className="text-[8px] opacity-80 mt-0.5">
+                      {isAvailable ? "Mở" : "Sắp có"}
+                    </span>
                   </button>
                 );
               })}
@@ -196,6 +225,18 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
               type="text"
               value={userName}
               onChange={(e) => setUserName(e.target.value)}
+              onBlur={() => {
+                const trimmed = userName.trim() || "Bạn";
+                setUserName(trimmed);
+                if (trimmed !== settings.user_name) {
+                  updateField({ user_name: trimmed });
+                }
+              }}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  (e.target as HTMLInputElement).blur();
+                }
+              }}
               placeholder="Nhập tên của bạn..."
               className="w-full px-3.5 py-2 rounded-xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 text-sm font-semibold text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-amber-500/50"
             />
@@ -218,11 +259,14 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
                 <button
                   key={num}
                   type="button"
-                  onClick={() => setDailyLimit(num)}
+                  onClick={() => {
+                    setDailyLimit(num);
+                    updateField({ daily_limit: num });
+                  }}
                   className={`py-1.5 rounded-xl text-xs font-bold transition-all ${
                     dailyLimit === num
-                      ? 'bg-rose-500 text-white shadow-sm'
-                      : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200'
+                      ? "bg-rose-500 text-white shadow-sm"
+                      : "bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200"
                   }`}
                 >
                   {num} từ
@@ -241,16 +285,21 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
           <div className="grid grid-cols-2 gap-2">
             <button
               type="button"
-              onClick={() => setAudioEngine('online')}
+              onClick={() => {
+                setAudioEngine("online");
+                updateField({ audio_engine: "online" });
+              }}
               className={`p-2.5 rounded-2xl text-left border text-xs transition-all ${
-                audioEngine === 'online'
-                  ? 'border-amber-500 bg-amber-50/70 dark:bg-amber-950/40 text-amber-900 dark:text-amber-200 font-bold shadow-sm'
-                  : 'border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-800/60 text-slate-600 dark:text-slate-400'
+                audioEngine === "online"
+                  ? "border-amber-500 bg-amber-50/70 dark:bg-amber-950/40 text-amber-900 dark:text-amber-200 font-bold shadow-sm"
+                  : "border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-800/60 text-slate-600 dark:text-slate-400"
               }`}
             >
               <div className="flex items-center justify-between mb-1">
                 <span>Giọng bản xứ (Online)</span>
-                {audioEngine === 'online' && <Check className="w-3.5 h-3.5 text-amber-600" />}
+                {audioEngine === "online" && (
+                  <Check className="w-3.5 h-3.5 text-amber-600" />
+                )}
               </div>
               <p className="text-[10px] font-normal opacity-80">
                 Chuẩn ngữ điệu Bắc Kinh, 100% không phụ thuộc máy
@@ -259,16 +308,21 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
 
             <button
               type="button"
-              onClick={() => setAudioEngine('browser')}
+              onClick={() => {
+                setAudioEngine("browser");
+                updateField({ audio_engine: "browser" });
+              }}
               className={`p-2.5 rounded-2xl text-left border text-xs transition-all ${
-                audioEngine === 'browser'
-                  ? 'border-indigo-500 bg-indigo-50/70 dark:bg-indigo-950/40 text-indigo-900 dark:text-indigo-200 font-bold shadow-sm'
-                  : 'border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-800/60 text-slate-600 dark:text-slate-400'
+                audioEngine === "browser"
+                  ? "border-indigo-500 bg-indigo-50/70 dark:bg-indigo-950/40 text-indigo-900 dark:text-indigo-200 font-bold shadow-sm"
+                  : "border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-800/60 text-slate-600 dark:text-slate-400"
               }`}
             >
               <div className="flex items-center justify-between mb-1">
                 <span>Web Speech API</span>
-                {audioEngine === 'browser' && <Check className="w-3.5 h-3.5 text-indigo-600" />}
+                {audioEngine === "browser" && (
+                  <Check className="w-3.5 h-3.5 text-indigo-600" />
+                )}
               </div>
               <p className="text-[10px] font-normal opacity-80">
                 Dùng bộ giọng cài sẵn trong hệ điều hành máy bạn
@@ -290,11 +344,14 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
                 <button
                   key={rate}
                   type="button"
-                  onClick={() => setSpeechRate(rate)}
+                  onClick={() => {
+                    setSpeechRate(rate);
+                    updateField({ speech_rate: rate });
+                  }}
                   className={`py-1.5 rounded-xl text-xs font-bold transition-all ${
                     speechRate === rate
-                      ? 'bg-amber-500 text-white shadow-sm'
-                      : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200'
+                      ? "bg-amber-500 text-white shadow-sm"
+                      : "bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200"
                   }`}
                 >
                   {rate}x
@@ -307,12 +364,14 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
               onClick={handleTestAudio}
               className={`mt-2 w-full py-2 px-3 rounded-xl text-xs font-semibold flex items-center justify-center gap-1.5 transition-all ${
                 isTestingAudio
-                  ? 'bg-amber-500 text-white animate-pulse'
-                  : 'bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 text-slate-700 dark:text-slate-300'
+                  ? "bg-amber-500 text-white animate-pulse"
+                  : "bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 text-slate-700 dark:text-slate-300"
               }`}
             >
               <Volume2 className="w-3.5 h-3.5 text-amber-500" />
-              <span>{isTestingAudio ? 'Đang phát âm...' : 'Thử nghe âm thanh'}</span>
+              <span>
+                {isTestingAudio ? "Đang phát âm..." : "Thử nghe âm thanh"}
+              </span>
             </button>
           </div>
 
@@ -328,14 +387,20 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
             </div>
             <button
               type="button"
-              onClick={() => setAutoPlayAudio(!autoPlayAudio)}
+              onClick={() => {
+                const nextVal = !autoPlayAudio;
+                setAutoPlayAudio(nextVal);
+                updateField({ auto_play_audio: nextVal });
+              }}
               className={`w-11 h-6 rounded-full transition-colors relative p-0.5 ${
-                autoPlayAudio ? 'bg-amber-500' : 'bg-slate-300 dark:bg-slate-700'
+                autoPlayAudio
+                  ? "bg-amber-500"
+                  : "bg-slate-300 dark:bg-slate-700"
               }`}
             >
               <div
                 className={`w-5 h-5 rounded-full bg-white transition-transform ${
-                  autoPlayAudio ? 'translate-x-5' : 'translate-x-0'
+                  autoPlayAudio ? "translate-x-5" : "translate-x-0"
                 }`}
               />
             </button>
@@ -351,7 +416,13 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
             className="w-full py-3 px-4 rounded-2xl bg-gradient-to-r from-amber-500 to-rose-500 text-white font-bold text-sm shadow-lg shadow-rose-500/20 hover:opacity-95 transition-all flex items-center justify-center gap-2"
           >
             <Save className="w-4 h-4" />
-            <span>{isSaving ? 'Đang lưu...' : showSavedToast ? '✓ Đã lưu cài đặt!' : 'Lưu thay đổi'}</span>
+            <span>
+              {isSaving
+                ? "Đang lưu..."
+                : showSavedToast
+                  ? "✓ Đã lưu cài đặt!"
+                  : "Lưu thay đổi"}
+            </span>
           </button>
         </div>
 
@@ -382,7 +453,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
                   onClick={handleConfirmReset}
                   className="flex-1 py-1.5 rounded-lg bg-rose-600 text-white font-bold text-xs hover:bg-rose-700 transition-colors"
                 >
-                  {isResetting ? 'Đang đặt lại...' : 'Đồng ý đặt lại'}
+                  {isResetting ? "Đang đặt lại..." : "Đồng ý đặt lại"}
                 </button>
                 <button
                   type="button"

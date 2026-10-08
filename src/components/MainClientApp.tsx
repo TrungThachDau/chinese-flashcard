@@ -124,28 +124,54 @@ export const MainClientApp: React.FC<MainClientAppProps> = ({
 
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
 
-  // Sync with localStorage on client mount & remember config state
+  // Sync state if initialSettings changes
+  useEffect(() => {
+    if (initialSettings) {
+      setSettings((prev) => ({ ...prev, ...initialSettings }));
+      if (initialSettings.has_onboarded) setHasOnboarded(true);
+    }
+  }, [initialSettings]);
+
+  // Sync with localStorage on client mount & fetch fresh settings from database
   useEffect(() => {
     try {
-      const localOnboarded = localStorage.getItem("hsk_has_onboarded");
       const localSettingsStr = localStorage.getItem("chinese_flashcard_settings");
-
+      if (localSettingsStr) {
+        const parsed = JSON.parse(localSettingsStr);
+        if (parsed && typeof parsed === "object") {
+          setSettings((prev) => ({ ...prev, ...parsed }));
+          if (parsed.has_onboarded || (parsed.user_name && parsed.user_name !== "Học viên")) {
+            setHasOnboarded(true);
+          }
+        }
+      }
+      const localOnboarded = localStorage.getItem("hsk_has_onboarded");
       if (localOnboarded === "true") {
         setHasOnboarded(true);
-      } else if (localSettingsStr) {
-        const parsed = JSON.parse(localSettingsStr);
-        if (parsed?.has_onboarded || (parsed?.user_name && parsed.user_name !== "Học viên")) {
-          setHasOnboarded(true);
-          localStorage.setItem("hsk_has_onboarded", "true");
-        }
-      } else if (settings.has_onboarded || (settings.user_name && settings.user_name !== "Học viên")) {
-        setHasOnboarded(true);
-        localStorage.setItem("hsk_has_onboarded", "true");
       }
     } catch {
       // Ignore localStorage errors
     }
-  }, [settings.has_onboarded, settings.user_name]);
+
+    // Always fetch latest settings from server to guarantee sync with database
+    fetch("/api/settings", { cache: "no-store" })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.ok && data.settings) {
+          setSettings(data.settings);
+          try {
+            localStorage.setItem("chinese_flashcard_settings", JSON.stringify(data.settings));
+            if (data.settings.has_onboarded) {
+              localStorage.setItem("hsk_has_onboarded", "true");
+              setHasOnboarded(true);
+            }
+          } catch {}
+        }
+      })
+      .catch((err) => {
+        console.warn("Could not fetch fresh settings on mount:", err);
+      });
+  }, []);
 
   const handleUpdateSettings = async (newSettings: Partial<UserSettings>) => {
     const payload: Partial<UserSettings> = {
@@ -154,10 +180,19 @@ export const MainClientApp: React.FC<MainClientAppProps> = ({
     };
 
     setHasOnboarded(true);
-    if (typeof window !== "undefined") {
-      try {
-        localStorage.setItem("hsk_has_onboarded", "true");
-      } catch {}
+    setSettings((prev) => {
+      const merged = { ...prev, ...newSettings, has_onboarded: true };
+      if (typeof window !== "undefined") {
+        try {
+          localStorage.setItem("hsk_has_onboarded", "true");
+          localStorage.setItem("chinese_flashcard_settings", JSON.stringify(merged));
+        } catch {}
+      }
+      return merged;
+    });
+
+    if (newSettings.daily_limit !== undefined) {
+      handleRefreshDue(newSettings.daily_limit);
     }
 
     try {
@@ -173,9 +208,6 @@ export const MainClientApp: React.FC<MainClientAppProps> = ({
           try {
             localStorage.setItem("chinese_flashcard_settings", JSON.stringify(data.settings));
           } catch {}
-        }
-        if (newSettings.daily_limit !== undefined) {
-          handleRefreshDue(newSettings.daily_limit);
         }
       }
     } catch (err) {

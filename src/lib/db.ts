@@ -696,14 +696,18 @@ export function getUserSettings(): UserSettings {
       for (const r of rows) {
         map[r.key] = r.value;
       }
+      const parsedDailyLimit = parseInt(map.daily_limit || '15', 10);
+      const parsedHskLevel = parseInt(map.hsk_level || '1', 10);
+      const parsedSpeechRate = parseFloat(map.speech_rate || '0.85');
+
       return toPlain({
         user_name: map.user_name || 'Học viên',
-        daily_limit: parseInt(map.daily_limit || '15', 10),
-        speech_rate: parseFloat(map.speech_rate || '0.85'),
+        daily_limit: Number.isNaN(parsedDailyLimit) || parsedDailyLimit < 5 ? 15 : parsedDailyLimit,
+        speech_rate: Number.isNaN(parsedSpeechRate) ? 0.85 : parsedSpeechRate,
         audio_engine: (map.audio_engine === 'browser' ? 'browser' : 'online') as 'online' | 'browser',
         auto_play_audio: map.auto_play_audio === 'true',
         has_onboarded: map.has_onboarded === 'true',
-        hsk_level: parseInt(map.hsk_level || '1', 10),
+        hsk_level: Number.isNaN(parsedHskLevel) ? 1 : parsedHskLevel,
       });
     } catch (err) {
       console.warn('SQLite getUserSettings error, falling back to memory store:', err);
@@ -715,6 +719,15 @@ export function getUserSettings(): UserSettings {
 }
 
 export function updateUserSettings(settings: Partial<UserSettings>): UserSettings {
+  // Always keep in-memory store in sync as well
+  const store = getMemoryStore();
+  store.userSettings = {
+    ...store.userSettings,
+    ...settings,
+    daily_limit: settings.daily_limit !== undefined ? Math.max(5, settings.daily_limit) : store.userSettings.daily_limit,
+    user_name: settings.user_name !== undefined ? settings.user_name.trim() || 'Học viên' : store.userSettings.user_name,
+  };
+
   const db = getDatabase();
   if (db) {
     try {
@@ -734,13 +747,6 @@ export function updateUserSettings(settings: Partial<UserSettings>): UserSetting
     }
   }
 
-  const store = getMemoryStore();
-  store.userSettings = {
-    ...store.userSettings,
-    ...settings,
-    daily_limit: settings.daily_limit !== undefined ? Math.max(5, settings.daily_limit) : store.userSettings.daily_limit,
-    user_name: settings.user_name !== undefined ? settings.user_name.trim() || 'Học viên' : store.userSettings.user_name,
-  };
   return toPlain(store.userSettings);
 }
 
