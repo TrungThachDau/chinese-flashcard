@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import {
   Sparkles,
   BookOpen,
@@ -189,7 +189,11 @@ export const MainClientApp: React.FC<MainClientAppProps> = ({
       const res = await fetch("/api/cards", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ cardId, rating }),
+        body: JSON.stringify({
+          cardId,
+          rating,
+          tz: new Date().getTimezoneOffset(),
+        }),
       });
       const data = await res.json();
       if (data.ok && data.card) {
@@ -205,6 +209,29 @@ export const MainClientApp: React.FC<MainClientAppProps> = ({
       console.error("Error reviewing card:", err);
     }
   };
+
+  // Fetch fresh progress stats (always bypass caches, use the learner's timezone)
+  const refreshStats = useCallback(async () => {
+    try {
+      const res = await fetch(`/api/stats?tz=${new Date().getTimezoneOffset()}`, {
+        cache: "no-store",
+      });
+      const data = await res.json();
+      if (data.ok && data.stats) {
+        setStats(data.stats);
+      }
+    } catch (err) {
+      console.error("Error refreshing stats:", err);
+    }
+  }, []);
+
+  // SSR can't know the browser timezone: re-sync "today" / streak once on mount,
+  // and whenever the user opens a screen that displays progress.
+  useEffect(() => {
+    if (activeTab === "stats" || activeTab === "flashcards") {
+      refreshStats();
+    }
+  }, [activeTab, refreshStats]);
 
   // Refresh due cards
   const handleRefreshDue = async (customLimit?: number) => {
@@ -222,11 +249,7 @@ export const MainClientApp: React.FC<MainClientAppProps> = ({
       }
 
       // Refresh stats
-      const statsRes = await fetch("/api/stats");
-      const statsData = await statsRes.json();
-      if (statsData.ok && statsData.stats) {
-        setStats(statsData.stats);
-      }
+      await refreshStats();
     } catch (err) {
       console.error("Error refreshing due cards:", err);
     }

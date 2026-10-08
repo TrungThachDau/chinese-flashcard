@@ -523,6 +523,8 @@ export function recordCardReview(cardId: number, rating: ReviewRating): Card | n
   const db = getDatabase();
   if (db) {
     try {
+      // Card update + review log must succeed or fail together
+      db.exec('BEGIN');
       db.prepare(`
         UPDATE cards SET
           repetition = ?,
@@ -552,9 +554,11 @@ export function recordCardReview(cardId: number, rating: ReviewRating): Card | n
         srsResult.interval,
         srsResult.ease_factor
       );
+      db.exec('COMMIT');
 
       return getCardById(cardId);
     } catch (err) {
+      try { db.exec('ROLLBACK'); } catch {}
       console.warn('SQLite recordCardReview error, falling back to memory store:', err);
     }
   }
@@ -740,8 +744,43 @@ export function updateUserSettings(settings: Partial<UserSettings>): UserSetting
   return toPlain(store.userSettings);
 }
 
-export function getStudyStats(): StudyStats {
-  const now = new Date().toISOString();
+/**
+ * Day boundaries are computed in the *learner's* timezone, not UTC, so that
+ * "today's reviews" and the streak roll over at local midnight.
+ * `tzOffsetMinutes` follows `Date.prototype.getTimezoneOffset()` (UTC+7 -> -420).
+ */
+function getLocalDayInfo(tzOffsetMinutes: number, nowDate: Date = new Date()) {
+  const offsetMs = -tzOffsetMinutes * 60_000;
+  const DAY = 86_400_000;
+  const startMs = Math.floor((nowDate.getTime() + offsetMs) / DAY) * DAY - offsetMs;
+  return {
+    startIso: new Date(startMs).toISOString(),
+    endIso: new Date(startMs + DAY).toISOString(),
+    todayKey: new Date(nowDate.getTime() + offsetMs).toISOString().substring(0, 10),
+    // SQLite date() modifier that shifts a UTC timestamp into local time
+    sqlModifier: `${-tzOffsetMinutes >= 0 ? '+' : '-'}${Math.abs(tzOffsetMinutes)} minutes`,
+    offsetMs,
+  };
+}
+
+/** Consecutive local days with at least one review, ending today (or yesterday). */
+function computeStreak(days: Iterable<string>, todayKey: string): number {
+  const set = new Set(days);
+  const DAY = 86_400_000;
+  let cursor = Date.parse(`${todayKey}T00:00:00Z`);
+  if (!set.has(todayKey)) cursor -= DAY; // streak is still alive until today ends
+  let streak = 0;
+  while (set.has(new Date(cursor).toISOString().substring(0, 10))) {
+    streak += 1;
+    cursor -= DAY;
+  }
+  return streak;
+}
+
+export function getStudyStats(tzOffsetMinutes: number = new Date().getTimezoneOffset()): StudyStats {
+  const nowDate = new Date();
+  const now = nowDate.toISOString();
+  const day = getLocalDayInfo(tzOffsetMinutes, nowDate);
   const db = getDatabase();
 
   if (db) {
@@ -753,8 +792,9 @@ export function getStudyStats(): StudyStats {
       const dueTodayRow = db.prepare('SELECT COUNT(*) as count FROM cards WHERE due_date <= ?').get(now) as { count: number };
       const totalReviewsRow = db.prepare('SELECT COUNT(*) as count FROM review_logs').get() as { count: number };
 
-      const todayPrefix = now.substring(0, 10);
-      const todayReviewsRow = db.prepare('SELECT COUNT(*) as count FROM review_logs WHERE reviewed_at LIKE ?').get(`${todayPrefix}%`) as { count: number };
+      const todayReviewsRow = db
+        .prepare('SELECT COUNT(*) as count FROM review_logs WHERE reviewed_at >= ? AND reviewed_at < ?')
+        .get(day.startIso, day.endIso) as { count: number };
 
       const successReviewsRow = db.prepare('SELECT COUNT(*) as count FROM review_logs WHERE rating >= 3').get() as { count: number };
       const retentionRate = totalReviewsRow.count > 0 
@@ -762,12 +802,12 @@ export function getStudyStats(): StudyStats {
         : 100;
 
       const streakRows = db.prepare(`
-        SELECT DISTINCT SUBSTR(reviewed_at, 1, 10) as review_day 
-        FROM review_logs 
-        ORDER BY review_day DESC 
-        LIMIT 30
-      `).all() as Array<{ review_day: string }>;
-      const streakDays = Math.max(1, streakRows.length);
+        SELECT DISTINCT date(reviewed_at, ?) as review_day
+        FROM review_logs
+        ORDER BY review_day DESC
+        LIMIT 400
+      `).all(day.sqlModifier) as Array<{ review_day: string }>;
+      const streakDays = computeStreak(streakRows.map((r) => r.review_day), day.todayKey);
 
       const categories: CategoryInfo[] = CATEGORIES_CONFIG.map((cfg) => {
         const totalRow = db.prepare('SELECT COUNT(*) as count FROM cards WHERE category = ?').get(cfg.id) as { count: number };
@@ -818,14 +858,17 @@ export function getStudyStats(): StudyStats {
   const dueToday = store.cards.filter((c) => c.due_date <= now || c.status === 'new').length;
 
   const totalReviews = store.reviewLogs.length;
-  const todayPrefix = now.substring(0, 10);
-  const todayReviews = store.reviewLogs.filter((l) => l.reviewed_at.startsWith(todayPrefix)).length;
+  const todayReviews = store.reviewLogs.filter(
+    (l) => l.reviewed_at >= day.startIso && l.reviewed_at < day.endIso
+  ).length;
 
   const successReviews = store.reviewLogs.filter((l) => l.rating >= 3).length;
   const retentionRate = totalReviews > 0 ? Math.round((successReviews / totalReviews) * 100) : 100;
 
-  const distinctDays = new Set(store.reviewLogs.map((l) => l.reviewed_at.substring(0, 10)));
-  const streakDays = Math.max(1, distinctDays.size);
+  const distinctDays = store.reviewLogs.map((l) =>
+    new Date(Date.parse(l.reviewed_at) + day.offsetMs).toISOString().substring(0, 10)
+  );
+  const streakDays = computeStreak(distinctDays, day.todayKey);
 
   const categories: CategoryInfo[] = CATEGORIES_CONFIG.map((cfg) => {
     const catCards = store.cards.filter((c) => c.category === cfg.id);
@@ -858,6 +901,21 @@ export function getStudyStats(): StudyStats {
 }
 
 export function resetDatabase() {
+  // Safety net: snapshot learner progress to data/backups before dropping anything
+  try {
+    const backup = exportProgress();
+    if (backup.cards.length > 0 || backup.review_logs.length > 0) {
+      const dir = path.join(process.cwd(), 'data', 'backups');
+      fs.mkdirSync(dir, { recursive: true });
+      fs.writeFileSync(
+        path.join(dir, `progress-before-reset-${Date.now()}.json`),
+        JSON.stringify(backup, null, 2)
+      );
+    }
+  } catch (err) {
+    console.warn('Could not write pre-reset backup:', err);
+  }
+
   const db = getDatabase();
   if (db) {
     try {
@@ -873,4 +931,194 @@ export function resetDatabase() {
   }
 
   globalThis.__inMemoryStoreInstance = initMemoryStore();
+}
+
+// ---------------------------------------------------------------------------
+// 4. PORTABLE BACKUP FORMAT (lossless SQLite <-> Supabase migration)
+// ---------------------------------------------------------------------------
+// Progress is keyed by a *stable* card key (`hanzi|pinyin`, unique across all
+// 537 HSK 3.0 L1 cards) instead of the auto-increment `id`, which is only an
+// artefact of the local seed order and would differ in another database.
+
+export const BACKUP_FORMAT = 'chinese-flashcard-backup';
+export const BACKUP_VERSION = 1;
+
+export function makeCardKey(card: Pick<Card, 'hanzi' | 'pinyin'>): string {
+  return `${card.hanzi}|${card.pinyin}`;
+}
+
+export interface BackupCardProgress {
+  key: string;
+  hanzi: string;
+  pinyin: string;
+  repetition: number;
+  interval: number;
+  ease_factor: number;
+  due_date: string;
+  last_reviewed: string | null;
+  status: CardStatus;
+}
+
+export interface BackupReviewLog {
+  card_key: string;
+  rating: ReviewRating;
+  reviewed_at: string;
+  interval: number;
+  ease_factor: number;
+}
+
+export interface BackupLifeProgress {
+  id: number;
+  completed: boolean;
+  last_practiced: string | null;
+}
+
+export interface ProgressBackup {
+  format: typeof BACKUP_FORMAT;
+  version: number;
+  exported_at: string;
+  settings: UserSettings;
+  cards: BackupCardProgress[];
+  review_logs: BackupReviewLog[];
+  life_questions: BackupLifeProgress[];
+}
+
+function getAllReviewLogs(): ReviewLog[] {
+  const db = getDatabase();
+  if (db) {
+    try {
+      return toPlain(db.prepare('SELECT * FROM review_logs ORDER BY id ASC').all() as unknown as ReviewLog[]);
+    } catch (err) {
+      console.warn('SQLite getAllReviewLogs error, falling back to memory store:', err);
+    }
+  }
+  return toPlain(getMemoryStore().reviewLogs);
+}
+
+/** Snapshot of everything the learner has produced (never the static seed content). */
+export function exportProgress(): ProgressBackup {
+  const cards = getAllCards();
+  const keyById = new Map<number, string>(cards.map((c) => [c.id, makeCardKey(c)]));
+
+  return {
+    format: BACKUP_FORMAT,
+    version: BACKUP_VERSION,
+    exported_at: new Date().toISOString(),
+    settings: getUserSettings(),
+    cards: cards
+      .filter((c) => c.status !== 'new' || c.last_reviewed !== null)
+      .map((c) => ({
+        key: makeCardKey(c),
+        hanzi: c.hanzi,
+        pinyin: c.pinyin,
+        repetition: c.repetition,
+        interval: c.interval,
+        ease_factor: c.ease_factor,
+        due_date: c.due_date,
+        last_reviewed: c.last_reviewed,
+        status: c.status,
+      })),
+    review_logs: getAllReviewLogs()
+      .filter((l) => keyById.has(l.card_id))
+      .map((l) => ({
+        card_key: keyById.get(l.card_id)!,
+        rating: l.rating,
+        reviewed_at: l.reviewed_at,
+        interval: l.interval,
+        ease_factor: l.ease_factor,
+      })),
+    life_questions: getLifeQuestions()
+      .filter((q) => q.completed || q.last_practiced)
+      .map((q) => ({ id: q.id, completed: q.completed, last_practiced: q.last_practiced })),
+  };
+}
+
+export interface ImportResult {
+  cards: number;
+  review_logs: number;
+  life_questions: number;
+  skipped_cards: number;
+}
+
+/**
+ * Restore a backup. Idempotent: running it twice yields the same state
+ * (cards are matched by key, review logs deduped on card + timestamp).
+ */
+export function importProgress(backup: ProgressBackup): ImportResult {
+  if (!backup || backup.format !== BACKUP_FORMAT || !Array.isArray(backup.cards)) {
+    throw new Error('Invalid backup file');
+  }
+  if (backup.version > BACKUP_VERSION) {
+    throw new Error(`Backup version ${backup.version} is newer than supported (${BACKUP_VERSION})`);
+  }
+
+  const result: ImportResult = { cards: 0, review_logs: 0, life_questions: 0, skipped_cards: 0 };
+  const cards = getAllCards();
+  const idByKey = new Map<string, number>(cards.map((c) => [makeCardKey(c), c.id]));
+  const db = getDatabase();
+
+  if (db) {
+    try {
+      db.exec('BEGIN');
+      const updateCard = db.prepare(`
+        UPDATE cards SET repetition = ?, interval = ?, ease_factor = ?, due_date = ?, last_reviewed = ?, status = ?
+        WHERE id = ?
+      `);
+      for (const c of backup.cards) {
+        const id = idByKey.get(c.key);
+        if (!id) { result.skipped_cards += 1; continue; }
+        updateCard.run(c.repetition, c.interval, c.ease_factor, c.due_date, c.last_reviewed, c.status, id);
+        result.cards += 1;
+      }
+
+      const existsLog = db.prepare('SELECT 1 FROM review_logs WHERE card_id = ? AND reviewed_at = ?');
+      const insertLog = db.prepare(
+        'INSERT INTO review_logs (card_id, rating, reviewed_at, interval, ease_factor) VALUES (?, ?, ?, ?, ?)'
+      );
+      for (const l of backup.review_logs || []) {
+        const id = idByKey.get(l.card_key);
+        if (!id || existsLog.get(id, l.reviewed_at)) continue;
+        insertLog.run(id, l.rating, l.reviewed_at, l.interval, l.ease_factor);
+        result.review_logs += 1;
+      }
+
+      const updateQ = db.prepare('UPDATE life_questions SET completed = ?, last_practiced = ? WHERE id = ?');
+      for (const q of backup.life_questions || []) {
+        updateQ.run(q.completed ? 1 : 0, q.last_practiced, q.id);
+        result.life_questions += 1;
+      }
+      db.exec('COMMIT');
+    } catch (err) {
+      try { db.exec('ROLLBACK'); } catch {}
+      throw err;
+    }
+  } else {
+    const store = getMemoryStore();
+    for (const c of backup.cards) {
+      const idx = store.cards.findIndex((x) => makeCardKey(x) === c.key);
+      if (idx === -1) { result.skipped_cards += 1; continue; }
+      store.cards[idx] = { ...store.cards[idx], ...c, id: store.cards[idx].id } as Card;
+      result.cards += 1;
+    }
+    for (const l of backup.review_logs || []) {
+      const id = idByKey.get(l.card_key);
+      if (!id || store.reviewLogs.some((x) => x.card_id === id && x.reviewed_at === l.reviewed_at)) continue;
+      store.reviewLogs.push({
+        id: store.reviewLogs.length + 1,
+        card_id: id,
+        rating: l.rating,
+        reviewed_at: l.reviewed_at,
+        interval: l.interval,
+        ease_factor: l.ease_factor,
+      });
+      result.review_logs += 1;
+    }
+    for (const q of backup.life_questions || []) {
+      const item = store.lifeQuestions.find((x) => x.id === q.id);
+      if (item) { item.completed = q.completed; item.last_practiced = q.last_practiced; result.life_questions += 1; }
+    }
+  }
+
+  if (backup.settings) updateUserSettings(backup.settings);
+  return result;
 }

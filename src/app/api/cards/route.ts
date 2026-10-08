@@ -27,9 +27,10 @@ export async function GET(request: NextRequest) {
 }
 
 export async function POST(request: NextRequest) {
+  await connection();
   try {
     const body = await request.json();
-    const { cardId, rating } = body;
+    const { cardId, rating, tz } = body;
 
     if (!cardId || typeof rating !== 'number' || rating < 1 || rating > 4) {
       return NextResponse.json({ ok: false, error: 'Invalid cardId or rating' }, { status: 400 });
@@ -40,7 +41,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ ok: false, error: 'Card not found' }, { status: 404 });
     }
 
-    const stats = getStudyStats();
+    const stats = getStudyStats(typeof tz === 'number' && Number.isFinite(tz) ? tz : undefined);
     return NextResponse.json({ ok: true, card: updatedCard, stats });
   } catch (error) {
     console.error('Error recording review:', error);

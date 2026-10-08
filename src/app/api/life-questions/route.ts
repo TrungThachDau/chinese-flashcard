@@ -1,7 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { connection } from 'next/server';
 import { getLifeQuestions, recordLifeQuestionPractice } from '@/lib/db';
 
 export async function GET() {
+  await connection();
   try {
     const questions = getLifeQuestions();
     return NextResponse.json({ ok: true, questions });
