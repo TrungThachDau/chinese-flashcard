@@ -77,3 +77,60 @@ body {
   animation: indeterminate 1.4s infinite ease-in-out;
 }
 
+@keyframes splashFadeIn {
+  0%, 99% {
+    opacity: 0;
+    visibility: hidden;
+  }
+  100% {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.animate-splash-delayed {
+  animation: splashFadeIn 0.2s linear forwards;
+}
+
+/* Liquid Glass (Futuristic iOS 27 glassmorphism dock) */
+.liquid-glass {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow:
+    0 16px 36px -4px rgba(15, 23, 42, 0.12),
+    0 4px 16px -2px rgba(15, 23, 42, 0.04),
+    inset 0 1.5px 1.5px 0 rgba(255, 255, 255, 0.95),
+    inset 0 -1px 2px 0 rgba(0, 0, 0, 0.03);
+}
+
+.liquid-glass-active {
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow:
+    0 4px 14px -1px rgba(244, 63, 94, 0.22),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+}
+
+@media (prefers-color-scheme: dark) {
+  .liquid-glass {
+    background: rgba(15, 23, 42, 0.88);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    box-shadow:
+      0 20px 45px -4px rgba(0, 0, 0, 0.6),
+      0 4px 16px -2px rgba(0, 0, 0, 0.4),
+      inset 0 1.5px 1.5px 0 rgba(255, 255, 255, 0.22),
+      inset 0 -1px 2px 0 rgba(0, 0, 0, 0.3);
+  }
+
+  .liquid-glass-active {
+    background: rgba(30, 41, 59, 0.9);
+    box-shadow:
+      0 4px 16px -1px rgba(244, 63, 94, 0.3),
+      inset 0 1px 1px 0 rgba(255, 255, 255, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+}
+
+

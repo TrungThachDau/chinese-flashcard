@@ -1,8 +1,29 @@
-import React from "react";
+"use client";
 
-export const SplashScreen: React.FC = () => {
+import React, { useState, useEffect } from "react";
+
+interface SplashScreenProps {
+  delayMs?: number;
+}
+
+export const SplashScreen: React.FC<SplashScreenProps> = ({ delayMs = 200 }) => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    // Only show loading splash screen if response/loading takes longer than delayMs (200ms)
+    const timer = setTimeout(() => {
+      setIsVisible(true);
+    }, delayMs);
+
+    return () => clearTimeout(timer);
+  }, [delayMs]);
+
+  if (!isVisible) {
+    return null;
+  }
+
   return (
-    <div className="fixed inset-0 z-[99999] flex flex-col items-center justify-between p-6 bg-gradient-to-br from-amber-50/90 via-rose-50/60 to-indigo-50/90 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 text-slate-800 dark:text-slate-100 select-none">
+    <div className="fixed inset-0 z-[99999] flex flex-col items-center justify-between p-6 bg-gradient-to-br from-amber-50/90 via-rose-50/60 to-indigo-50/90 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 text-slate-800 dark:text-slate-100 select-none animate-splash-delayed animate-in fade-in duration-300">
       {/* Top spacer for optical balance */}
       <div className="w-full h-8" />
 
@@ -45,7 +66,7 @@ export const SplashScreen: React.FC = () => {
 
       {/* Footer Branding */}
       <div className="text-[11px] text-slate-400 dark:text-slate-600 font-bold tracking-wider uppercase">
-        Spaced Repetition System
+        
       </div>
     </div>
   );

@@ -22,7 +22,7 @@ import { Navbar } from "./Navbar";
 import { BottomNav } from "./BottomNav";
 import { FlashcardView } from "./FlashcardView";
 import { LifeQuestionsView } from "./LifeQuestionsView";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { VocabularyList } from "./VocabularyList";
 import { ProgressStats } from "./ProgressStats";
 import { SettingsModal } from "./SettingsModal";
@@ -69,7 +69,6 @@ export const MainClientApp: React.FC<MainClientAppProps> = ({
   initialTab,
 }) => {
   const pathname = usePathname();
-  const router = useRouter();
 
   const [activeTab, setActiveTab] = useState<AppTab>(() => {
     if (initialTab) return initialTab;
@@ -77,21 +76,24 @@ export const MainClientApp: React.FC<MainClientAppProps> = ({
     return "flashcards";
   });
 
-  // Synchronize activeTab when browser URL changes (e.g. back/forward navigation)
-  useEffect(() => {
-    if (pathname) {
-      const targetTab = getTabFromPath(pathname);
-      setActiveTab((prev) => (prev !== targetTab ? targetTab : prev));
-    }
-  }, [pathname]);
-
   const handleTabChange = (newTab: AppTab) => {
     setActiveTab(newTab);
     const targetPath = getPathFromTab(newTab);
-    if (pathname !== targetPath) {
-      router.push(targetPath, { scroll: false });
+    if (typeof window !== "undefined" && window.location.pathname !== targetPath) {
+      window.history.pushState({ tab: newTab }, "", targetPath);
     }
   };
+
+  // Synchronize activeTab when browser Back/Forward is clicked
+  useEffect(() => {
+    const handlePopState = () => {
+      const tab = getTabFromPath(window.location.pathname);
+      setActiveTab(tab);
+    };
+
+    window.addEventListener("popstate", handlePopState);
+    return () => window.removeEventListener("popstate", handlePopState);
+  }, []);
 
   const [dueCards, setDueCards] = useState<Card[]>(initialDueCards);
   const [allCards, setAllCards] = useState<Card[]>(initialAllCards);
@@ -289,35 +291,41 @@ export const MainClientApp: React.FC<MainClientAppProps> = ({
       />
 
       {/* Main Container */}
-      <main className="flex-1 w-full max-w-5xl mx-auto px-4 py-5 md:py-8 pb-24 md:pb-12">
+      <main
+        className={`flex-1 w-full max-w-5xl mx-auto px-3 sm:px-4 ${
+          activeTab === "flashcards"
+            ? "py-2 sm:py-5 pb-20 sm:pb-24"
+            : "py-4 sm:py-8 pb-24"
+        }`}
+      >
         {/* TAB 1: FLASHCARDS SRS */}
         {activeTab === "flashcards" && (
-          <div className="space-y-4">
-            {/* User Greeting & Daily Goal Progress */}
-            <div className="max-w-md mx-auto p-3.5 sm:p-4 rounded-3xl bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border border-slate-200/80 dark:border-slate-800 shadow-sm flex items-center justify-between gap-3">
-              <div className="flex items-center gap-2.5 min-w-0">
-                <div className="w-10 h-10 rounded-2xl bg-gradient-to-tr from-amber-400 via-rose-500 to-indigo-600 text-white flex items-center justify-center text-base font-bold shadow-md shadow-rose-500/20 shrink-0">
+          <div className="space-y-2 sm:space-y-4">
+            {/* User Greeting & Daily Goal Progress (Compact on mobile) */}
+            <div className="max-w-md mx-auto p-2 sm:p-4 rounded-2xl sm:rounded-3xl bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border border-slate-200/80 dark:border-slate-800 shadow-xs flex items-center justify-between gap-2.5">
+              <div className="flex items-center gap-2 min-w-0">
+                <div className="w-7 h-7 sm:w-10 sm:h-10 rounded-xl sm:rounded-2xl bg-gradient-to-tr from-amber-400 via-rose-500 to-indigo-600 text-white flex items-center justify-center text-xs sm:text-base font-bold shadow-xs shadow-rose-500/20 shrink-0">
                   👋
                 </div>
                 <div className="min-w-0">
-                  <div className="text-sm font-black text-slate-800 dark:text-slate-100 truncate flex items-center gap-1.5">
+                  <div className="text-xs sm:text-sm font-black text-slate-800 dark:text-slate-100 truncate flex items-center gap-1.5">
                     <span>Chào {settings.user_name}!</span>
-                    <span className="text-[10px] px-1.5 py-0.2 rounded-full bg-amber-100 dark:bg-amber-950/60 text-amber-700 dark:text-amber-300 font-bold border border-amber-300/40">
+                    <span className="text-[9px] sm:text-[10px] px-1.5 py-0.2 rounded-full bg-amber-100 dark:bg-amber-950/60 text-amber-700 dark:text-amber-300 font-bold border border-amber-300/40">
                       HSK {settings.hsk_level || 1}
                     </span>
                   </div>
-                  <div className="text-[11px] text-slate-500 dark:text-slate-400">
+                  <div className="text-[10px] sm:text-[11px] text-slate-500 dark:text-slate-400 leading-tight">
                     Mục tiêu:{" "}
                     <span className="font-bold text-rose-600 dark:text-rose-400">
                       {stats.today_reviewed_count || 0}
                     </span>{" "}
-                    / {settings.daily_limit} từ hôm nay
+                    / {settings.daily_limit} từ
                   </div>
                 </div>
               </div>
 
               <div className="flex flex-col items-end shrink-0">
-                <div className="w-24 sm:w-28 h-2 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden border border-slate-200/60 dark:border-slate-700/60 mb-1">
+                <div className="w-16 sm:w-28 h-1.5 sm:h-2 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden border border-slate-200/60 dark:border-slate-700/60 mb-0.5 sm:mb-1">
                   <div
                     className="h-full bg-gradient-to-r from-amber-500 via-rose-500 to-emerald-500 rounded-full transition-all duration-500"
                     style={{
@@ -325,7 +333,7 @@ export const MainClientApp: React.FC<MainClientAppProps> = ({
                     }}
                   />
                 </div>
-                <span className="text-[10px] font-bold text-slate-500 dark:text-slate-400">
+                <span className="text-[9px] sm:text-[10px] font-bold text-slate-500 dark:text-slate-400">
                   {Math.min(
                     100,
                     Math.round(

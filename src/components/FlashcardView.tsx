@@ -207,13 +207,13 @@ export const FlashcardView: React.FC<FlashcardViewProps> = ({
   return (
     <div className="w-full max-w-md mx-auto flex flex-col items-center">
       {/* Top Header with Compact Deck Dropdown */}
-      <div className="w-full mb-3 flex items-center justify-between text-xs text-slate-500 dark:text-slate-400 px-1">
+      <div className="w-full mb-1.5 sm:mb-3 flex items-center justify-between text-xs text-slate-500 dark:text-slate-400 px-1">
         {/* Category Dropdown Pill */}
         <div className="relative" ref={categoryMenuRef}>
           <button
             type="button"
             onClick={() => setIsCategoryMenuOpen((prev) => !prev)}
-            className="flex items-center gap-1.5 py-1.5 px-3 rounded-2xl bg-white/90 dark:bg-slate-800/90 border border-slate-200/90 dark:border-slate-700 font-bold text-slate-700 dark:text-slate-200 shadow-sm hover:border-amber-400 transition-colors"
+            className="flex items-center gap-1.5 py-1 px-2.5 sm:py-1.5 sm:px-3 rounded-xl sm:rounded-2xl bg-white/90 dark:bg-slate-800/90 border border-slate-200/90 dark:border-slate-700 font-bold text-slate-700 dark:text-slate-200 shadow-sm hover:border-amber-400 transition-colors text-xs"
           >
             <span className="truncate max-w-[170px] sm:max-w-[210px]">{categoryLabel}</span>
             <ChevronDown className="w-3.5 h-3.5 text-slate-400 shrink-0" />
@@ -286,7 +286,7 @@ export const FlashcardView: React.FC<FlashcardViewProps> = ({
       </div>
 
       {/* Progress Bar */}
-      <div className="w-full h-2 rounded-full bg-slate-200 dark:bg-slate-800 mb-4 overflow-hidden">
+      <div className="w-full h-1.5 sm:h-2 rounded-full bg-slate-200 dark:bg-slate-800 mb-2 sm:mb-4 overflow-hidden">
         <div
           className="h-full bg-gradient-to-r from-amber-400 via-rose-500 to-indigo-500 transition-all duration-300 rounded-full"
           style={{ width: `${progressPercent}%` }}
@@ -295,7 +295,7 @@ export const FlashcardView: React.FC<FlashcardViewProps> = ({
 
       {/* 3D Flip Card Container */}
       <div
-        className="w-full relative h-[360px] sm:h-[390px] cursor-pointer select-none perspective-1000"
+        className="w-full relative h-[clamp(280px,38vh,380px)] cursor-pointer select-none perspective-1000"
         onClick={() => setIsFlipped((prev) => !prev)}
       >
         <div
@@ -310,7 +310,7 @@ export const FlashcardView: React.FC<FlashcardViewProps> = ({
         >
           {/* FRONT SIDE */}
           <div
-            className="absolute inset-0 w-full h-full rounded-3xl p-6 flex flex-col justify-between items-center backface-hidden bg-white/95 dark:bg-slate-900/95 backdrop-blur-2xl border-2 border-slate-200/90 dark:border-slate-800 shadow-2xl shadow-indigo-500/10 text-center"
+            className="absolute inset-0 w-full h-full rounded-2xl sm:rounded-3xl p-3.5 sm:p-6 flex flex-col justify-between items-center backface-hidden bg-white/95 dark:bg-slate-900/95 backdrop-blur-2xl border-2 border-slate-200/90 dark:border-slate-800 shadow-2xl shadow-indigo-500/10 text-center"
             style={{ backfaceVisibility: 'hidden' }}
           >
             {/* Top utility row */}
@@ -321,7 +321,7 @@ export const FlashcardView: React.FC<FlashcardViewProps> = ({
                   e.stopPropagation();
                   setShowPinyinOnFront((prev) => !prev);
                 }}
-                className="p-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white transition-colors flex items-center gap-1.5 text-xs font-medium"
+                className="p-1.5 sm:p-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white transition-colors flex items-center gap-1.5 text-xs font-medium"
                 title="Bật/Tắt Pinyin"
               >
                 {showPinyinOnFront ? <EyeOff className="w-3.5 h-3.5" /> : <Eye className="w-3.5 h-3.5" />}
@@ -331,14 +331,14 @@ export const FlashcardView: React.FC<FlashcardViewProps> = ({
               <button
                 type="button"
                 onClick={handlePlayAudio}
-                className={`p-2.5 rounded-2xl transition-all shadow-sm active:scale-95 ${
+                className={`p-2 sm:p-2.5 rounded-xl sm:rounded-2xl transition-all shadow-sm active:scale-95 ${
                   isPlayingAudio
                     ? 'bg-amber-500 text-white animate-pulse ring-4 ring-amber-500/25'
                     : 'bg-amber-500/15 text-amber-600 dark:text-amber-400 hover:bg-amber-500/25'
                 }`}
                 title="Bấm để phát âm chuẩn (Mandarin)"
               >
-                <Volume2 className="w-5 h-5" />
+                <Volume2 className="w-4.5 h-4.5 sm:w-5 sm:h-5" />
               </button>
             </div>
 
@@ -347,31 +347,31 @@ export const FlashcardView: React.FC<FlashcardViewProps> = ({
               className="flex flex-col items-center justify-center my-auto"
               onClick={(e) => e.stopPropagation()}
             >
-              <div className="text-6xl sm:text-7xl font-extrabold tracking-wider mb-3 text-slate-900 dark:text-white drop-shadow-sm">
+              <div className="text-5xl sm:text-7xl font-extrabold tracking-wider mb-2 sm:mb-3 text-slate-900 dark:text-white drop-shadow-sm">
                 <HanziText text={currentCard.hanzi} />
               </div>
 
               {showPinyinOnFront && (
-                <div className="text-lg font-bold text-amber-600 dark:text-amber-400 animate-in fade-in slide-in-from-top-1 font-sans">
+                <div className="text-base sm:text-lg font-bold text-amber-600 dark:text-amber-400 animate-in fade-in slide-in-from-top-1 font-sans">
                   {currentCard.pinyin}
                 </div>
               )}
 
-              <p className="text-[11px] text-slate-400 mt-2 font-sans">
+              <p className="text-[10px] sm:text-[11px] text-slate-400 mt-1.5 sm:mt-2 font-sans">
                 💡 Rê chuột / chạm từng chữ để xem bộ thủ & nét
               </p>
             </div>
 
             {/* Bottom flip guide */}
-            <div className="w-full flex items-center justify-center gap-1.5 text-xs font-medium text-slate-400 font-sans">
-              <RotateCw className="w-3.5 h-3.5" />
+            <div className="w-full flex items-center justify-center gap-1.5 text-[11px] sm:text-xs font-medium text-slate-400 font-sans">
+              <RotateCw className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
               <span>Chạm thẻ hoặc phím Cách để lật mặt sau</span>
             </div>
           </div>
 
           {/* BACK SIDE */}
           <div
-            className="absolute inset-0 w-full h-full rounded-3xl p-6 flex flex-col justify-between backface-hidden bg-gradient-to-b from-white via-slate-50 to-amber-50/30 dark:from-slate-900 dark:via-slate-900/95 dark:to-amber-950/20 backdrop-blur-2xl border-2 border-amber-500/30 dark:border-amber-500/20 shadow-2xl shadow-amber-500/10 text-center"
+            className="absolute inset-0 w-full h-full rounded-2xl sm:rounded-3xl p-3.5 sm:p-6 flex flex-col justify-between backface-hidden bg-gradient-to-b from-white via-slate-50 to-amber-50/30 dark:from-slate-900 dark:via-slate-900/95 dark:to-amber-950/20 backdrop-blur-2xl border-2 border-amber-500/30 dark:border-amber-500/20 shadow-2xl shadow-amber-500/10 text-center"
             style={{
               backfaceVisibility: 'hidden',
               transform: 'rotateY(180deg)',
@@ -379,48 +379,48 @@ export const FlashcardView: React.FC<FlashcardViewProps> = ({
           >
             {/* Top row */}
             <div className="flex items-center justify-between">
-              <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-amber-100 dark:bg-amber-950/60 text-amber-700 dark:text-amber-300">
+              <span className="text-[11px] sm:text-xs font-semibold px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full bg-amber-100 dark:bg-amber-950/60 text-amber-700 dark:text-amber-300">
                 Âm Hán Việt: {currentCard.sino_vietnamese}
               </span>
               <button
                 type="button"
                 onClick={handlePlayAudio}
-                className={`p-2 rounded-xl transition-colors ${
+                className={`p-1.5 sm:p-2 rounded-lg sm:rounded-xl transition-colors ${
                   isPlayingAudio
                     ? 'bg-amber-500 text-white animate-pulse'
                     : 'bg-amber-500/15 text-amber-600 dark:text-amber-400 hover:bg-amber-500/25'
                 }`}
                 title="Phát âm từ"
               >
-                <Volume2 className="w-4 h-4" />
+                <Volume2 className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
               </button>
             </div>
 
             {/* Middle Meaning */}
-            <div className="my-auto space-y-2">
+            <div className="my-auto space-y-1 sm:space-y-2 max-h-[calc(100%-48px)] overflow-y-auto no-scrollbar py-1 w-full">
               <div
-                className="text-4xl sm:text-5xl font-extrabold text-slate-900 dark:text-white"
+                className="text-3xl sm:text-5xl font-extrabold text-slate-900 dark:text-white"
                 onClick={(e) => e.stopPropagation()}
               >
                 <HanziText text={currentCard.hanzi} />
               </div>
 
-              <div className="text-lg font-bold text-amber-600 dark:text-amber-400 font-sans">
+              <div className="text-base sm:text-lg font-bold text-amber-600 dark:text-amber-400 font-sans">
                 {currentCard.pinyin}
               </div>
 
-              <div className="text-xl font-bold text-slate-900 dark:text-white border-t border-slate-200/60 dark:border-slate-800/80 pt-2 font-sans">
+              <div className="text-base sm:text-xl font-bold text-slate-900 dark:text-white border-t border-slate-200/60 dark:border-slate-800/80 pt-1.5 sm:pt-2 font-sans">
                 {currentCard.meaning}
               </div>
 
               {/* Example sentence */}
               {currentCard.example_sentence && (
                 <div
-                  className="mt-3 p-2.5 rounded-2xl bg-white/80 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-800 text-left cursor-pointer hover:border-amber-300 transition-colors font-sans"
+                  className="mt-1.5 sm:mt-3 p-2 sm:p-2.5 rounded-xl sm:rounded-2xl bg-white/80 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-800 text-left cursor-pointer hover:border-amber-300 transition-colors font-sans"
                   onClick={handlePlaySentenceAudio}
                   title="Bấm để nghe câu ví dụ"
                 >
-                  <div className="flex items-center justify-between text-xs font-semibold text-indigo-600 dark:text-indigo-400 mb-1">
+                  <div className="flex items-center justify-between text-[11px] sm:text-xs font-semibold text-indigo-600 dark:text-indigo-400 mb-0.5 sm:mb-1">
                     <span className="flex items-center gap-1">
                       <Sparkles className="w-3 h-3 text-amber-500" />
                       Ví dụ thực tế:
@@ -428,15 +428,15 @@ export const FlashcardView: React.FC<FlashcardViewProps> = ({
                     <Volume2 className="w-3.5 h-3.5 text-slate-400" />
                   </div>
                   <div
-                    className="text-sm font-semibold text-slate-800 dark:text-slate-200 font-serif"
+                    className="text-xs sm:text-sm font-semibold text-slate-800 dark:text-slate-200 font-serif"
                     onClick={(e) => e.stopPropagation()}
                   >
                     <HanziText text={currentCard.example_sentence} />
                   </div>
-                  <div className="text-[11px] text-amber-600 dark:text-amber-400 font-sans">
+                  <div className="text-[10px] sm:text-[11px] text-amber-600 dark:text-amber-400 font-sans">
                     {currentCard.example_pinyin}
                   </div>
-                  <div className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5 font-sans">
+                  <div className="text-[10px] sm:text-[11px] text-slate-500 dark:text-slate-400 mt-0.5 font-sans">
                     {currentCard.example_meaning}
                   </div>
                 </div>
@@ -444,7 +444,7 @@ export const FlashcardView: React.FC<FlashcardViewProps> = ({
             </div>
 
             {/* Bottom reminder */}
-            <div className="text-[11px] text-slate-400 font-sans">
+            <div className="text-[10px] sm:text-[11px] text-slate-400 font-sans">
               Chọn mức độ nhớ bên dưới để SRS lên lịch ôn tập
             </div>
           </div>
@@ -452,15 +452,15 @@ export const FlashcardView: React.FC<FlashcardViewProps> = ({
       </div>
 
       {/* SRS RATING BUTTONS (SM-2) */}
-      <div className="w-full mt-5">
+      <div className="w-full mt-2.5 sm:mt-5">
         {isFlipped ? (
-          <div className="grid grid-cols-4 gap-2">
+          <div className="grid grid-cols-4 gap-1.5 sm:gap-2">
             {/* 1. LẠI (Again) */}
             <button
               type="button"
               disabled={isSubmitting}
               onClick={() => handleRating(1)}
-              className="group flex flex-col items-center justify-center py-2.5 px-2 rounded-2xl bg-rose-50 hover:bg-rose-100 dark:bg-rose-950/40 dark:hover:bg-rose-900/50 border border-rose-200 dark:border-rose-900/60 text-rose-700 dark:text-rose-300 font-bold transition-all active:scale-95 shadow-sm"
+              className="group flex flex-col items-center justify-center py-1.5 sm:py-2.5 px-1 sm:px-2 rounded-xl sm:rounded-2xl bg-rose-50 hover:bg-rose-100 dark:bg-rose-950/40 dark:hover:bg-rose-900/50 border border-rose-200 dark:border-rose-900/60 text-rose-700 dark:text-rose-300 font-bold transition-all active:scale-95 shadow-sm"
             >
               <span className="text-xs group-hover:scale-105 transition-transform font-sans">Quên</span>
               <span className="text-[10px] font-normal text-rose-500 dark:text-rose-400 opacity-90 font-sans">
@@ -474,7 +474,7 @@ export const FlashcardView: React.FC<FlashcardViewProps> = ({
               type="button"
               disabled={isSubmitting}
               onClick={() => handleRating(2)}
-              className="group flex flex-col items-center justify-center py-2.5 px-2 rounded-2xl bg-amber-50 hover:bg-amber-100 dark:bg-amber-950/40 dark:hover:bg-amber-900/50 border border-amber-200 dark:border-amber-900/60 text-amber-700 dark:text-amber-300 font-bold transition-all active:scale-95 shadow-sm"
+              className="group flex flex-col items-center justify-center py-1.5 sm:py-2.5 px-1 sm:px-2 rounded-xl sm:rounded-2xl bg-amber-50 hover:bg-amber-100 dark:bg-amber-950/40 dark:hover:bg-amber-900/50 border border-amber-200 dark:border-amber-900/60 text-amber-700 dark:text-amber-300 font-bold transition-all active:scale-95 shadow-sm"
             >
               <span className="text-xs group-hover:scale-105 transition-transform font-sans">Khó</span>
               <span className="text-[10px] font-normal text-amber-500 dark:text-amber-400 opacity-90 font-sans">
@@ -488,7 +488,7 @@ export const FlashcardView: React.FC<FlashcardViewProps> = ({
               type="button"
               disabled={isSubmitting}
               onClick={() => handleRating(3)}
-              className="group flex flex-col items-center justify-center py-2.5 px-2 rounded-2xl bg-emerald-50 hover:bg-emerald-100 dark:bg-emerald-950/40 dark:hover:bg-emerald-900/50 border border-emerald-200 dark:border-emerald-900/60 text-emerald-700 dark:text-emerald-300 font-bold transition-all active:scale-95 shadow-sm"
+              className="group flex flex-col items-center justify-center py-1.5 sm:py-2.5 px-1 sm:px-2 rounded-xl sm:rounded-2xl bg-emerald-50 hover:bg-emerald-100 dark:bg-emerald-950/40 dark:hover:bg-emerald-900/50 border border-emerald-200 dark:border-emerald-900/60 text-emerald-700 dark:text-emerald-300 font-bold transition-all active:scale-95 shadow-sm"
             >
               <span className="text-xs group-hover:scale-105 transition-transform font-sans">Tốt</span>
               <span className="text-[10px] font-normal text-emerald-500 dark:text-emerald-400 opacity-90 font-sans">
@@ -502,7 +502,7 @@ export const FlashcardView: React.FC<FlashcardViewProps> = ({
               type="button"
               disabled={isSubmitting}
               onClick={() => handleRating(4)}
-              className="group flex flex-col items-center justify-center py-2.5 px-2 rounded-2xl bg-sky-50 hover:bg-sky-100 dark:bg-sky-950/40 dark:hover:bg-sky-900/50 border border-sky-200 dark:border-sky-900/60 text-sky-700 dark:text-sky-300 font-bold transition-all active:scale-95 shadow-sm"
+              className="group flex flex-col items-center justify-center py-1.5 sm:py-2.5 px-1 sm:px-2 rounded-xl sm:rounded-2xl bg-sky-50 hover:bg-sky-100 dark:bg-sky-950/40 dark:hover:bg-sky-900/50 border border-sky-200 dark:border-sky-900/60 text-sky-700 dark:text-sky-300 font-bold transition-all active:scale-95 shadow-sm"
             >
               <span className="text-xs group-hover:scale-105 transition-transform font-sans">Dễ</span>
               <span className="text-[10px] font-normal text-sky-500 dark:text-sky-400 opacity-90 font-sans">
@@ -515,7 +515,7 @@ export const FlashcardView: React.FC<FlashcardViewProps> = ({
           <button
             type="button"
             onClick={() => setIsFlipped(true)}
-            className="w-full py-3.5 px-4 rounded-2xl bg-gradient-to-r from-amber-500 via-rose-500 to-indigo-600 text-white font-bold shadow-lg shadow-rose-500/20 hover:opacity-95 transition-transform active:scale-98 flex items-center justify-center gap-2 font-sans"
+            className="w-full py-2.5 sm:py-3.5 px-4 rounded-xl sm:rounded-2xl bg-gradient-to-r from-amber-500 via-rose-500 to-indigo-600 text-white font-bold shadow-lg shadow-rose-500/20 hover:opacity-95 transition-transform active:scale-98 flex items-center justify-center gap-2 text-sm sm:text-base font-sans"
           >
             <span>Lật thẻ xem đáp án</span>
             <ArrowRight className="w-4 h-4" />

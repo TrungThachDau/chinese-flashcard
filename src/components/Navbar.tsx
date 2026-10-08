@@ -21,13 +21,21 @@ export const Navbar: React.FC<NavbarProps> = ({
   activeTab,
   setActiveTab,
 }) => {
+  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, tab: AppTab) => {
+    if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) {
+      return;
+    }
+    e.preventDefault();
+    setActiveTab(tab);
+  };
+
   return (
     <header className="sticky top-0 z-40 w-full bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl border-b border-slate-200/80 dark:border-slate-800">
-      <div className="max-w-5xl mx-auto px-4 h-16 flex items-center justify-between">
+      <div className="max-w-5xl mx-auto px-3 sm:px-4 h-13 sm:h-16 flex items-center justify-between">
         {/* Brand */}
         <Link
           href="/"
-          onClick={() => setActiveTab("flashcards")}
+          onClick={(e) => handleLinkClick(e, "flashcards")}
           className="flex flex-col cursor-pointer select-none group"
         >
           <div>
@@ -45,9 +53,6 @@ export const Navbar: React.FC<NavbarProps> = ({
                 HSK {settings?.hsk_level || 1} ▾
               </span>
             </div>
-            <div className="text-[10px] text-slate-400 font-medium">
-              Spaced Repetition System
-            </div>
           </div>
         </Link>
 
@@ -55,7 +60,7 @@ export const Navbar: React.FC<NavbarProps> = ({
         <nav className="hidden md:flex items-center gap-1 bg-slate-100/80 dark:bg-slate-800/80 p-1 rounded-2xl border border-slate-200/60 dark:border-slate-700/60 text-xs font-semibold">
           <Link
             href="/"
-            onClick={() => setActiveTab("flashcards")}
+            onClick={(e) => handleLinkClick(e, "flashcards")}
             className={`px-3.5 py-1.5 rounded-xl transition-all ${
               activeTab === "flashcards"
                 ? "bg-white dark:bg-slate-900 text-indigo-600 dark:text-indigo-400 shadow-sm"
@@ -66,7 +71,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           </Link>
           <Link
             href="/life-questions"
-            onClick={() => setActiveTab("life_questions")}
+            onClick={(e) => handleLinkClick(e, "life_questions")}
             className={`px-3.5 py-1.5 rounded-xl transition-all ${
               activeTab === "life_questions"
                 ? "bg-white dark:bg-slate-900 text-indigo-600 dark:text-indigo-400 shadow-sm"
@@ -77,7 +82,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           </Link>
           <Link
             href="/vocab"
-            onClick={() => setActiveTab("vocab")}
+            onClick={(e) => handleLinkClick(e, "vocab")}
             className={`px-3.5 py-1.5 rounded-xl transition-all ${
               activeTab === "vocab"
                 ? "bg-white dark:bg-slate-900 text-indigo-600 dark:text-indigo-400 shadow-sm"
@@ -88,7 +93,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           </Link>
           <Link
             href="/stats"
-            onClick={() => setActiveTab("stats")}
+            onClick={(e) => handleLinkClick(e, "stats")}
             className={`px-3.5 py-1.5 rounded-xl transition-all ${
               activeTab === "stats"
                 ? "bg-white dark:bg-slate-900 text-indigo-600 dark:text-indigo-400 shadow-sm"
