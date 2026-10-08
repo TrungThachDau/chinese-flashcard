@@ -12,10 +12,13 @@ import {
   Target,
   Save,
   BookOpen,
+  GitCommit,
+  ExternalLink,
 } from 'lucide-react';
 import { UserSettings } from '@/lib/types';
 import { playChineseAudio } from '@/lib/tts';
 import { HSK_LEVELS } from './OnboardingModal';
+import { APP_VERSION, COMMIT_HASH, COMMIT_DATE, COMMIT_URL } from '@/lib/version';
 
 interface SettingsModalProps {
   isOpen: boolean;
@@ -390,6 +393,34 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
                 </button>
               </div>
             </div>
+          )}
+        </div>
+
+        {/* Section 4: App & Git Commit Version */}
+        <div className="pt-3 border-t border-slate-100 dark:border-slate-800 flex flex-col items-center justify-center gap-1 text-[11px] text-slate-400 dark:text-slate-500">
+          <div className="flex items-center gap-2">
+            <span>Phiên bản v{APP_VERSION}</span>
+            {COMMIT_HASH && (
+              <>
+                <span>•</span>
+                <a
+                  href={COMMIT_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-amber-600 dark:hover:text-amber-400 font-mono text-[10px] transition-colors border border-slate-200/60 dark:border-slate-700/60"
+                  title="Xem commit trên GitHub"
+                >
+                  <GitCommit className="w-3 h-3 text-amber-500" />
+                  <span>{COMMIT_HASH}</span>
+                  <ExternalLink className="w-2.5 h-2.5 opacity-60" />
+                </a>
+              </>
+            )}
+          </div>
+          {COMMIT_DATE && (
+            <span className="text-[10px] text-slate-400/80">
+              Cập nhật: {COMMIT_DATE}
+            </span>
           )}
         </div>
       </div>

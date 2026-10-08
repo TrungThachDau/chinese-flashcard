@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import React, { useState, useEffect, useCallback, useRef } from 'react';
-import confetti from 'canvas-confetti';
+import React, { useState, useEffect, useCallback, useRef } from "react";
+import confetti from "canvas-confetti";
 import {
   Volume2,
   RotateCw,
@@ -14,11 +14,11 @@ import {
   ChevronDown,
   Check,
   Flame,
-} from 'lucide-react';
-import { Card, CategoryInfo, ReviewRating } from '@/lib/types';
-import { getIntervalPreviews } from '@/lib/srs';
-import { playChineseAudio } from '@/lib/tts';
-import { HanziText } from './HanziHover';
+} from "lucide-react";
+import { Card, CategoryInfo, ReviewRating } from "@/lib/types";
+import { getIntervalPreviews } from "@/lib/srs";
+import { playChineseAudio } from "@/lib/tts";
+import { HanziText } from "./HanziHover";
 
 interface FlashcardViewProps {
   cards: Card[];
@@ -29,19 +29,19 @@ interface FlashcardViewProps {
   onRefreshDue: () => void;
   speechRate?: number;
   autoPlayAudio?: boolean;
-  audioEngine?: 'online' | 'browser';
+  audioEngine?: "online" | "browser";
 }
 
 export const FlashcardView: React.FC<FlashcardViewProps> = ({
   cards,
   categories = [],
-  selectedCategory = 'all',
+  selectedCategory = "all",
   onSelectCategory,
   onReviewCard,
   onRefreshDue,
   speechRate = 0.85,
   autoPlayAudio = false,
-  audioEngine = 'online',
+  audioEngine = "online",
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isFlipped, setIsFlipped] = useState(false);
@@ -57,13 +57,17 @@ export const FlashcardView: React.FC<FlashcardViewProps> = ({
   // Close category dropdown when clicked outside
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
-      if (categoryMenuRef.current && !categoryMenuRef.current.contains(e.target as Node)) {
+      if (
+        categoryMenuRef.current &&
+        !categoryMenuRef.current.contains(e.target as Node)
+      ) {
         setIsCategoryMenuOpen(false);
       }
     };
     if (isCategoryMenuOpen) {
-      document.addEventListener('mousedown', handleClickOutside);
-      return () => document.removeEventListener('mousedown', handleClickOutside);
+      document.addEventListener("mousedown", handleClickOutside);
+      return () =>
+        document.removeEventListener("mousedown", handleClickOutside);
     }
   }, [isCategoryMenuOpen]);
 
@@ -99,7 +103,7 @@ export const FlashcardView: React.FC<FlashcardViewProps> = ({
         onError: () => setIsPlayingAudio(false),
       });
     },
-    [currentCard, speechRate, audioEngine]
+    [currentCard, speechRate, audioEngine],
   );
 
   const handlePlaySentenceAudio = useCallback(
@@ -115,7 +119,7 @@ export const FlashcardView: React.FC<FlashcardViewProps> = ({
         onError: () => setIsPlayingAudio(false),
       });
     },
-    [currentCard, speechRate, audioEngine]
+    [currentCard, speechRate, audioEngine],
   );
 
   const handleRating = async (rating: ReviewRating) => {
@@ -134,7 +138,7 @@ export const FlashcardView: React.FC<FlashcardViewProps> = ({
           particleCount: 120,
           spread: 70,
           origin: { y: 0.6 },
-          colors: ['#f59e0b', '#ec4899', '#3b82f6', '#10b981', '#8b5cf6'],
+          colors: ["#f59e0b", "#ec4899", "#3b82f6", "#10b981", "#8b5cf6"],
         });
       }
     } finally {
@@ -147,19 +151,19 @@ export const FlashcardView: React.FC<FlashcardViewProps> = ({
     const handleKeyDown = (e: KeyboardEvent) => {
       if (isCompleted || !currentCard) return;
 
-      if (e.code === 'Space') {
+      if (e.code === "Space") {
         e.preventDefault();
         setIsFlipped((prev) => !prev);
       } else if (isFlipped) {
-        if (e.key === '1') handleRating(1);
-        else if (e.key === '2') handleRating(2);
-        else if (e.key === '3') handleRating(3);
-        else if (e.key === '4') handleRating(4);
+        if (e.key === "1") handleRating(1);
+        else if (e.key === "2") handleRating(2);
+        else if (e.key === "3") handleRating(3);
+        else if (e.key === "4") handleRating(4);
       }
     };
 
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
   }, [isFlipped, isCompleted, currentCard, handleRating]);
 
   // If no cards or completed
@@ -173,7 +177,8 @@ export const FlashcardView: React.FC<FlashcardViewProps> = ({
           Tuyệt vời! Đã hoàn thành bộ thẻ!
         </h2>
         <p className="mt-2 text-sm text-slate-600 dark:text-slate-400 max-w-xs">
-          Bạn đã ôn tập xong tất cả thẻ trong phiên này. Thuật toán SRS đã lên lịch cho lần học kế tiếp.
+          Bạn đã ôn tập xong tất cả thẻ trong phiên này. Thuật toán SRS đã lên
+          lịch cho lần học kế tiếp.
         </p>
 
         <div className="mt-6 flex flex-col sm:flex-row gap-3 w-full">
@@ -195,14 +200,15 @@ export const FlashcardView: React.FC<FlashcardViewProps> = ({
   }
 
   const intervalPreviews = getIntervalPreviews(currentCard);
-  const progressPercent = Math.round(((currentIndex) / cards.length) * 100);
+  const progressPercent = Math.round((currentIndex / cards.length) * 100);
 
   const currentCategoryObj = categories.find((c) => c.id === selectedCategory);
-  const categoryLabel = selectedCategory === 'all'
-    ? '🔥 Thẻ cần ôn hôm nay'
-    : currentCategoryObj
-    ? `${currentCategoryObj.icon} ${currentCategoryObj.name}`
-    : currentCard.category_name;
+  const categoryLabel =
+    selectedCategory === "all"
+      ? "🔥 Thẻ cần ôn hôm nay"
+      : currentCategoryObj
+        ? `${currentCategoryObj.icon} ${currentCategoryObj.name}`
+        : currentCard.category_name;
 
   return (
     <div className="w-full max-w-md mx-auto flex flex-col items-center">
@@ -215,7 +221,9 @@ export const FlashcardView: React.FC<FlashcardViewProps> = ({
             onClick={() => setIsCategoryMenuOpen((prev) => !prev)}
             className="flex items-center gap-1.5 py-1 px-2.5 sm:py-1.5 sm:px-3 rounded-xl sm:rounded-2xl bg-white/90 dark:bg-slate-800/90 border border-slate-200/90 dark:border-slate-700 font-bold text-slate-700 dark:text-slate-200 shadow-sm hover:border-amber-400 transition-colors text-xs"
           >
-            <span className="truncate max-w-[170px] sm:max-w-[210px]">{categoryLabel}</span>
+            <span className="truncate max-w-[170px] sm:max-w-[210px]">
+              {categoryLabel}
+            </span>
             <ChevronDown className="w-3.5 h-3.5 text-slate-400 shrink-0" />
           </button>
 
@@ -229,17 +237,19 @@ export const FlashcardView: React.FC<FlashcardViewProps> = ({
               <button
                 type="button"
                 onClick={() => {
-                  onSelectCategory?.('all');
+                  onSelectCategory?.("all");
                   setIsCategoryMenuOpen(false);
                 }}
                 className={`w-full flex items-center justify-between p-2 rounded-xl text-left text-xs font-semibold transition-colors ${
-                  selectedCategory === 'all'
-                    ? 'bg-amber-500 text-white'
-                    : 'text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800'
+                  selectedCategory === "all"
+                    ? "bg-amber-500 text-white"
+                    : "text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800"
                 }`}
               >
                 <span>🔥 Cần ôn hôm nay</span>
-                {selectedCategory === 'all' && <Check className="w-3.5 h-3.5" />}
+                {selectedCategory === "all" && (
+                  <Check className="w-3.5 h-3.5" />
+                )}
               </button>
 
               <div className="my-1 border-t border-slate-100 dark:border-slate-800" />
@@ -255,14 +265,16 @@ export const FlashcardView: React.FC<FlashcardViewProps> = ({
                     }}
                     className={`w-full flex items-center justify-between p-2 rounded-xl text-left text-xs font-medium transition-colors ${
                       selectedCategory === cat.id
-                        ? 'bg-indigo-600 text-white font-bold'
-                        : 'text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800'
+                        ? "bg-indigo-600 text-white font-bold"
+                        : "text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800"
                     }`}
                   >
                     <span className="truncate">
                       {cat.icon} {cat.name}
                     </span>
-                    <span className="text-[10px] opacity-80 shrink-0 ml-1">({cat.total})</span>
+                    <span className="text-[10px] opacity-80 shrink-0 ml-1">
+                      ({cat.total})
+                    </span>
                   </button>
                 ))}
               </div>
@@ -276,11 +288,11 @@ export const FlashcardView: React.FC<FlashcardViewProps> = ({
             {currentIndex + 1} / {cards.length}
           </span>
           <span className="px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">
-            {currentCard.status === 'new'
-              ? 'Mới'
-              : currentCard.status === 'mastered'
-              ? 'Đã nhớ'
-              : 'Đang ôn'}
+            {currentCard.status === "new"
+              ? "Mới"
+              : currentCard.status === "mastered"
+                ? "Đã nhớ"
+                : "Đang ôn"}
           </span>
         </div>
       </div>
@@ -300,18 +312,18 @@ export const FlashcardView: React.FC<FlashcardViewProps> = ({
       >
         <div
           className={`relative w-full h-full duration-500 preserve-3d transition-transform ${
-            isFlipped ? 'rotate-y-180' : ''
+            isFlipped ? "rotate-y-180" : ""
           }`}
           style={{
-            transformStyle: 'preserve-3d',
-            transition: 'transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
-            transform: isFlipped ? 'rotateY(180deg)' : 'rotateY(0deg)',
+            transformStyle: "preserve-3d",
+            transition: "transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)",
+            transform: isFlipped ? "rotateY(180deg)" : "rotateY(0deg)",
           }}
         >
           {/* FRONT SIDE */}
           <div
             className="absolute inset-0 w-full h-full rounded-2xl sm:rounded-3xl p-3.5 sm:p-6 flex flex-col justify-between items-center backface-hidden bg-white/95 dark:bg-slate-900/95 backdrop-blur-2xl border-2 border-slate-200/90 dark:border-slate-800 shadow-2xl shadow-indigo-500/10 text-center"
-            style={{ backfaceVisibility: 'hidden' }}
+            style={{ backfaceVisibility: "hidden" }}
           >
             {/* Top utility row */}
             <div className="w-full flex justify-between items-center">
@@ -324,8 +336,12 @@ export const FlashcardView: React.FC<FlashcardViewProps> = ({
                 className="p-1.5 sm:p-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white transition-colors flex items-center gap-1.5 text-xs font-medium"
                 title="Bật/Tắt Pinyin"
               >
-                {showPinyinOnFront ? <EyeOff className="w-3.5 h-3.5" /> : <Eye className="w-3.5 h-3.5" />}
-                <span>{showPinyinOnFront ? 'Ẩn pinyin' : 'Xem pinyin'}</span>
+                {showPinyinOnFront ? (
+                  <EyeOff className="w-3.5 h-3.5" />
+                ) : (
+                  <Eye className="w-3.5 h-3.5" />
+                )}
+                <span>{showPinyinOnFront ? "Ẩn bính âm" : "Xem bính âm"}</span>
               </button>
 
               <button
@@ -333,8 +349,8 @@ export const FlashcardView: React.FC<FlashcardViewProps> = ({
                 onClick={handlePlayAudio}
                 className={`p-2 sm:p-2.5 rounded-xl sm:rounded-2xl transition-all shadow-sm active:scale-95 ${
                   isPlayingAudio
-                    ? 'bg-amber-500 text-white animate-pulse ring-4 ring-amber-500/25'
-                    : 'bg-amber-500/15 text-amber-600 dark:text-amber-400 hover:bg-amber-500/25'
+                    ? "bg-amber-500 text-white animate-pulse ring-4 ring-amber-500/25"
+                    : "bg-amber-500/15 text-amber-600 dark:text-amber-400 hover:bg-amber-500/25"
                 }`}
                 title="Bấm để phát âm chuẩn (Mandarin)"
               >
@@ -373,8 +389,8 @@ export const FlashcardView: React.FC<FlashcardViewProps> = ({
           <div
             className="absolute inset-0 w-full h-full rounded-2xl sm:rounded-3xl p-3.5 sm:p-6 flex flex-col justify-between backface-hidden bg-gradient-to-b from-white via-slate-50 to-amber-50/30 dark:from-slate-900 dark:via-slate-900/95 dark:to-amber-950/20 backdrop-blur-2xl border-2 border-amber-500/30 dark:border-amber-500/20 shadow-2xl shadow-amber-500/10 text-center"
             style={{
-              backfaceVisibility: 'hidden',
-              transform: 'rotateY(180deg)',
+              backfaceVisibility: "hidden",
+              transform: "rotateY(180deg)",
             }}
           >
             {/* Top row */}
@@ -387,8 +403,8 @@ export const FlashcardView: React.FC<FlashcardViewProps> = ({
                 onClick={handlePlayAudio}
                 className={`p-1.5 sm:p-2 rounded-lg sm:rounded-xl transition-colors ${
                   isPlayingAudio
-                    ? 'bg-amber-500 text-white animate-pulse'
-                    : 'bg-amber-500/15 text-amber-600 dark:text-amber-400 hover:bg-amber-500/25'
+                    ? "bg-amber-500 text-white animate-pulse"
+                    : "bg-amber-500/15 text-amber-600 dark:text-amber-400 hover:bg-amber-500/25"
                 }`}
                 title="Phát âm từ"
               >
@@ -462,11 +478,15 @@ export const FlashcardView: React.FC<FlashcardViewProps> = ({
               onClick={() => handleRating(1)}
               className="group flex flex-col items-center justify-center py-1.5 sm:py-2.5 px-1 sm:px-2 rounded-xl sm:rounded-2xl bg-rose-50 hover:bg-rose-100 dark:bg-rose-950/40 dark:hover:bg-rose-900/50 border border-rose-200 dark:border-rose-900/60 text-rose-700 dark:text-rose-300 font-bold transition-all active:scale-95 shadow-sm"
             >
-              <span className="text-xs group-hover:scale-105 transition-transform font-sans">Quên</span>
+              <span className="text-xs group-hover:scale-105 transition-transform font-sans">
+                Quên
+              </span>
               <span className="text-[10px] font-normal text-rose-500 dark:text-rose-400 opacity-90 font-sans">
                 {intervalPreviews[1]}
               </span>
-              <span className="hidden sm:inline text-[9px] text-rose-400/80 font-mono mt-0.5">[1]</span>
+              <span className="hidden sm:inline text-[9px] text-rose-400/80 font-mono mt-0.5">
+                [1]
+              </span>
             </button>
 
             {/* 2. KHÓ (Hard) */}
@@ -476,11 +496,15 @@ export const FlashcardView: React.FC<FlashcardViewProps> = ({
               onClick={() => handleRating(2)}
               className="group flex flex-col items-center justify-center py-1.5 sm:py-2.5 px-1 sm:px-2 rounded-xl sm:rounded-2xl bg-amber-50 hover:bg-amber-100 dark:bg-amber-950/40 dark:hover:bg-amber-900/50 border border-amber-200 dark:border-amber-900/60 text-amber-700 dark:text-amber-300 font-bold transition-all active:scale-95 shadow-sm"
             >
-              <span className="text-xs group-hover:scale-105 transition-transform font-sans">Khó</span>
+              <span className="text-xs group-hover:scale-105 transition-transform font-sans">
+                Khó
+              </span>
               <span className="text-[10px] font-normal text-amber-500 dark:text-amber-400 opacity-90 font-sans">
                 {intervalPreviews[2]}
               </span>
-              <span className="hidden sm:inline text-[9px] text-amber-400/80 font-mono mt-0.5">[2]</span>
+              <span className="hidden sm:inline text-[9px] text-amber-400/80 font-mono mt-0.5">
+                [2]
+              </span>
             </button>
 
             {/* 3. TỐT (Good) */}
@@ -490,11 +514,15 @@ export const FlashcardView: React.FC<FlashcardViewProps> = ({
               onClick={() => handleRating(3)}
               className="group flex flex-col items-center justify-center py-1.5 sm:py-2.5 px-1 sm:px-2 rounded-xl sm:rounded-2xl bg-emerald-50 hover:bg-emerald-100 dark:bg-emerald-950/40 dark:hover:bg-emerald-900/50 border border-emerald-200 dark:border-emerald-900/60 text-emerald-700 dark:text-emerald-300 font-bold transition-all active:scale-95 shadow-sm"
             >
-              <span className="text-xs group-hover:scale-105 transition-transform font-sans">Tốt</span>
+              <span className="text-xs group-hover:scale-105 transition-transform font-sans">
+                Tốt
+              </span>
               <span className="text-[10px] font-normal text-emerald-500 dark:text-emerald-400 opacity-90 font-sans">
                 {intervalPreviews[3]}
               </span>
-              <span className="hidden sm:inline text-[9px] text-emerald-400/80 font-mono mt-0.5">[3]</span>
+              <span className="hidden sm:inline text-[9px] text-emerald-400/80 font-mono mt-0.5">
+                [3]
+              </span>
             </button>
 
             {/* 4. DỄ (Easy) */}
@@ -504,11 +532,15 @@ export const FlashcardView: React.FC<FlashcardViewProps> = ({
               onClick={() => handleRating(4)}
               className="group flex flex-col items-center justify-center py-1.5 sm:py-2.5 px-1 sm:px-2 rounded-xl sm:rounded-2xl bg-sky-50 hover:bg-sky-100 dark:bg-sky-950/40 dark:hover:bg-sky-900/50 border border-sky-200 dark:border-sky-900/60 text-sky-700 dark:text-sky-300 font-bold transition-all active:scale-95 shadow-sm"
             >
-              <span className="text-xs group-hover:scale-105 transition-transform font-sans">Dễ</span>
+              <span className="text-xs group-hover:scale-105 transition-transform font-sans">
+                Dễ
+              </span>
               <span className="text-[10px] font-normal text-sky-500 dark:text-sky-400 opacity-90 font-sans">
                 {intervalPreviews[4]}
               </span>
-              <span className="hidden sm:inline text-[9px] text-sky-400/80 font-mono mt-0.5">[4]</span>
+              <span className="hidden sm:inline text-[9px] text-sky-400/80 font-mono mt-0.5">
+                [4]
+              </span>
             </button>
           </div>
         ) : (
