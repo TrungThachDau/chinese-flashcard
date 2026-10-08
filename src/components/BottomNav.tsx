@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect, useRef } from "react";
 import Link from "next/link";
 import { Layers, MessageSquareText, BookMarked, BarChart3 } from "lucide-react";
 import { StudyStats } from "@/lib/types";
@@ -17,85 +16,6 @@ export const BottomNav: React.FC<BottomNavProps> = ({
   setActiveTab,
   stats,
 }) => {
-  const navRef = useRef<HTMLElement>(null);
-  const liquidGlassInstanceRef = useRef<{
-    destroy: () => void;
-    markChanged: (el?: HTMLElement) => void;
-  } | null>(null);
-
-  useEffect(() => {
-    let isMounted = true;
-    const nav = navRef.current;
-    if (!nav || !nav.parentElement) return;
-
-    const initLiquidGlass = async () => {
-      try {
-        const { LiquidGlass } = await import("@ybouane/liquidglass");
-        if (!isMounted || !nav.parentElement) return;
-
-        const instance = await LiquidGlass.init({
-          root: nav.parentElement,
-          glassElements: [nav],
-          defaults: {
-            cornerRadius: 26,
-            blurAmount: 0.35,
-            refraction: 0.5,
-            chromAberration: 0.04,
-            edgeHighlight: 0.08,
-            specular: 0.15,
-            fresnel: 0.9,
-            distortion: 0.0,
-            zRadius: 30,
-            opacity: 0.95,
-            saturation: 0.1,
-            brightness: 0.02,
-            shadowOpacity: 0.25,
-            shadowSpread: 12,
-            shadowOffsetY: 6,
-            floating: false,
-            button: false,
-          },
-        });
-
-        if (!isMounted) {
-          instance.destroy();
-          return;
-        }
-
-        // Restore user-select on parent so text selection remains natural
-        if (nav.parentElement) {
-          nav.parentElement.style.userSelect = "auto";
-          nav.parentElement.style.webkitUserSelect = "auto";
-        }
-
-        liquidGlassInstanceRef.current = instance;
-      } catch (err) {
-        console.warn("LiquidGlass WebGL initialization skipped:", err);
-      }
-    };
-
-    initLiquidGlass();
-
-    return () => {
-      isMounted = false;
-      if (liquidGlassInstanceRef.current) {
-        try {
-          liquidGlassInstanceRef.current.destroy();
-        } catch {}
-        liquidGlassInstanceRef.current = null;
-      }
-    };
-  }, []);
-
-  // When activeTab changes, inform liquidGlass instance
-  useEffect(() => {
-    if (liquidGlassInstanceRef.current && navRef.current) {
-      try {
-        liquidGlassInstanceRef.current.markChanged(navRef.current);
-      } catch {}
-    }
-  }, [activeTab]);
-
   const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, tabId: AppTab) => {
     if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) {
       return;
@@ -141,32 +61,8 @@ export const BottomNav: React.FC<BottomNavProps> = ({
     },
   ];
 
-  const glassConfigJson = JSON.stringify({
-    cornerRadius: 26,
-    blurAmount: 0.35,
-    refraction: 0.5,
-    chromAberration: 0.04,
-    edgeHighlight: 0.08,
-    specular: 0.15,
-    fresnel: 0.9,
-    distortion: 0.0,
-    zRadius: 30,
-    opacity: 0.95,
-    saturation: 0.1,
-    brightness: 0.02,
-    shadowOpacity: 0.25,
-    shadowSpread: 12,
-    shadowOffsetY: 6,
-    floating: false,
-    button: false,
-  });
-
   return (
-    <nav
-      ref={navRef}
-      data-config={glassConfigJson}
-      className="fixed bottom-3 inset-x-3.5 max-w-md mx-auto z-40 md:hidden liquid-glass rounded-[26px] p-1.5 transition-all duration-300"
-    >
+    <nav className="fixed bottom-3 inset-x-3.5 max-w-md mx-auto z-40 md:hidden liquid-glass rounded-[26px] p-1.5 transition-all duration-300">
       {/* Specular Liquid Light Reflection on Top Rim */}
       <div className="pointer-events-none absolute inset-x-8 top-0 h-[1.5px] bg-gradient-to-r from-transparent via-white/90 dark:via-white/30 to-transparent rounded-full" />
 
