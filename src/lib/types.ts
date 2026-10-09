@@ -1,16 +1,29 @@
 export type CardStatus = 'new' | 'learning' | 'reviewing' | 'mastered';
 
+export interface Word {
+  id: string;
+  hanzi: string;
+  pinyin: string;
+  meaning: string;
+  sino_vietnamese?: string;
+  category: string;
+  category_name: string;
+  example_sentence?: string;
+  example_pinyin?: string;
+  example_meaning?: string;
+}
+
 export interface Card {
   id: number;
   hanzi: string;
   pinyin: string;
   meaning: string;
-  sino_vietnamese: string;
+  sino_vietnamese?: string;
   category: string;
   category_name: string;
-  example_sentence: string;
-  example_pinyin: string;
-  example_meaning: string;
+  example_sentence?: string;
+  example_pinyin?: string;
+  example_meaning?: string;
   repetition: number;
   interval: number; // in days
   ease_factor: number;

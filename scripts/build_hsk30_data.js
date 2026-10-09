@@ -720,6 +720,7 @@ for (const [hanzi, item] of mergedWordsMap.entries()) {
   }
   
   cards.push({
+    id: String(cards.length + 1),
     hanzi,
     pinyin,
     meaning: viMeaning,
@@ -765,10 +766,10 @@ for (const ch of allChars) {
 
 // Output TypeScript file
 const fileContent = `// Auto-generated HSK 3.0 Level 1 vocabulary dataset from https://github.com/drkameleon/complete-hsk-vocabulary
-import { CharDetail, LifeQuestion } from './types';
-import { RawCardData } from './initialData';
+import { CharDetail, Word } from './types';
 
-export const HSK30_LEVEL1_CARDS: RawCardData[] = ${JSON.stringify(cards, null, 2)};
+export const HSK30_LEVEL1_CARDS: Word[] = ${JSON.stringify(cards, null, 2)};
+export const HSK30_LEVEL1_WORDS: Word[] = HSK30_LEVEL1_CARDS;
 
 export const HSK30_CHAR_DETAILS: CharDetail[] = ${JSON.stringify(charDetails, null, 2)};
 `;

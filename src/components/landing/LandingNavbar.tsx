@@ -29,7 +29,7 @@ export const LandingNavbar: React.FC<LandingNavbarProps> = ({ onOpenEnroll }) =>
                 BaoBao<span className="text-orange-500">Chinese</span>
               </span>
               <span className="hidden sm:inline-flex text-[10px] font-extrabold uppercase px-2 py-0.5 rounded-full bg-orange-100 text-orange-700 border border-orange-200">
-                HSK 1-6
+                HSK 3.0
               </span>
             </div>
             <p className="text-[11px] font-medium text-orange-800/70 -mt-0.5">
@@ -112,7 +112,7 @@ export const LandingNavbar: React.FC<LandingNavbarProps> = ({ onOpenEnroll }) =>
             className="flex items-center gap-2 p-2.5 rounded-2xl font-bold text-sm text-[#43281c] hover:bg-orange-50"
           >
             <BookOpen className="w-4 h-4 text-orange-500" />
-            Khóa học HSK 1 - 6
+            Khóa học HSK 3.0
           </a>
           <a
             href="#progress-demo"

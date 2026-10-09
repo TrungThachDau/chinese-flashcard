@@ -2,9 +2,9 @@ import type { MetadataRoute } from 'next';
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: 'Hán Ngữ - Học Flashcard Tiếng Trung HSK 1',
+    name: 'Hán Ngữ - Học Flashcard Tiếng Trung HSK 3.0',
     short_name: 'Hán Ngữ',
-    description: 'Học từ vựng tiếng Trung HSK 1 thông minh với thuật toán lặp lại ngắt quãng SM-2 và phát âm chuẩn bản xứ',
+    description: 'Học từ vựng tiếng Trung chuẩn HSK 3.0 thông minh với thuật toán lặp lại ngắt quãng và phát âm chuẩn bản xứ',
     start_url: '/',
     display: 'standalone',
     orientation: 'portrait',

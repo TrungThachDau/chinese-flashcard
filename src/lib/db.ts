@@ -333,12 +333,12 @@ export function seedDatabase(db: any = getDatabase()) {
       card.hanzi,
       card.pinyin,
       card.meaning,
-      card.sino_vietnamese,
+      card.sino_vietnamese ?? '',
       card.category,
       card.category_name,
-      card.example_sentence,
-      card.example_pinyin,
-      card.example_meaning,
+      card.example_sentence ?? '',
+      card.example_pinyin ?? '',
+      card.example_meaning ?? '',
       0,
       0,
       2.5,
@@ -498,7 +498,7 @@ export function getAllCards(filters?: CardFilterOptions): Card[] {
         c.hanzi.toLowerCase().includes(term) ||
         c.pinyin.toLowerCase().includes(term) ||
         c.meaning.toLowerCase().includes(term) ||
-        c.sino_vietnamese.toLowerCase().includes(term)
+        (c.sino_vietnamese?.toLowerCase().includes(term) ?? false)
     );
   }
 
@@ -572,7 +572,7 @@ export function getCardsCount(filters?: CardFilterOptions): number {
         c.hanzi.toLowerCase().includes(term) ||
         c.pinyin.toLowerCase().includes(term) ||
         c.meaning.toLowerCase().includes(term) ||
-        c.sino_vietnamese.toLowerCase().includes(term)
+        (c.sino_vietnamese?.toLowerCase().includes(term) ?? false)
     );
   }
 

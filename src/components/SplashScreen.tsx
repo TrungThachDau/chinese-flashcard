@@ -49,7 +49,7 @@ export const SplashScreen: React.FC<SplashScreenProps> = ({ delayMs = 200 }) => 
             Hán Ngữ
           </h1>
           <p className="text-xs font-semibold text-slate-500 dark:text-slate-400">
-            Học Flashcard &amp; Luyện Phản Xạ HSK 1
+            Học Flashcard &amp; Luyện Phản Xạ HSK 3.0
           </p>
         </div>
 

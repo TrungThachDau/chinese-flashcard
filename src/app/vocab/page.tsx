@@ -5,8 +5,8 @@ import { MainClientApp } from '@/components/MainClientApp';
 import { AppSkeleton } from '@/components/AppSkeleton';
 
 export const metadata: Metadata = {
-  title: 'Kho Từ Vựng HSK 1 | Hán Ngữ',
-  description: 'Tra cứu danh sách 500+ từ vựng HSK 1, bộ thủ, số nét và câu ví dụ.',
+  title: 'Kho Từ Vựng HSK 3.0 (Cấp 1) | Hán Ngữ',
+  description: 'Tra cứu danh sách 500+ từ vựng chuẩn HSK 3.0 Cấp 1, bộ thủ, số nét và câu ví dụ.',
 };
 
 async function SsrVocabLoader() {

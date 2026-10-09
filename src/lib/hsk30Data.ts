@@ -1,9 +1,9 @@
 // Auto-generated HSK 3.0 Level 1 vocabulary dataset from https://github.com/drkameleon/complete-hsk-vocabulary
-import { CharDetail, LifeQuestion } from './types';
-import { RawCardData } from './initialData';
+import { CharDetail, Word } from './types';
 
-export const HSK30_LEVEL1_CARDS: RawCardData[] = [
+export const HSK30_LEVEL1_CARDS: Word[] = [
   {
+    "id": "1",
     "hanzi": "爱",
     "pinyin": "ài",
     "meaning": "yêu, thích",
@@ -15,6 +15,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Tôi thích yêu, thích."
   },
   {
+    "id": "2",
     "hanzi": "爱好",
     "pinyin": "ài hào",
     "meaning": "sở thích, đam mê",
@@ -26,6 +27,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất sở thích, đam mê."
   },
   {
+    "id": "3",
     "hanzi": "八",
     "pinyin": "bā",
     "meaning": "số 8 (tám)",
@@ -37,6 +39,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Hẹn gặp lại vào số 8 (tám)!"
   },
   {
+    "id": "4",
     "hanzi": "爸",
     "pinyin": "bà",
     "meaning": "bố, ba",
@@ -48,6 +51,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Đó là bố, ba của tôi."
   },
   {
+    "id": "5",
     "hanzi": "爸爸",
     "pinyin": "bà ba",
     "meaning": "bố, cha",
@@ -59,6 +63,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Đó là bố, cha của tôi."
   },
   {
+    "id": "6",
     "hanzi": "吧",
     "pinyin": "bā",
     "meaning": "nhé, nha, đi (trợ từ ngữ khí)",
@@ -70,6 +75,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "nhé, nha, đi (trợ từ ngữ khí)."
   },
   {
+    "id": "7",
     "hanzi": "白",
     "pinyin": "bái",
     "meaning": "màu trắng, trong sạch",
@@ -81,6 +87,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất màu trắng, trong sạch."
   },
   {
+    "id": "8",
     "hanzi": "白天",
     "pinyin": "bái tiān",
     "meaning": "ban ngày",
@@ -92,6 +99,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Hẹn gặp lại vào ban ngày!"
   },
   {
+    "id": "9",
     "hanzi": "百",
     "pinyin": "bǎi",
     "meaning": "trăm (100)",
@@ -103,6 +111,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Hẹn gặp lại vào trăm (100)!"
   },
   {
+    "id": "10",
     "hanzi": "班",
     "pinyin": "bān",
     "meaning": "lớp học, ca làm việc",
@@ -114,6 +123,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất lớp học, ca làm việc."
   },
   {
+    "id": "11",
     "hanzi": "半",
     "pinyin": "bàn",
     "meaning": "nửa, rưỡi (1/2)",
@@ -125,6 +135,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Hẹn gặp lại vào nửa, rưỡi (1/2)!"
   },
   {
+    "id": "12",
     "hanzi": "半年",
     "pinyin": "bàn nián",
     "meaning": "nửa năm",
@@ -136,6 +147,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Hẹn gặp lại vào nửa năm!"
   },
   {
+    "id": "13",
     "hanzi": "半天",
     "pinyin": "bàn tiān",
     "meaning": "nửa ngày, hồi lâu",
@@ -147,6 +159,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Hẹn gặp lại vào nửa ngày, hồi lâu!"
   },
   {
+    "id": "14",
     "hanzi": "帮",
     "pinyin": "bāng",
     "meaning": "giúp, hỗ trợ",
@@ -158,6 +171,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Tôi thích giúp, hỗ trợ."
   },
   {
+    "id": "15",
     "hanzi": "帮忙",
     "pinyin": "bāng máng",
     "meaning": "giúp đỡ, tương trợ",
@@ -169,6 +183,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Tôi thích giúp đỡ, tương trợ."
   },
   {
+    "id": "16",
     "hanzi": "包",
     "pinyin": "bāo",
     "meaning": "túi, gói, bao",
@@ -180,6 +195,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Đây là túi, gói, bao của tôi."
   },
   {
+    "id": "17",
     "hanzi": "包子",
     "pinyin": "bāo zi",
     "meaning": "bánh bao",
@@ -191,6 +207,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Tôi muốn ăn/uống bánh bao."
   },
   {
+    "id": "18",
     "hanzi": "杯",
     "pinyin": "bēi",
     "meaning": "ly, tách, cốc",
@@ -202,6 +219,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Đây là ly, tách, cốc của tôi."
   },
   {
+    "id": "19",
     "hanzi": "杯子",
     "pinyin": "bēi zi",
     "meaning": "cái ly, cốc nước",
@@ -213,6 +231,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Đây là cái ly, cốc nước của tôi."
   },
   {
+    "id": "20",
     "hanzi": "北",
     "pinyin": "běi",
     "meaning": "phía bắc, hướng bắc",
@@ -224,6 +243,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Anh ấy đang ở phía bắc, hướng bắc."
   },
   {
+    "id": "21",
     "hanzi": "北边",
     "pinyin": "běi biān",
     "meaning": "phía bắc, đằng bắc",
@@ -235,6 +255,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Anh ấy đang ở phía bắc, đằng bắc."
   },
   {
+    "id": "22",
     "hanzi": "北京",
     "pinyin": "Běi jīng",
     "meaning": "Bắc Kinh (thủ đô TQ)",
@@ -246,6 +267,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Anh ấy đang ở Bắc Kinh (thủ đô TQ)."
   },
   {
+    "id": "23",
     "hanzi": "本",
     "pinyin": "běn",
     "meaning": "cuốn, quyển (lượng từ)",
@@ -257,6 +279,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Đây là cuốn, quyển (lượng từ) của tôi."
   },
   {
+    "id": "24",
     "hanzi": "本子",
     "pinyin": "běn zi",
     "meaning": "cuốn sổ, quyển vở",
@@ -268,6 +291,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Đây là cuốn sổ, quyển vở của tôi."
   },
   {
+    "id": "25",
     "hanzi": "比",
     "pinyin": "Bǐ",
     "meaning": "so với, so sánh",
@@ -279,6 +303,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất so với, so sánh."
   },
   {
+    "id": "26",
     "hanzi": "别",
     "pinyin": "bié",
     "meaning": "đừng, chớ / khác",
@@ -290,6 +315,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất đừng, chớ / khác."
   },
   {
+    "id": "27",
     "hanzi": "别的",
     "pinyin": "bié de",
     "meaning": "cái khác, người khác",
@@ -301,6 +327,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất cái khác, người khác."
   },
   {
+    "id": "28",
     "hanzi": "别人",
     "pinyin": "bié ren",
     "meaning": "người khác, người ta",
@@ -312,6 +339,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Đó là người khác, người ta của tôi."
   },
   {
+    "id": "29",
     "hanzi": "病",
     "pinyin": "bìng",
     "meaning": "bệnh, ốm đau",
@@ -323,6 +351,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất bệnh, ốm đau."
   },
   {
+    "id": "30",
     "hanzi": "病人",
     "pinyin": "bìng rén",
     "meaning": "người bệnh, bệnh nhân",
@@ -334,6 +363,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất người bệnh, bệnh nhân."
   },
   {
+    "id": "31",
     "hanzi": "不",
     "pinyin": "bù",
     "meaning": "không, chẳng (phủ định)",
@@ -345,6 +375,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất không, chẳng (phủ định)."
   },
   {
+    "id": "32",
     "hanzi": "不大",
     "pinyin": "bù dà",
     "meaning": "không lớn lắm",
@@ -356,6 +387,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất không lớn lắm."
   },
   {
+    "id": "33",
     "hanzi": "不对",
     "pinyin": "bù duì",
     "meaning": "không đúng, sai rồi",
@@ -367,6 +399,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất không đúng, sai rồi."
   },
   {
+    "id": "34",
     "hanzi": "不客气",
     "pinyin": "bù kè qi",
     "meaning": "không có chi, đừng khách sáo",
@@ -378,6 +411,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "không có chi, đừng khách sáo."
   },
   {
+    "id": "35",
     "hanzi": "不用",
     "pinyin": "bù yòng",
     "meaning": "không cần, khỏi cần",
@@ -389,6 +423,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "không cần, khỏi cần."
   },
   {
+    "id": "36",
     "hanzi": "菜",
     "pinyin": "cài",
     "meaning": "món ăn, rau củ",
@@ -400,6 +435,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Tôi muốn ăn/uống món ăn, rau củ."
   },
   {
+    "id": "37",
     "hanzi": "茶",
     "pinyin": "chá",
     "meaning": "trà, nước chè",
@@ -411,6 +447,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Tôi muốn ăn/uống trà, nước chè."
   },
   {
+    "id": "38",
     "hanzi": "差",
     "pinyin": "chā",
     "meaning": "kém, thiếu, tệ",
@@ -422,6 +459,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất kém, thiếu, tệ."
   },
   {
+    "id": "39",
     "hanzi": "常",
     "pinyin": "cháng",
     "meaning": "thường, hay",
@@ -433,6 +471,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất thường, hay."
   },
   {
+    "id": "40",
     "hanzi": "常常",
     "pinyin": "cháng cháng",
     "meaning": "thường xuyên, hay",
@@ -444,6 +483,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất thường xuyên, hay."
   },
   {
+    "id": "41",
     "hanzi": "唱",
     "pinyin": "chàng",
     "meaning": "hát",
@@ -455,6 +495,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Tôi thích hát."
   },
   {
+    "id": "42",
     "hanzi": "唱歌",
     "pinyin": "chàng gē",
     "meaning": "hát, ca hát",
@@ -466,6 +507,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Tôi thích hát, ca hát."
   },
   {
+    "id": "43",
     "hanzi": "车",
     "pinyin": "chē",
     "meaning": "xe cộ, ô tô",
@@ -477,6 +519,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Anh ấy đang ở xe cộ, ô tô."
   },
   {
+    "id": "44",
     "hanzi": "车票",
     "pinyin": "chē piào",
     "meaning": "vé xe, vé tàu",
@@ -488,6 +531,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Anh ấy đang ở vé xe, vé tàu."
   },
   {
+    "id": "45",
     "hanzi": "车上",
     "pinyin": "chē shàng",
     "meaning": "trên xe",
@@ -499,6 +543,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất trên xe."
   },
   {
+    "id": "46",
     "hanzi": "车站",
     "pinyin": "chē zhàn",
     "meaning": "trạm xe, bến xe, ga tàu",
@@ -510,6 +555,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Anh ấy đang ở trạm xe, bến xe, ga tàu."
   },
   {
+    "id": "47",
     "hanzi": "吃",
     "pinyin": "chī",
     "meaning": "ăn",
@@ -521,6 +567,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Tôi muốn ăn/uống ăn."
   },
   {
+    "id": "48",
     "hanzi": "吃饭",
     "pinyin": "chī fàn",
     "meaning": "ăn cơm, dùng bữa",
@@ -532,6 +579,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Tôi muốn ăn/uống ăn cơm, dùng bữa."
   },
   {
+    "id": "49",
     "hanzi": "出",
     "pinyin": "chū",
     "meaning": "ra, ra ngoài, xuất hiện",
@@ -543,6 +591,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Tôi thích ra, ra ngoài, xuất hiện."
   },
   {
+    "id": "50",
     "hanzi": "出来",
     "pinyin": "chū lái",
     "meaning": "đi ra, xuất hiện",
@@ -554,6 +603,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Tôi thích đi ra, xuất hiện."
   },
   {
+    "id": "51",
     "hanzi": "出去",
     "pinyin": "chū qù",
     "meaning": "đi ra ngoài",
@@ -565,6 +615,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Tôi thích đi ra ngoài."
   },
   {
+    "id": "52",
     "hanzi": "穿",
     "pinyin": "chuān",
     "meaning": "mặc (quần áo), xỏ (giày)",
@@ -576,6 +627,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Tôi thích mặc (quần áo), xỏ (giày)."
   },
   {
+    "id": "53",
     "hanzi": "床",
     "pinyin": "chuáng",
     "meaning": "cái giường",
@@ -587,6 +639,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Đây là cái giường của tôi."
   },
   {
+    "id": "54",
     "hanzi": "次",
     "pinyin": "cì",
     "meaning": "lần, lượt",
@@ -598,6 +651,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất lần, lượt."
   },
   {
+    "id": "55",
     "hanzi": "从",
     "pinyin": "cóng",
     "meaning": "từ (nơi chốn, thời gian)",
@@ -609,6 +663,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất từ (nơi chốn, thời gian)."
   },
   {
+    "id": "56",
     "hanzi": "错",
     "pinyin": "cuò",
     "meaning": "sai, nhầm lẫn",
@@ -620,6 +675,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất sai, nhầm lẫn."
   },
   {
+    "id": "57",
     "hanzi": "打",
     "pinyin": "dá",
     "meaning": "đánh, đập, gọi (điện thoại)",
@@ -631,6 +687,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất đánh, đập, gọi (điện thoại)."
   },
   {
+    "id": "58",
     "hanzi": "打车",
     "pinyin": "dǎ chē",
     "meaning": "bắt xe taxi",
@@ -642,6 +699,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Anh ấy đang ở bắt xe taxi."
   },
   {
+    "id": "59",
     "hanzi": "打电话",
     "pinyin": "dǎ diàn huà",
     "meaning": "gọi điện thoại",
@@ -653,6 +711,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Tôi thích gọi điện thoại."
   },
   {
+    "id": "60",
     "hanzi": "打开",
     "pinyin": "dǎ kāi",
     "meaning": "mở ra, bật lên",
@@ -664,6 +723,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Tôi thích mở ra, bật lên."
   },
   {
+    "id": "61",
     "hanzi": "打球",
     "pinyin": "dǎ qiú",
     "meaning": "chơi bóng, đánh bóng",
@@ -675,6 +735,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Tôi thích chơi bóng, đánh bóng."
   },
   {
+    "id": "62",
     "hanzi": "大",
     "pinyin": "dà",
     "meaning": "to, lớn",
@@ -686,6 +747,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất to, lớn."
   },
   {
+    "id": "63",
     "hanzi": "大学",
     "pinyin": "Dà xué",
     "meaning": "trường đại học",
@@ -697,6 +759,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Anh ấy đang ở trường đại học."
   },
   {
+    "id": "64",
     "hanzi": "大学生",
     "pinyin": "dà xué shēng",
     "meaning": "sinh viên đại học",
@@ -708,6 +771,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Đó là sinh viên đại học của tôi."
   },
   {
+    "id": "65",
     "hanzi": "到",
     "pinyin": "dào",
     "meaning": "đến, tới",
@@ -719,6 +783,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Anh ấy đang ở đến, tới."
   },
   {
+    "id": "66",
     "hanzi": "地",
     "pinyin": "de",
     "meaning": "đất, mặt đất / trợ từ (một cách)",
@@ -730,6 +795,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất đất, mặt đất / trợ từ (một cách)."
   },
   {
+    "id": "67",
     "hanzi": "地点",
     "pinyin": "dì diǎn",
     "meaning": "địa điểm, vị trí",
@@ -741,6 +807,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Anh ấy đang ở địa điểm, vị trí."
   },
   {
+    "id": "68",
     "hanzi": "地方",
     "pinyin": "dì fāng",
     "meaning": "nơi chốn, địa phương",
@@ -752,6 +819,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Anh ấy đang ở nơi chốn, địa phương."
   },
   {
+    "id": "69",
     "hanzi": "地上",
     "pinyin": "dì shang",
     "meaning": "trên mặt đất, trên sàn",
@@ -763,6 +831,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Anh ấy đang ở trên mặt đất, trên sàn."
   },
   {
+    "id": "70",
     "hanzi": "地图",
     "pinyin": "dì tú",
     "meaning": "bản đồ",
@@ -774,6 +843,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Đây là bản đồ của tôi."
   },
   {
+    "id": "71",
     "hanzi": "的",
     "pinyin": "de",
     "meaning": "của, mà (trợ từ sở hữu)",
@@ -785,6 +855,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "của, mà (trợ từ sở hữu)."
   },
   {
+    "id": "72",
     "hanzi": "得到",
     "pinyin": "dé dào",
     "meaning": "nhận được, đạt được",
@@ -796,6 +867,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất nhận được, đạt được."
   },
   {
+    "id": "73",
     "hanzi": "等",
     "pinyin": "děng",
     "meaning": "đợi, chờ / vân vân",
@@ -807,6 +879,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Tôi thích đợi, chờ / vân vân."
   },
   {
+    "id": "74",
     "hanzi": "弟",
     "pinyin": "dì",
     "meaning": "em trai",
@@ -818,6 +891,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Đó là em trai của tôi."
   },
   {
+    "id": "75",
     "hanzi": "弟弟",
     "pinyin": "dì di",
     "meaning": "em trai",
@@ -829,6 +903,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Đó là em trai của tôi."
   },
   {
+    "id": "76",
     "hanzi": "第",
     "pinyin": "dì",
     "meaning": "thứ (số thứ tự)",
@@ -840,6 +915,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Hẹn gặp lại vào thứ (số thứ tự)!"
   },
   {
+    "id": "77",
     "hanzi": "第二",
     "pinyin": "dì èr",
     "meaning": "thứ hai (số thứ tự)",
@@ -851,6 +927,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Hẹn gặp lại vào thứ hai (số thứ tự)!"
   },
   {
+    "id": "78",
     "hanzi": "点",
     "pinyin": "diǎn",
     "meaning": "giờ, điểm, chấm / một chút",
@@ -862,6 +939,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Hẹn gặp lại vào giờ, điểm, chấm / một chút!"
   },
   {
+    "id": "79",
     "hanzi": "电",
     "pinyin": "diàn",
     "meaning": "điện",
@@ -873,6 +951,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất điện."
   },
   {
+    "id": "80",
     "hanzi": "电话",
     "pinyin": "diàn huà",
     "meaning": "điện thoại",
@@ -884,6 +963,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Đây là điện thoại của tôi."
   },
   {
+    "id": "81",
     "hanzi": "电脑",
     "pinyin": "diàn nǎo",
     "meaning": "máy vi tính",
@@ -895,6 +975,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Đây là máy vi tính của tôi."
   },
   {
+    "id": "82",
     "hanzi": "电视",
     "pinyin": "diàn shì",
     "meaning": "truyền hình, TV",
@@ -906,6 +987,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Đây là truyền hình, TV của tôi."
   },
   {
+    "id": "83",
     "hanzi": "电视机",
     "pinyin": "diàn shì jī",
     "meaning": "chiếc tivi",
@@ -917,6 +999,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Đây là chiếc tivi của tôi."
   },
   {
+    "id": "84",
     "hanzi": "电影",
     "pinyin": "diàn yǐng",
     "meaning": "phim điện ảnh",
@@ -928,6 +1011,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Đây là phim điện ảnh của tôi."
   },
   {
+    "id": "85",
     "hanzi": "电影院",
     "pinyin": "diàn yǐng yuàn",
     "meaning": "rạp chiếu phim",
@@ -939,6 +1023,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Anh ấy đang ở rạp chiếu phim."
   },
   {
+    "id": "86",
     "hanzi": "东",
     "pinyin": "dōng",
     "meaning": "phía đông, hướng đông",
@@ -950,6 +1035,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Anh ấy đang ở phía đông, hướng đông."
   },
   {
+    "id": "87",
     "hanzi": "东边",
     "pinyin": "dōng bian",
     "meaning": "phía đông",
@@ -961,6 +1047,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Anh ấy đang ở phía đông."
   },
   {
+    "id": "88",
     "hanzi": "东西",
     "pinyin": "dōng xī",
     "meaning": "đồ đạc, vật dụng / đông tây",
@@ -972,6 +1059,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Đây là đồ đạc, vật dụng / đông tây của tôi."
   },
   {
+    "id": "89",
     "hanzi": "动",
     "pinyin": "dòng",
     "meaning": "cử động, chuyển động",
@@ -983,6 +1071,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất cử động, chuyển động."
   },
   {
+    "id": "90",
     "hanzi": "动作",
     "pinyin": "dòng zuò",
     "meaning": "động tác, hành động",
@@ -994,6 +1083,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất động tác, hành động."
   },
   {
+    "id": "91",
     "hanzi": "都",
     "pinyin": "dōu",
     "meaning": "đều, tất cả",
@@ -1005,6 +1095,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất đều, tất cả."
   },
   {
+    "id": "92",
     "hanzi": "读",
     "pinyin": "dòu",
     "meaning": "đọc, học",
@@ -1016,6 +1107,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Tôi thích đọc, học."
   },
   {
+    "id": "93",
     "hanzi": "读书",
     "pinyin": "dú shū",
     "meaning": "đọc sách, đi học",
@@ -1027,6 +1119,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất đọc sách, đi học."
   },
   {
+    "id": "94",
     "hanzi": "对",
     "pinyin": "duì",
     "meaning": "đúng, chính xác / đối với",
@@ -1038,6 +1131,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất đúng, chính xác / đối với."
   },
   {
+    "id": "95",
     "hanzi": "对不起",
     "pinyin": "duì bu qǐ",
     "meaning": "xin lỗi",
@@ -1049,6 +1143,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "xin lỗi."
   },
   {
+    "id": "96",
     "hanzi": "多",
     "pinyin": "duō",
     "meaning": "nhiều / bao nhiêu",
@@ -1060,6 +1155,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất nhiều / bao nhiêu."
   },
   {
+    "id": "97",
     "hanzi": "多少",
     "pinyin": "duō shǎo",
     "meaning": "bao nhiêu",
@@ -1071,6 +1167,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất bao nhiêu."
   },
   {
+    "id": "98",
     "hanzi": "饿",
     "pinyin": "è",
     "meaning": "đói bụng",
@@ -1082,6 +1179,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Tôi muốn ăn/uống đói bụng."
   },
   {
+    "id": "99",
     "hanzi": "儿子",
     "pinyin": "ér zi",
     "meaning": "con trai",
@@ -1093,6 +1191,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Đó là con trai của tôi."
   },
   {
+    "id": "100",
     "hanzi": "二",
     "pinyin": "èr",
     "meaning": "số 2 (hai)",
@@ -1104,6 +1203,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Hẹn gặp lại vào số 2 (hai)!"
   },
   {
+    "id": "101",
     "hanzi": "饭",
     "pinyin": "fàn",
     "meaning": "cơm, bữa ăn",
@@ -1115,6 +1215,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Tôi muốn ăn/uống cơm, bữa ăn."
   },
   {
+    "id": "102",
     "hanzi": "饭店",
     "pinyin": "fàn diàn",
     "meaning": "nhà hàng, khách sạn",
@@ -1126,6 +1227,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Anh ấy đang ở nhà hàng, khách sạn."
   },
   {
+    "id": "103",
     "hanzi": "房间",
     "pinyin": "fáng jiān",
     "meaning": "căn phòng",
@@ -1137,6 +1239,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Anh ấy đang ở căn phòng."
   },
   {
+    "id": "104",
     "hanzi": "房子",
     "pinyin": "fáng zi",
     "meaning": "ngôi nhà, căn nhà",
@@ -1148,6 +1251,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Anh ấy đang ở ngôi nhà, căn nhà."
   },
   {
+    "id": "105",
     "hanzi": "放",
     "pinyin": "fàng",
     "meaning": "thả, đặt để / nghỉ (học, làm)",
@@ -1159,6 +1263,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất thả, đặt để / nghỉ (học, làm)."
   },
   {
+    "id": "106",
     "hanzi": "放假",
     "pinyin": "fàng jià",
     "meaning": "nghỉ lễ, nghỉ phép",
@@ -1170,6 +1275,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Tôi thích nghỉ lễ, nghỉ phép."
   },
   {
+    "id": "107",
     "hanzi": "放学",
     "pinyin": "fàng xué",
     "meaning": "tan học, tan trường",
@@ -1181,6 +1287,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Tôi thích tan học, tan trường."
   },
   {
+    "id": "108",
     "hanzi": "飞",
     "pinyin": "fēi",
     "meaning": "bay",
@@ -1192,6 +1299,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Anh ấy đang ở bay."
   },
   {
+    "id": "109",
     "hanzi": "飞机",
     "pinyin": "fēi jī",
     "meaning": "máy bay",
@@ -1203,6 +1311,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Anh ấy đang ở máy bay."
   },
   {
+    "id": "110",
     "hanzi": "非常",
     "pinyin": "fēi cháng",
     "meaning": "vô cùng, rất, đặc biệt",
@@ -1214,6 +1323,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất vô cùng, rất, đặc biệt."
   },
   {
+    "id": "111",
     "hanzi": "分",
     "pinyin": "fēn",
     "meaning": "phút / điểm số / chia",
@@ -1225,6 +1335,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Hẹn gặp lại vào phút / điểm số / chia!"
   },
   {
+    "id": "112",
     "hanzi": "风",
     "pinyin": "fēng",
     "meaning": "gió",
@@ -1236,6 +1347,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Đây là gió của tôi."
   },
   {
+    "id": "113",
     "hanzi": "干",
     "pinyin": "gān",
     "meaning": "làm, làm việc",
@@ -1247,6 +1359,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất làm, làm việc."
   },
   {
+    "id": "114",
     "hanzi": "干净",
     "pinyin": "gān jìng",
     "meaning": "sạch sẽ",
@@ -1258,6 +1371,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất sạch sẽ."
   },
   {
+    "id": "115",
     "hanzi": "干什么",
     "pinyin": "gàn shén me",
     "meaning": "làm cái gì, sao thế",
@@ -1269,6 +1383,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất làm cái gì, sao thế."
   },
   {
+    "id": "116",
     "hanzi": "高",
     "pinyin": "gāo",
     "meaning": "cao",
@@ -1280,6 +1395,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất cao."
   },
   {
+    "id": "117",
     "hanzi": "高兴",
     "pinyin": "gāo xìng",
     "meaning": "vui vẻ, phấn khởi",
@@ -1291,6 +1407,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất vui vẻ, phấn khởi."
   },
   {
+    "id": "118",
     "hanzi": "告诉",
     "pinyin": "gào sù",
     "meaning": "nói cho biết, bảo",
@@ -1302,6 +1419,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Tôi thích nói cho biết, bảo."
   },
   {
+    "id": "119",
     "hanzi": "哥",
     "pinyin": "gē",
     "meaning": "anh trai",
@@ -1313,6 +1431,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Đó là anh trai của tôi."
   },
   {
+    "id": "120",
     "hanzi": "哥哥",
     "pinyin": "gē ge",
     "meaning": "anh trai",
@@ -1324,6 +1443,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Đó là anh trai của tôi."
   },
   {
+    "id": "121",
     "hanzi": "歌",
     "pinyin": "gē",
     "meaning": "bài hát, ca khúc",
@@ -1335,6 +1455,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất bài hát, ca khúc."
   },
   {
+    "id": "122",
     "hanzi": "个",
     "pinyin": "gě",
     "meaning": "cái, chiếc (lượng từ chung)",
@@ -1346,6 +1467,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất cái, chiếc (lượng từ chung)."
   },
   {
+    "id": "123",
     "hanzi": "给",
     "pinyin": "gěi",
     "meaning": "cho, đưa cho, tặng",
@@ -1357,6 +1479,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Tôi thích cho, đưa cho, tặng."
   },
   {
+    "id": "124",
     "hanzi": "跟",
     "pinyin": "gēn",
     "meaning": "cùng, với / theo sau",
@@ -1368,6 +1491,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất cùng, với / theo sau."
   },
   {
+    "id": "125",
     "hanzi": "工人",
     "pinyin": "gōng rén",
     "meaning": "công nhân, người lao động",
@@ -1379,6 +1503,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Đó là công nhân, người lao động của tôi."
   },
   {
+    "id": "126",
     "hanzi": "工作",
     "pinyin": "gōng zuò",
     "meaning": "làm việc, công việc",
@@ -1390,6 +1515,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Tôi thích làm việc, công việc."
   },
   {
+    "id": "127",
     "hanzi": "关",
     "pinyin": "guān",
     "meaning": "đóng, tắt (đèn, máy)",
@@ -1401,6 +1527,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Tôi thích đóng, tắt (đèn, máy)."
   },
   {
+    "id": "128",
     "hanzi": "关上",
     "pinyin": "guān shàng",
     "meaning": "đóng lại, tắt đi",
@@ -1412,6 +1539,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Tôi thích đóng lại, tắt đi."
   },
   {
+    "id": "129",
     "hanzi": "贵",
     "pinyin": "guì",
     "meaning": "đắt, quý giá / họ của bạn",
@@ -1423,6 +1551,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất đắt, quý giá / họ của bạn."
   },
   {
+    "id": "130",
     "hanzi": "国",
     "pinyin": "guó",
     "meaning": "nước, quốc gia",
@@ -1434,6 +1563,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất nước, quốc gia."
   },
   {
+    "id": "131",
     "hanzi": "国家",
     "pinyin": "guó jiā",
     "meaning": "quốc gia, đất nước",
@@ -1445,6 +1575,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Anh ấy đang ở quốc gia, đất nước."
   },
   {
+    "id": "132",
     "hanzi": "国外",
     "pinyin": "guó wài",
     "meaning": "nước ngoài",
@@ -1456,6 +1587,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất nước ngoài."
   },
   {
+    "id": "133",
     "hanzi": "过",
     "pinyin": "guò",
     "meaning": "qua, qua lại / đã từng (trợ từ)",
@@ -1467,6 +1599,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "qua, qua lại / đã từng (trợ từ)."
   },
   {
+    "id": "134",
     "hanzi": "还",
     "pinyin": "hái",
     "meaning": "còn, vẫn còn / trả lại",
@@ -1478,6 +1611,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất còn, vẫn còn / trả lại."
   },
   {
+    "id": "135",
     "hanzi": "还是",
     "pinyin": "hái shi",
     "meaning": "hay là, vẫn cứ",
@@ -1489,6 +1623,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất hay là, vẫn cứ."
   },
   {
+    "id": "136",
     "hanzi": "还有",
     "pinyin": "hái yǒu",
     "meaning": "còn có, ngoài ra",
@@ -1500,6 +1635,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất còn có, ngoài ra."
   },
   {
+    "id": "137",
     "hanzi": "孩子",
     "pinyin": "hái zi",
     "meaning": "đứa trẻ, con cái",
@@ -1511,6 +1647,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Đó là đứa trẻ, con cái của tôi."
   },
   {
+    "id": "138",
     "hanzi": "汉语",
     "pinyin": "Hàn yǔ",
     "meaning": "tiếng Hán, tiếng Trung",
@@ -1522,6 +1659,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất tiếng Hán, tiếng Trung."
   },
   {
+    "id": "139",
     "hanzi": "汉字",
     "pinyin": "hàn zì",
     "meaning": "chữ Hán",
@@ -1533,6 +1671,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Đây là chữ Hán của tôi."
   },
   {
+    "id": "140",
     "hanzi": "好",
     "pinyin": "hǎo",
     "meaning": "tốt, đẹp, hay, được",
@@ -1544,6 +1683,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất tốt, đẹp, hay, được."
   },
   {
+    "id": "141",
     "hanzi": "好吃",
     "pinyin": "hǎo chī",
     "meaning": "ngon miệng (đồ ăn)",
@@ -1555,6 +1695,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Tôi muốn ăn/uống ngon miệng (đồ ăn)."
   },
   {
+    "id": "142",
     "hanzi": "好看",
     "pinyin": "hǎo kàn",
     "meaning": "đẹp mắt, xem hay",
@@ -1566,6 +1707,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất đẹp mắt, xem hay."
   },
   {
+    "id": "143",
     "hanzi": "好听",
     "pinyin": "hǎo tīng",
     "meaning": "nghe hay, êm tai",
@@ -1577,6 +1719,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất nghe hay, êm tai."
   },
   {
+    "id": "144",
     "hanzi": "好玩儿",
     "pinyin": "hǎo wán r",
     "meaning": "vui nhộn, thú vị",
@@ -1588,6 +1731,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất vui nhộn, thú vị."
   },
   {
+    "id": "145",
     "hanzi": "号",
     "pinyin": "háo",
     "meaning": "số, ngày (trong tháng)",
@@ -1599,6 +1743,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Hẹn gặp lại vào số, ngày (trong tháng)!"
   },
   {
+    "id": "146",
     "hanzi": "喝",
     "pinyin": "hē",
     "meaning": "uống",
@@ -1610,6 +1755,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Tôi muốn ăn/uống uống."
   },
   {
+    "id": "147",
     "hanzi": "和",
     "pinyin": "hé",
     "meaning": "và, với, cùng",
@@ -1621,6 +1767,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất và, với, cùng."
   },
   {
+    "id": "148",
     "hanzi": "很",
     "pinyin": "hěn",
     "meaning": "rất, quá",
@@ -1632,6 +1779,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất rất, quá."
   },
   {
+    "id": "149",
     "hanzi": "后",
     "pinyin": "hòu",
     "meaning": "sau, phía sau",
@@ -1643,6 +1791,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất sau, phía sau."
   },
   {
+    "id": "150",
     "hanzi": "后边",
     "pinyin": "hòu bian",
     "meaning": "phía sau, đằng sau",
@@ -1654,6 +1803,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Anh ấy đang ở phía sau, đằng sau."
   },
   {
+    "id": "151",
     "hanzi": "后天",
     "pinyin": "hòu tiān",
     "meaning": "ngày mốt, ngày kia",
@@ -1665,6 +1815,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Hẹn gặp lại vào ngày mốt, ngày kia!"
   },
   {
+    "id": "152",
     "hanzi": "花",
     "pinyin": "huā",
     "meaning": "hoa, bông hoa / tiêu (tiền)",
@@ -1676,6 +1827,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Đây là hoa, bông hoa / tiêu (tiền) của tôi."
   },
   {
+    "id": "153",
     "hanzi": "话",
     "pinyin": "huà",
     "meaning": "lời nói, câu chuyện",
@@ -1687,6 +1839,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất lời nói, câu chuyện."
   },
   {
+    "id": "154",
     "hanzi": "坏",
     "pinyin": "huài",
     "meaning": "hỏng, xấu, tệ",
@@ -1698,6 +1851,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất hỏng, xấu, tệ."
   },
   {
+    "id": "155",
     "hanzi": "回",
     "pinyin": "huí",
     "meaning": "về, quay lại",
@@ -1709,6 +1863,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Anh ấy đang ở về, quay lại."
   },
   {
+    "id": "156",
     "hanzi": "回答",
     "pinyin": "huí dá",
     "meaning": "trả lời, giải đáp",
@@ -1720,6 +1875,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Tôi thích trả lời, giải đáp."
   },
   {
+    "id": "157",
     "hanzi": "回到",
     "pinyin": "huí dào",
     "meaning": "quay trở về",
@@ -1731,6 +1887,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Anh ấy đang ở quay trở về."
   },
   {
+    "id": "158",
     "hanzi": "回家",
     "pinyin": "huí jiā",
     "meaning": "về nhà",
@@ -1742,6 +1899,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Anh ấy đang ở về nhà."
   },
   {
+    "id": "159",
     "hanzi": "回来",
     "pinyin": "huí lai",
     "meaning": "trở về, quay lại",
@@ -1753,6 +1911,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất trở về, quay lại."
   },
   {
+    "id": "160",
     "hanzi": "回去",
     "pinyin": "huí qu",
     "meaning": "đi về, trở về",
@@ -1764,6 +1923,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất đi về, trở về."
   },
   {
+    "id": "161",
     "hanzi": "会",
     "pinyin": "huì",
     "meaning": "biết (qua học tập) / sẽ / cuộc họp",
@@ -1775,6 +1935,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất biết (qua học tập) / sẽ / cuộc họp."
   },
   {
+    "id": "162",
     "hanzi": "火车",
     "pinyin": "huǒ chē",
     "meaning": "tàu hỏa, xe lửa",
@@ -1786,6 +1947,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Anh ấy đang ở tàu hỏa, xe lửa."
   },
   {
+    "id": "163",
     "hanzi": "机场",
     "pinyin": "jī chǎng",
     "meaning": "sân bay, phi trường",
@@ -1797,6 +1959,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Anh ấy đang ở sân bay, phi trường."
   },
   {
+    "id": "164",
     "hanzi": "机票",
     "pinyin": "jī piào",
     "meaning": "vé máy bay",
@@ -1808,6 +1971,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Anh ấy đang ở vé máy bay."
   },
   {
+    "id": "165",
     "hanzi": "鸡蛋",
     "pinyin": "jī dàn",
     "meaning": "trứng gà",
@@ -1819,6 +1983,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Tôi muốn ăn/uống trứng gà."
   },
   {
+    "id": "166",
     "hanzi": "几",
     "pinyin": "jī",
     "meaning": "mấy, vài (dưới 10)",
@@ -1830,6 +1995,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất mấy, vài (dưới 10)."
   },
   {
+    "id": "167",
     "hanzi": "记",
     "pinyin": "jì",
     "meaning": "nhớ, ghi nhớ, ghi chép",
@@ -1841,6 +2007,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất nhớ, ghi nhớ, ghi chép."
   },
   {
+    "id": "168",
     "hanzi": "记得",
     "pinyin": "jì de",
     "meaning": "nhớ, còn nhớ",
@@ -1852,6 +2019,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Tôi thích nhớ, còn nhớ."
   },
   {
+    "id": "169",
     "hanzi": "记住",
     "pinyin": "jì zhu",
     "meaning": "ghi nhớ, nhớ kỹ",
@@ -1863,6 +2031,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Tôi thích ghi nhớ, nhớ kỹ."
   },
   {
+    "id": "170",
     "hanzi": "家",
     "pinyin": "jiā",
     "meaning": "nhà, gia đình",
@@ -1874,6 +2043,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Anh ấy đang ở nhà, gia đình."
   },
   {
+    "id": "171",
     "hanzi": "家里",
     "pinyin": "jiā lǐ",
     "meaning": "trong nhà, ở nhà",
@@ -1885,6 +2055,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Anh ấy đang ở trong nhà, ở nhà."
   },
   {
+    "id": "172",
     "hanzi": "家人",
     "pinyin": "jiā rén",
     "meaning": "người nhà, người thân",
@@ -1896,6 +2067,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Đó là người nhà, người thân của tôi."
   },
   {
+    "id": "173",
     "hanzi": "间",
     "pinyin": "jiān",
     "meaning": "gian, phòng (lượng từ phòng)",
@@ -1907,6 +2079,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất gian, phòng (lượng từ phòng)."
   },
   {
+    "id": "174",
     "hanzi": "见",
     "pinyin": "jiàn",
     "meaning": "gặp, nhìn thấy",
@@ -1918,6 +2091,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất gặp, nhìn thấy."
   },
   {
+    "id": "175",
     "hanzi": "见面",
     "pinyin": "jiàn miàn",
     "meaning": "gặp mặt, tiếp xúc",
@@ -1929,6 +2103,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất gặp mặt, tiếp xúc."
   },
   {
+    "id": "176",
     "hanzi": "叫",
     "pinyin": "jiào",
     "meaning": "tên là, gọi, kêu",
@@ -1940,6 +2115,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất tên là, gọi, kêu."
   },
   {
+    "id": "177",
     "hanzi": "教",
     "pinyin": "jiāo",
     "meaning": "dạy, giảng dạy",
@@ -1951,6 +2127,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Tôi thích dạy, giảng dạy."
   },
   {
+    "id": "178",
     "hanzi": "教学楼",
     "pinyin": "jiào xué lóu",
     "meaning": "tòa nhà giảng dạy, khu học xá",
@@ -1962,6 +2139,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Anh ấy đang ở tòa nhà giảng dạy, khu học xá."
   },
   {
+    "id": "179",
     "hanzi": "介绍",
     "pinyin": "jiè shào",
     "meaning": "giới thiệu",
@@ -1973,6 +2151,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Tôi thích giới thiệu."
   },
   {
+    "id": "180",
     "hanzi": "姐",
     "pinyin": "jiě",
     "meaning": "chị gái",
@@ -1984,6 +2163,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Đó là chị gái của tôi."
   },
   {
+    "id": "181",
     "hanzi": "姐姐",
     "pinyin": "jiě jie",
     "meaning": "chị gái",
@@ -1995,6 +2175,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Đó là chị gái của tôi."
   },
   {
+    "id": "182",
     "hanzi": "今年",
     "pinyin": "jīn nián",
     "meaning": "năm nay",
@@ -2006,6 +2187,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Hẹn gặp lại vào năm nay!"
   },
   {
+    "id": "183",
     "hanzi": "今天",
     "pinyin": "jīn tiān",
     "meaning": "hôm nay",
@@ -2017,6 +2199,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Hẹn gặp lại vào hôm nay!"
   },
   {
+    "id": "184",
     "hanzi": "进",
     "pinyin": "jìn",
     "meaning": "vào, tiến vào",
@@ -2028,6 +2211,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Tôi thích vào, tiến vào."
   },
   {
+    "id": "185",
     "hanzi": "进来",
     "pinyin": "jìn lái",
     "meaning": "vào đây, bước vào",
@@ -2039,6 +2223,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Tôi thích vào đây, bước vào."
   },
   {
+    "id": "186",
     "hanzi": "进去",
     "pinyin": "jìn qù",
     "meaning": "đi vào trong",
@@ -2050,6 +2235,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Tôi thích đi vào trong."
   },
   {
+    "id": "187",
     "hanzi": "九",
     "pinyin": "jiǔ",
     "meaning": "số 9 (chín)",
@@ -2061,6 +2247,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Hẹn gặp lại vào số 9 (chín)!"
   },
   {
+    "id": "188",
     "hanzi": "就",
     "pinyin": "jiù",
     "meaning": "thì, ngay, chính là",
@@ -2072,6 +2259,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất thì, ngay, chính là."
   },
   {
+    "id": "189",
     "hanzi": "觉得",
     "pinyin": "jué de",
     "meaning": "cảm thấy, cho rằng",
@@ -2083,6 +2271,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Tôi thích cảm thấy, cho rằng."
   },
   {
+    "id": "190",
     "hanzi": "开",
     "pinyin": "kāi",
     "meaning": "mở, bật, lái (xe)",
@@ -2094,6 +2283,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Tôi thích mở, bật, lái (xe)."
   },
   {
+    "id": "191",
     "hanzi": "开车",
     "pinyin": "kāi chē",
     "meaning": "lái xe, điều khiển ô tô",
@@ -2105,6 +2295,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Anh ấy đang ở lái xe, điều khiển ô tô."
   },
   {
+    "id": "192",
     "hanzi": "开会",
     "pinyin": "kāi huì",
     "meaning": "họp, mở cuộc họp",
@@ -2116,6 +2307,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Tôi thích họp, mở cuộc họp."
   },
   {
+    "id": "193",
     "hanzi": "开玩笑",
     "pinyin": "kāi wán xiào",
     "meaning": "nói đùa, trêu chọc",
@@ -2127,6 +2319,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Tôi thích nói đùa, trêu chọc."
   },
   {
+    "id": "194",
     "hanzi": "看",
     "pinyin": "kān",
     "meaning": "nhìn, xem, thăm",
@@ -2138,6 +2331,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Tôi thích nhìn, xem, thăm."
   },
   {
+    "id": "195",
     "hanzi": "看病",
     "pinyin": "kàn bìng",
     "meaning": "khám bệnh, chữa bệnh",
@@ -2149,6 +2343,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Tôi thích khám bệnh, chữa bệnh."
   },
   {
+    "id": "196",
     "hanzi": "看到",
     "pinyin": "kàn dào",
     "meaning": "nhìn thấy, thấy được",
@@ -2160,6 +2355,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất nhìn thấy, thấy được."
   },
   {
+    "id": "197",
     "hanzi": "看见",
     "pinyin": "kàn jiàn",
     "meaning": "nhìn thấy, trông thấy",
@@ -2171,6 +2367,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất nhìn thấy, trông thấy."
   },
   {
+    "id": "198",
     "hanzi": "考",
     "pinyin": "kǎo",
     "meaning": "thi, kiểm tra",
@@ -2182,6 +2379,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Tôi thích thi, kiểm tra."
   },
   {
+    "id": "199",
     "hanzi": "考试",
     "pinyin": "kǎo shì",
     "meaning": "kỳ thi, bài kiểm tra",
@@ -2193,6 +2391,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Tôi thích kỳ thi, bài kiểm tra."
   },
   {
+    "id": "200",
     "hanzi": "渴",
     "pinyin": "kě",
     "meaning": "khát nước",
@@ -2204,6 +2403,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Tôi muốn ăn/uống khát nước."
   },
   {
+    "id": "201",
     "hanzi": "课",
     "pinyin": "kè",
     "meaning": "bài học, tiết học, môn học",
@@ -2215,6 +2415,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất bài học, tiết học, môn học."
   },
   {
+    "id": "202",
     "hanzi": "课本",
     "pinyin": "kè běn",
     "meaning": "sách giáo khoa",
@@ -2226,6 +2427,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Đây là sách giáo khoa của tôi."
   },
   {
+    "id": "203",
     "hanzi": "课文",
     "pinyin": "kè wén",
     "meaning": "bài khóa, bài đọc",
@@ -2237,6 +2439,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất bài khóa, bài đọc."
   },
   {
+    "id": "204",
     "hanzi": "口",
     "pinyin": "kǒu",
     "meaning": "miệng, mồm / lượng từ nhân khẩu",
@@ -2248,6 +2451,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Đây là miệng, mồm / lượng từ nhân khẩu của tôi."
   },
   {
+    "id": "205",
     "hanzi": "块",
     "pinyin": "kuài",
     "meaning": "đồng (tiền), miếng, tảng",
@@ -2259,6 +2463,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Đây là đồng (tiền), miếng, tảng của tôi."
   },
   {
+    "id": "206",
     "hanzi": "快",
     "pinyin": "kuài",
     "meaning": "nhanh, mau chóng / sắp sửa",
@@ -2270,6 +2475,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất nhanh, mau chóng / sắp sửa."
   },
   {
+    "id": "207",
     "hanzi": "来",
     "pinyin": "lái",
     "meaning": "đến, tới",
@@ -2281,6 +2487,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Anh ấy đang ở đến, tới."
   },
   {
+    "id": "208",
     "hanzi": "来到",
     "pinyin": "lái dào",
     "meaning": "đến nơi, tới",
@@ -2292,6 +2499,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Tôi thích đến nơi, tới."
   },
   {
+    "id": "209",
     "hanzi": "老",
     "pinyin": "lǎo",
     "meaning": "già, cũ, lâu năm",
@@ -2303,6 +2511,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất già, cũ, lâu năm."
   },
   {
+    "id": "210",
     "hanzi": "老人",
     "pinyin": "lǎo rén",
     "meaning": "người già, người cao tuổi",
@@ -2314,6 +2523,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Đó là người già, người cao tuổi của tôi."
   },
   {
+    "id": "211",
     "hanzi": "老师",
     "pinyin": "lǎo shī",
     "meaning": "thầy cô giáo, giáo viên",
@@ -2325,6 +2535,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Đó là thầy cô giáo, giáo viên của tôi."
   },
   {
+    "id": "212",
     "hanzi": "了",
     "pinyin": "le",
     "meaning": "rồi (trợ từ biến đổi trạng thái)",
@@ -2336,6 +2547,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "rồi (trợ từ biến đổi trạng thái)."
   },
   {
+    "id": "213",
     "hanzi": "累",
     "pinyin": "lěi",
     "meaning": "mệt, mệt mỏi",
@@ -2347,6 +2559,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất mệt, mệt mỏi."
   },
   {
+    "id": "214",
     "hanzi": "冷",
     "pinyin": "lěng",
     "meaning": "lạnh, rét",
@@ -2358,6 +2571,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất lạnh, rét."
   },
   {
+    "id": "215",
     "hanzi": "里",
     "pinyin": "lǐ",
     "meaning": "trong, bên trong",
@@ -2369,6 +2583,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất trong, bên trong."
   },
   {
+    "id": "216",
     "hanzi": "里边",
     "pinyin": "lǐ bian",
     "meaning": "bên trong, phía trong",
@@ -2380,6 +2595,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Anh ấy đang ở bên trong, phía trong."
   },
   {
+    "id": "217",
     "hanzi": "两",
     "pinyin": "liǎng",
     "meaning": "hai (dùng trước lượng từ)",
@@ -2391,6 +2607,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Hẹn gặp lại vào hai (dùng trước lượng từ)!"
   },
   {
+    "id": "218",
     "hanzi": "零",
     "pinyin": "líng",
     "meaning": "số 0 (không)",
@@ -2402,6 +2619,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Hẹn gặp lại vào số 0 (không)!"
   },
   {
+    "id": "219",
     "hanzi": "六",
     "pinyin": "liù",
     "meaning": "số 6 (sáu)",
@@ -2413,6 +2631,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Hẹn gặp lại vào số 6 (sáu)!"
   },
   {
+    "id": "220",
     "hanzi": "楼",
     "pinyin": "lóu",
     "meaning": "tầng, lầu, tòa nhà",
@@ -2424,6 +2643,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Anh ấy đang ở tầng, lầu, tòa nhà."
   },
   {
+    "id": "221",
     "hanzi": "楼上",
     "pinyin": "lóu shàng",
     "meaning": "trên lầu, tầng trên",
@@ -2435,6 +2655,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Anh ấy đang ở trên lầu, tầng trên."
   },
   {
+    "id": "222",
     "hanzi": "楼下",
     "pinyin": "lóu xià",
     "meaning": "dưới lầu, tầng dưới",
@@ -2446,6 +2667,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Anh ấy đang ở dưới lầu, tầng dưới."
   },
   {
+    "id": "223",
     "hanzi": "路",
     "pinyin": "lù",
     "meaning": "đường đi, tuyến đường",
@@ -2457,6 +2679,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Anh ấy đang ở đường đi, tuyến đường."
   },
   {
+    "id": "224",
     "hanzi": "路口",
     "pinyin": "lù kǒu",
     "meaning": "ngã tư, giao lộ",
@@ -2468,6 +2691,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Anh ấy đang ở ngã tư, giao lộ."
   },
   {
+    "id": "225",
     "hanzi": "路上",
     "pinyin": "lù shang",
     "meaning": "trên đường",
@@ -2479,6 +2703,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất trên đường."
   },
   {
+    "id": "226",
     "hanzi": "妈",
     "pinyin": "mā",
     "meaning": "mẹ, má",
@@ -2490,6 +2715,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Đó là mẹ, má của tôi."
   },
   {
+    "id": "227",
     "hanzi": "妈妈",
     "pinyin": "mā ma",
     "meaning": "mẹ, má",
@@ -2501,6 +2727,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Đó là mẹ, má của tôi."
   },
   {
+    "id": "228",
     "hanzi": "马路",
     "pinyin": "mǎ lù",
     "meaning": "đường cái, đường lớn",
@@ -2512,6 +2739,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Anh ấy đang ở đường cái, đường lớn."
   },
   {
+    "id": "229",
     "hanzi": "马上",
     "pinyin": "mǎ shàng",
     "meaning": "ngay lập tức, tức khắc",
@@ -2523,6 +2751,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất ngay lập tức, tức khắc."
   },
   {
+    "id": "230",
     "hanzi": "吗",
     "pinyin": "má",
     "meaning": "không, chăng (trợ từ nghi vấn)",
@@ -2534,6 +2763,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "không, chăng (trợ từ nghi vấn)."
   },
   {
+    "id": "231",
     "hanzi": "买",
     "pinyin": "mǎi",
     "meaning": "mua",
@@ -2545,6 +2775,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Tôi thích mua."
   },
   {
+    "id": "232",
     "hanzi": "慢",
     "pinyin": "màn",
     "meaning": "chậm, từ từ",
@@ -2556,6 +2787,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất chậm, từ từ."
   },
   {
+    "id": "233",
     "hanzi": "忙",
     "pinyin": "máng",
     "meaning": "bận, bận rộn",
@@ -2567,6 +2799,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất bận, bận rộn."
   },
   {
+    "id": "234",
     "hanzi": "毛",
     "pinyin": "máo",
     "meaning": "hào (tiền) / lông",
@@ -2578,6 +2811,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Đây là hào (tiền) / lông của tôi."
   },
   {
+    "id": "235",
     "hanzi": "没",
     "pinyin": "méi",
     "meaning": "không, chưa",
@@ -2589,6 +2823,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất không, chưa."
   },
   {
+    "id": "236",
     "hanzi": "没关系",
     "pinyin": "méi guān xi",
     "meaning": "không sao, không có chi",
@@ -2600,6 +2835,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "không sao, không có chi."
   },
   {
+    "id": "237",
     "hanzi": "没什么",
     "pinyin": "méi shén me",
     "meaning": "không có gì, chẳng sao cả",
@@ -2611,6 +2847,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "không có gì, chẳng sao cả."
   },
   {
+    "id": "238",
     "hanzi": "没事儿",
     "pinyin": "méi shì r",
     "meaning": "không việc gì, không sao đâu",
@@ -2622,6 +2859,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "không việc gì, không sao đâu."
   },
   {
+    "id": "239",
     "hanzi": "没有",
     "pinyin": "méi yǒu",
     "meaning": "không có, chưa từng",
@@ -2633,6 +2871,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất không có, chưa từng."
   },
   {
+    "id": "240",
     "hanzi": "妹",
     "pinyin": "mèi",
     "meaning": "em gái",
@@ -2644,6 +2883,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Đó là em gái của tôi."
   },
   {
+    "id": "241",
     "hanzi": "妹妹",
     "pinyin": "mèi mei",
     "meaning": "em gái",
@@ -2655,6 +2895,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Đó là em gái của tôi."
   },
   {
+    "id": "242",
     "hanzi": "门",
     "pinyin": "mén",
     "meaning": "cửa, cổng / lượng từ môn học",
@@ -2666,6 +2907,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Đây là cửa, cổng / lượng từ môn học của tôi."
   },
   {
+    "id": "243",
     "hanzi": "门口",
     "pinyin": "mén kǒu",
     "meaning": "cửa ra vào, cổng",
@@ -2677,6 +2919,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Đây là cửa ra vào, cổng của tôi."
   },
   {
+    "id": "244",
     "hanzi": "门票",
     "pinyin": "mén piào",
     "meaning": "vé vào cửa, vé tham quan",
@@ -2688,6 +2931,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Đây là vé vào cửa, vé tham quan của tôi."
   },
   {
+    "id": "245",
     "hanzi": "们",
     "pinyin": "men",
     "meaning": "các, chúng (hậu tố số nhiều)",
@@ -2699,6 +2943,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất các, chúng (hậu tố số nhiều)."
   },
   {
+    "id": "246",
     "hanzi": "米饭",
     "pinyin": "mǐ fàn",
     "meaning": "cơm trắng",
@@ -2710,6 +2955,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Tôi muốn ăn/uống cơm trắng."
   },
   {
+    "id": "247",
     "hanzi": "面包",
     "pinyin": "miàn bāo",
     "meaning": "bánh mì",
@@ -2721,6 +2967,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Tôi muốn ăn/uống bánh mì."
   },
   {
+    "id": "248",
     "hanzi": "面条儿",
     "pinyin": "miàn tiáo r",
     "meaning": "mì sợi, tô mì",
@@ -2732,6 +2979,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Tôi muốn ăn/uống mì sợi, tô mì."
   },
   {
+    "id": "249",
     "hanzi": "名字",
     "pinyin": "míng zi",
     "meaning": "tên, danh tính",
@@ -2743,6 +2991,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất tên, danh tính."
   },
   {
+    "id": "250",
     "hanzi": "明白",
     "pinyin": "míng bai",
     "meaning": "hiểu rõ, rõ ràng",
@@ -2754,6 +3003,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Tôi thích hiểu rõ, rõ ràng."
   },
   {
+    "id": "251",
     "hanzi": "明年",
     "pinyin": "míng nián",
     "meaning": "năm sau, sang năm",
@@ -2765,6 +3015,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Hẹn gặp lại vào năm sau, sang năm!"
   },
   {
+    "id": "252",
     "hanzi": "明天",
     "pinyin": "míng tiān",
     "meaning": "ngày mai",
@@ -2776,6 +3027,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Hẹn gặp lại vào ngày mai!"
   },
   {
+    "id": "253",
     "hanzi": "拿",
     "pinyin": "ná",
     "meaning": "cầm, nắm, lấy",
@@ -2787,6 +3039,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Tôi thích cầm, nắm, lấy."
   },
   {
+    "id": "254",
     "hanzi": "哪",
     "pinyin": "nǎ",
     "meaning": "nào (nghi vấn)",
@@ -2798,6 +3051,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất nào (nghi vấn)."
   },
   {
+    "id": "255",
     "hanzi": "哪儿",
     "pinyin": "nǎ r",
     "meaning": "ở đâu, đâu",
@@ -2809,6 +3063,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Anh ấy đang ở ở đâu, đâu."
   },
   {
+    "id": "256",
     "hanzi": "哪里",
     "pinyin": "nǎ lǐ",
     "meaning": "ở đâu / đâu có (khiêm tốn)",
@@ -2820,6 +3075,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Anh ấy đang ở ở đâu / đâu có (khiêm tốn)."
   },
   {
+    "id": "257",
     "hanzi": "哪些",
     "pinyin": "nǎ xiē",
     "meaning": "những cái nào, những người nào",
@@ -2831,6 +3087,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Đây là những cái nào, những người nào của tôi."
   },
   {
+    "id": "258",
     "hanzi": "那",
     "pinyin": "nǎ",
     "meaning": "kia, đó",
@@ -2842,6 +3099,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất kia, đó."
   },
   {
+    "id": "259",
     "hanzi": "那边",
     "pinyin": "nà bian",
     "meaning": "phía bên kia, đằng kia",
@@ -2853,6 +3111,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Anh ấy đang ở phía bên kia, đằng kia."
   },
   {
+    "id": "260",
     "hanzi": "那儿",
     "pinyin": "nà r",
     "meaning": "ở đó, đằng kia",
@@ -2864,6 +3123,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Anh ấy đang ở ở đó, đằng kia."
   },
   {
+    "id": "261",
     "hanzi": "那里",
     "pinyin": "nà li",
     "meaning": "ở nơi đó, chỗ đó",
@@ -2875,6 +3135,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Anh ấy đang ở ở nơi đó, chỗ đó."
   },
   {
+    "id": "262",
     "hanzi": "那些",
     "pinyin": "nà xiē",
     "meaning": "những cái đó, những thứ kia",
@@ -2886,6 +3147,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Đây là những cái đó, những thứ kia của tôi."
   },
   {
+    "id": "263",
     "hanzi": "奶",
     "pinyin": "nǎi",
     "meaning": "sữa / bà nội",
@@ -2897,6 +3159,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất sữa / bà nội."
   },
   {
+    "id": "264",
     "hanzi": "奶奶",
     "pinyin": "nǎi nai",
     "meaning": "bà nội",
@@ -2908,6 +3171,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Đó là bà nội của tôi."
   },
   {
+    "id": "265",
     "hanzi": "男",
     "pinyin": "nán",
     "meaning": "nam, đàn ông, con trai",
@@ -2919,6 +3183,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất nam, đàn ông, con trai."
   },
   {
+    "id": "266",
     "hanzi": "男孩儿",
     "pinyin": "nán hái r",
     "meaning": "cậu bé, bé trai",
@@ -2930,6 +3195,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Đó là cậu bé, bé trai của tôi."
   },
   {
+    "id": "267",
     "hanzi": "男朋友",
     "pinyin": "nán péng you",
     "meaning": "bạn trai, người yêu",
@@ -2941,6 +3207,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Đó là bạn trai, người yêu của tôi."
   },
   {
+    "id": "268",
     "hanzi": "男人",
     "pinyin": "nán rén",
     "meaning": "đàn ông, người nam",
@@ -2952,6 +3219,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Đó là đàn ông, người nam của tôi."
   },
   {
+    "id": "269",
     "hanzi": "男生",
     "pinyin": "nán shēng",
     "meaning": "nam sinh, học sinh nam",
@@ -2963,6 +3231,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Đó là nam sinh, học sinh nam của tôi."
   },
   {
+    "id": "270",
     "hanzi": "南",
     "pinyin": "nán",
     "meaning": "phía nam, hướng nam",
@@ -2974,6 +3243,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Anh ấy đang ở phía nam, hướng nam."
   },
   {
+    "id": "271",
     "hanzi": "南边",
     "pinyin": "nán bian",
     "meaning": "phía nam, đằng nam",
@@ -2985,6 +3255,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Anh ấy đang ở phía nam, đằng nam."
   },
   {
+    "id": "272",
     "hanzi": "难",
     "pinyin": "nán",
     "meaning": "khó, khó khăn",
@@ -2996,6 +3267,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất khó, khó khăn."
   },
   {
+    "id": "273",
     "hanzi": "呢",
     "pinyin": "ne",
     "meaning": "đâu, nhỉ, vậy (trợ từ hỏi ngược)",
@@ -3007,6 +3279,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "đâu, nhỉ, vậy (trợ từ hỏi ngược)."
   },
   {
+    "id": "274",
     "hanzi": "能",
     "pinyin": "néng",
     "meaning": "có thể, có khả năng",
@@ -3018,6 +3291,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất có thể, có khả năng."
   },
   {
+    "id": "275",
     "hanzi": "你",
     "pinyin": "nǐ",
     "meaning": "bạn, cậu, anh, chị (ngôi 2)",
@@ -3029,6 +3303,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Đó là bạn, cậu, anh, chị (ngôi 2) của tôi."
   },
   {
+    "id": "276",
     "hanzi": "你们",
     "pinyin": "nǐ men",
     "meaning": "các bạn, các anh, các chị",
@@ -3040,6 +3315,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Đó là các bạn, các anh, các chị của tôi."
   },
   {
+    "id": "277",
     "hanzi": "年",
     "pinyin": "nián",
     "meaning": "năm, tuổi",
@@ -3051,6 +3327,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Hẹn gặp lại vào năm, tuổi!"
   },
   {
+    "id": "278",
     "hanzi": "您",
     "pinyin": "nín",
     "meaning": "ngài, bác, ông (kính ngữ của 你)",
@@ -3062,6 +3339,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Đó là ngài, bác, ông (kính ngữ của 你) của tôi."
   },
   {
+    "id": "279",
     "hanzi": "牛奶",
     "pinyin": "niú nǎi",
     "meaning": "sữa bò",
@@ -3073,6 +3351,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Tôi muốn ăn/uống sữa bò."
   },
   {
+    "id": "280",
     "hanzi": "女",
     "pinyin": "nǚ",
     "meaning": "nữ, phụ nữ, con gái",
@@ -3084,6 +3363,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất nữ, phụ nữ, con gái."
   },
   {
+    "id": "281",
     "hanzi": "女儿",
     "pinyin": "nǚ ér",
     "meaning": "con gái (của bố mẹ)",
@@ -3095,6 +3375,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Đó là con gái (của bố mẹ) của tôi."
   },
   {
+    "id": "282",
     "hanzi": "女孩儿",
     "pinyin": "nǚ hái r",
     "meaning": "cô bé, bé gái",
@@ -3106,6 +3387,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Đó là cô bé, bé gái của tôi."
   },
   {
+    "id": "283",
     "hanzi": "女朋友",
     "pinyin": "nǚ péng you",
     "meaning": "bạn gái, người yêu",
@@ -3117,6 +3399,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Đó là bạn gái, người yêu của tôi."
   },
   {
+    "id": "284",
     "hanzi": "女人",
     "pinyin": "nǚ rén",
     "meaning": "phụ nữ, đàn bà",
@@ -3128,6 +3411,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Đó là phụ nữ, đàn bà của tôi."
   },
   {
+    "id": "285",
     "hanzi": "女生",
     "pinyin": "nǚ shēng",
     "meaning": "nữ sinh, học sinh nữ",
@@ -3139,6 +3423,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Đó là nữ sinh, học sinh nữ của tôi."
   },
   {
+    "id": "286",
     "hanzi": "旁边",
     "pinyin": "páng biān",
     "meaning": "bên cạnh, cạnh bên",
@@ -3150,6 +3435,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Anh ấy đang ở bên cạnh, cạnh bên."
   },
   {
+    "id": "287",
     "hanzi": "跑",
     "pinyin": "páo",
     "meaning": "chạy",
@@ -3161,6 +3447,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Anh ấy đang ở chạy."
   },
   {
+    "id": "288",
     "hanzi": "朋友",
     "pinyin": "péng you",
     "meaning": "bạn bè, bạn",
@@ -3172,6 +3459,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Đó là bạn bè, bạn của tôi."
   },
   {
+    "id": "289",
     "hanzi": "票",
     "pinyin": "piào",
     "meaning": "vé, phiếu",
@@ -3183,6 +3471,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Đây là vé, phiếu của tôi."
   },
   {
+    "id": "290",
     "hanzi": "七",
     "pinyin": "qī",
     "meaning": "số 7 (bảy)",
@@ -3194,6 +3483,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Hẹn gặp lại vào số 7 (bảy)!"
   },
   {
+    "id": "291",
     "hanzi": "起",
     "pinyin": "qǐ",
     "meaning": "dậy, khởi / nổi lên",
@@ -3205,6 +3495,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Tôi thích dậy, khởi / nổi lên."
   },
   {
+    "id": "292",
     "hanzi": "起床",
     "pinyin": "qǐ chuáng",
     "meaning": "thức dậy, rời giường",
@@ -3216,6 +3507,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Tôi thích thức dậy, rời giường."
   },
   {
+    "id": "293",
     "hanzi": "起来",
     "pinyin": "qǐ lai",
     "meaning": "ngồi dậy, đứng dậy / bắt đầu",
@@ -3227,6 +3519,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Tôi thích ngồi dậy, đứng dậy / bắt đầu."
   },
   {
+    "id": "294",
     "hanzi": "汽车",
     "pinyin": "qì chē",
     "meaning": "xe hơi, xe ô tô",
@@ -3238,6 +3531,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Anh ấy đang ở xe hơi, xe ô tô."
   },
   {
+    "id": "295",
     "hanzi": "前",
     "pinyin": "qián",
     "meaning": "trước, phía trước",
@@ -3249,6 +3543,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất trước, phía trước."
   },
   {
+    "id": "296",
     "hanzi": "前边",
     "pinyin": "qián bian",
     "meaning": "phía trước, đằng trước",
@@ -3260,6 +3555,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Anh ấy đang ở phía trước, đằng trước."
   },
   {
+    "id": "297",
     "hanzi": "前天",
     "pinyin": "qián tiān",
     "meaning": "hôm kia, hôm trước",
@@ -3271,6 +3567,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Hẹn gặp lại vào hôm kia, hôm trước!"
   },
   {
+    "id": "298",
     "hanzi": "钱",
     "pinyin": "qián",
     "meaning": "tiền, tiền bạc",
@@ -3282,6 +3579,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Đây là tiền, tiền bạc của tôi."
   },
   {
+    "id": "299",
     "hanzi": "钱包",
     "pinyin": "qián bāo",
     "meaning": "ví tiền, bóp tiền",
@@ -3293,6 +3591,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Đây là ví tiền, bóp tiền của tôi."
   },
   {
+    "id": "300",
     "hanzi": "请",
     "pinyin": "qǐng",
     "meaning": "mời, xin, làm ơn",
@@ -3304,6 +3603,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "mời, xin, làm ơn."
   },
   {
+    "id": "301",
     "hanzi": "请假",
     "pinyin": "qǐng jià",
     "meaning": "xin nghỉ phép, xin nghỉ học",
@@ -3315,6 +3615,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "xin nghỉ phép, xin nghỉ học."
   },
   {
+    "id": "302",
     "hanzi": "请进",
     "pinyin": "qǐng jìn",
     "meaning": "xin mời vào",
@@ -3326,6 +3627,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "xin mời vào."
   },
   {
+    "id": "303",
     "hanzi": "请问",
     "pinyin": "qǐng wèn",
     "meaning": "xin hỏi, làm phiền cho hỏi",
@@ -3337,6 +3639,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "xin hỏi, làm phiền cho hỏi."
   },
   {
+    "id": "304",
     "hanzi": "请坐",
     "pinyin": "qǐng zuò",
     "meaning": "xin mời ngồi",
@@ -3348,6 +3651,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "xin mời ngồi."
   },
   {
+    "id": "305",
     "hanzi": "球",
     "pinyin": "qiú",
     "meaning": "quả bóng, trái cầu",
@@ -3359,6 +3663,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Đây là quả bóng, trái cầu của tôi."
   },
   {
+    "id": "306",
     "hanzi": "去",
     "pinyin": "qù",
     "meaning": "đi, tới",
@@ -3370,6 +3675,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Anh ấy đang ở đi, tới."
   },
   {
+    "id": "307",
     "hanzi": "去年",
     "pinyin": "qù nián",
     "meaning": "năm ngoái",
@@ -3381,6 +3687,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Hẹn gặp lại vào năm ngoái!"
   },
   {
+    "id": "308",
     "hanzi": "热",
     "pinyin": "rè",
     "meaning": "nóng, nhiệt tình",
@@ -3392,6 +3699,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất nóng, nhiệt tình."
   },
   {
+    "id": "309",
     "hanzi": "人",
     "pinyin": "rén",
     "meaning": "người, con người",
@@ -3403,6 +3711,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất người, con người."
   },
   {
+    "id": "310",
     "hanzi": "认识",
     "pinyin": "rèn shi",
     "meaning": "quen biết, nhận biết",
@@ -3414,6 +3723,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Tôi thích quen biết, nhận biết."
   },
   {
+    "id": "311",
     "hanzi": "认真",
     "pinyin": "rèn zhēn",
     "meaning": "chăm chỉ, nghiêm túc",
@@ -3425,6 +3735,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất chăm chỉ, nghiêm túc."
   },
   {
+    "id": "312",
     "hanzi": "日",
     "pinyin": "Rì",
     "meaning": "ngày, mặt trời",
@@ -3436,6 +3747,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Hẹn gặp lại vào ngày, mặt trời!"
   },
   {
+    "id": "313",
     "hanzi": "日期",
     "pinyin": "rì qī",
     "meaning": "ngày tháng, thời hạn",
@@ -3447,6 +3759,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Hẹn gặp lại vào ngày tháng, thời hạn!"
   },
   {
+    "id": "314",
     "hanzi": "肉",
     "pinyin": "ròu",
     "meaning": "thịt",
@@ -3458,6 +3771,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Tôi muốn ăn/uống thịt."
   },
   {
+    "id": "315",
     "hanzi": "三",
     "pinyin": "sān",
     "meaning": "số 3 (ba)",
@@ -3469,6 +3783,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Hẹn gặp lại vào số 3 (ba)!"
   },
   {
+    "id": "316",
     "hanzi": "山",
     "pinyin": "shān",
     "meaning": "núi, ngọn núi",
@@ -3480,6 +3795,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Anh ấy đang ở núi, ngọn núi."
   },
   {
+    "id": "317",
     "hanzi": "商场",
     "pinyin": "shāng chǎng",
     "meaning": "trung tâm thương mại",
@@ -3491,6 +3807,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Anh ấy đang ở trung tâm thương mại."
   },
   {
+    "id": "318",
     "hanzi": "商店",
     "pinyin": "shāng diàn",
     "meaning": "cửa hàng, tiệm buôn",
@@ -3502,6 +3819,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Anh ấy đang ở cửa hàng, tiệm buôn."
   },
   {
+    "id": "319",
     "hanzi": "上",
     "pinyin": "shǎng",
     "meaning": "lên, trên, trước",
@@ -3513,6 +3831,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất lên, trên, trước."
   },
   {
+    "id": "320",
     "hanzi": "上班",
     "pinyin": "shàng bān",
     "meaning": "đi làm, vào ca làm việc",
@@ -3524,6 +3843,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Tôi thích đi làm, vào ca làm việc."
   },
   {
+    "id": "321",
     "hanzi": "上边",
     "pinyin": "shàng bian",
     "meaning": "phía trên, bên trên",
@@ -3535,6 +3855,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Anh ấy đang ở phía trên, bên trên."
   },
   {
+    "id": "322",
     "hanzi": "上车",
     "pinyin": "shàng chē",
     "meaning": "lên xe, lên tàu",
@@ -3546,6 +3867,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Anh ấy đang ở lên xe, lên tàu."
   },
   {
+    "id": "323",
     "hanzi": "上次",
     "pinyin": "shàng cì",
     "meaning": "lần trước, chuyến trước",
@@ -3557,6 +3879,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất lần trước, chuyến trước."
   },
   {
+    "id": "324",
     "hanzi": "上课",
     "pinyin": "shàng kè",
     "meaning": "vào học, lên lớp",
@@ -3568,6 +3891,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất vào học, lên lớp."
   },
   {
+    "id": "325",
     "hanzi": "上网",
     "pinyin": "shàng wǎng",
     "meaning": "lên mạng, truy cập internet",
@@ -3579,6 +3903,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Tôi thích lên mạng, truy cập internet."
   },
   {
+    "id": "326",
     "hanzi": "上午",
     "pinyin": "shàng wǔ",
     "meaning": "buổi sáng (trước 12h)",
@@ -3590,6 +3915,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Hẹn gặp lại vào buổi sáng (trước 12h)!"
   },
   {
+    "id": "327",
     "hanzi": "上学",
     "pinyin": "shàng xué",
     "meaning": "đi học, đến trường",
@@ -3601,6 +3927,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất đi học, đến trường."
   },
   {
+    "id": "328",
     "hanzi": "少",
     "pinyin": "shǎo",
     "meaning": "ít, thiếu",
@@ -3612,6 +3939,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất ít, thiếu."
   },
   {
+    "id": "329",
     "hanzi": "身上",
     "pinyin": "shēn shang",
     "meaning": "trên người, trên cơ thể",
@@ -3623,6 +3951,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất trên người, trên cơ thể."
   },
   {
+    "id": "330",
     "hanzi": "身体",
     "pinyin": "shēn tǐ",
     "meaning": "thân thể, sức khỏe",
@@ -3634,6 +3963,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất thân thể, sức khỏe."
   },
   {
+    "id": "331",
     "hanzi": "什么",
     "pinyin": "shén me",
     "meaning": "cái gì, gì",
@@ -3645,6 +3975,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất cái gì, gì."
   },
   {
+    "id": "332",
     "hanzi": "生病",
     "pinyin": "shēng bìng",
     "meaning": "bị bệnh, ốm",
@@ -3656,6 +3987,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Tôi thích bị bệnh, ốm."
   },
   {
+    "id": "333",
     "hanzi": "生气",
     "pinyin": "shēng qì",
     "meaning": "tức giận, giận hờn",
@@ -3667,6 +3999,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Tôi thích tức giận, giận hờn."
   },
   {
+    "id": "334",
     "hanzi": "生日",
     "pinyin": "shēng rì",
     "meaning": "sinh nhật, ngày sinh",
@@ -3678,6 +4011,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất sinh nhật, ngày sinh."
   },
   {
+    "id": "335",
     "hanzi": "十",
     "pinyin": "shí",
     "meaning": "số 10 (mười)",
@@ -3689,6 +4023,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Hẹn gặp lại vào số 10 (mười)!"
   },
   {
+    "id": "336",
     "hanzi": "时候",
     "pinyin": "shí hou",
     "meaning": "lúc, khi, thời khắc",
@@ -3700,6 +4035,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Hẹn gặp lại vào lúc, khi, thời khắc!"
   },
   {
+    "id": "337",
     "hanzi": "时间",
     "pinyin": "shí jiān",
     "meaning": "thời gian",
@@ -3711,6 +4047,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Hẹn gặp lại vào thời gian!"
   },
   {
+    "id": "338",
     "hanzi": "事",
     "pinyin": "shì",
     "meaning": "sự việc, công việc, chuyện",
@@ -3722,6 +4059,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất sự việc, công việc, chuyện."
   },
   {
+    "id": "339",
     "hanzi": "试",
     "pinyin": "shì",
     "meaning": "thử, thi thử",
@@ -3733,6 +4071,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Tôi thích thử, thi thử."
   },
   {
+    "id": "340",
     "hanzi": "是",
     "pinyin": "shì",
     "meaning": "là, phải, đúng",
@@ -3744,6 +4083,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất là, phải, đúng."
   },
   {
+    "id": "341",
     "hanzi": "是不是",
     "pinyin": "shì bù shì",
     "meaning": "có phải không, đúng không",
@@ -3755,6 +4095,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất có phải không, đúng không."
   },
   {
+    "id": "342",
     "hanzi": "手",
     "pinyin": "shǒu",
     "meaning": "bàn tay, tay",
@@ -3766,6 +4107,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất bàn tay, tay."
   },
   {
+    "id": "343",
     "hanzi": "手机",
     "pinyin": "shǒu jī",
     "meaning": "điện thoại di động",
@@ -3777,6 +4119,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Đây là điện thoại di động của tôi."
   },
   {
+    "id": "344",
     "hanzi": "书",
     "pinyin": "Shū",
     "meaning": "sách, cuốn sách",
@@ -3788,6 +4131,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Đây là sách, cuốn sách của tôi."
   },
   {
+    "id": "345",
     "hanzi": "书包",
     "pinyin": "shū bāo",
     "meaning": "cặp sách, ba lô đi học",
@@ -3799,6 +4143,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Đây là cặp sách, ba lô đi học của tôi."
   },
   {
+    "id": "346",
     "hanzi": "书店",
     "pinyin": "shū diàn",
     "meaning": "hiệu sách, tiệm sách",
@@ -3810,6 +4155,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Anh ấy đang ở hiệu sách, tiệm sách."
   },
   {
+    "id": "347",
     "hanzi": "树",
     "pinyin": "shù",
     "meaning": "cây cối, cái cây",
@@ -3821,6 +4167,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Đây là cây cối, cái cây của tôi."
   },
   {
+    "id": "348",
     "hanzi": "谁",
     "pinyin": "shéi",
     "meaning": "ai (nghi vấn đại từ)",
@@ -3832,6 +4179,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Đó là ai (nghi vấn đại từ) của tôi."
   },
   {
+    "id": "349",
     "hanzi": "水",
     "pinyin": "shuǐ",
     "meaning": "nước",
@@ -3843,6 +4191,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Tôi muốn ăn/uống nước."
   },
   {
+    "id": "350",
     "hanzi": "水果",
     "pinyin": "shuǐ guǒ",
     "meaning": "hoa quả, trái cây",
@@ -3854,6 +4203,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Tôi muốn ăn/uống hoa quả, trái cây."
   },
   {
+    "id": "351",
     "hanzi": "睡",
     "pinyin": "shuì",
     "meaning": "ngủ",
@@ -3865,6 +4215,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Tôi thích ngủ."
   },
   {
+    "id": "352",
     "hanzi": "睡觉",
     "pinyin": "shuì jiào",
     "meaning": "đi ngủ, giấc ngủ",
@@ -3876,6 +4227,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Tôi thích đi ngủ, giấc ngủ."
   },
   {
+    "id": "353",
     "hanzi": "说",
     "pinyin": "shuì",
     "meaning": "nói, bảo",
@@ -3887,6 +4239,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Tôi thích nói, bảo."
   },
   {
+    "id": "354",
     "hanzi": "说话",
     "pinyin": "shuō huà",
     "meaning": "nói chuyện, trò chuyện",
@@ -3898,6 +4251,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất nói chuyện, trò chuyện."
   },
   {
+    "id": "355",
     "hanzi": "四",
     "pinyin": "sì",
     "meaning": "số 4 (bốn)",
@@ -3909,6 +4263,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Hẹn gặp lại vào số 4 (bốn)!"
   },
   {
+    "id": "356",
     "hanzi": "送",
     "pinyin": "sòng",
     "meaning": "tặng, tiễn, đưa đi",
@@ -3920,6 +4275,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Tôi thích tặng, tiễn, đưa đi."
   },
   {
+    "id": "357",
     "hanzi": "岁",
     "pinyin": "suì",
     "meaning": "tuổi (chỉ tuổi tác)",
@@ -3931,6 +4287,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất tuổi (chỉ tuổi tác)."
   },
   {
+    "id": "358",
     "hanzi": "他",
     "pinyin": "tā",
     "meaning": "anh ấy, ông ấy, cậu ấy (ngôi 3 nam)",
@@ -3942,6 +4299,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Đó là anh ấy, ông ấy, cậu ấy (ngôi 3 nam) của tôi."
   },
   {
+    "id": "359",
     "hanzi": "他们",
     "pinyin": "tā men",
     "meaning": "họ, bọn họ, các anh ấy",
@@ -3953,6 +4311,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Đó là họ, bọn họ, các anh ấy của tôi."
   },
   {
+    "id": "360",
     "hanzi": "她",
     "pinyin": "tā",
     "meaning": "cô ấy, bà ấy, chị ấy (ngôi 3 nữ)",
@@ -3964,6 +4323,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Đó là cô ấy, bà ấy, chị ấy (ngôi 3 nữ) của tôi."
   },
   {
+    "id": "361",
     "hanzi": "她们",
     "pinyin": "tā men",
     "meaning": "họ, các cô ấy (nhóm toàn nữ)",
@@ -3975,6 +4335,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Đó là họ, các cô ấy (nhóm toàn nữ) của tôi."
   },
   {
+    "id": "362",
     "hanzi": "太",
     "pinyin": "tài",
     "meaning": "quá, lắm, thái (thái quá)",
@@ -3986,6 +4347,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất quá, lắm, thái (thái quá)."
   },
   {
+    "id": "363",
     "hanzi": "天",
     "pinyin": "tiān",
     "meaning": "ngày, trời, bầu trời",
@@ -3997,6 +4359,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Hẹn gặp lại vào ngày, trời, bầu trời!"
   },
   {
+    "id": "364",
     "hanzi": "天气",
     "pinyin": "tiān qì",
     "meaning": "thời tiết, khí hậu",
@@ -4008,6 +4371,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Đây là thời tiết, khí hậu của tôi."
   },
   {
+    "id": "365",
     "hanzi": "听",
     "pinyin": "yǐn",
     "meaning": "nghe",
@@ -4019,6 +4383,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Tôi thích nghe."
   },
   {
+    "id": "366",
     "hanzi": "听到",
     "pinyin": "tīng dào",
     "meaning": "nghe thấy, lắng nghe được",
@@ -4030,6 +4395,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất nghe thấy, lắng nghe được."
   },
   {
+    "id": "367",
     "hanzi": "听见",
     "pinyin": "tīng jiàn",
     "meaning": "nghe thấy, nghe được",
@@ -4041,6 +4407,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất nghe thấy, nghe được."
   },
   {
+    "id": "368",
     "hanzi": "听写",
     "pinyin": "tīng xiě",
     "meaning": "nghe viết, chính tả",
@@ -4052,6 +4419,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất nghe viết, chính tả."
   },
   {
+    "id": "369",
     "hanzi": "同学",
     "pinyin": "tóng xué",
     "meaning": "bạn cùng lớp, bạn học",
@@ -4063,6 +4431,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Đó là bạn cùng lớp, bạn học của tôi."
   },
   {
+    "id": "370",
     "hanzi": "图书馆",
     "pinyin": "tú shū guǎn",
     "meaning": "thư viện",
@@ -4074,6 +4443,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Anh ấy đang ở thư viện."
   },
   {
+    "id": "371",
     "hanzi": "外",
     "pinyin": "wài",
     "meaning": "ngoài, bên ngoài",
@@ -4085,6 +4455,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất ngoài, bên ngoài."
   },
   {
+    "id": "372",
     "hanzi": "外边",
     "pinyin": "wài bian",
     "meaning": "phía ngoài, bên ngoài",
@@ -4096,6 +4467,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Anh ấy đang ở phía ngoài, bên ngoài."
   },
   {
+    "id": "373",
     "hanzi": "外国",
     "pinyin": "wài guó",
     "meaning": "nước ngoài",
@@ -4107,6 +4479,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Anh ấy đang ở nước ngoài."
   },
   {
+    "id": "374",
     "hanzi": "外语",
     "pinyin": "wài yǔ",
     "meaning": "ngoại ngữ",
@@ -4118,6 +4491,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất ngoại ngữ."
   },
   {
+    "id": "375",
     "hanzi": "玩儿",
     "pinyin": "wán r",
     "meaning": "chơi, vui chơi",
@@ -4129,6 +4503,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Tôi thích chơi, vui chơi."
   },
   {
+    "id": "376",
     "hanzi": "晚",
     "pinyin": "wǎn",
     "meaning": "muộn, tối",
@@ -4140,6 +4515,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Hẹn gặp lại vào muộn, tối!"
   },
   {
+    "id": "377",
     "hanzi": "晚饭",
     "pinyin": "wǎn fàn",
     "meaning": "bữa tối, cơm tối",
@@ -4151,6 +4527,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Tôi muốn ăn/uống bữa tối, cơm tối."
   },
   {
+    "id": "378",
     "hanzi": "晚上",
     "pinyin": "wǎn shang",
     "meaning": "buổi tối, ban đêm",
@@ -4162,6 +4539,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Hẹn gặp lại vào buổi tối, ban đêm!"
   },
   {
+    "id": "379",
     "hanzi": "网上",
     "pinyin": "wǎng shàng",
     "meaning": "trên mạng, online",
@@ -4173,6 +4551,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất trên mạng, online."
   },
   {
+    "id": "380",
     "hanzi": "网友",
     "pinyin": "wǎng yǒu",
     "meaning": "bạn trên mạng, cư dân mạng",
@@ -4184,6 +4563,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Đó là bạn trên mạng, cư dân mạng của tôi."
   },
   {
+    "id": "381",
     "hanzi": "忘",
     "pinyin": "wàng",
     "meaning": "quên",
@@ -4195,6 +4575,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Tôi thích quên."
   },
   {
+    "id": "382",
     "hanzi": "忘记",
     "pinyin": "wàng jì",
     "meaning": "quên, quên mất",
@@ -4206,6 +4587,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Tôi thích quên, quên mất."
   },
   {
+    "id": "383",
     "hanzi": "问",
     "pinyin": "wèn",
     "meaning": "hỏi, thăm hỏi",
@@ -4217,6 +4599,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Tôi thích hỏi, thăm hỏi."
   },
   {
+    "id": "384",
     "hanzi": "我",
     "pinyin": "wǒ",
     "meaning": "tôi, mình, tớ (ngôi 1)",
@@ -4228,6 +4611,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Đó là tôi, mình, tớ (ngôi 1) của tôi."
   },
   {
+    "id": "385",
     "hanzi": "我们",
     "pinyin": "wǒ men",
     "meaning": "chúng tôi, chúng ta",
@@ -4239,6 +4623,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Đó là chúng tôi, chúng ta của tôi."
   },
   {
+    "id": "386",
     "hanzi": "五",
     "pinyin": "wǔ",
     "meaning": "số 5 (năm)",
@@ -4250,6 +4635,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Hẹn gặp lại vào số 5 (năm)!"
   },
   {
+    "id": "387",
     "hanzi": "午饭",
     "pinyin": "wǔ fàn",
     "meaning": "bữa trưa, cơm trưa",
@@ -4261,6 +4647,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Tôi muốn ăn/uống bữa trưa, cơm trưa."
   },
   {
+    "id": "388",
     "hanzi": "洗",
     "pinyin": "xǐ",
     "meaning": "rửa, giặt, gội",
@@ -4272,6 +4659,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Tôi thích rửa, giặt, gội."
   },
   {
+    "id": "389",
     "hanzi": "洗手间",
     "pinyin": "xǐ shǒu jiān",
     "meaning": "nhà vệ sinh, phòng rửa tay",
@@ -4283,6 +4671,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Anh ấy đang ở nhà vệ sinh, phòng rửa tay."
   },
   {
+    "id": "390",
     "hanzi": "喜欢",
     "pinyin": "xǐ huan",
     "meaning": "thích, yêu thích",
@@ -4294,6 +4683,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Tôi thích thích, yêu thích."
   },
   {
+    "id": "391",
     "hanzi": "西",
     "pinyin": "Xī",
     "meaning": "phía tây, hướng tây",
@@ -4305,6 +4695,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Anh ấy đang ở phía tây, hướng tây."
   },
   {
+    "id": "392",
     "hanzi": "西边",
     "pinyin": "xī biān",
     "meaning": "phía tây",
@@ -4316,6 +4707,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Anh ấy đang ở phía tây."
   },
   {
+    "id": "393",
     "hanzi": "下",
     "pinyin": "xià",
     "meaning": "dưới, xuống / tiếp theo",
@@ -4327,6 +4719,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất dưới, xuống / tiếp theo."
   },
   {
+    "id": "394",
     "hanzi": "下班",
     "pinyin": "xià bān",
     "meaning": "tan sở, tan ca làm",
@@ -4338,6 +4731,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Tôi thích tan sở, tan ca làm."
   },
   {
+    "id": "395",
     "hanzi": "下边",
     "pinyin": "xià bian",
     "meaning": "phía dưới, bên dưới",
@@ -4349,6 +4743,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Anh ấy đang ở phía dưới, bên dưới."
   },
   {
+    "id": "396",
     "hanzi": "下车",
     "pinyin": "xià chē",
     "meaning": "xuống xe, xuống tàu",
@@ -4360,6 +4755,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Anh ấy đang ở xuống xe, xuống tàu."
   },
   {
+    "id": "397",
     "hanzi": "下次",
     "pinyin": "xià cì",
     "meaning": "lần sau, chuyến sau",
@@ -4371,6 +4767,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất lần sau, chuyến sau."
   },
   {
+    "id": "398",
     "hanzi": "下课",
     "pinyin": "xià kè",
     "meaning": "tan học, tan tiết",
@@ -4382,6 +4779,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất tan học, tan tiết."
   },
   {
+    "id": "399",
     "hanzi": "下午",
     "pinyin": "xià wǔ",
     "meaning": "buổi chiều (sau 12h)",
@@ -4393,6 +4791,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Hẹn gặp lại vào buổi chiều (sau 12h)!"
   },
   {
+    "id": "400",
     "hanzi": "下雨",
     "pinyin": "xià yǔ",
     "meaning": "trời mưa, đổ mưa",
@@ -4404,6 +4803,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất trời mưa, đổ mưa."
   },
   {
+    "id": "401",
     "hanzi": "先",
     "pinyin": "xiān",
     "meaning": "trước, tiên phong",
@@ -4415,6 +4815,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất trước, tiên phong."
   },
   {
+    "id": "402",
     "hanzi": "先生",
     "pinyin": "xiān sheng",
     "meaning": "ông, ngài, thầy, chồng",
@@ -4426,6 +4827,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Đó là ông, ngài, thầy, chồng của tôi."
   },
   {
+    "id": "403",
     "hanzi": "现在",
     "pinyin": "xiàn zài",
     "meaning": "bây giờ, hiện tại",
@@ -4437,6 +4839,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Hẹn gặp lại vào bây giờ, hiện tại!"
   },
   {
+    "id": "404",
     "hanzi": "想",
     "pinyin": "xiǎng",
     "meaning": "nghĩ, nhớ, muốn",
@@ -4448,6 +4851,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Tôi thích nghĩ, nhớ, muốn."
   },
   {
+    "id": "405",
     "hanzi": "小",
     "pinyin": "xiǎo",
     "meaning": "nhỏ, bé, ít",
@@ -4459,6 +4863,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất nhỏ, bé, ít."
   },
   {
+    "id": "406",
     "hanzi": "小孩儿",
     "pinyin": "xiǎo hái r",
     "meaning": "trẻ con, đứa trẻ",
@@ -4470,6 +4875,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Đó là trẻ con, đứa trẻ của tôi."
   },
   {
+    "id": "407",
     "hanzi": "小姐",
     "pinyin": "xiǎo jie",
     "meaning": "cô gái, tiểu thư",
@@ -4481,6 +4887,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Đó là cô gái, tiểu thư của tôi."
   },
   {
+    "id": "408",
     "hanzi": "小朋友",
     "pinyin": "xiǎo péng yǒu",
     "meaning": "bạn nhỏ, em nhỏ",
@@ -4492,6 +4899,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Đó là bạn nhỏ, em nhỏ của tôi."
   },
   {
+    "id": "409",
     "hanzi": "小时",
     "pinyin": "xiǎo shí",
     "meaning": "giờ đồng hồ, tiếng đồng hồ",
@@ -4503,6 +4911,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Hẹn gặp lại vào giờ đồng hồ, tiếng đồng hồ!"
   },
   {
+    "id": "410",
     "hanzi": "小学",
     "pinyin": "xiǎo xué",
     "meaning": "trường tiểu học",
@@ -4514,6 +4923,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Anh ấy đang ở trường tiểu học."
   },
   {
+    "id": "411",
     "hanzi": "小学生",
     "pinyin": "xiǎo xué shēng",
     "meaning": "học sinh tiểu học",
@@ -4525,6 +4935,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Đó là học sinh tiểu học của tôi."
   },
   {
+    "id": "412",
     "hanzi": "笑",
     "pinyin": "xiào",
     "meaning": "cười",
@@ -4536,6 +4947,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Tôi thích cười."
   },
   {
+    "id": "413",
     "hanzi": "写",
     "pinyin": "xiě",
     "meaning": "viết",
@@ -4547,6 +4959,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Tôi thích viết."
   },
   {
+    "id": "414",
     "hanzi": "谢谢",
     "pinyin": "xiè xie",
     "meaning": "cảm ơn",
@@ -4558,6 +4971,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "cảm ơn."
   },
   {
+    "id": "415",
     "hanzi": "新",
     "pinyin": "Xīn",
     "meaning": "mới, tươi mới",
@@ -4569,6 +4983,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất mới, tươi mới."
   },
   {
+    "id": "416",
     "hanzi": "新年",
     "pinyin": "xīn nián",
     "meaning": "năm mới, tết",
@@ -4580,6 +4995,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Hẹn gặp lại vào năm mới, tết!"
   },
   {
+    "id": "417",
     "hanzi": "星期",
     "pinyin": "xīng qī",
     "meaning": "tuần, thứ trong tuần",
@@ -4591,6 +5007,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Hẹn gặp lại vào tuần, thứ trong tuần!"
   },
   {
+    "id": "418",
     "hanzi": "星期日",
     "pinyin": "Xīng qī rì",
     "meaning": "chủ nhật",
@@ -4602,6 +5019,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Hẹn gặp lại vào chủ nhật!"
   },
   {
+    "id": "419",
     "hanzi": "星期天",
     "pinyin": "Xīng qī tiān",
     "meaning": "chủ nhật",
@@ -4613,6 +5031,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Hẹn gặp lại vào chủ nhật!"
   },
   {
+    "id": "420",
     "hanzi": "行",
     "pinyin": "háng",
     "meaning": "được, ổn / đi",
@@ -4624,6 +5043,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất được, ổn / đi."
   },
   {
+    "id": "421",
     "hanzi": "休息",
     "pinyin": "xiū xi",
     "meaning": "nghỉ ngơi",
@@ -4635,6 +5055,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Tôi thích nghỉ ngơi."
   },
   {
+    "id": "422",
     "hanzi": "学",
     "pinyin": "xué",
     "meaning": "học, bắt chước",
@@ -4646,6 +5067,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Tôi thích học, bắt chước."
   },
   {
+    "id": "423",
     "hanzi": "学生",
     "pinyin": "xué sheng",
     "meaning": "học sinh, sinh viên",
@@ -4657,6 +5079,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Đó là học sinh, sinh viên của tôi."
   },
   {
+    "id": "424",
     "hanzi": "学习",
     "pinyin": "xué xí",
     "meaning": "học tập, rèn luyện",
@@ -4668,6 +5091,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Tôi thích học tập, rèn luyện."
   },
   {
+    "id": "425",
     "hanzi": "学校",
     "pinyin": "xué xiào",
     "meaning": "trường học",
@@ -4679,6 +5103,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Anh ấy đang ở trường học."
   },
   {
+    "id": "426",
     "hanzi": "学院",
     "pinyin": "xué yuàn",
     "meaning": "học viện, trường cao đẳng",
@@ -4690,6 +5115,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Anh ấy đang ở học viện, trường cao đẳng."
   },
   {
+    "id": "427",
     "hanzi": "要",
     "pinyin": "yāo",
     "meaning": "muốn, cần, phải / sắp",
@@ -4701,6 +5127,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Tôi thích muốn, cần, phải / sắp."
   },
   {
+    "id": "428",
     "hanzi": "也",
     "pinyin": "yě",
     "meaning": "cũng, cũng vậy",
@@ -4712,6 +5139,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất cũng, cũng vậy."
   },
   {
+    "id": "429",
     "hanzi": "页",
     "pinyin": "xié",
     "meaning": "trang (sách)",
@@ -4723,6 +5151,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Đây là trang (sách) của tôi."
   },
   {
+    "id": "430",
     "hanzi": "爷爷",
     "pinyin": "yé ye",
     "meaning": "ông nội",
@@ -4734,6 +5163,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Đó là ông nội của tôi."
   },
   {
+    "id": "431",
     "hanzi": "一",
     "pinyin": "yī",
     "meaning": "số 1 (một)",
@@ -4745,6 +5175,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Hẹn gặp lại vào số 1 (một)!"
   },
   {
+    "id": "432",
     "hanzi": "一半",
     "pinyin": "yī bàn",
     "meaning": "một nửa",
@@ -4756,6 +5187,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất một nửa."
   },
   {
+    "id": "433",
     "hanzi": "一边",
     "pinyin": "yī biān",
     "meaning": "một bên / vừa... vừa...",
@@ -4767,6 +5199,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất một bên / vừa... vừa...."
   },
   {
+    "id": "434",
     "hanzi": "一点儿",
     "pinyin": "yī diǎn r",
     "meaning": "một chút, một ít",
@@ -4778,6 +5211,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Đây là một chút, một ít của tôi."
   },
   {
+    "id": "435",
     "hanzi": "一会儿",
     "pinyin": "yī huì r",
     "meaning": "một lát, một chốc",
@@ -4789,6 +5223,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất một lát, một chốc."
   },
   {
+    "id": "436",
     "hanzi": "一块儿",
     "pinyin": "yī kuài r",
     "meaning": "cùng nhau, chung một chỗ",
@@ -4800,6 +5235,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất cùng nhau, chung một chỗ."
   },
   {
+    "id": "437",
     "hanzi": "一起",
     "pinyin": "yī qǐ",
     "meaning": "cùng nhau, đồng thời",
@@ -4811,6 +5247,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất cùng nhau, đồng thời."
   },
   {
+    "id": "438",
     "hanzi": "一下儿",
     "pinyin": "yī xià r",
     "meaning": "một chút, một thoáng",
@@ -4822,6 +5259,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất một chút, một thoáng."
   },
   {
+    "id": "439",
     "hanzi": "一些",
     "pinyin": "yī xiē",
     "meaning": "một vài, một số",
@@ -4833,6 +5271,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Đây là một vài, một số của tôi."
   },
   {
+    "id": "440",
     "hanzi": "一样",
     "pinyin": "yī yàng",
     "meaning": "giống nhau, như nhau",
@@ -4844,6 +5283,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất giống nhau, như nhau."
   },
   {
+    "id": "441",
     "hanzi": "衣服",
     "pinyin": "yī fu",
     "meaning": "quần áo, trang phục",
@@ -4855,6 +5295,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Đây là quần áo, trang phục của tôi."
   },
   {
+    "id": "442",
     "hanzi": "医生",
     "pinyin": "yī shēng",
     "meaning": "bác sĩ, thầy thuốc",
@@ -4866,6 +5307,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Đó là bác sĩ, thầy thuốc của tôi."
   },
   {
+    "id": "443",
     "hanzi": "医院",
     "pinyin": "yī yuàn",
     "meaning": "bệnh viện",
@@ -4877,6 +5319,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Anh ấy đang ở bệnh viện."
   },
   {
+    "id": "444",
     "hanzi": "用",
     "pinyin": "yòng",
     "meaning": "dùng, sử dụng",
@@ -4888,6 +5331,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Tôi thích dùng, sử dụng."
   },
   {
+    "id": "445",
     "hanzi": "有",
     "pinyin": "yǒu",
     "meaning": "có, sở hữu",
@@ -4899,6 +5343,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất có, sở hữu."
   },
   {
+    "id": "446",
     "hanzi": "有的",
     "pinyin": "yǒu de",
     "meaning": "có cái, có người",
@@ -4910,6 +5355,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Đó là có cái, có người của tôi."
   },
   {
+    "id": "447",
     "hanzi": "有名",
     "pinyin": "yǒu míng",
     "meaning": "nổi tiếng",
@@ -4921,6 +5367,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất nổi tiếng."
   },
   {
+    "id": "448",
     "hanzi": "有时",
     "pinyin": "yǒu shí",
     "meaning": "có lúc, đôi khi",
@@ -4932,6 +5379,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất có lúc, đôi khi."
   },
   {
+    "id": "449",
     "hanzi": "有时候",
     "pinyin": "yǒu shí hou",
     "meaning": "thỉnh thoảng, đôi khi",
@@ -4943,6 +5391,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất thỉnh thoảng, đôi khi."
   },
   {
+    "id": "450",
     "hanzi": "有些",
     "pinyin": "yǒu xiē",
     "meaning": "có một số, hơi một chút",
@@ -4954,6 +5403,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất có một số, hơi một chút."
   },
   {
+    "id": "451",
     "hanzi": "有一些",
     "pinyin": "yǒu yī xiē",
     "meaning": "có một ít, có vài",
@@ -4965,6 +5415,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất có một ít, có vài."
   },
   {
+    "id": "452",
     "hanzi": "有用",
     "pinyin": "yǒu yòng",
     "meaning": "có ích, hữu dụng",
@@ -4976,6 +5427,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất có ích, hữu dụng."
   },
   {
+    "id": "453",
     "hanzi": "右",
     "pinyin": "yòu",
     "meaning": "bên phải, hướng phải",
@@ -4987,6 +5439,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất bên phải, hướng phải."
   },
   {
+    "id": "454",
     "hanzi": "右边",
     "pinyin": "yòu bian",
     "meaning": "bên phải, phía bên phải",
@@ -4998,6 +5451,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Anh ấy đang ở bên phải, phía bên phải."
   },
   {
+    "id": "455",
     "hanzi": "雨",
     "pinyin": "yǔ",
     "meaning": "mưa, cơn mưa",
@@ -5009,6 +5463,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Đây là mưa, cơn mưa của tôi."
   },
   {
+    "id": "456",
     "hanzi": "元",
     "pinyin": "yuán",
     "meaning": "đồng tệ (đơn vị tiền TQ)",
@@ -5020,6 +5475,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Đây là đồng tệ (đơn vị tiền TQ) của tôi."
   },
   {
+    "id": "457",
     "hanzi": "远",
     "pinyin": "yuǎn",
     "meaning": "xa, xa xôi",
@@ -5031,6 +5487,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất xa, xa xôi."
   },
   {
+    "id": "458",
     "hanzi": "月",
     "pinyin": "yuè",
     "meaning": "tháng, mặt trăng",
@@ -5042,6 +5499,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Hẹn gặp lại vào tháng, mặt trăng!"
   },
   {
+    "id": "459",
     "hanzi": "再",
     "pinyin": "zài",
     "meaning": "lại, nữa / rồi hãy",
@@ -5053,6 +5511,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất lại, nữa / rồi hãy."
   },
   {
+    "id": "460",
     "hanzi": "再见",
     "pinyin": "zài jiàn",
     "meaning": "tạm biệt, hẹn gặp lại",
@@ -5064,6 +5523,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "tạm biệt, hẹn gặp lại."
   },
   {
+    "id": "461",
     "hanzi": "在",
     "pinyin": "zài",
     "meaning": "ở, tại / đang (làm gì)",
@@ -5075,6 +5535,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất ở, tại / đang (làm gì)."
   },
   {
+    "id": "462",
     "hanzi": "在家",
     "pinyin": "zài jiā",
     "meaning": "ở nhà",
@@ -5086,6 +5547,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất ở nhà."
   },
   {
+    "id": "463",
     "hanzi": "早",
     "pinyin": "zǎo",
     "meaning": "sớm, buổi sáng",
@@ -5097,6 +5559,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Hẹn gặp lại vào sớm, buổi sáng!"
   },
   {
+    "id": "464",
     "hanzi": "早饭",
     "pinyin": "zǎo fàn",
     "meaning": "bữa sáng, điểm tâm",
@@ -5108,6 +5571,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Tôi muốn ăn/uống bữa sáng, điểm tâm."
   },
   {
+    "id": "465",
     "hanzi": "早上",
     "pinyin": "zǎo shang",
     "meaning": "buổi sáng sớm",
@@ -5119,6 +5583,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Hẹn gặp lại vào buổi sáng sớm!"
   },
   {
+    "id": "466",
     "hanzi": "怎么",
     "pinyin": "zěn me",
     "meaning": "thế nào, làm sao, sao lại",
@@ -5130,6 +5595,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất thế nào, làm sao, sao lại."
   },
   {
+    "id": "467",
     "hanzi": "站",
     "pinyin": "zhàn",
     "meaning": "đứng / trạm dừng, nhà ga",
@@ -5141,6 +5607,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Tôi thích đứng / trạm dừng, nhà ga."
   },
   {
+    "id": "468",
     "hanzi": "找",
     "pinyin": "zhǎo",
     "meaning": "tìm kiếm / thối lại tiền",
@@ -5152,6 +5619,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Tôi thích tìm kiếm / thối lại tiền."
   },
   {
+    "id": "469",
     "hanzi": "找到",
     "pinyin": "zhǎo dào",
     "meaning": "tìm thấy, kiếm được",
@@ -5163,6 +5631,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Tôi thích tìm thấy, kiếm được."
   },
   {
+    "id": "470",
     "hanzi": "这",
     "pinyin": "zhè",
     "meaning": "đây, này",
@@ -5174,6 +5643,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất đây, này."
   },
   {
+    "id": "471",
     "hanzi": "这边",
     "pinyin": "zhè biān",
     "meaning": "bên này, phía này",
@@ -5185,6 +5655,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Anh ấy đang ở bên này, phía này."
   },
   {
+    "id": "472",
     "hanzi": "这儿",
     "pinyin": "zhè r",
     "meaning": "ở đây, chỗ này",
@@ -5196,6 +5667,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Anh ấy đang ở ở đây, chỗ này."
   },
   {
+    "id": "473",
     "hanzi": "这里",
     "pinyin": "zhè lǐ",
     "meaning": "ở nơi này, chỗ này",
@@ -5207,6 +5679,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Anh ấy đang ở ở nơi này, chỗ này."
   },
   {
+    "id": "474",
     "hanzi": "这些",
     "pinyin": "zhè xiē",
     "meaning": "những cái này, số này",
@@ -5218,6 +5691,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Đây là những cái này, số này của tôi."
   },
   {
+    "id": "475",
     "hanzi": "着",
     "pinyin": "zhāo",
     "meaning": "đang (trợ từ tiếp diễn)",
@@ -5229,6 +5703,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "đang (trợ từ tiếp diễn)."
   },
   {
+    "id": "476",
     "hanzi": "真",
     "pinyin": "zhēn",
     "meaning": "thật, quả thật, đúng là",
@@ -5240,6 +5715,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất thật, quả thật, đúng là."
   },
   {
+    "id": "477",
     "hanzi": "真的",
     "pinyin": "zhēn de",
     "meaning": "thật sự, thật đấy",
@@ -5251,6 +5727,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất thật sự, thật đấy."
   },
   {
+    "id": "478",
     "hanzi": "正",
     "pinyin": "zhēng",
     "meaning": "đang / chính, đúng",
@@ -5262,6 +5739,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất đang / chính, đúng."
   },
   {
+    "id": "479",
     "hanzi": "正在",
     "pinyin": "zhèng zài",
     "meaning": "đang (trong quá trình làm gì)",
@@ -5273,6 +5751,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất đang (trong quá trình làm gì)."
   },
   {
+    "id": "480",
     "hanzi": "知道",
     "pinyin": "zhī dào",
     "meaning": "biết, hiểu",
@@ -5284,6 +5763,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Tôi thích biết, hiểu."
   },
   {
+    "id": "481",
     "hanzi": "知识",
     "pinyin": "zhī shi",
     "meaning": "tri thức, kiến thức",
@@ -5295,6 +5775,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất tri thức, kiến thức."
   },
   {
+    "id": "482",
     "hanzi": "中",
     "pinyin": "Zhōng",
     "meaning": "giữa, trung tâm / Trung Quốc",
@@ -5306,6 +5787,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất giữa, trung tâm / Trung Quốc."
   },
   {
+    "id": "483",
     "hanzi": "中国",
     "pinyin": "Zhōng guó",
     "meaning": "Trung Quốc",
@@ -5317,6 +5799,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Anh ấy đang ở Trung Quốc."
   },
   {
+    "id": "484",
     "hanzi": "中间",
     "pinyin": "zhōng jiān",
     "meaning": "ở giữa, khoảng giữa",
@@ -5328,6 +5811,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Anh ấy đang ở ở giữa, khoảng giữa."
   },
   {
+    "id": "485",
     "hanzi": "中文",
     "pinyin": "Zhōng wén",
     "meaning": "tiếng Trung, văn tự Hán",
@@ -5339,6 +5823,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất tiếng Trung, văn tự Hán."
   },
   {
+    "id": "486",
     "hanzi": "中午",
     "pinyin": "zhōng wǔ",
     "meaning": "buổi trưa (khoảng 12h)",
@@ -5350,6 +5835,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Hẹn gặp lại vào buổi trưa (khoảng 12h)!"
   },
   {
+    "id": "487",
     "hanzi": "中学",
     "pinyin": "zhōng xué",
     "meaning": "trường trung học (cấp 2, 3)",
@@ -5361,6 +5847,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Anh ấy đang ở trường trung học (cấp 2, 3)."
   },
   {
+    "id": "488",
     "hanzi": "中学生",
     "pinyin": "zhōng xué shēng",
     "meaning": "học sinh trung học",
@@ -5372,6 +5859,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Đó là học sinh trung học của tôi."
   },
   {
+    "id": "489",
     "hanzi": "重",
     "pinyin": "chóng",
     "meaning": "nặng, quan trọng",
@@ -5383,6 +5871,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất nặng, quan trọng."
   },
   {
+    "id": "490",
     "hanzi": "重要",
     "pinyin": "zhòng yào",
     "meaning": "quan trọng, hệ trọng",
@@ -5394,6 +5883,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất quan trọng, hệ trọng."
   },
   {
+    "id": "491",
     "hanzi": "住",
     "pinyin": "zhù",
     "meaning": "sống, ở, cư trú",
@@ -5405,6 +5895,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Tôi thích sống, ở, cư trú."
   },
   {
+    "id": "492",
     "hanzi": "准备",
     "pinyin": "zhǔn bèi",
     "meaning": "chuẩn bị, dự định",
@@ -5416,6 +5907,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Tôi thích chuẩn bị, dự định."
   },
   {
+    "id": "493",
     "hanzi": "桌子",
     "pinyin": "zhuō zi",
     "meaning": "cái bàn",
@@ -5427,6 +5919,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Đây là cái bàn của tôi."
   },
   {
+    "id": "494",
     "hanzi": "字",
     "pinyin": "zì",
     "meaning": "chữ, chữ Hán",
@@ -5438,6 +5931,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Đây là chữ, chữ Hán của tôi."
   },
   {
+    "id": "495",
     "hanzi": "子",
     "pinyin": "zǐ",
     "meaning": "con, cái (hậu tố)",
@@ -5449,6 +5943,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất con, cái (hậu tố)."
   },
   {
+    "id": "496",
     "hanzi": "走",
     "pinyin": "zǒu",
     "meaning": "đi, bước đi, rời đi",
@@ -5460,6 +5955,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Anh ấy đang ở đi, bước đi, rời đi."
   },
   {
+    "id": "497",
     "hanzi": "走路",
     "pinyin": "zǒu lù",
     "meaning": "đi bộ",
@@ -5471,6 +5967,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Anh ấy đang ở đi bộ."
   },
   {
+    "id": "498",
     "hanzi": "最",
     "pinyin": "zuì",
     "meaning": "nhất (so sánh nhất)",
@@ -5482,6 +5979,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất nhất (so sánh nhất)."
   },
   {
+    "id": "499",
     "hanzi": "最好",
     "pinyin": "zuì hǎo",
     "meaning": "tốt nhất, hay nhất",
@@ -5493,6 +5991,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất tốt nhất, hay nhất."
   },
   {
+    "id": "500",
     "hanzi": "最后",
     "pinyin": "zuì hòu",
     "meaning": "cuối cùng, sau cùng",
@@ -5504,6 +6003,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất cuối cùng, sau cùng."
   },
   {
+    "id": "501",
     "hanzi": "昨天",
     "pinyin": "zuó tiān",
     "meaning": "hôm qua",
@@ -5515,6 +6015,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Hẹn gặp lại vào hôm qua!"
   },
   {
+    "id": "502",
     "hanzi": "左",
     "pinyin": "zuǒ",
     "meaning": "bên trái, hướng trái",
@@ -5526,6 +6027,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất bên trái, hướng trái."
   },
   {
+    "id": "503",
     "hanzi": "左边",
     "pinyin": "zuǒ bian",
     "meaning": "bên trái, phía bên trái",
@@ -5537,6 +6039,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Anh ấy đang ở bên trái, phía bên trái."
   },
   {
+    "id": "504",
     "hanzi": "坐",
     "pinyin": "zuò",
     "meaning": "ngồi, đi (tàu, xe, máy bay)",
@@ -5548,6 +6051,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Tôi thích ngồi, đi (tàu, xe, máy bay)."
   },
   {
+    "id": "505",
     "hanzi": "坐下",
     "pinyin": "zuò xia",
     "meaning": "ngồi xuống",
@@ -5559,6 +6063,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Tôi thích ngồi xuống."
   },
   {
+    "id": "506",
     "hanzi": "做",
     "pinyin": "zuò",
     "meaning": "làm, chế tạo, nấu",
@@ -5570,6 +6075,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Tôi thích làm, chế tạo, nấu."
   },
   {
+    "id": "507",
     "hanzi": "边",
     "pinyin": "biān",
     "meaning": "bên, mép, cạnh",
@@ -5581,6 +6087,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất bên, mép, cạnh."
   },
   {
+    "id": "508",
     "hanzi": "便宜",
     "pinyin": "biàn yí",
     "meaning": "rẻ, giá rẻ",
@@ -5592,6 +6099,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất rẻ, giá rẻ."
   },
   {
+    "id": "509",
     "hanzi": "不要",
     "pinyin": "bù yào",
     "meaning": "đừng, không muốn",
@@ -5603,6 +6111,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "đừng, không muốn."
   },
   {
+    "id": "510",
     "hanzi": "超市",
     "pinyin": "chāo shì",
     "meaning": "siêu thị",
@@ -5614,6 +6123,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Anh ấy đang ở siêu thị."
   },
   {
+    "id": "511",
     "hanzi": "出租车",
     "pinyin": "chū zū chē",
     "meaning": "xe taxi",
@@ -5625,6 +6135,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Anh ấy đang ở xe taxi."
   },
   {
+    "id": "512",
     "hanzi": "大家",
     "pinyin": "dà jiā",
     "meaning": "mọi người, cả nhà",
@@ -5636,6 +6147,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Đó là mọi người, cả nhà của tôi."
   },
   {
+    "id": "513",
     "hanzi": "店",
     "pinyin": "diàn",
     "meaning": "tiệm, cửa hàng",
@@ -5647,6 +6159,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất tiệm, cửa hàng."
   },
   {
+    "id": "514",
     "hanzi": "分钟",
     "pinyin": "fēn zhōng",
     "meaning": "phút (khoảng thời gian)",
@@ -5658,6 +6171,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Hẹn gặp lại vào phút (khoảng thời gian)!"
   },
   {
+    "id": "515",
     "hanzi": "公司",
     "pinyin": "gōng sī",
     "meaning": "công ty",
@@ -5669,6 +6183,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất công ty."
   },
   {
+    "id": "516",
     "hanzi": "狗",
     "pinyin": "gǒu",
     "meaning": "chó, chú chó",
@@ -5680,6 +6195,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Đây là chó, chú chó của tôi."
   },
   {
+    "id": "517",
     "hanzi": "件",
     "pinyin": "jiàn",
     "meaning": "chiếc, cái, kiện (áo, việc)",
@@ -5691,6 +6207,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Đây là chiếc, cái, kiện (áo, việc) của tôi."
   },
   {
+    "id": "518",
     "hanzi": "饺子",
     "pinyin": "jiǎo zi",
     "meaning": "sủi cảo, bánh chẻo",
@@ -5702,6 +6219,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Tôi muốn ăn/uống sủi cảo, bánh chẻo."
   },
   {
+    "id": "519",
     "hanzi": "可以",
     "pinyin": "kě yǐ",
     "meaning": "có thể, được phép",
@@ -5713,6 +6231,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất có thể, được phép."
   },
   {
+    "id": "520",
     "hanzi": "卖",
     "pinyin": "mài",
     "meaning": "bán",
@@ -5724,6 +6243,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Tôi thích bán."
   },
   {
+    "id": "521",
     "hanzi": "猫",
     "pinyin": "māo",
     "meaning": "mèo, chú mèo",
@@ -5735,6 +6255,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Đây là mèo, chú mèo của tôi."
   },
   {
+    "id": "522",
     "hanzi": "女士",
     "pinyin": "nǚ shì",
     "meaning": "quý cô, quý bà",
@@ -5746,6 +6267,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Đó là quý cô, quý bà của tôi."
   },
   {
+    "id": "523",
     "hanzi": "漂亮",
     "pinyin": "piào liang",
     "meaning": "xinh đẹp, đẹp đẽ",
@@ -5757,6 +6279,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất xinh đẹp, đẹp đẽ."
   },
   {
+    "id": "524",
     "hanzi": "苹果",
     "pinyin": "píng guǒ",
     "meaning": "quả táo",
@@ -5768,6 +6291,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Tôi muốn ăn/uống quả táo."
   },
   {
+    "id": "525",
     "hanzi": "千",
     "pinyin": "qiān",
     "meaning": "nghìn (1.000)",
@@ -5779,6 +6303,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Hẹn gặp lại vào nghìn (1.000)!"
   },
   {
+    "id": "526",
     "hanzi": "它",
     "pinyin": "tā",
     "meaning": "nó (con vật, đồ vật)",
@@ -5790,6 +6315,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Đó là nó (con vật, đồ vật) của tôi."
   },
   {
+    "id": "527",
     "hanzi": "它们",
     "pinyin": "tā men",
     "meaning": "chúng nó, bọn chúng",
@@ -5801,6 +6327,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Đó là chúng nó, bọn chúng của tôi."
   },
   {
+    "id": "528",
     "hanzi": "玩",
     "pinyin": "wán",
     "meaning": "chơi, vui chơi",
@@ -5812,6 +6339,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Tôi thích chơi, vui chơi."
   },
   {
+    "id": "529",
     "hanzi": "喂",
     "pinyin": "wéi",
     "meaning": "alo (nghe điện thoại) / cho ăn",
@@ -5823,6 +6351,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "alo (nghe điện thoại) / cho ăn."
   },
   {
+    "id": "530",
     "hanzi": "问题",
     "pinyin": "wèn tí",
     "meaning": "câu hỏi, vấn đề",
@@ -5834,6 +6363,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất câu hỏi, vấn đề."
   },
   {
+    "id": "531",
     "hanzi": "些",
     "pinyin": "xiē",
     "meaning": "vài, một ít",
@@ -5845,6 +6375,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Đây là vài, một ít của tôi."
   },
   {
+    "id": "532",
     "hanzi": "雪",
     "pinyin": "xuě",
     "meaning": "tuyết",
@@ -5856,6 +6387,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Đây là tuyết của tôi."
   },
   {
+    "id": "533",
     "hanzi": "椅子",
     "pinyin": "yǐ zi",
     "meaning": "cái ghế",
@@ -5867,6 +6399,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Đây là cái ghế của tôi."
   },
   {
+    "id": "534",
     "hanzi": "有点儿",
     "pinyin": "yǒu diǎn r",
     "meaning": "hơi, có một chút (tiêu cực)",
@@ -5878,6 +6411,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất hơi, có một chút (tiêu cực)."
   },
   {
+    "id": "535",
     "hanzi": "怎么样",
     "pinyin": "zěn me yàng",
     "meaning": "thế nào, ra sao",
@@ -5889,6 +6423,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất thế nào, ra sao."
   },
   {
+    "id": "536",
     "hanzi": "只",
     "pinyin": "zhǐ",
     "meaning": "chỉ / con (lượng từ động vật)",
@@ -5900,6 +6435,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Cái này rất chỉ / con (lượng từ động vật)."
   },
   {
+    "id": "537",
     "hanzi": "做饭",
     "pinyin": "zuò fàn",
     "meaning": "nấu cơm, nấu ăn",
@@ -5911,6 +6447,7 @@ export const HSK30_LEVEL1_CARDS: RawCardData[] = [
     "example_meaning": "Tôi muốn ăn/uống nấu cơm, nấu ăn."
   }
 ];
+export const HSK30_LEVEL1_WORDS: Word[] = HSK30_LEVEL1_CARDS;
 
 export const HSK30_CHAR_DETAILS: CharDetail[] = [
   {
