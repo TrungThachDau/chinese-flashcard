@@ -30,7 +30,7 @@ const TESTIMONIALS: Testimonial[] = [
     accentBadge: "bg-orange-100 text-orange-800",
     stars: 5,
     content:
-      "Trước đây mình từng mua rất nhiều sách nhưng chỉ học được 2 tuần là bỏ vì hoa mắt với chữ Hán. Nhờ thuật toán SRS lặp lại ngắt quãng của BaoBao Chinese, mỗi ngày mình chỉ cần mở app 15 phút. Đi thi HSK 4 đạt 285 điểm, vượt xa kỳ vọng!",
+      "Trước đây mình từng mua rất nhiều sách nhưng chỉ học được 2 tuần là bỏ vì hoa mắt với chữ Hán. Nhờ phương pháp nhắc ôn đúng lúc của BaoBao Chinese, mỗi ngày mình chỉ cần mở ứng dụng 15 phút. Đi thi HSK 4 đạt 285 điểm, vượt xa kỳ vọng!",
     favoriteWord: { hanzi: "坚持", pinyin: "jiānchí", meaning: "Kiên trì" },
     initialLikes: 124,
   },
@@ -45,7 +45,7 @@ const TESTIMONIALS: Testimonial[] = [
     accentBadge: "bg-amber-100 text-amber-900",
     stars: 5,
     content:
-      "Giao diện claymorphism mềm mại, ấm cúng và cực kỳ hút mắt! Tính năng tính toán thời điểm vàng ôn từ của thuật toán SM-2 giúp mình không phải bận tâm 'hôm nay ôn gì'. Đi làm cả ngày về mệt nhưng bật app lên ôn 10 từ thấy thư giãn như chơi game.",
+      "Giao diện mềm mại, ấm cúng và cực kỳ hút mắt! Tính năng tự động tính toán thời điểm vàng để ôn từ giúp mình không phải bận tâm 'hôm nay ôn gì'. Đi làm cả ngày về mệt nhưng mở ra học 10 từ thấy thư giãn như chơi game.",
     favoriteWord: { hanzi: "代码", pinyin: "dàimǎ", meaning: "Mã nguồn code" },
     initialLikes: 89,
   },
@@ -105,7 +105,7 @@ const TESTIMONIALS: Testimonial[] = [
     accentBadge: "bg-orange-100 text-orange-800",
     stars: 5,
     content:
-      "Vừa rồi mình đi du lịch Tứ Xuyên 10 ngày. Nhờ bộ thẻ câu hỏi sinh tồn đời sống của app, mình tự tin gọi món lẩu cay tê, hỏi tàu điện ngầm và bắt chuyện với người bản xứ. Thiết kế claymorphism thì đẹp miễn bàn!",
+      "Vừa rồi mình đi du lịch Tứ Xuyên 10 ngày. Nhờ bộ thẻ câu hỏi sinh tồn đời sống của app, mình tự tin gọi món lẩu cay tê, hỏi tàu điện ngầm và bắt chuyện với người bản xứ. Giao diện ứng dụng thì đẹp mắt và dễ thương miễn bàn!",
     favoriteWord: { hanzi: "旅行", pinyin: "lǚxíng", meaning: "Du lịch" },
     initialLikes: 167,
   },

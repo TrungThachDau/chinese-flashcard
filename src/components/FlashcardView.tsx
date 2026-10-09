@@ -173,6 +173,17 @@ export const FlashcardView: React.FC<FlashcardViewProps> = ({
   // Keyboard navigation
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
+      // Don't intercept when user is typing in an input, textarea, or editable element
+      const target = e.target as HTMLElement | null;
+      if (
+        target &&
+        (target.tagName === "INPUT" ||
+          target.tagName === "TEXTAREA" ||
+          target.isContentEditable)
+      ) {
+        return;
+      }
+
       if (isCompleted || !currentCard) return;
 
       if (e.code === "Space") {
@@ -249,8 +260,8 @@ export const FlashcardView: React.FC<FlashcardViewProps> = ({
           Tuyệt vời! Đã hoàn thành bộ thẻ!
         </h2>
         <p className="mt-2 text-sm text-slate-600 dark:text-slate-400 max-w-xs">
-          Bạn đã ôn tập xong tất cả thẻ trong phiên này. Thuật toán SRS đã lên
-          lịch cho lần học kế tiếp.
+          Bạn đã ôn tập xong tất cả từ trong phiên này. Ứng dụng đã tự động hẹn
+          giờ ôn cho lần kế tiếp.
         </p>
 
         <div className="mt-6 flex flex-col sm:flex-row gap-3 w-full">
@@ -540,18 +551,18 @@ export const FlashcardView: React.FC<FlashcardViewProps> = ({
               )}
             </div>
 
-            {/* Bottom reminder & FSRS memory metrics */}
+            {/* Bottom reminder & memory metrics */}
             <div className="shrink-0 text-[10px] sm:text-[11px] text-slate-400 font-sans flex items-center justify-between px-1">
               <span className="flex items-center gap-1 text-slate-400">
                 <Sparkles className="w-3 h-3 text-amber-500" />
-                <span>FSRS ({Math.round(targetRetention * 100)}% nhớ)</span>
+                <span>Mức nhớ mục tiêu: {Math.round(targetRetention * 100)}%</span>
               </span>
               {currentCard.stability ? (
                 <span className="text-[10px] text-indigo-600 dark:text-indigo-400 font-medium">
-                  Độ bền: {currentCard.stability}d • Khó: {currentCard.difficulty}/10
+                  Đã nhớ: {currentCard.stability} ngày
                 </span>
               ) : (
-                <span className="text-[10px] text-slate-400">Thẻ mới (New)</span>
+                <span className="text-[10px] text-slate-400">Từ mới</span>
               )}
             </div>
           </div>

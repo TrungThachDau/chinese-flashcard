@@ -15,24 +15,24 @@ const FAQS: FaqItem[] = [
       "Hoàn toàn được! Lộ trình Panda Starter (HSK 1) được thiết kế riêng cho người bắt đầu từ con số 0. Bạn sẽ bắt đầu từ bảng chữ cái Pinyin, cách phát âm 4 thanh điệu với hình ảnh minh họa sinh động, sau đó mới đến các nét chữ Hán và bộ thủ qua câu chuyện liên tưởng dễ nhớ.",
   },
   {
-    question: "Phương pháp lặp lại ngắt quãng (SM-2 SRS) hoạt động như thế nào?",
+    question: "Phương pháp nhắc ôn thông minh hoạt động như thế nào?",
     answer:
-      "Não bộ con người thường quên 70% kiến thức mới sau 24-48 giờ nếu không ôn tập. Thuật toán Spaced Repetition (SRS) tính toán chu kỳ quên tự nhiên: từ khó sẽ được nhắc lại sau vài phút hoặc ngày mai, từ bạn đã nhớ vừa sẽ nhắc lại sau 3 ngày, còn từ dễ sẽ xuất hiện sau 1 tuần. Nhờ đó, bạn tốn ít thời gian nhất nhưng nhớ lâu nhất vào trí nhớ dài hạn.",
+      "Não bộ con người thường quên 70% kiến thức mới sau 24-48 giờ nếu không ôn tập. Ứng dụng sẽ tự động tính toán thời điểm bạn sắp quên để nhắc ôn đúng lúc: từ khó sẽ được nhắc lại sớm hơn, từ bạn đã nhớ vừa sẽ nhắc lại sau vài ngày, còn từ dễ sẽ xuất hiện sau 1 tuần. Nhờ đó, bạn tốn ít thời gian nhất nhưng nhớ lâu nhất.",
   },
   {
     question: "Mỗi ngày tôi cần dành bao nhiêu thời gian để có kết quả tốt?",
     answer:
-      "Chỉ cần 10 - 15 phút mỗi ngày! Tính nhất quán quan trọng hơn học dồn dập. Với 15 phút mỗi ngày cùng chuỗi streak liên tục, bạn có thể tích lũy và ghi nhớ bền vững hơn 300 từ vựng và đàm thoại cơ bản chỉ sau 1 tháng.",
+      "Chỉ cần 10 - 15 phút mỗi ngày! Học đều đặn mỗi ngày quan trọng hơn học dồn dập. Với 15 phút mỗi ngày cùng chuỗi học liên tục, bạn có thể tích lũy và ghi nhớ bền vững hàng trăm từ vựng và tự tin giao tiếp cơ bản chỉ sau 1 tháng.",
   },
   {
     question: "Giọng đọc phát âm trên nền tảng có chuẩn giọng Bắc Kinh không?",
     answer:
-      "Chính xác 100%. Nền tảng tích hợp công nghệ giọng đọc chuẩn phổ thông (Putonghua) chất lượng cao và video khẩu hình trực quan, giúp bạn nghe rõ sự khác biệt giữa các âm cuốn lưỡi (zh, ch, sh) và các thanh điệu khó.",
+      "Chính xác 100%. Nền tảng sử dụng giọng đọc chuẩn phổ thông (Putonghua) chất lượng cao và hướng dẫn trực quan, giúp bạn nghe rõ sự khác biệt giữa các âm cuốn lưỡi (zh, ch, sh) và các thanh điệu khó.",
   },
   {
-    question: "Tôi có thể học trên điện thoại và lưu dữ liệu offline không?",
+    question: "Tôi có thể học trên điện thoại được không?",
     answer:
-      "Có! Ứng dụng hỗ trợ Progressive Web App (PWA) tối ưu hoàn hảo cho cả iOS và Android. Bạn có thể cài đặt trực tiếp lên màn hình chính, ôn tập flashcard mượt mà và đồng bộ tiến độ tự động khi có kết nối mạng.",
+      "Có! Ứng dụng dùng mượt mà trên cả điện thoại (iPhone, Android) và máy tính. Bạn có thể thêm biểu tượng ứng dụng ra màn hình chính để mở học hàng ngày thuận tiện và ứng dụng sẽ tự động lưu lại toàn bộ tiến độ của bạn.",
   },
 ];
 

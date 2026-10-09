@@ -7,6 +7,7 @@ import {
   getStudyStats,
   getUserSettings,
 } from '@/lib/db';
+import { loadSupabaseAppData } from './supabaseAppData';
 
 export interface LoadServerAppDataOptions {
   includeAllCards?: boolean;
@@ -24,6 +25,22 @@ export async function loadServerAppData(options: LoadServerAppDataOptions = {}) 
     // Ignore connection error if running outside standard request scope
   }
 
+  // 1. Prefer Supabase if configured (essential for Vercel Serverless & cloud persistence)
+  if (
+    process.env.NEXT_PUBLIC_SUPABASE_URL &&
+    (process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY)
+  ) {
+    try {
+      const supabaseData = await loadSupabaseAppData(options);
+      if (supabaseData) {
+        return supabaseData;
+      }
+    } catch (err) {
+      console.warn('Supabase SSR load error, falling back to local database:', err);
+    }
+  }
+
+  // 2. Fallback to SQLite (local development mode)
   try {
     const userSettings = getUserSettings();
     const dueCards = getDueCards(userSettings.daily_limit);

@@ -47,7 +47,7 @@ export const LandingFooter: React.FC = () => {
             </div>
 
             <p className="text-xs sm:text-sm text-[#5c3a25] leading-relaxed max-w-sm">
-              Ứng dụng phương pháp Spaced Repetition (SRS) kết hợp hình tượng hóa chữ Hán và ngữ âm
+              Ứng dụng phương pháp ghi nhớ khoa học kết hợp hình tượng hóa chữ Hán và ngữ âm
               chuẩn bản xứ để giúp việc học tiếng Trung trở nên dễ dàng, thú vị và tự nhiên.
             </p>
 
@@ -85,12 +85,12 @@ export const LandingFooter: React.FC = () => {
             <ul className="space-y-2 text-xs font-bold text-[#5c3a25]">
               <li>
                 <Link href="/flashcards" className="hover:text-orange-600 transition-colors flex items-center gap-1.5">
-                  <span>🎴 Thẻ Flashcard SRS (Học ngay)</span>
+                  <span>🎴 Học Thẻ Từ Vựng (Học ngay)</span>
                 </Link>
               </li>
               <li>
                 <Link href="/vocab" className="hover:text-orange-600 transition-colors flex items-center gap-1.5">
-                  <span>📖 Kho Từ Vựng HSK 1 - 6</span>
+                  <span>📖 Kho Từ Vựng HSK 3.0</span>
                 </Link>
               </li>
               <li>
@@ -153,7 +153,7 @@ export const LandingFooter: React.FC = () => {
             © 2026 BaoBao Chinese (Hán Ngữ Bảo Bảo). Bản quyền được bảo lưu.
           </div>
           <div className="flex items-center gap-1.5">
-            <span>Thiết kế claymorphism ấm áp</span>
+            <span>Thiết kế thân thiện, ấm áp</span>
             <Heart className="w-3.5 h-3.5 fill-rose-500 text-rose-500 inline" />
             <span>dành cho người yêu tiếng Trung</span>
           </div>

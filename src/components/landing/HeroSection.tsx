@@ -50,7 +50,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full clay-badge bg-white/90 text-orange-800 text-xs sm:text-sm font-black shadow-sm">
             <span className="flex h-2.5 w-2.5 rounded-full bg-orange-500 animate-ping" />
             <span className="text-base">🏮</span>
-            <span>Phương Pháp SRS Lặp Lại Ngắt Quãng Cùng Gấu Trúc</span>
+            <span>Phương Pháp Ôn Tập Nhớ Lâu Cùng Gấu Trúc</span>
             <span className="bg-amber-100 text-amber-900 text-[10px] font-extrabold px-2 py-0.5 rounded-full">
               MỚI HSK 3.0
             </span>
@@ -81,9 +81,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
           {/* Description */}
           <p className="text-base sm:text-lg text-[#5a3a29] font-medium leading-relaxed max-w-2xl mx-auto lg:mx-0">
-            Không còn nỗi ám ảnh học vẹt chữ Hán khô khan. Với thẻ học{" "}
-            <strong className="text-orange-700 font-bold">Claymorphism 3D</strong>, giải mã câu chuyện
-            bộ thủ, phát âm chuẩn bản xứ và chu kỳ lặp lại thông minh, bạn sẽ tự tin nói tiếng Trung chỉ sau{" "}
+            Không còn nỗi ám ảnh học vẹt chữ Hán khô khan. Với thẻ học hình ảnh sinh động, giải mã câu chuyện
+            bộ thủ, phát âm chuẩn bản xứ và chu kỳ nhắc ôn thông minh, bạn sẽ tự tin nói tiếng Trung chỉ sau{" "}
             <strong className="text-orange-700 font-bold">15 phút mỗi ngày</strong>.
           </p>
 
@@ -91,7 +90,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3.5 pt-2">
             <button
               onClick={onOpenEnroll}
-              className="w-full sm:w-auto clay-btn-coral px-7 py-4 text-base font-black shadow-lg shadow-orange-400/30 gap-2.5 group"
+              className="w-full sm:w-auto clay-btn-coral px-7 py-4 text-base font-black shadow-lg shadow-orange-400/30 gap-2.5 group cursor-pointer"
             >
               <span>🚀 Bắt Đầu Miễn Phí Ngay</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -99,9 +98,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
             <button
               onClick={onScrollToDemo}
-              className="w-full sm:w-auto clay-btn-white px-6 py-4 text-sm font-black text-[#43281c] gap-2 border border-orange-200/80 shadow-sm"
+              className="w-full sm:w-auto clay-btn-white px-6 py-4 text-sm font-black text-[#43281c] gap-2 border border-orange-200/80 shadow-sm cursor-pointer"
             >
-              <span>🎮 Thử Mini-Game Thẻ SRS</span>
+              <span>🎮 Thử Học Thẻ Ngay</span>
             </button>
           </div>
 
@@ -242,10 +241,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               </div>
             </div>
 
-            {/* SRS Algorithm Rating Buttons */}
+            {/* Rating Buttons */}
             <div className="pt-2 space-y-2">
               <div className="text-[11px] font-black text-center text-[#7c4d35] flex items-center justify-center gap-1">
-                <span>Thuật toán SM-2: Bạn nhớ từ này mức độ nào?</span>
+                <span>Bạn nhớ từ này ở mức độ nào?</span>
               </div>
               <div className="grid grid-cols-3 gap-2">
                 <button

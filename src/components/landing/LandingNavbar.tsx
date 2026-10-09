@@ -52,7 +52,7 @@ export const LandingNavbar: React.FC<LandingNavbarProps> = ({ onOpenEnroll }) =>
             className="px-3 py-1.5 rounded-full text-xs font-bold text-[#5c3a21] hover:text-orange-600 hover:bg-orange-50 transition-colors flex items-center gap-1.5"
           >
             <Flame className="w-3.5 h-3.5 text-amber-500" />
-            Tiến độ SRS
+            Cách ghi nhớ
           </a>
           <a
             href="#tones"
@@ -82,7 +82,7 @@ export const LandingNavbar: React.FC<LandingNavbarProps> = ({ onOpenEnroll }) =>
             href="/flashcards"
             className="hidden sm:inline-flex clay-btn-white px-3.5 py-2 text-xs font-bold text-[#43281c] hover:text-orange-600"
           >
-            Mở Flashcard App
+            Mở Ứng Dụng Học Thẻ
           </Link>
           <button
             onClick={onOpenEnroll}
@@ -120,7 +120,7 @@ export const LandingNavbar: React.FC<LandingNavbarProps> = ({ onOpenEnroll }) =>
             className="flex items-center gap-2 p-2.5 rounded-2xl font-bold text-sm text-[#43281c] hover:bg-orange-50"
           >
             <Flame className="w-4 h-4 text-amber-500" />
-            Trải nghiệm tiến độ Spaced Repetition (SRS)
+            Trải nghiệm phương pháp nhớ lâu
           </a>
           <a
             href="#tones"
@@ -150,7 +150,7 @@ export const LandingNavbar: React.FC<LandingNavbarProps> = ({ onOpenEnroll }) =>
               href="/flashcards"
               className="clay-btn-white py-2.5 text-center text-xs font-bold"
             >
-              Mở App Ôn Thẻ SRS
+              Mở Ứng Dụng Học Thẻ
             </Link>
             <button
               onClick={() => {

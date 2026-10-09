@@ -64,16 +64,16 @@ export const EnrollModal: React.FC<EnrollModalProps> = ({
 
             <div className="p-3.5 rounded-2xl bg-orange-50 text-xs text-left text-slate-700 space-y-1 border border-orange-100">
               <div>Email: <strong>{email}</strong></div>
-              <div>Quyền lợi: Miễn phí 100% kho từ vựng SRS & audio bản xứ.</div>
+              <div>Quyền lợi: Miễn phí 100% kho từ vựng & giọng đọc mẫu bản xứ.</div>
             </div>
 
             <div className="flex flex-col gap-2 pt-2">
               <Link
                 href="/flashcards"
                 onClick={onClose}
-                className="clay-btn-coral py-3 text-sm font-black shadow-md"
+                className="clay-btn-coral py-3 text-sm font-black shadow-md text-center"
               >
-                🚀 Vào Học Flashcard SRS Ngay
+                🚀 Vào Học Từ Vựng Ngay
               </Link>
               <button
                 onClick={onClose}

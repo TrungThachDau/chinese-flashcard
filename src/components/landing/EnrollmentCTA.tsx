@@ -60,8 +60,8 @@ export const EnrollmentCTA: React.FC<EnrollmentCTAProps> = ({ initialCourse }) =
                   Chào mừng {name} đến với BaoBao Chinese!
                 </h3>
                 <p className="text-sm text-[#5c3a25] leading-relaxed">
-                  Tài khoản học thử 7 ngày miễn phí đã sẵn sàng. Bạn có thể bắt đầu lật thẻ flashcard
-                  SRS hoặc làm quen với bài tập phản xạ ngay lúc này!
+                  Tài khoản học thử 7 ngày miễn phí đã sẵn sàng. Bạn có thể bắt đầu lật thẻ từ vựng
+                  hoặc làm quen với bài tập phản xạ ngay lúc này!
                 </p>
               </div>
 
@@ -81,7 +81,7 @@ export const EnrollmentCTA: React.FC<EnrollmentCTAProps> = ({ initialCourse }) =
                   href="/flashcards"
                   className="w-full sm:w-auto clay-btn-coral px-8 py-3.5 text-sm font-black shadow-lg"
                 >
-                  🚀 Vào Học Flashcard SRS Ngay
+                  🚀 Bắt Đầu Học Từ Vựng Ngay
                 </Link>
                 <button
                   onClick={() => setIsSubmitted(false)}
@@ -107,7 +107,7 @@ export const EnrollmentCTA: React.FC<EnrollmentCTAProps> = ({ initialCourse }) =
 
                 <p className="text-sm sm:text-base text-[#5c3a25] leading-relaxed">
                   Nhận ngay trọn gói 7 ngày trải nghiệm miễn phí: toàn bộ khóa học HSK 1-3, kho
-                  1,200 thẻ flashcard lặp lại ngắt quãng và tính năng phát âm bản xứ không giới hạn.
+                  1,200 thẻ ghi nhớ thông minh và giọng đọc phát âm chuẩn không giới hạn.
                 </p>
 
                 {/* Trust Points */}
@@ -122,7 +122,7 @@ export const EnrollmentCTA: React.FC<EnrollmentCTAProps> = ({ initialCourse }) =
                   </div>
                   <div className="flex items-center gap-2.5 justify-center lg:justify-start">
                     <ShieldCheck className="w-4 h-4 text-orange-600 shrink-0" />
-                    <span>Đồng bộ tiến độ mượt mà trên Mobile & Máy tính</span>
+                    <span>Lưu tiến độ mượt mà trên Điện thoại & Máy tính</span>
                   </div>
                 </div>
               </div>

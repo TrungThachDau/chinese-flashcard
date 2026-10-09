@@ -168,14 +168,13 @@ export const ProgressTrackingDemo: React.FC = () => {
         <div className="text-center space-y-4 max-w-3xl mx-auto">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full clay-badge bg-amber-100 text-amber-900 text-xs font-black">
             <Flame className="w-3.5 h-3.5 text-orange-500 fill-orange-500" />
-            <span>Interactive Demo: Trực Quan Hóa Quá Trình Học</span>
+            <span>Học Thử: Xem Cách Ghi Nhớ Tự Nhiên</span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#2d1b13] tracking-tight">
-            Trải Nghiệm Thử Công Nghệ SRS & Gamification
+            Trải Nghiệm Phương Pháp Nhớ Lâu Thông Minh
           </h2>
           <p className="text-base text-[#5c3a25] font-medium">
-            Hãy thử lật thẻ, nghe phát âm và đánh giá mức độ ghi nhớ. Quan sát bảng điều khiển bên
-            phải tự động cập nhật điểm thưởng XP, chuỗi ngày streak và thanh mục tiêu theo thời gian thực!
+            Hãy thử lật thẻ, nghe phát âm và đánh giá mức độ ghi nhớ. Ứng dụng sẽ tự động lên lịch nhắc ôn đúng lúc, giúp bạn tích lũy từ vựng bền vững mỗi ngày!
           </p>
         </div>
 
@@ -319,7 +318,7 @@ export const ProgressTrackingDemo: React.FC = () => {
               ) : (
                 <div className="space-y-1.5">
                   <div className="text-[11px] font-black text-center text-[#74472f]">
-                    Đánh giá trí nhớ (SM-2 SRS) để tích lũy điểm:
+                    Đánh giá mức độ nhớ để tự động hẹn ngày ôn:
                   </div>
                   <div className="grid grid-cols-3 gap-2">
                     <button

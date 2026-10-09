@@ -5,8 +5,8 @@ import { MainClientApp } from '@/components/MainClientApp';
 import { AppSkeleton } from '@/components/AppSkeleton';
 
 export const metadata: Metadata = {
-  title: 'Thẻ Flashcard SRS | Hán Ngữ',
-  description: 'Ôn tập thẻ học từ vựng chuẩn HSK 3.0 Cấp 1 với hệ thống lặp lại ngắt quãng FSRS.',
+  title: 'Học Thẻ Từ Vựng | Hán Ngữ',
+  description: 'Ôn tập thẻ từ vựng chuẩn HSK 3.0 Cấp 1 với phương pháp ghi nhớ tự nhiên và bền vững.',
 };
 
 async function SsrFlashcardsLoader() {

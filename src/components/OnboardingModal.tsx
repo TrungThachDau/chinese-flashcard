@@ -233,7 +233,7 @@ export const OnboardingModal: React.FC<OnboardingModalProps> = ({
               </div>
             )}
             <p className="text-[11px] text-slate-400">
-              💡 Hiện tại hệ thống hỗ trợ đầy đủ <strong>HSK 1</strong> (500+ từ
+              💡 Hiện tại ứng dụng hỗ trợ đầy đủ <strong>HSK 1</strong> (500+ từ
               vựng, bộ thủ, phát âm bản xứ & hội thoại đời sống).
             </p>
           </div>
@@ -249,6 +249,7 @@ export const OnboardingModal: React.FC<OnboardingModalProps> = ({
               required
               value={userName}
               onChange={(e) => setUserName(e.target.value)}
+              onKeyDown={(e) => e.stopPropagation()}
               placeholder="Ví dụ: Minh, Sarah, Nguyễn Văn A..."
               className="w-full px-4 py-3 rounded-2xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 text-sm font-semibold text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-amber-500/50"
             />
@@ -348,7 +349,7 @@ export const OnboardingModal: React.FC<OnboardingModalProps> = ({
               disabled={isSubmitting}
               className="w-full py-2 text-xs text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200 font-medium transition-colors text-center cursor-pointer"
             >
-              Bỏ qua và dùng cấu hình mặc định
+              Bỏ qua và dùng cài đặt mặc định
             </button>
           </div>
         </form>

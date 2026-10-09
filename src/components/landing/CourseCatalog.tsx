@@ -45,7 +45,7 @@ const COURSES: Course[] = [
       "Dành cho người chưa biết gì. Làm chủ 4 thanh điệu, ngữ âm Pinyin chuẩn Bắc Kinh, 500 từ vựng chuẩn HSK 3.0 và tự tin chào hỏi cơ bản.",
     highlights: [
       "Luyện phát âm chuẩn với video khẩu hình",
-      "500 Thẻ flashcard SRS có audio bản xứ",
+      "500 Thẻ từ vựng có giọng đọc mẫu chuẩn",
       "Ghi nhớ các nét và quy tắc bút thuận",
     ],
     sampleWord: {
@@ -78,7 +78,7 @@ const COURSES: Course[] = [
       "Tự tin đi lại, mua sắm, gọi món dim sum và hỏi đường tại Trung Quốc. Nâng vốn từ lên 1,272 từ theo chuẩn HSK 3.0 với 50 tình huống sinh tồn.",
     highlights: [
       "50 Tình huống giao tiếp thực chiến đời sống",
-      "1,272 Thẻ SRS lặp lại ngắt quãng SM-2",
+      "1,272 Thẻ từ vựng ôn tập nhớ lâu thông minh",
       "Mẹo ghép từ logic không cần học vẹt",
     ],
     sampleWord: {
@@ -110,7 +110,7 @@ const COURSES: Course[] = [
     description:
       "Bứt phá rào cản ngữ pháp phức. Tự do diễn đạt cảm xúc, kể chuyện đời thường và giao lưu công việc bằng tiếng Trung trôi chảy.",
     highlights: [
-      "2,245 Thẻ SRS từ vựng liên kết theo chủ đề chuẩn HSK 3.0",
+      "2,245 Thẻ từ vựng liên kết theo chủ đề chuẩn HSK 3.0",
       "Luyện viết đoạn văn và cấu trúc câu phức",
       "10 Bộ đề thi thử HSK 3 sát đề thật 100%",
     ],
@@ -261,8 +261,8 @@ export const CourseCatalog: React.FC<CourseCatalogProps> = ({ onOpenEnroll }) =>
             Lộ Trình Học Rõ Ràng Cho Mọi Mục Tiêu
           </h2>
           <p className="text-base text-[#5c3a25] font-medium">
-            Từng khóa học được thiết kế bằng tư duy gamification trực quan, tích hợp thuật toán
-            lặp lại ngắt quãng để bạn tiến bộ nhanh nhất mà không bị quá tải.
+            Từng khóa học được thiết kế sinh động, trực quan kết hợp phương pháp ghi nhớ sâu từng ngày
+            để bạn tiến bộ nhanh nhất mà không bị quá tải.
           </p>
         </div>
 
@@ -339,7 +339,7 @@ export const CourseCatalog: React.FC<CourseCatalogProps> = ({ onOpenEnroll }) =>
                   </div>
                   <div className="flex items-center gap-1.5">
                     <Sparkles className="w-3.5 h-3.5 text-amber-500" />
-                    <span>{course.vocabCount} từ vựng SRS</span>
+                    <span>{course.vocabCount} từ vựng trọng tâm</span>
                   </div>
                 </div>
 
@@ -450,8 +450,8 @@ export const CourseCatalog: React.FC<CourseCatalogProps> = ({ onOpenEnroll }) =>
             {/* Modal Bottom CTA */}
             <div className="pt-4 border-t border-orange-100 flex items-center justify-between gap-4">
               <div className="text-xs text-[#6e4632]">
-                <span className="font-bold">Đã bao gồm:</span> 100% video bài giảng, audio native & thẻ
-                SRS không giới hạn.
+                <span className="font-bold">Đã bao gồm:</span> 100% video bài giảng, giọng đọc chuẩn bản xứ & thẻ
+                ôn tập không giới hạn.
               </div>
               <button
                 onClick={() => {

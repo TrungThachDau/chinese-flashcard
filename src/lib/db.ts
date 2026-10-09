@@ -816,6 +816,111 @@ export function recordCardReview(cardId: number, rating: ReviewRating): Card | n
   return toPlain(updated);
 }
 
+export function recordCardReviewsBatch(
+  reviews: Array<{
+    card_id: number;
+    rating: ReviewRating;
+    reviewed_at: string;
+    repetition: number;
+    interval: number;
+    ease_factor: number;
+    due_date: string;
+    status: CardStatus;
+    stability?: number;
+    difficulty?: number;
+    lapses?: number;
+    state?: number;
+  }>
+): void {
+  if (!reviews || reviews.length === 0) return;
+
+  const db = getDatabase();
+  if (db) {
+    try {
+      db.exec('BEGIN');
+      const updateStmt = db.prepare(`
+        UPDATE cards SET
+          repetition = ?,
+          interval = ?,
+          ease_factor = ?,
+          due_date = ?,
+          last_reviewed = ?,
+          status = ?,
+          stability = ?,
+          difficulty = ?,
+          lapses = ?,
+          state = ?
+        WHERE id = ?
+      `);
+      const insertStmt = db.prepare(`
+        INSERT INTO review_logs (card_id, rating, reviewed_at, interval, ease_factor, stability, difficulty)
+        VALUES (?, ?, ?, ?, ?, ?, ?)
+      `);
+
+      for (const r of reviews) {
+        updateStmt.run(
+          r.repetition,
+          r.interval,
+          r.ease_factor,
+          r.due_date,
+          r.reviewed_at,
+          r.status,
+          r.stability ?? 0,
+          r.difficulty ?? 0,
+          r.lapses ?? 0,
+          r.state ?? 0,
+          r.card_id
+        );
+        insertStmt.run(
+          r.card_id,
+          r.rating,
+          r.reviewed_at,
+          r.interval,
+          r.ease_factor,
+          r.stability ?? 0,
+          r.difficulty ?? 0
+        );
+      }
+      db.exec('COMMIT');
+      return;
+    } catch (err) {
+      try { db.exec('ROLLBACK'); } catch {}
+      console.warn('SQLite recordCardReviewsBatch error, falling back to memory store:', err);
+    }
+  }
+
+  // In-Memory Fallback
+  const store = getMemoryStore();
+  for (const r of reviews) {
+    const cardIndex = store.cards.findIndex((c) => c.id === r.card_id);
+    if (cardIndex !== -1) {
+      store.cards[cardIndex] = {
+        ...store.cards[cardIndex],
+        repetition: r.repetition,
+        interval: r.interval,
+        ease_factor: r.ease_factor,
+        due_date: r.due_date,
+        last_reviewed: r.reviewed_at,
+        status: r.status,
+        stability: r.stability,
+        difficulty: r.difficulty,
+        lapses: r.lapses,
+        state: r.state,
+      };
+      store.reviewLogs.push({
+        id: store.reviewLogs.length + 1,
+        card_id: r.card_id,
+        rating: r.rating,
+        reviewed_at: r.reviewed_at,
+        interval: r.interval,
+        ease_factor: r.ease_factor,
+        stability: r.stability,
+        difficulty: r.difficulty,
+      });
+    }
+  }
+}
+
 export function getCharDetail(char: string): CharDetail | null {
   const db = getDatabase();
   if (db) {

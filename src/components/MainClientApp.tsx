@@ -23,6 +23,13 @@ import { Navbar } from "./Navbar";
 import { BottomNav } from "./BottomNav";
 import { FlashcardView } from "./FlashcardView";
 import { usePathname } from "next/navigation";
+import { calculateFSRS } from "@/lib/srs";
+import { makeCardKey, LocalReviewQueueItem, getLocalDb } from "@/lib/localDb";
+import {
+  enqueueReview,
+  initSyncListeners,
+  cacheCardsInLocalDb,
+} from "@/lib/syncManager";
 
 const LifeQuestionsView = dynamic(
   () => import("./LifeQuestionsView").then((mod) => mod.LifeQuestionsView),
@@ -253,44 +260,64 @@ export const MainClientApp: React.FC<MainClientAppProps> = ({
     }
   }, [initialStats]);
 
-  // Sync with localStorage on client mount & fetch fresh settings from database
+  // Initialize Dexie background sync listeners (startup flush, exit sync on pagehide/visibilitychange)
   useEffect(() => {
-    try {
-      const localSettingsStr = localStorage.getItem(
-        "chinese_flashcard_settings",
-      );
-      if (localSettingsStr) {
-        const parsed = JSON.parse(localSettingsStr);
-        if (parsed && typeof parsed === "object") {
-          setSettings((prev) => ({ ...prev, ...parsed }));
-          if (
-            parsed.has_onboarded ||
-            (parsed.user_name && parsed.user_name !== "Học viên")
-          ) {
-            setHasOnboarded(true);
-          }
-        }
-      }
-      const localOnboarded = localStorage.getItem("hsk_has_onboarded");
-      if (localOnboarded === "true") {
-        setHasOnboarded(true);
-      }
-    } catch {
-      // Ignore localStorage errors
+    const cleanupSync = initSyncListeners((freshStats) => {
+      if (freshStats) setStats(freshStats);
+    });
+
+    if (initialDueCards && initialDueCards.length > 0) {
+      cacheCardsInLocalDb(initialDueCards);
     }
 
-    // Fetch latest settings from server only if not already provided via SSR
-    if (!initialSettings) {
+    return () => {
+      cleanupSync();
+    };
+  }, [initialDueCards]);
+
+  // Sync settings: Server (Supabase/SSR) settings are authoritative
+  useEffect(() => {
+    if (initialSettings) {
+      setSettings(initialSettings);
+      if (initialSettings.has_onboarded || (initialSettings.user_name && initialSettings.user_name !== "Học viên")) {
+        setHasOnboarded(true);
+      }
+      try {
+        localStorage.setItem("chinese_flashcard_settings", JSON.stringify(initialSettings));
+        if (initialSettings.has_onboarded) {
+          localStorage.setItem("hsk_has_onboarded", "true");
+        }
+        const db = getLocalDb();
+        if (db) {
+          db.settings.put({
+            key: "user_settings",
+            value: initialSettings as unknown as Record<string, unknown>,
+            updated_at: new Date().toISOString(),
+          });
+        }
+      } catch {}
+    } else {
+      // Fallback only if no server settings provided
+      try {
+        const localSettingsStr = localStorage.getItem("chinese_flashcard_settings");
+        if (localSettingsStr) {
+          const parsed = JSON.parse(localSettingsStr);
+          if (parsed && typeof parsed === "object") {
+            setSettings((prev) => ({ ...prev, ...parsed }));
+            if (parsed.has_onboarded || (parsed.user_name && parsed.user_name !== "Học viên")) {
+              setHasOnboarded(true);
+            }
+          }
+        }
+      } catch {}
+
       fetch("/api/settings", { cache: "no-store" })
         .then((res) => res.json())
         .then((data) => {
           if (data.ok && data.settings) {
             setSettings(data.settings);
             try {
-              localStorage.setItem(
-                "chinese_flashcard_settings",
-                JSON.stringify(data.settings),
-              );
+              localStorage.setItem("chinese_flashcard_settings", JSON.stringify(data.settings));
               if (data.settings.has_onboarded) {
                 localStorage.setItem("hsk_has_onboarded", "true");
                 setHasOnboarded(true);
@@ -311,39 +338,44 @@ export const MainClientApp: React.FC<MainClientAppProps> = ({
     };
 
     setHasOnboarded(true);
-    setSettings((prev) => {
-      const merged = { ...prev, ...newSettings, has_onboarded: true };
-      if (typeof window !== "undefined") {
-        try {
-          localStorage.setItem("hsk_has_onboarded", "true");
-          localStorage.setItem(
-            "chinese_flashcard_settings",
-            JSON.stringify(merged),
-          );
-        } catch {}
-      }
-      return merged;
-    });
+
+    // 1. Optimistic UI update immediately (0ms)
+    const merged = { ...settings, ...newSettings, has_onboarded: true };
+    setSettings(merged);
+
+    if (typeof window !== "undefined") {
+      try {
+        localStorage.setItem("hsk_has_onboarded", "true");
+        localStorage.setItem("chinese_flashcard_settings", JSON.stringify(merged));
+        const db = getLocalDb();
+        if (db) {
+          db.settings.put({
+            key: "user_settings",
+            value: merged as unknown as Record<string, unknown>,
+            updated_at: new Date().toISOString(),
+          });
+        }
+      } catch {}
+    }
 
     if (newSettings.daily_limit !== undefined) {
       handleRefreshDue(newSettings.daily_limit);
     }
 
+    // 2. Sync to Supabase IMMEDIATELY (with keepalive: true so browser delivers even if user navigates)
     try {
       const res = await fetch("/api/settings", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
+        keepalive: true,
       });
       const data = await res.json();
       if (data.ok && data.settings) {
         setSettings(data.settings);
         if (typeof window !== "undefined") {
           try {
-            localStorage.setItem(
-              "chinese_flashcard_settings",
-              JSON.stringify(data.settings),
-            );
+            localStorage.setItem("chinese_flashcard_settings", JSON.stringify(data.settings));
           } catch {}
         }
       }
@@ -382,40 +414,87 @@ export const MainClientApp: React.FC<MainClientAppProps> = ({
     }
   };
 
-  // Review card action handler
+  // Review card action handler (Local-First: 0ms response + Dexie queue + Background Sync)
   const handleReviewCard = async (cardId: number, rating: ReviewRating) => {
     try {
-      const res = await fetch("/api/cards", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          cardId,
-          rating,
-          tz: new Date().getTimezoneOffset(),
-        }),
-      });
-      const data = await res.json();
-      if (data.ok && data.card) {
-        // Update in all cards and due cards
-        setAllCards((prev) =>
-          prev.map((c) => (c.id === data.card.id ? data.card : c)),
-        );
-        setDueCards((prev) =>
-          prev.map((c) => (c.id === data.card.id ? data.card : c)),
-        );
-        if (data.stats) {
-          const prevCount = stats.today_reviewed_count || 0;
-          const nextCount = data.stats.today_reviewed_count || 0;
-          setStats(data.stats);
-          // If reaching the daily limit on this review, trigger celebration modal
-          if (
-            nextCount >= settings.daily_limit &&
-            prevCount < settings.daily_limit
-          ) {
-            setShowGoalModal(true);
-          }
-        }
+      const currentCard =
+        allCards.find((c) => c.id === cardId) ||
+        dueCards.find((c) => c.id === cardId);
+
+      if (!currentCard) return;
+
+      const now = new Date();
+      const targetRetention = settings.fsrs_retention ?? 0.9;
+      const srsResult = calculateFSRS(currentCard, rating, now, targetRetention);
+
+      const updatedCard: Card = {
+        ...currentCard,
+        repetition: srsResult.repetition,
+        interval: srsResult.interval,
+        ease_factor: srsResult.ease_factor,
+        due_date: srsResult.due_date,
+        last_reviewed: now.toISOString(),
+        status: srsResult.status,
+        stability: srsResult.stability,
+        difficulty: srsResult.difficulty,
+        retrievability: srsResult.retrievability,
+        lapses: srsResult.lapses,
+        state: srsResult.state,
+      };
+
+      // 1. Optimistic UI update (0ms, instant feedback)
+      setAllCards((prev) =>
+        prev.map((c) => (c.id === cardId ? updatedCard : c))
+      );
+      setDueCards((prev) =>
+        prev.map((c) => (c.id === cardId ? updatedCard : c))
+      );
+
+      // Optimistic stats update
+      const prevCount = stats.today_reviewed_count || 0;
+      const nextCount = prevCount + 1;
+      setStats((prev) => ({
+        ...prev,
+        today_reviewed_count: nextCount,
+        learning_cards:
+          srsResult.status === "learning" || srsResult.status === "reviewing"
+            ? currentCard.status === "new"
+              ? prev.learning_cards + 1
+              : prev.learning_cards
+            : prev.learning_cards,
+        mastered_cards:
+          srsResult.status === "mastered" && currentCard.status !== "mastered"
+            ? prev.mastered_cards + 1
+            : prev.mastered_cards,
+      }));
+
+      if (
+        nextCount >= settings.daily_limit &&
+        prevCount < settings.daily_limit
+      ) {
+        setShowGoalModal(true);
       }
+
+      // 2. Queue in Dexie and schedule background sync (with exit sync support)
+      const queueItem: LocalReviewQueueItem = {
+        card_id: cardId,
+        card_key: makeCardKey(currentCard),
+        rating,
+        reviewed_at: now.toISOString(),
+        repetition: srsResult.repetition,
+        interval: srsResult.interval,
+        ease_factor: srsResult.ease_factor,
+        due_date: srsResult.due_date,
+        status: srsResult.status,
+        stability: srsResult.stability,
+        difficulty: srsResult.difficulty,
+        lapses: srsResult.lapses,
+        state: srsResult.state,
+      };
+
+      await enqueueReview(queueItem, (freshStats) => {
+        if (freshStats) setStats(freshStats);
+      });
     } catch (err) {
       console.error("Error reviewing card:", err);
     }

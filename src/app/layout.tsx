@@ -3,9 +3,9 @@ import "./globals.css";
 import { ServiceWorkerRegistration } from "@/components/ServiceWorkerRegistration";
 
 export const metadata: Metadata = {
-  title: "Hán Ngữ | Thẻ Flashcard Tiếng Trung HSK 3.0 Lặp Lại Ngắt Quãng",
+  title: "Hán Ngữ | Học Tiếng Trung HSK 3.0 Dễ Nhớ & Hiệu Quả",
   description:
-    "Học tiếng Trung chuẩn HSK 3.0 thông minh với thuật toán lặp lại ngắt quãng (FSRS / SM-2), phát âm chuẩn giọng đọc bản xứ, phân tích chi tiết bộ thủ nét chữ Hán và luyện phản xạ câu hỏi đời sống.",
+    "Học tiếng Trung chuẩn HSK 3.0 thông minh với phương pháp nhắc ôn đúng lúc, phát âm chuẩn giọng đọc bản xứ, phân tích chi tiết bộ thủ nét chữ Hán và luyện phản xạ câu hỏi đời sống.",
   manifest: "/manifest.webmanifest",
   appleWebApp: {
     capable: true,

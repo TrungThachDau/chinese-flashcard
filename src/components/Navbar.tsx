@@ -64,7 +64,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               </span>
             </div>
             <div className="text-[10px] text-slate-400 font-medium hidden sm:block">
-              Spaced Repetition System
+              Ôn tập thông minh &amp; Nhớ lâu
             </div>
           </div>
         </Link>

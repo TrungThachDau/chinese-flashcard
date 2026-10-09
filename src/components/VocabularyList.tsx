@@ -394,15 +394,15 @@ export const VocabularyList: React.FC<VocabularyListProps> = ({
                   </div>
                 </div>
 
-                {/* Footer: Status badge & FSRS indicator */}
+                {/* Footer: Status badge & Memory indicator */}
                 <div className="mt-2 flex items-center justify-between text-[10px] pt-1.5 border-t border-slate-100/60 dark:border-slate-800/50">
                   {getStatusBadge(card)}
                   {card.stability ? (
                     <span
-                      className="text-[9px] text-indigo-500 font-semibold font-mono"
-                      title={`Độ bền FSRS: ${card.stability} ngày, Độ khó: ${card.difficulty}/10`}
+                      className="text-[9px] text-indigo-500 font-semibold font-sans"
+                      title={`Đã nhớ được: ${card.stability} ngày, Độ khó: ${card.difficulty}/10`}
                     >
-                      S: {card.stability}d
+                      Nhớ {card.stability}d
                     </span>
                   ) : null}
                 </div>
@@ -497,7 +497,7 @@ export const VocabularyList: React.FC<VocabularyListProps> = ({
                         </div>
                         <button
                           type="button"
-                          onClick={() => playChineseAudio(card.example_sentence, { rate: speechRate })}
+                          onClick={() => card.example_sentence && playChineseAudio(card.example_sentence, { rate: speechRate })}
                           className="p-1.5 rounded-lg text-slate-400 hover:text-amber-500 hover:bg-white dark:hover:bg-slate-700 shrink-0 cursor-pointer"
                           title="Nghe câu ví dụ"
                         >
@@ -618,7 +618,7 @@ export const VocabularyList: React.FC<VocabularyListProps> = ({
                   </span>
                   <button
                     type="button"
-                    onClick={() => playChineseAudio(selectedCardForDetail.example_sentence, { rate: speechRate })}
+                    onClick={() => selectedCardForDetail.example_sentence && playChineseAudio(selectedCardForDetail.example_sentence, { rate: speechRate })}
                     className="p-1 rounded-lg text-slate-400 hover:text-amber-500 hover:bg-white dark:hover:bg-slate-700 cursor-pointer"
                     title="Nghe câu ví dụ"
                   >
@@ -637,24 +637,30 @@ export const VocabularyList: React.FC<VocabularyListProps> = ({
               </div>
             )}
 
-            {/* FSRS Spaced Repetition Stats */}
+            {/* Memory Progress Stats */}
             <div className="p-3 rounded-2xl bg-indigo-50/50 dark:bg-indigo-950/30 border border-indigo-100 dark:border-indigo-900/40 text-xs space-y-2">
               <div className="flex items-center justify-between font-bold text-indigo-900 dark:text-indigo-200">
                 <span className="flex items-center gap-1.5">
                   <BrainCircuit className="w-3.5 h-3.5 text-indigo-500" />
-                  <span>Trí nhớ ngắt quãng (FSRS)</span>
+                  <span>Tiến độ ghi nhớ</span>
                 </span>
                 <span className="text-[10px] px-2 py-0.5 rounded-full bg-indigo-100 dark:bg-indigo-900/60 text-indigo-700 dark:text-indigo-300 font-semibold">
-                  {selectedCardForDetail.status}
+                  {selectedCardForDetail.status === 'mastered'
+                    ? 'Đã thuộc'
+                    : selectedCardForDetail.status === 'reviewing'
+                    ? 'Cần ôn tập'
+                    : selectedCardForDetail.status === 'learning'
+                    ? 'Đang học'
+                    : 'Từ mới'}
                 </span>
               </div>
               <div className="grid grid-cols-2 gap-2 text-[11px] text-slate-600 dark:text-slate-300">
-                <div>Lần ôn tập: <b>{selectedCardForDetail.repetition} lượt</b></div>
-                <div>Khoảng cách: <b>{selectedCardForDetail.interval} ngày</b></div>
+                <div>Số lần ôn: <b>{selectedCardForDetail.repetition} lượt</b></div>
+                <div>Lần ôn tới sau: <b>{selectedCardForDetail.interval} ngày</b></div>
                 {selectedCardForDetail.stability ? (
                   <>
-                    <div>Độ bền (Stability): <b className="text-indigo-600 dark:text-indigo-400">{selectedCardForDetail.stability}d</b></div>
-                    <div>Độ khó (Difficulty): <b className="text-amber-600 dark:text-amber-400">{selectedCardForDetail.difficulty}/10</b></div>
+                    <div>Độ nhớ lâu: <b className="text-indigo-600 dark:text-indigo-400">{selectedCardForDetail.stability} ngày</b></div>
+                    <div>Mức độ khó: <b className="text-amber-600 dark:text-amber-400">{selectedCardForDetail.difficulty}/10</b></div>
                   </>
                 ) : null}
               </div>
