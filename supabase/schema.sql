@@ -52,6 +52,12 @@ alter table public.review_logs            enable row level security;
 alter table public.life_question_progress enable row level security;
 alter table public.user_settings          enable row level security;
 
+grant select, insert, update, delete on public.card_progress          to authenticated;
+grant select, insert, update, delete on public.review_logs            to authenticated;
+grant select, insert, update, delete on public.life_question_progress to authenticated;
+grant select, insert, update, delete on public.user_settings          to authenticated;
+grant usage, select on all sequences in schema public to authenticated;
+
 do $$
 declare t text;
 begin
@@ -59,9 +65,32 @@ begin
   loop
     execute format('drop policy if exists "own rows" on public.%I', t);
     execute format(
-      'create policy "own rows" on public.%I for all to authenticated using (user_id = auth.uid()) with check (user_id = auth.uid())',
+      'create policy "own rows" on public.%I for all to authenticated using (user_id = (select auth.uid())) with check (user_id = (select auth.uid()))',
       t
     );
   end loop;
 end $$;
+
+-- Auto-confirm username-based accounts (<username>@hanngu.app) so users can sign up
+-- and log in immediately with just a username and password.
+create or replace function public.auto_confirm_username_users()
+returns trigger
+language plpgsql
+security definer
+set search_path = ''
+as $$
+begin
+  if new.email like '%@hanngu.app' then
+    new.email_confirmed_at := coalesce(new.email_confirmed_at, now());
+  end if;
+  return new;
+end;
+$$;
+
+revoke execute on function public.auto_confirm_username_users() from public, anon, authenticated;
+
+drop trigger if exists on_auth_user_auto_confirm on auth.users;
+create trigger on_auth_user_auto_confirm
+  before insert on auth.users
+  for each row execute function public.auto_confirm_username_users();
 

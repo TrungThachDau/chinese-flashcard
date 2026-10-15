@@ -8,19 +8,30 @@ export async function GET() {
   try {
     const ctx = await getSupabaseServerClient();
     if (ctx) {
-      const { client, userId } = ctx;
+      const { client, userId, username, displayName } = ctx;
       const { data } = await client
         .from('user_settings')
         .select('settings')
         .eq('user_id', userId)
         .maybeSingle();
 
-      if (data?.settings) {
-        return NextResponse.json(
-          { ok: true, settings: data.settings },
-          { headers: { 'Cache-Control': 'no-store, must-revalidate' } }
-        );
-      }
+      const saved = data?.settings;
+      const defaultName = displayName || username || 'Học viên';
+      const userSettings = {
+        user_name: saved?.user_name || defaultName,
+        daily_limit: saved?.daily_limit ?? 15,
+        speech_rate: saved?.speech_rate ?? 0.85,
+        audio_engine: saved?.audio_engine || 'online',
+        auto_play_audio: Boolean(saved?.auto_play_audio),
+        has_onboarded: Boolean(saved?.has_onboarded ?? false),
+        hsk_level: saved?.hsk_level ?? 1,
+        fsrs_retention: saved?.fsrs_retention ?? 0.9,
+      };
+
+      return NextResponse.json(
+        { ok: true, settings: userSettings },
+        { headers: { 'Cache-Control': 'no-store, must-revalidate' } }
+      );
     }
 
     const settings = getUserSettings();
@@ -41,7 +52,7 @@ export async function POST(request: NextRequest) {
     const ctx = await getSupabaseServerClient();
 
     if (ctx) {
-      const { client, userId } = ctx;
+      const { client, userId, username, displayName } = ctx;
 
       // 1. Fetch current settings from Supabase to prevent losing existing fields on Serverless
       const { data: existingRow } = await client
@@ -50,7 +61,17 @@ export async function POST(request: NextRequest) {
         .eq('user_id', userId)
         .maybeSingle();
 
-      const baseSettings = existingRow?.settings || getUserSettings();
+      const defaultName = displayName || username || 'Học viên';
+      const baseSettings = existingRow?.settings || {
+        user_name: defaultName,
+        daily_limit: 15,
+        speech_rate: 0.85,
+        audio_engine: 'online',
+        auto_play_audio: false,
+        has_onboarded: false,
+        hsk_level: 1,
+        fsrs_retention: 0.9,
+      };
       const mergedSettings = {
         ...baseSettings,
         ...body,
@@ -67,9 +88,6 @@ export async function POST(request: NextRequest) {
       if (upsertErr) {
         console.error('Supabase settings upsert error:', upsertErr);
       }
-
-      // 3. Keep in-memory / local SQLite store in sync
-      updateUserSettings(mergedSettings);
 
       return NextResponse.json({ ok: true, settings: mergedSettings });
     }

@@ -1,7 +1,15 @@
 "use client";
 
 import React from "react";
-import { Flame, Sparkles, Settings, Volume2, RotateCcw } from "lucide-react";
+import {
+  Flame,
+  Sparkles,
+  Settings,
+  Volume2,
+  RotateCcw,
+  LogOut,
+  LogIn,
+} from "lucide-react";
 import Link from "next/link";
 import { StudyStats, UserSettings } from "@/lib/types";
 import { AppTab } from "./MainClientApp";
@@ -9,7 +17,9 @@ import { AppTab } from "./MainClientApp";
 interface NavbarProps {
   stats: StudyStats | null;
   settings?: UserSettings;
+  authUser?: { id: string; username: string; email?: string | null } | null;
   onOpenSettings: () => void;
+  onLogout?: () => void;
   activeTab: AppTab | string;
   setActiveTab: (tab: AppTab) => void;
 }
@@ -17,11 +27,16 @@ interface NavbarProps {
 export const Navbar: React.FC<NavbarProps> = ({
   stats,
   settings,
+  authUser,
   onOpenSettings,
+  onLogout,
   activeTab,
   setActiveTab,
 }) => {
-  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, tab: AppTab) => {
+  const handleLinkClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    tab: AppTab,
+  ) => {
     if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) {
       return;
     }
@@ -154,6 +169,26 @@ export const Navbar: React.FC<NavbarProps> = ({
           >
             <Settings className="w-4 h-4" />
           </button>
+
+          {authUser ? (
+            <button
+              type="button"
+              onClick={onLogout}
+              className="p-1.5 sm:p-2.5 rounded-xl sm:rounded-2xl bg-rose-50 hover:bg-rose-100 dark:bg-rose-950/40 dark:hover:bg-rose-900/60 text-rose-600 dark:text-rose-400 border border-rose-200/60 dark:border-rose-900/50 transition-colors cursor-pointer shrink-0"
+              title={`Đăng xuất (${authUser.username})`}
+            >
+              <LogOut className="w-4 h-4" />
+            </button>
+          ) : (
+            <Link
+              href="/login"
+              className="flex items-center gap-1 px-2.5 py-1.5 rounded-xl sm:rounded-2xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs shadow-xs transition-colors shrink-0"
+              title="Đăng nhập tài khoản"
+            >
+              <LogIn className="w-3.5 h-3.5" />
+              <span className="hidden sm:inline">Đăng nhập</span>
+            </Link>
+          )}
         </div>
       </div>
     </header>

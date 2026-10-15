@@ -68,3 +68,43 @@ export function getLocalDb(): ChineseFlashcardDB | null {
   }
   return dbInstance;
 }
+
+const ACTIVE_USER_ID_KEY = 'hsk_active_user_id';
+
+/**
+ * Clear IndexedDB & localStorage if the logged-in user changed, preventing data leak across accounts.
+ */
+export async function clearLocalDbForUserSwitch(newUserId: string): Promise<void> {
+  if (typeof window === 'undefined') return;
+  try {
+    const prevUserId = localStorage.getItem(ACTIVE_USER_ID_KEY);
+    if (prevUserId && prevUserId !== newUserId) {
+      await clearAllLocalData();
+    }
+    localStorage.setItem(ACTIVE_USER_ID_KEY, newUserId);
+  } catch (err) {
+    console.warn('Error checking user switch in localDb:', err);
+  }
+}
+
+/**
+ * Clear all cached user progress and settings from IndexedDB and localStorage on logout.
+ */
+export async function clearAllLocalData(): Promise<void> {
+  if (typeof window === 'undefined') return;
+  try {
+    localStorage.removeItem('chinese_flashcard_settings');
+    localStorage.removeItem('hsk_has_onboarded');
+    localStorage.removeItem(ACTIVE_USER_ID_KEY);
+    const db = getLocalDb();
+    if (db) {
+      await Promise.all([
+        db.card_progress.clear(),
+        db.sync_queue.clear(),
+        db.settings.clear(),
+      ]);
+    }
+  } catch (err) {
+    console.warn('Error clearing local DB:', err);
+  }
+}
