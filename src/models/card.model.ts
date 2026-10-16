@@ -1,5 +1,7 @@
 export type CardStatus = 'new' | 'learning' | 'reviewing' | 'mastered';
 
+export type ReviewRating = 1 | 2 | 3 | 4; // 1: Again, 2: Hard, 3: Good, 4: Easy
+
 export interface Word {
   id: string;
   hanzi: string;
@@ -12,6 +14,8 @@ export interface Word {
   example_pinyin?: string;
   example_meaning?: string;
 }
+
+export type RawCardData = Word;
 
 export interface Card {
   id: number;
@@ -38,36 +42,6 @@ export interface Card {
   state?: number;
 }
 
-export type ReviewRating = 1 | 2 | 3 | 4; // 1: Again, 2: Hard, 3: Good, 4: Easy
-
-export interface CharDetail {
-  char: string;
-  pinyin: string;
-  sino_vietnamese: string;
-  radical: string;
-  radical_meaning: string;
-  stroke_count: number;
-  decomposition: string;
-  explanation: string;
-}
-
-export interface LifeQuestion {
-  id: number;
-  topic: string;
-  topic_name: string;
-  situation: string;
-  question_hanzi: string;
-  question_pinyin: string;
-  question_meaning: string;
-  answer_hanzi: string;
-  answer_pinyin: string;
-  answer_meaning: string;
-  options: string[]; // Options for interactive quiz
-  explanation: string;
-  completed: boolean;
-  last_practiced: string | null;
-}
-
 export interface ReviewLog {
   id: number;
   card_id: number;
@@ -91,28 +65,18 @@ export interface CategoryInfo {
   mastered_count: number;
 }
 
-export interface UserSettings {
-  user_name: string;
-  daily_limit: number;
-  speech_rate: number;
-  audio_engine: 'online' | 'browser';
-  auto_play_audio: boolean;
-  has_onboarded: boolean;
-  hsk_level: number;
-  fsrs_retention?: number;
+export interface CardFilterOptions {
+  category?: string;
+  status?: string;
+  search?: string;
+  limit?: number;
+  offset?: number;
+  mode?: string;
+  dueOnly?: boolean;
+  allowNew?: boolean;
 }
 
-export interface StudyStats {
-  total_cards: number;
-  new_cards: number;
-  learning_cards: number;
-  reviewing_cards: number;
-  mastered_cards: number;
-  due_today: number;
-  retention_rate: number;
-  streak_days: number;
-  total_reviews: number;
-  today_reviewed_count: number;
-  categories: CategoryInfo[];
+export function makeCardKey(card: { hanzi: string; pinyin: string }): string {
+  return `${card.hanzi}|${card.pinyin}`;
 }
 

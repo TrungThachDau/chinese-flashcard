@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { connection } from 'next/server';
-import { exportProgress } from '@/lib/db';
+import { exportProgress } from '@/services/backup.service';
 
 /** Download all learner progress as a portable JSON backup (also the Supabase migration source). */
 export async function GET() {
@@ -20,4 +20,3 @@ export async function GET() {
     return NextResponse.json({ ok: false, error: 'Failed to export progress' }, { status: 500 });
   }
 }
-

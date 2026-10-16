@@ -1,16 +1,11 @@
 'use client';
 
 let currentAudio: HTMLAudioElement | null = null;
-let voicesLoaded = false;
 let availableVoices: SpeechSynthesisVoice[] = [];
 
-// Initialize Web Speech API voices if in browser
 if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
   const loadVoices = () => {
     availableVoices = window.speechSynthesis.getVoices();
-    if (availableVoices.length > 0) {
-      voicesLoaded = true;
-    }
   };
 
   loadVoices();
@@ -57,7 +52,6 @@ export function playChineseAudio(text: string, options: PlayAudioOptions = {}): 
   const cleanText = text.trim();
   if (!cleanText) return Promise.resolve(false);
 
-  // Stop any currently playing audio
   stopChineseAudio();
 
   const engine =
@@ -67,7 +61,6 @@ export function playChineseAudio(text: string, options: PlayAudioOptions = {}): 
       : 'auto');
   const speechRate = options.rate ?? 0.85;
 
-  // Function to play via Online Audio (HTML5 Audio)
   const playViaOnlineAudio = (): Promise<boolean> => {
     return new Promise((resolve) => {
       try {
@@ -89,7 +82,6 @@ export function playChineseAudio(text: string, options: PlayAudioOptions = {}): 
         audio.onerror = (e) => {
           console.warn('Online audio playback failed, attempting browser TTS fallback...', e);
           currentAudio = null;
-          // Fallback to browser TTS if online audio fails
           playViaBrowserTTS().then(resolve);
         };
 
@@ -97,7 +89,6 @@ export function playChineseAudio(text: string, options: PlayAudioOptions = {}): 
         if (playPromise !== undefined) {
           playPromise.catch((err) => {
             console.warn('Audio play was interrupted or blocked by browser autoplay policy:', err);
-            // Fallback to browser TTS
             playViaBrowserTTS().then(resolve);
           });
         }
@@ -108,7 +99,6 @@ export function playChineseAudio(text: string, options: PlayAudioOptions = {}): 
     });
   };
 
-  // Function to play via Browser SpeechSynthesis
   const playViaBrowserTTS = (): Promise<boolean> => {
     return new Promise((resolve) => {
       if (typeof window === 'undefined' || !window.speechSynthesis) {
@@ -163,7 +153,6 @@ export function playChineseAudio(text: string, options: PlayAudioOptions = {}): 
     return playViaBrowserTTS();
   }
 
-  // By default (auto / online): use natural high quality online Mandarin audio
   return playViaOnlineAudio();
 }
 
@@ -178,3 +167,4 @@ export function stopChineseAudio() {
     window.speechSynthesis.cancel();
   }
 }
+

@@ -10,8 +10,8 @@ import {
   BookOpen,
   X,
 } from "lucide-react";
-import { UserSettings } from "@/lib/types";
-import { playChineseAudio } from "@/lib/tts";
+import { UserSettings } from "@/models";
+import { playChineseAudio } from "@/services/tts.service";
 
 export const HSK_LEVELS = [
   {

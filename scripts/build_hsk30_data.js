@@ -6,7 +6,7 @@ const listNew = JSON.parse(fs.readFileSync('data/hsk30/hsk1_new.json', 'utf8'));
 const listNewest = JSON.parse(fs.readFileSync('data/hsk30/hsk1_newest.json', 'utf8'));
 
 // Read existing initialData to reuse high-quality translations & char details
-const initialDataContent = fs.readFileSync('src/lib/initialData.ts', 'utf8');
+const initialDataContent = fs.readFileSync('src/models/data/initialData.ts', 'utf8');
 
 // Sino-Vietnamese character map
 const HANVIET_MAP = {
@@ -766,7 +766,7 @@ for (const ch of allChars) {
 
 // Output TypeScript file
 const fileContent = `// Auto-generated HSK 3.0 Level 1 vocabulary dataset from https://github.com/drkameleon/complete-hsk-vocabulary
-import { CharDetail, Word } from './types';
+import { CharDetail, Word } from '@/models';
 
 export const HSK30_LEVEL1_CARDS: Word[] = ${JSON.stringify(cards, null, 2)};
 export const HSK30_LEVEL1_WORDS: Word[] = HSK30_LEVEL1_CARDS;
@@ -774,5 +774,5 @@ export const HSK30_LEVEL1_WORDS: Word[] = HSK30_LEVEL1_CARDS;
 export const HSK30_CHAR_DETAILS: CharDetail[] = ${JSON.stringify(charDetails, null, 2)};
 `;
 
-fs.writeFileSync('src/lib/hsk30Data.ts', fileContent, 'utf8');
-console.log('Successfully wrote src/lib/hsk30Data.ts!');
+fs.writeFileSync('src/models/data/hsk30Data.ts', fileContent, 'utf8');
+console.log('Successfully wrote src/models/data/hsk30Data.ts!');

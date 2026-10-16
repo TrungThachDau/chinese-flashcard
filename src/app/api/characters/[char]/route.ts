@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getCharDetail } from '@/lib/db';
+import { getCharDetail } from '@/services/character.service';
 
 export async function GET(
   request: NextRequest,
@@ -20,4 +20,3 @@ export async function GET(
     return NextResponse.json({ ok: false, error: 'Failed to fetch character detail' }, { status: 500 });
   }
 }
-

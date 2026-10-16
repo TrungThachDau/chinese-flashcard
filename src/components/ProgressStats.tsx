@@ -11,7 +11,7 @@ import {
   TrendingUp,
   BrainCircuit,
 } from 'lucide-react';
-import { StudyStats } from '@/lib/types';
+import { StudyStats } from '@/models';
 
 interface ProgressStatsProps {
   stats: StudyStats;

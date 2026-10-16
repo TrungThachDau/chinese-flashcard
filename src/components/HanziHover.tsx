@@ -3,8 +3,8 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { createPortal } from 'react-dom';
 import { Volume2, Sparkles, Layers, PenTool, X } from 'lucide-react';
-import { CharDetail } from '@/lib/types';
-import { playChineseAudio } from '@/lib/tts';
+import { CharDetail } from '@/models';
+import { playChineseAudio } from '@/services/tts.service';
 
 const clientCharCache = new Map<string, CharDetail>();
 let activeCloseHandler: (() => void) | null = null;

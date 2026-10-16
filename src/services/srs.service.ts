@@ -1,12 +1,11 @@
 import {
   fsrs,
   createEmptyCard,
-  Rating,
   State,
   type Card as FSRSCard,
   type Grade,
 } from 'ts-fsrs';
-import { Card, CardStatus, ReviewRating } from './types';
+import { Card, CardStatus, ReviewRating } from '@/models';
 
 export interface SrsCalculationResult {
   repetition: number;
@@ -38,15 +37,11 @@ export function toFSRSCard(card: Partial<Card>, now?: Date): FSRSCard {
     return empty;
   }
 
-  // Derive initial FSRS parameters if migrating from legacy SM-2:
-  // Stability ~ interval in days (minimum 0.5)
   const stability =
     card.stability !== undefined && card.stability > 0
       ? card.stability
       : Math.max(0.5, card.interval || 1);
 
-  // Difficulty in FSRS: 1 (easiest) to 10 (hardest).
-  // SM-2 Ease Factor: ~2.5 standard, ~1.3 hard. Formula: D ≈ 11 - 2 * EF
   const difficulty =
     card.difficulty !== undefined && card.difficulty > 0
       ? card.difficulty
@@ -80,16 +75,6 @@ export function toFSRSCard(card: Partial<Card>, now?: Date): FSRSCard {
 
 /**
  * FSRS (Free Spaced Repetition Scheduler) v5 Implementation.
- * Models memory using:
- * - Difficulty (D): 1 (easiest) - 10 (hardest)
- * - Stability (S): memory half-life / durability in days
- * - Retrievability (R): recall probability decay curve
- *
- * Ratings:
- * 1: Again (Quên)
- * 2: Hard (Khó)
- * 3: Good (Tốt)
- * 4: Easy (Dễ)
  */
 export function calculateFSRS(
   card: Partial<Card>,
@@ -109,7 +94,6 @@ export function calculateFSRS(
   const result = scheduler.next(fsrsCard, now, grade);
   const updatedCard = result.card;
 
-  // Determine interval in days
   const dueTime = updatedCard.due.getTime();
   const nowTime = now.getTime();
   const diffDays = Math.max(0, (dueTime - nowTime) / (24 * 60 * 60 * 1000));
@@ -118,7 +102,6 @@ export function calculateFSRS(
       ? updatedCard.scheduled_days
       : Math.max(0, Math.round(diffDays));
 
-  // Determine application CardStatus
   let status: CardStatus = 'learning';
   if (
     updatedCard.state === State.Review &&
@@ -131,14 +114,12 @@ export function calculateFSRS(
     status = 'learning';
   }
 
-  // Calculate current retrievability
   const retrievabilityStr = scheduler.get_retrievability(updatedCard, updatedCard.due);
   const retrievability =
     typeof retrievabilityStr === 'number'
       ? retrievabilityStr
-      : parseFloat(String(retrievabilityStr).replace('%', '')) || (targetRetention * 100);
+      : parseFloat(String(retrievabilityStr).replace('%', '')) || targetRetention * 100;
 
-  // Approximate Ease Factor representation for SM-2 compatibility: EF ~= (11 - D) / 2
   const easeFactor = Number(
     Math.max(1.3, Math.min(3.0, (11 - updatedCard.difficulty) / 2)).toFixed(2)
   );
@@ -196,7 +177,6 @@ export function formatFSRSDuePreview(due: Date, now: Date, scheduledDays: number
     return `${years} năm`;
   }
 
-  // Short-term learning steps
   const diffMinutes = Math.max(0, Math.round((due.getTime() - now.getTime()) / 60000));
   if (diffMinutes <= 1) return '< 1 phút';
   if (diffMinutes < 60) return `${diffMinutes} phút`;
@@ -205,9 +185,6 @@ export function formatFSRSDuePreview(due: Date, now: Date, scheduledDays: number
   return '1 ngày';
 }
 
-/**
- * Formats preview intervals from day counts (backward compatibility)
- */
 export function formatIntervalPreview(days: number): string {
   if (days <= 0) return 'Hôm nay';
   if (days === 1) return '1 ngày';
@@ -327,3 +304,4 @@ export function calculateSM2(
     status,
   };
 }
+

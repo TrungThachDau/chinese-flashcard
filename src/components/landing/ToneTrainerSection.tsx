@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { Volume2, Sparkles, Music } from "lucide-react";
-import { playChineseAudio } from "@/lib/tts";
+import { playChineseAudio } from "@/services/tts.service";
 
 interface ToneItem {
   toneNum: number;

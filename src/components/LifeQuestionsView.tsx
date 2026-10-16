@@ -12,8 +12,8 @@ import {
   BookOpen,
   CheckCircle2,
 } from 'lucide-react';
-import { LifeQuestion } from '@/lib/types';
-import { playChineseAudio } from '@/lib/tts';
+import { LifeQuestion } from '@/models';
+import { playChineseAudio } from '@/services/tts.service';
 import { HanziText } from './HanziHover';
 
 interface LifeQuestionsViewProps {

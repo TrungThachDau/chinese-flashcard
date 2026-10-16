@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { BookOpen, Clock, Users, Star, ArrowRight, Check, Volume2, X, Sparkles } from "lucide-react";
-import { playChineseAudio } from "@/lib/tts";
+import { playChineseAudio } from "@/services/tts.service";
 
 interface Course {
   id: string;

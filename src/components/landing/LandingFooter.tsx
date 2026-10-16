@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { Volume2, Heart, Sparkles, Send, Check } from "lucide-react";
-import { playChineseAudio } from "@/lib/tts";
+import { playChineseAudio } from "@/services/tts.service";
 
 export const LandingFooter: React.FC = () => {
   const [email, setEmail] = useState("");

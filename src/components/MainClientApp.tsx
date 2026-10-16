@@ -19,25 +19,25 @@ import {
   ReviewRating,
   StudyStats,
   UserSettings,
-} from "@/lib/types";
+  makeCardKey,
+  LocalReviewQueueItem,
+} from "@/models";
 import { Navbar } from "./Navbar";
 import { BottomNav } from "./BottomNav";
 import { FlashcardView } from "./FlashcardView";
 import { usePathname, useRouter } from "next/navigation";
-import { calculateFSRS } from "@/lib/srs";
+import { calculateFSRS } from "@/services/srs.service";
 import {
-  makeCardKey,
-  LocalReviewQueueItem,
   getLocalDb,
   clearLocalDbForUserSwitch,
   clearAllLocalData,
-} from "@/lib/localDb";
+} from "@/repositories/local/indexeddb.repository";
 import {
   enqueueReview,
   initSyncListeners,
   cacheCardsInLocalDb,
   flushSyncQueue,
-} from "@/lib/syncManager";
+} from "@/services/sync.service";
 
 const LifeQuestionsView = dynamic(
   () => import("./LifeQuestionsView").then((mod) => mod.LifeQuestionsView),

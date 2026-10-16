@@ -14,9 +14,9 @@ import {
   Check,
   Flame,
 } from "lucide-react";
-import { Card, CategoryInfo, ReviewRating } from "@/lib/types";
-import { getIntervalPreviews } from "@/lib/srs";
-import { playChineseAudio } from "@/lib/tts";
+import { Card, CategoryInfo, ReviewRating } from "@/models";
+import { getIntervalPreviews } from "@/services/srs.service";
+import { playChineseAudio } from "@/services/tts.service";
 import { HanziText } from "./HanziHover";
 
 interface FlashcardViewProps {

@@ -1,5 +1,5 @@
 // Auto-generated HSK 3.0 Level 1 vocabulary dataset from https://github.com/drkameleon/complete-hsk-vocabulary
-import { CharDetail, Word } from './types';
+import { CharDetail, Word } from '@/models';
 
 export const HSK30_LEVEL1_CARDS: Word[] = [
   {

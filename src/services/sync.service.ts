@@ -1,5 +1,5 @@
-import { getLocalDb, LocalReviewQueueItem, makeCardKey } from './localDb';
-import { Card } from './types';
+import { Card, LocalReviewQueueItem, makeCardKey } from '@/models';
+import { getLocalDb } from '@/repositories/local/indexeddb.repository';
 
 let debounceTimer: ReturnType<typeof setTimeout> | null = null;
 let periodicTimer: ReturnType<typeof setInterval> | null = null;
@@ -17,7 +17,6 @@ export async function enqueueReview(
   if (!db) return;
 
   try {
-    // 1. Persist to sync queue & update local card progress
     await db.transaction('rw', db.sync_queue, db.card_progress, async () => {
       await db.sync_queue.add(item);
       await db.card_progress.put({
@@ -35,10 +34,8 @@ export async function enqueueReview(
       });
     });
 
-    // 2. Count pending items
     const count = await db.sync_queue.count();
 
-    // If accumulated 5 or more reviews, flush right away
     if (count >= 5) {
       if (debounceTimer) {
         clearTimeout(debounceTimer);
@@ -50,7 +47,6 @@ export async function enqueueReview(
       return;
     }
 
-    // Otherwise, debounce background flush by 8 seconds
     if (debounceTimer) clearTimeout(debounceTimer);
     debounceTimer = setTimeout(() => {
       flushSyncQueue().then((res) => {
@@ -92,7 +88,6 @@ export async function flushSyncQueue(options?: {
 
     const isExit = !!options?.keepalive;
 
-    // Use sendBeacon if exiting and payload is small enough (<60KB)
     if (
       isExit &&
       typeof navigator !== 'undefined' &&
@@ -108,7 +103,6 @@ export async function flushSyncQueue(options?: {
       }
     }
 
-    // Otherwise use fetch with keepalive: true
     const res = await fetch('/api/sync', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -172,12 +166,10 @@ export function initSyncListeners(onStatsUpdate?: (stats: any) => void): () => v
     return () => {};
   }
 
-  // 1. Startup flush
   flushSyncQueue().then((res) => {
     if (res.stats && onStatsUpdate) onStatsUpdate(res.stats);
   });
 
-  // 2. Exit handlers
   const handleVisibilityChange = () => {
     if (document.visibilityState === 'hidden') {
       flushSyncQueue({ keepalive: true });
@@ -203,7 +195,6 @@ export function initSyncListeners(onStatsUpdate?: (stats: any) => void): () => v
   window.addEventListener('beforeunload', handleBeforeUnload);
   window.addEventListener('online', handleOnline);
 
-  // 3. Periodic sync every 30s
   if (periodicTimer) clearInterval(periodicTimer);
   periodicTimer = setInterval(() => {
     const db = getLocalDb();
@@ -217,7 +208,6 @@ export function initSyncListeners(onStatsUpdate?: (stats: any) => void): () => v
     });
   }, 30000);
 
-  // Return cleanup function
   return () => {
     document.removeEventListener('visibilitychange', handleVisibilityChange);
     window.removeEventListener('pagehide', handlePageHide);
@@ -233,3 +223,4 @@ export function initSyncListeners(onStatsUpdate?: (stats: any) => void): () => v
     }
   };
 }
+

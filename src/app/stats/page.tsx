@@ -1,6 +1,6 @@
 import { Suspense } from 'react';
 import { Metadata } from 'next';
-import { loadServerAppData } from '@/lib/serverAppData';
+import { loadServerAppData } from '@/services/app-data.service';
 import { MainClientApp } from '@/components/MainClientApp';
 import { AppSkeleton } from '@/components/AppSkeleton';
 

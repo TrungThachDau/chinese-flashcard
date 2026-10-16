@@ -17,8 +17,8 @@ import {
   BrainCircuit,
   Loader2,
 } from "lucide-react";
-import { Card } from "@/lib/types";
-import { playChineseAudio } from "@/lib/tts";
+import { Card } from "@/models";
+import { playChineseAudio } from "@/services/tts.service";
 import { HanziText } from "./HanziHover";
 
 interface VocabularyListProps {

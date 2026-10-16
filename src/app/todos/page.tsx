@@ -1,9 +1,9 @@
-import { createClient } from '@/utils/supabase/server';
+import { createServerSupabaseClient } from '@/repositories/supabase/server.client';
 import { cookies } from 'next/headers';
 
 export default async function TodosPage() {
   const cookieStore = await cookies();
-  const supabase = createClient(cookieStore);
+  const supabase = createServerSupabaseClient(cookieStore);
 
   const { data: todos } = await supabase.from('todos').select();
 
@@ -23,4 +23,3 @@ export default async function TodosPage() {
     </div>
   );
 }
-

@@ -15,10 +15,9 @@ import {
   LogOut,
   ShieldCheck,
 } from "lucide-react";
-import { UserSettings } from "@/lib/types";
-import { playChineseAudio } from "@/lib/tts";
+import { UserSettings, APP_VERSION } from "@/models";
+import { playChineseAudio } from "@/services/tts.service";
 import { HSK_LEVELS } from "./OnboardingModal";
-import { APP_VERSION } from "@/lib/version";
 
 interface SettingsModalProps {
   isOpen: boolean;
@@ -178,9 +177,6 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
                     <ShieldCheck className="w-2.5 h-2.5" />
                     <span>Đã đồng bộ</span>
                   </span>
-                </div>
-                <div className="text-[10px] text-slate-500 dark:text-slate-400 truncate">
-                  Tài khoản Supabase riêng biệt
                 </div>
               </div>
             </div>

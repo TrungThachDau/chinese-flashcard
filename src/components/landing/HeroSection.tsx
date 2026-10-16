@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { Volume2, Sparkles, Flame, CheckCircle2, ArrowRight, Star, Heart, Award } from "lucide-react";
-import { playChineseAudio } from "@/lib/tts";
+import { playChineseAudio } from "@/services/tts.service";
 
 interface HeroSectionProps {
   onOpenEnroll: () => void;

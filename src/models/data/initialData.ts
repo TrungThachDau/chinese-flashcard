@@ -1,6 +1,6 @@
-import { CharDetail, LifeQuestion, Word } from './types';
+import { CharDetail, LifeQuestion, Word } from '@/models';
 
-export type { Word } from './types';
+export type { Word } from '@/models';
 export type RawCardData = Word;
 
 export const CATEGORIES_CONFIG = [

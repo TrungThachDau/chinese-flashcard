@@ -1,21 +1,18 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { connection } from 'next/server';
-import { getLifeQuestions, recordLifeQuestionPractice } from '@/lib/db';
-import { getSupabaseServerClient, loadSupabaseAppData } from '@/lib/supabaseAppData';
+import {
+  fetchLifeQuestions,
+  submitLifeQuestionPractice,
+} from '@/services/life-question.service';
 
 export async function GET() {
   await connection();
   try {
-    const sbData = await loadSupabaseAppData({ includeQuestions: true });
-    if (sbData?.lifeQuestions) {
-      return NextResponse.json(
-        { ok: true, questions: sbData.lifeQuestions },
-        { headers: { 'Cache-Control': 'no-store' } }
-      );
-    }
-
-    const questions = getLifeQuestions();
-    return NextResponse.json({ ok: true, questions });
+    const questions = await fetchLifeQuestions();
+    return NextResponse.json(
+      { ok: true, questions },
+      { headers: { 'Cache-Control': 'no-store' } }
+    );
   } catch (error) {
     console.error('Error fetching life questions:', error);
     return NextResponse.json({ ok: false, error: 'Failed to fetch life questions' }, { status: 500 });
@@ -31,25 +28,10 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ ok: false, error: 'Missing questionId' }, { status: 400 });
     }
 
-    const ctx = await getSupabaseServerClient();
-    if (ctx) {
-      await ctx.client.from('life_question_progress').upsert(
-        {
-          user_id: ctx.userId,
-          question_id: Number(questionId),
-          completed: true,
-          last_practiced: new Date().toISOString(),
-        },
-        { onConflict: 'user_id,question_id' }
-      );
-      return NextResponse.json({ ok: true });
-    }
-
-    recordLifeQuestionPractice(questionId);
+    await submitLifeQuestionPractice(Number(questionId));
     return NextResponse.json({ ok: true });
   } catch (error) {
     console.error('Error recording life question:', error);
     return NextResponse.json({ ok: false, error: 'Failed to update life question' }, { status: 500 });
   }
 }
-

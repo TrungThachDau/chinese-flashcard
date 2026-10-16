@@ -15,7 +15,7 @@ import {
   ChevronRight,
   ChevronLeft,
 } from "lucide-react";
-import { playChineseAudio } from "@/lib/tts";
+import { playChineseAudio } from "@/services/tts.service";
 
 interface DemoCard {
   hanzi: string;

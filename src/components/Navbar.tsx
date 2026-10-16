@@ -3,7 +3,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Flame, Settings, LogOut, ChevronDown, User } from "lucide-react";
 import Link from "next/link";
-import { StudyStats, UserSettings } from "@/lib/types";
+import { StudyStats, UserSettings } from "@/models";
 import { AppTab } from "./MainClientApp";
 
 interface NavbarProps {

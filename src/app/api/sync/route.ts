@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { recordCardReviewsBatch, getStudyStats } from '@/lib/db';
-import { getSupabaseServerClient, loadSupabaseAppData } from '@/lib/supabaseAppData';
+import { syncReviewsBatch } from '@/services/card.service';
 
 export async function POST(request: NextRequest) {
   try {
@@ -18,57 +17,14 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ ok: true, synced: 0 });
     }
 
-    // 1. Check if authenticated with Supabase (multi-user mode)
-    const ctx = await getSupabaseServerClient();
-    if (ctx) {
-      const { client, userId } = ctx;
-
-      // A. Bulk upsert card_progress for this user
-      const progressRows = reviews.map((r: any) => ({
-        user_id: userId,
-        card_key: r.card_key,
-        repetition: r.repetition,
-        interval: r.interval,
-        ease_factor: r.ease_factor,
-        due_date: r.due_date,
-        last_reviewed: r.reviewed_at,
-        status: r.status,
-        updated_at: new Date().toISOString(),
-      }));
-
-      await client
-        .from('card_progress')
-        .upsert(progressRows, { onConflict: 'user_id,card_key' });
-
-      // B. Bulk insert review_logs for this user
-      const logRows = reviews.map((r: any) => ({
-        user_id: userId,
-        card_key: r.card_key,
-        rating: r.rating,
-        reviewed_at: r.reviewed_at,
-        interval: r.interval,
-        ease_factor: r.ease_factor,
-      }));
-
-      await client
-        .from('review_logs')
-        .upsert(logRows, { onConflict: 'user_id,card_key,reviewed_at', ignoreDuplicates: true });
-
-      const sbData = await loadSupabaseAppData();
-      return NextResponse.json({
-        ok: true,
-        synced: reviews.length,
-        stats: sbData?.studyStats,
-      });
-    }
-
-    // 2. Fallback to local database (SQLite / In-Memory store) when offline/no Supabase
-    recordCardReviewsBatch(reviews);
-    const stats = getStudyStats(typeof tz === 'number' ? tz : undefined);
-    return NextResponse.json({ ok: true, synced: reviews.length, stats });
+    const result = await syncReviewsBatch(reviews, tz);
+    return NextResponse.json({
+      ok: true,
+      synced: result.synced,
+      stats: result.stats,
+    });
   } catch (err: any) {
     console.error('Error in /api/sync:', err);
     return NextResponse.json({ ok: false, error: err.message || 'Sync failed' }, { status: 500 });
   }
 }
-

@@ -15,7 +15,7 @@ import {
   BookOpen,
   ShieldCheck,
 } from "lucide-react";
-import { clearLocalDbForUserSwitch } from "@/lib/localDb";
+import { clearLocalDbForUserSwitch } from "@/repositories/local/indexeddb.repository";
 
 function LoginFormContent() {
   const router = useRouter();

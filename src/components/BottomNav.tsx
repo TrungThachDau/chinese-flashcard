@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { Layers, MessageSquareText, BookMarked, BarChart3 } from "lucide-react";
-import { StudyStats } from "@/lib/types";
+import { StudyStats } from "@/models";
 import { AppTab } from "./MainClientApp";
 
 interface BottomNavProps {

@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { connection } from 'next/server';
-import { importProgress, ProgressBackup } from '@/lib/db';
+import { ProgressBackup } from '@/models';
+import { importProgress } from '@/services/backup.service';
 
 /** Restore a backup produced by GET /api/export. Idempotent. */
 export async function POST(request: NextRequest) {
@@ -15,4 +16,3 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ ok: false, error: message }, { status: 400 });
   }
 }
-
