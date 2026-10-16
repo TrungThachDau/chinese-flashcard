@@ -16,6 +16,7 @@ import {
   ShieldCheck,
 } from "lucide-react";
 import { clearLocalDbForUserSwitch } from "@/repositories/local/indexeddb.repository";
+import { createBrowserSupabaseClient } from "@/repositories/supabase/browser.client";
 
 function LoginFormContent() {
   const router = useRouter();
@@ -82,6 +83,17 @@ function LoginFormContent() {
         );
         setIsLoading(false);
         return;
+      }
+
+      // Sync session tokens into browser client to ensure persistent cookies across reloads
+      if (data.session?.access_token && data.session?.refresh_token) {
+        const supabase = createBrowserSupabaseClient();
+        if (supabase) {
+          await supabase.auth.setSession({
+            access_token: data.session.access_token,
+            refresh_token: data.session.refresh_token,
+          });
+        }
       }
 
       // Clear local IndexedDB cache if switching to a different user

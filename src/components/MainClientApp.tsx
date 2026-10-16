@@ -38,6 +38,7 @@ import {
   cacheCardsInLocalDb,
   flushSyncQueue,
 } from "@/services/sync.service";
+import { createBrowserSupabaseClient } from "@/repositories/supabase/browser.client";
 
 const LifeQuestionsView = dynamic(
   () => import("./LifeQuestionsView").then((mod) => mod.LifeQuestionsView),
@@ -253,8 +254,36 @@ export const MainClientApp: React.FC<MainClientAppProps> = ({
   } | null>(null);
   const router = useRouter();
 
-  // Check active authenticated Supabase user on mount
+  // Check active authenticated Supabase user on mount & keep session token auto-refreshed on client
   useEffect(() => {
+    const supabase = createBrowserSupabaseClient();
+    const subscription = supabase?.auth.onAuthStateChange((_event, session) => {
+      if (session?.user) {
+        const meta = session.user.user_metadata;
+        const uname =
+          meta?.username ||
+          meta?.display_name ||
+          session.user.email?.split("@")[0] ||
+          "";
+        setAuthUser({
+          id: session.user.id,
+          username: uname,
+          email: session.user.email,
+        });
+      }
+    }).data.subscription;
+
+    const handleVisibilityChange = () => {
+      if (!supabase) return;
+      if (document.visibilityState === "visible") {
+        supabase.auth.startAutoRefresh();
+      } else {
+        supabase.auth.stopAutoRefresh();
+      }
+    };
+
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+
     fetch("/api/auth/me", { cache: "no-store" })
       .then((res) => res.json())
       .then(async (data) => {
@@ -264,11 +293,21 @@ export const MainClientApp: React.FC<MainClientAppProps> = ({
         }
       })
       .catch(() => {});
+
+    return () => {
+      subscription?.unsubscribe();
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+    };
   }, []);
 
   const handleLogout = async () => {
     try {
       await flushSyncQueue({ keepalive: true });
+      const supabase = createBrowserSupabaseClient();
+      if (supabase) {
+        // Only sign out of the current browser/device without logging out other devices
+        await supabase.auth.signOut({ scope: "local" });
+      }
       await fetch("/api/auth/logout", { method: "POST" });
       await clearAllLocalData();
       setAuthUser(null);

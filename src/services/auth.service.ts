@@ -119,7 +119,14 @@ export async function loginWithUsername(rawUsername: string, password: string) {
     email: data.user.email,
   };
 
-  return { ok: true as const, status: 200, user };
+  const session = data.session
+    ? {
+        access_token: data.session.access_token,
+        refresh_token: data.session.refresh_token,
+      }
+    : null;
+
+  return { ok: true as const, status: 200, user, session };
 }
 
 export async function registerWithUsername(
@@ -203,6 +210,12 @@ export async function registerWithUsername(
         username: getDisplayUsername(signInData.user),
         email: signInData.user.email,
       },
+      session: signInData.session
+        ? {
+            access_token: signInData.session.access_token,
+            refresh_token: signInData.session.refresh_token,
+          }
+        : null,
     };
   }
 
@@ -240,6 +253,7 @@ export async function registerWithUsername(
   }
 
   let activeUser = data.user;
+  let activeSession = data.session;
   let hasSession = Boolean(data.session);
 
   if (!hasSession && data.user) {
@@ -249,6 +263,7 @@ export async function registerWithUsername(
     });
     if (retrySignIn?.session && retrySignIn.user) {
       activeUser = retrySignIn.user;
+      activeSession = retrySignIn.session;
       hasSession = true;
     }
   }
@@ -284,19 +299,26 @@ export async function registerWithUsername(
           email: activeUser.email,
         }
       : null,
+    session: activeSession
+      ? {
+          access_token: activeSession.access_token,
+          refresh_token: activeSession.refresh_token,
+        }
+      : null,
   };
 }
 
 export async function logoutCurrentUser(): Promise<void> {
   const cookieStore = await cookies();
-  const supabase = createServerSupabaseClient(cookieStore);
-  await supabase.auth.signOut();
+  const supabase = createServerSupabaseClient(cookieStore, { allowCookieDelete: true });
+  // Use scope: 'local' so logging out on this device does NOT revoke sessions on other devices
+  await supabase.auth.signOut({ scope: 'local' });
 }
 
 export async function getCurrentAuthenticatedUser(): Promise<AuthUser | null> {
   try {
     const cookieStore = await cookies();
-    const supabase = createServerSupabaseClient(cookieStore);
+    const supabase = createServerSupabaseClient(cookieStore, { allowCookieDelete: false });
     const {
       data: { user },
     } = await supabase.auth.getUser();
@@ -314,4 +336,5 @@ export async function getCurrentAuthenticatedUser(): Promise<AuthUser | null> {
     return null;
   }
 }
+
 
