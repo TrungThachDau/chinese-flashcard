@@ -12,6 +12,8 @@ import {
   Target,
   Save,
   BookOpen,
+  LogOut,
+  ShieldCheck,
 } from "lucide-react";
 import { UserSettings } from "@/lib/types";
 import { playChineseAudio } from "@/lib/tts";
@@ -22,6 +24,8 @@ interface SettingsModalProps {
   isOpen: boolean;
   onClose: () => void;
   settings: UserSettings;
+  authUser?: { id: string; username: string; email?: string | null } | null;
+  onLogout?: () => Promise<void>;
   onUpdateSettings: (newSettings: Partial<UserSettings>) => Promise<void>;
   onResetDatabase: () => Promise<void>;
 }
@@ -30,6 +34,8 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
   isOpen,
   onClose,
   settings,
+  authUser,
+  onLogout,
   onUpdateSettings,
   onResetDatabase,
 }) => {
@@ -131,7 +137,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
       role="dialog"
       aria-modal="true"
       aria-label="Cài đặt ứng dụng"
-      className="fixed inset-0 z-[999999] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-in fade-in duration-200"
+      className="fixed inset-0 z-999999 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-in fade-in duration-200"
       onClick={handleClose}
     >
       <div
@@ -151,6 +157,44 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
             <X className="w-5 h-5" />
           </button>
         </div>
+
+        {/* Section 0: Logged-in Account Info */}
+        {onLogout && (
+          <div className="p-3.5 rounded-2xl bg-indigo-50/70 dark:bg-indigo-950/30 border border-indigo-200/70 dark:border-indigo-900/50 flex items-center justify-between gap-3">
+            <div className="flex items-center gap-2.5 min-w-0">
+              <div className="w-9 h-9 rounded-xl bg-linear-to-tr from-indigo-500 to-purple-600 text-white flex items-center justify-center font-black text-sm shrink-0 shadow-xs">
+                {(authUser?.username || settings.user_name || "U")
+                  .charAt(0)
+                  .toUpperCase()}
+              </div>
+              <div className="min-w-0">
+                <div className="flex items-center gap-1.5">
+                  <span className="text-xs font-extrabold text-slate-800 dark:text-slate-100 truncate">
+                    {authUser?.username
+                      ? `@${authUser.username}`
+                      : settings.user_name}
+                  </span>
+                  <span className="inline-flex items-center gap-0.5 text-[10px] px-1.5 py-0.2 rounded-full bg-emerald-100 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 font-bold border border-emerald-300/40">
+                    <ShieldCheck className="w-2.5 h-2.5" />
+                    <span>Đã đồng bộ</span>
+                  </span>
+                </div>
+                <div className="text-[10px] text-slate-500 dark:text-slate-400 truncate">
+                  Tài khoản Supabase riêng biệt
+                </div>
+              </div>
+            </div>
+
+            <button
+              type="button"
+              onClick={onLogout}
+              className="px-3 py-1.5 rounded-xl bg-white dark:bg-slate-800 hover:bg-rose-50 dark:hover:bg-rose-950/50 text-rose-600 dark:text-rose-400 border border-slate-200/80 dark:border-slate-700 text-xs font-bold flex items-center gap-1.5 transition-colors cursor-pointer shrink-0"
+            >
+              <LogOut className="w-3.5 h-3.5" />
+              <span>Đăng xuất</span>
+            </button>
+          </div>
+        )}
 
         {/* Section 1: User Profile & Daily Goal */}
         <div className="space-y-4">
@@ -192,7 +236,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
                     }}
                     className={`py-2 px-1 rounded-xl text-center flex flex-col items-center justify-center transition-all cursor-pointer ${
                       isSelected
-                        ? "bg-gradient-to-tr from-amber-500 to-rose-500 text-white font-bold shadow-sm ring-1 ring-amber-400"
+                        ? "bg-linear-to-tr from-amber-500 to-rose-500 text-white font-bold shadow-sm ring-1 ring-amber-400"
                         : isAvailable
                           ? "bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:bg-slate-200"
                           : "bg-slate-50 dark:bg-slate-800/40 text-slate-400 dark:text-slate-500 border border-slate-200/50 dark:border-slate-800/60 hover:border-amber-400/50"
@@ -427,7 +471,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
             </div>
 
             <div className="grid grid-cols-4 gap-1.5">
-              {[0.85, 0.90, 0.92, 0.95].map((val) => (
+              {[0.85, 0.9, 0.92, 0.95].map((val) => (
                 <button
                   key={val}
                   type="button"
@@ -447,7 +491,9 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
             </div>
 
             <p className="text-[11px] text-slate-500 dark:text-slate-400 leading-relaxed pt-0.5">
-              Ứng dụng sẽ tự động tính toán thời điểm bạn sắp quên để nhắc ôn tập đúng lúc, giúp bạn nhớ sâu mà không mất nhiều thời gian học vẹt lặp lại.
+              Ứng dụng sẽ tự động tính toán thời điểm bạn sắp quên để nhắc ôn
+              tập đúng lúc, giúp bạn nhớ sâu mà không mất nhiều thời gian học
+              vẹt lặp lại.
             </p>
           </div>
         </div>
@@ -458,7 +504,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
             type="button"
             disabled={isSaving}
             onClick={handleSave}
-            className="w-full py-3 px-4 rounded-2xl bg-gradient-to-r from-amber-500 to-rose-500 text-white font-bold text-sm shadow-lg shadow-rose-500/20 hover:opacity-95 transition-all flex items-center justify-center gap-2 cursor-pointer"
+            className="w-full py-3 px-4 rounded-2xl bg-linear-to-r from-amber-500 to-rose-500 text-white font-bold text-sm shadow-lg shadow-rose-500/20 hover:opacity-95 transition-all flex items-center justify-center gap-2 cursor-pointer"
           >
             <Save className="w-4 h-4" />
             <span>
@@ -489,7 +535,8 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
                 <span>Xác nhận khôi phục dữ liệu?</span>
               </div>
               <p className="text-[11px] text-rose-600 dark:text-rose-400">
-                Toàn bộ lịch sử ôn tập và cài đặt sẽ được đưa về mặc định như lúc mới cài.
+                Toàn bộ lịch sử ôn tập và cài đặt sẽ được đưa về mặc định như
+                lúc mới cài.
               </p>
               <div className="flex gap-2 pt-1">
                 <button
@@ -514,7 +561,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
 
         {/* Section 5: App Version Footer */}
         <div className="pt-3 border-t border-slate-100 dark:border-slate-800 flex flex-col items-center justify-center gap-1 text-[11px] text-slate-400 dark:text-slate-500">
-          <span>Hán Ngữ v{APP_VERSION} • Học Tiếng Trung Dễ Nhớ</span>
+          <span>Hán Ngữ v{APP_VERSION}</span>
         </div>
       </div>
     </div>

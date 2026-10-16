@@ -39,7 +39,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   return (
     <section className="relative overflow-hidden pt-6 sm:pt-12 pb-16 sm:pb-24 px-4 sm:px-6">
       {/* Background playful warm blobs */}
-      <div className="absolute top-10 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-gradient-to-tr from-amber-200/40 via-orange-200/35 to-rose-200/30 rounded-full blur-3xl -z-10 pointer-events-none" />
+      <div className="absolute top-10 left-1/2 -translate-x-1/2 w-175 h-125 bg-linear-to-tr from-amber-200/40 via-orange-200/35 to-rose-200/30 rounded-full blur-3xl -z-10 pointer-events-none" />
       <div className="absolute -top-24 right-10 w-72 h-72 bg-orange-300/20 rounded-full blur-2xl -z-10 pointer-events-none" />
       <div className="absolute bottom-10 left-10 w-80 h-80 bg-amber-200/30 rounded-full blur-2xl -z-10 pointer-events-none" />
 
@@ -60,7 +60,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           <h1 className="text-3xl sm:text-5xl lg:text-[3.5rem] font-black tracking-tight leading-[1.15] text-[#2d1b13]">
             Chinh Phục Tiếng Trung{" "}
             <span className="inline-block relative">
-              <span className="bg-gradient-to-r from-orange-500 via-amber-500 to-rose-500 bg-clip-text text-transparent">
+              <span className="bg-linear-to-r from-orange-500 via-amber-500 to-rose-500 bg-clip-text text-transparent">
                 Vui Như Chơi Game
               </span>
               <svg
@@ -176,7 +176,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           </div>
 
           {/* Big Claymorphism Hero Card */}
-          <div className="w-full max-w-sm sm:max-w-md clay-card p-6 sm:p-7 relative bg-gradient-to-b from-[#ffffff] via-[#fffbf7] to-[#fff5ec] border-4 border-white/90">
+          <div className="w-full max-w-sm sm:max-w-md clay-card p-6 sm:p-7 relative bg-linear-to-b from-[#ffffff] via-[#fffbf7] to-[#fff5ec] border-4 border-white/90">
             {/* Pop XP effect */}
             {xpPop && (
               <div className="absolute top-6 right-6 z-30 animate-bounce bg-amber-400 text-[#3d200b] font-black text-xs px-3 py-1.5 rounded-full shadow-md">

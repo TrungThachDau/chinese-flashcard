@@ -1,6 +1,7 @@
 import { createClient } from '@supabase/supabase-js';
 import { cookies } from 'next/headers';
 import { createClient as createServerSupabaseClient } from '@/utils/supabase/server';
+import { getDisplayUsername } from '@/utils/supabase/auth';
 import { HSK30_LEVEL1_CARDS } from './hsk30Data';
 import { INITIAL_LIFE_QUESTIONS, CATEGORIES_CONFIG } from './initialData';
 import {
@@ -12,6 +13,19 @@ import {
   UserSettings,
 } from './types';
 import { LoadServerAppDataOptions } from './serverAppData';
+
+function computeStreakFromIsoDates(isoDates: string[], todayKey: string): number {
+  const set = new Set(isoDates);
+  const DAY = 86_400_000;
+  let cursor = Date.parse(`${todayKey}T00:00:00Z`);
+  if (!set.has(todayKey)) cursor -= DAY;
+  let streak = 0;
+  while (set.has(new Date(cursor).toISOString().substring(0, 10))) {
+    streak += 1;
+    cursor -= DAY;
+  }
+  return streak;
+}
 
 export async function getSupabaseServerClient() {
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
@@ -31,18 +45,23 @@ export async function getSupabaseServerClient() {
       data: { user },
     } = await cookieClient.auth.getUser();
     if (user) {
-      return { client: cookieClient, userId: user.id };
+      return {
+        client: cookieClient,
+        userId: user.id,
+        username: getDisplayUsername(user),
+        displayName: user.user_metadata?.display_name || getDisplayUsername(user),
+      };
     }
   } catch {
     // No cookie context (e.g. static rendering or background task)
   }
 
-  // 2. Service role client with defaultUserId from env
+  // 2. Service role client with defaultUserId from env (optional CLI/migration fallback)
   if (serviceRoleKey && defaultUserId) {
     const client = createClient(url, serviceRoleKey, {
       auth: { persistSession: false, autoRefreshToken: false },
     });
-    return { client, userId: defaultUserId };
+    return { client, userId: defaultUserId, username: null, displayName: null };
   }
 
   // 3. Anon key with defaultUserId
@@ -50,7 +69,7 @@ export async function getSupabaseServerClient() {
     const client = createClient(url, anonKey, {
       auth: { persistSession: false },
     });
-    return { client, userId: defaultUserId };
+    return { client, userId: defaultUserId, username: null, displayName: null };
   }
 
   return null;
@@ -60,28 +79,31 @@ export async function loadSupabaseAppData(options: LoadServerAppDataOptions = {}
   const ctx = await getSupabaseServerClient();
   if (!ctx) return null;
 
-  const { client, userId } = ctx;
+  const { client, userId, username, displayName } = ctx;
   const { includeAllCards = false, includeQuestions = false, cardsLimit = 30 } = options;
 
   const [settingsRes, progressRes, logsRes, questionsRes] = await Promise.all([
     client.from('user_settings').select('settings').eq('user_id', userId).maybeSingle(),
     client.from('card_progress').select('*').eq('user_id', userId),
-    client.from('review_logs').select('rating, reviewed_at').eq('user_id', userId),
+    client.from('review_logs').select('card_key, rating, reviewed_at').eq('user_id', userId),
     includeQuestions
       ? client.from('life_question_progress').select('*').eq('user_id', userId)
       : Promise.resolve({ data: null }),
   ]);
 
+  const savedSettings = settingsRes.data?.settings;
+  const defaultName = displayName || username || 'Học viên';
+
   // 1. Settings
   const userSettings: UserSettings = {
-    user_name: settingsRes.data?.settings?.user_name || 'Trung',
-    daily_limit: settingsRes.data?.settings?.daily_limit ?? 15,
-    speech_rate: settingsRes.data?.settings?.speech_rate ?? 0.85,
-    audio_engine: settingsRes.data?.settings?.audio_engine || 'online',
-    auto_play_audio: Boolean(settingsRes.data?.settings?.auto_play_audio),
-    has_onboarded: Boolean(settingsRes.data?.settings?.has_onboarded ?? true),
-    hsk_level: settingsRes.data?.settings?.hsk_level ?? 1,
-    fsrs_retention: settingsRes.data?.settings?.fsrs_retention ?? 0.9,
+    user_name: savedSettings?.user_name || defaultName,
+    daily_limit: savedSettings?.daily_limit ?? 15,
+    speech_rate: savedSettings?.speech_rate ?? 0.85,
+    audio_engine: savedSettings?.audio_engine || 'online',
+    auto_play_audio: Boolean(savedSettings?.auto_play_audio),
+    has_onboarded: Boolean(savedSettings?.has_onboarded ?? false),
+    hsk_level: savedSettings?.hsk_level ?? 1,
+    fsrs_retention: savedSettings?.fsrs_retention ?? 0.9,
   };
 
   // 2. Merge Cards with Progress
@@ -177,6 +199,12 @@ export async function loadSupabaseAppData(options: LoadServerAppDataOptions = {}
   const todayStart = new Date(now.getFullYear(), now.getMonth(), now.getDate()).toISOString();
   const todayReviewedCount = logs.filter((l: any) => l.reviewed_at >= todayStart).length;
 
+  const todayKey = nowIso.substring(0, 10);
+  const reviewDays = logs
+    .map((l: any) => (typeof l.reviewed_at === 'string' ? l.reviewed_at.substring(0, 10) : ''))
+    .filter(Boolean);
+  const streakDays = computeStreakFromIsoDates(reviewDays, todayKey);
+
   // Categories stats breakdown
   const categories: CategoryInfo[] = CATEGORIES_CONFIG.map((cfg) => {
     const catCards = allCardsList.filter((c) => c.category === cfg.id);
@@ -201,7 +229,7 @@ export async function loadSupabaseAppData(options: LoadServerAppDataOptions = {}
     mastered_cards: masteredCount,
     due_today: dueTodayCount,
     retention_rate: retentionRate,
-    streak_days: 1, // Active streak
+    streak_days: streakDays,
     total_reviews: totalReviews,
     today_reviewed_count: todayReviewedCount,
     categories,

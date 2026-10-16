@@ -1,8 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { recordCardReviewsBatch, getStudyStats } from '@/lib/db';
-import { createClient } from '@/utils/supabase/server';
-import { cookies } from 'next/headers';
-import { createServerClient } from '@supabase/ssr';
+import { getSupabaseServerClient, loadSupabaseAppData } from '@/lib/supabaseAppData';
 
 export async function POST(request: NextRequest) {
   try {
@@ -20,79 +18,52 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ ok: true, synced: 0 });
     }
 
-    // 1. Update local database (SQLite / In-Memory store)
-    recordCardReviewsBatch(reviews);
+    // 1. Check if authenticated with Supabase (multi-user mode)
+    const ctx = await getSupabaseServerClient();
+    if (ctx) {
+      const { client, userId } = ctx;
 
-    // 2. Sync to Supabase if configured
-    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-    const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
-    const envUserId = process.env.SUPABASE_USER_ID;
+      // A. Bulk upsert card_progress for this user
+      const progressRows = reviews.map((r: any) => ({
+        user_id: userId,
+        card_key: r.card_key,
+        repetition: r.repetition,
+        interval: r.interval,
+        ease_factor: r.ease_factor,
+        due_date: r.due_date,
+        last_reviewed: r.reviewed_at,
+        status: r.status,
+        updated_at: new Date().toISOString(),
+      }));
 
-    if (supabaseUrl && (serviceRoleKey || process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY)) {
-      try {
-        let supabase: any;
-        let userId = envUserId;
+      await client
+        .from('card_progress')
+        .upsert(progressRows, { onConflict: 'user_id,card_key' });
 
-        // Check if there is an authenticated user via cookies
-        try {
-          const cookieStore = await cookies();
-          const authClient = createClient(cookieStore);
-          const { data: { user } } = await authClient.auth.getUser();
-          if (user) {
-            userId = user.id;
-            supabase = authClient;
-          }
-        } catch {
-          // No cookie session available
-        }
+      // B. Bulk insert review_logs for this user
+      const logRows = reviews.map((r: any) => ({
+        user_id: userId,
+        card_key: r.card_key,
+        rating: r.rating,
+        reviewed_at: r.reviewed_at,
+        interval: r.interval,
+        ease_factor: r.ease_factor,
+      }));
 
-        // Fallback to service role client if available
-        if (!supabase && serviceRoleKey && userId) {
-          supabase = createServerClient(supabaseUrl, serviceRoleKey, {
-            cookies: {
-              getAll: () => [],
-              setAll: () => {},
-            },
-          });
-        }
+      await client
+        .from('review_logs')
+        .upsert(logRows, { onConflict: 'user_id,card_key,reviewed_at', ignoreDuplicates: true });
 
-        if (supabase && userId) {
-          // A. Bulk upsert card_progress
-          const progressRows = reviews.map((r: any) => ({
-            user_id: userId,
-            card_key: r.card_key,
-            repetition: r.repetition,
-            interval: r.interval,
-            ease_factor: r.ease_factor,
-            due_date: r.due_date,
-            last_reviewed: r.reviewed_at,
-            status: r.status,
-            updated_at: new Date().toISOString(),
-          }));
-
-          await supabase
-            .from('card_progress')
-            .upsert(progressRows, { onConflict: 'user_id,card_key' });
-
-          // B. Bulk insert review_logs
-          const logRows = reviews.map((r: any) => ({
-            user_id: userId,
-            card_key: r.card_key,
-            rating: r.rating,
-            reviewed_at: r.reviewed_at,
-            interval: r.interval,
-            ease_factor: r.ease_factor,
-          }));
-
-          await supabase
-            .from('review_logs')
-            .upsert(logRows, { onConflict: 'user_id,card_key,reviewed_at', ignoreDuplicates: true });
-        }
-      } catch (sbErr) {
-        console.warn('Supabase sync error (local data updated successfully):', sbErr);
-      }
+      const sbData = await loadSupabaseAppData();
+      return NextResponse.json({
+        ok: true,
+        synced: reviews.length,
+        stats: sbData?.studyStats,
+      });
     }
 
+    // 2. Fallback to local database (SQLite / In-Memory store) when offline/no Supabase
+    recordCardReviewsBatch(reviews);
     const stats = getStudyStats(typeof tz === 'number' ? tz : undefined);
     return NextResponse.json({ ok: true, synced: reviews.length, stats });
   } catch (err: any) {

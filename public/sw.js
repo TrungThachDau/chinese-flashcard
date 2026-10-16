@@ -1,4 +1,4 @@
-const CACHE_NAME = 'han-ngu-cache-v2';
+const CACHE_NAME = 'han-ngu-cache-v3';
 const PRECACHE_ASSETS = [
   '/favicon.ico',
   '/apple-touch-icon.png',
@@ -37,8 +37,13 @@ self.addEventListener('fetch', (event) => {
   const { request } = event;
   const url = new URL(request.url);
 
-  // Skip cross-origin or non-GET requests
-  if (request.method !== 'GET' || !url.origin.includes(self.location.origin)) {
+  // Skip cross-origin, non-GET requests, or local development server
+  if (
+    request.method !== 'GET' ||
+    !url.origin.includes(self.location.origin) ||
+    url.hostname === 'localhost' ||
+    url.hostname === '127.0.0.1'
+  ) {
     return;
   }
 

@@ -1,7 +1,7 @@
 "use client";
 
-import React from "react";
-import { Flame, Sparkles, Settings, Volume2, RotateCcw } from "lucide-react";
+import React, { useState, useRef, useEffect } from "react";
+import { Flame, Settings, LogOut, ChevronDown, User } from "lucide-react";
 import Link from "next/link";
 import { StudyStats, UserSettings } from "@/lib/types";
 import { AppTab } from "./MainClientApp";
@@ -9,7 +9,9 @@ import { AppTab } from "./MainClientApp";
 interface NavbarProps {
   stats: StudyStats | null;
   settings?: UserSettings;
+  authUser?: { id: string; username: string; email?: string | null } | null;
   onOpenSettings: () => void;
+  onLogout?: () => void;
   activeTab: AppTab | string;
   setActiveTab: (tab: AppTab) => void;
 }
@@ -17,11 +19,36 @@ interface NavbarProps {
 export const Navbar: React.FC<NavbarProps> = ({
   stats,
   settings,
+  authUser,
   onOpenSettings,
+  onLogout,
   activeTab,
   setActiveTab,
 }) => {
-  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, tab: AppTab) => {
+  const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
+
+  const displayName =
+    settings?.user_name?.trim() || authUser?.username || "Học viên";
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+        setIsUserMenuOpen(false);
+      }
+    };
+    if (isUserMenuOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isUserMenuOpen]);
+
+  const handleLinkClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    tab: AppTab,
+  ) => {
     if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) {
       return;
     }
@@ -49,22 +76,8 @@ export const Navbar: React.FC<NavbarProps> = ({
             className="w-9 h-9 rounded-xl shadow-xs object-contain group-hover:scale-105 transition-transform shrink-0"
           />
           <div>
-            <div className="font-extrabold text-base tracking-tight bg-gradient-to-r from-slate-900 via-indigo-900 to-slate-800 dark:from-white dark:via-indigo-200 dark:to-slate-200 bg-clip-text text-transparent flex items-center gap-1.5">
+            <div className="font-extrabold text-base tracking-tight bg-linear-to-r from-slate-900 via-indigo-900 to-slate-800 dark:from-white dark:via-indigo-200 dark:to-slate-200 bg-clip-text text-transparent flex items-center gap-1.5">
               <span>Hán Ngữ</span>
-              <span
-                onClick={(e) => {
-                  e.preventDefault();
-                  e.stopPropagation();
-                  onOpenSettings();
-                }}
-                className="text-[10px] px-2 py-0.5 rounded-full bg-amber-100 hover:bg-amber-200 dark:bg-amber-950/60 dark:hover:bg-amber-900/60 text-amber-700 dark:text-amber-300 font-bold border border-amber-300/40 transition-colors shrink-0"
-                title="Nhấn để đổi cấp độ HSK hoặc cài đặt"
-              >
-                HSK {settings?.hsk_level || 1} ▾
-              </span>
-            </div>
-            <div className="text-[10px] text-slate-400 font-medium hidden sm:block">
-              Ôn tập thông minh &amp; Nhớ lâu
             </div>
           </div>
         </Link>
@@ -121,23 +134,74 @@ export const Navbar: React.FC<NavbarProps> = ({
           </Link>
         </nav>
 
-        {/* Right Action Icons: User Badge, Streak & Settings */}
+        {/* Right Action Icons: User Display Name Dropdown, Streak & Settings */}
         <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
-          {settings?.user_name && (
+          <div className="relative" ref={menuRef}>
             <button
               type="button"
-              onClick={onOpenSettings}
-              className="flex items-center gap-1.5 px-1.5 py-1 sm:px-2.5 sm:py-1.5 rounded-xl sm:rounded-2xl bg-indigo-50 dark:bg-indigo-950/40 border border-indigo-200/80 dark:border-indigo-900/60 text-indigo-700 dark:text-indigo-300 font-bold text-xs shadow-sm hover:bg-indigo-100 dark:hover:bg-indigo-900/60 transition-colors cursor-pointer"
-              title="Cài đặt hồ sơ & mục tiêu"
+              onClick={() => setIsUserMenuOpen((prev) => !prev)}
+              className="flex items-center gap-1.5 px-2 py-1 sm:px-2.5 sm:py-1.5 rounded-xl sm:rounded-2xl bg-indigo-50 dark:bg-indigo-950/40 border border-indigo-200/80 dark:border-indigo-900/60 text-indigo-700 dark:text-indigo-300 font-bold text-xs shadow-sm hover:bg-indigo-100 dark:hover:bg-indigo-900/60 transition-colors cursor-pointer"
+              title="Tài khoản & Đăng xuất"
             >
-              <div className="w-5 h-5 rounded-full bg-gradient-to-tr from-amber-400 to-rose-500 text-white flex items-center justify-center text-[10px] font-black shadow-xs shrink-0">
-                {settings.user_name.charAt(0).toUpperCase()}
+              <div className="w-5 h-5 rounded-full bg-linear-to-tr from-amber-400 to-rose-500 text-white flex items-center justify-center text-[10px] font-black shadow-xs shrink-0">
+                {displayName.charAt(0).toUpperCase()}
               </div>
-              <span className="hidden sm:inline-block max-w-[90px] truncate">
-                {settings.user_name}
-              </span>
+              <span className="max-w-24 truncate">{displayName}</span>
+              <ChevronDown
+                className={`w-3.5 h-3.5 text-indigo-500/80 transition-transform duration-200 ${
+                  isUserMenuOpen ? "rotate-180" : ""
+                }`}
+              />
             </button>
-          )}
+
+            {isUserMenuOpen && (
+              <div className="absolute right-0 mt-2 w-56 rounded-2xl bg-white dark:bg-slate-900 shadow-xl border border-slate-200/90 dark:border-slate-800 py-2 z-50 animate-in fade-in zoom-in-95 duration-150">
+                {/* User Info Header */}
+                <div className="px-3.5 py-2.5 border-b border-slate-100 dark:border-slate-800 flex items-center gap-2.5">
+                  <div className="w-8 h-8 rounded-full bg-linear-to-tr from-amber-400 to-rose-500 text-white flex items-center justify-center text-xs font-black shadow-xs shrink-0">
+                    {displayName.charAt(0).toUpperCase()}
+                  </div>
+                  <div className="min-w-0 flex-1">
+                    <div className="text-xs font-extrabold text-slate-800 dark:text-slate-100 truncate">
+                      {displayName}
+                    </div>
+                    <div className="text-[11px] text-slate-400 dark:text-slate-500 truncate">
+                      {authUser?.username
+                        ? `@${authUser.username}`
+                        : "Tài khoản học viên"}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Menu Actions */}
+                <div className="p-1.5 space-y-1">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setIsUserMenuOpen(false);
+                      onOpenSettings();
+                    }}
+                    className="w-full px-3 py-2 rounded-xl text-left text-xs font-semibold text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 flex items-center gap-2.5 transition-colors cursor-pointer"
+                  >
+                    <User className="w-4 h-4 text-indigo-500 shrink-0" />
+                    <span>Hồ sơ &amp; Cài đặt học tập</span>
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setIsUserMenuOpen(false);
+                      onLogout?.();
+                    }}
+                    className="w-full px-3 py-2 rounded-xl text-left text-xs font-bold text-rose-600 dark:text-rose-400 hover:bg-rose-50 dark:hover:bg-rose-950/40 flex items-center gap-2.5 transition-colors cursor-pointer"
+                  >
+                    <LogOut className="w-4 h-4 text-rose-500 shrink-0" />
+                    <span>Đăng xuất</span>
+                  </button>
+                </div>
+              </div>
+            )}
+          </div>
 
           {stats && (
             <div className="flex items-center gap-1 sm:gap-1.5 px-2 sm:px-3 py-1 sm:py-1.5 rounded-xl sm:rounded-2xl bg-amber-50 dark:bg-amber-950/40 border border-amber-200/80 dark:border-amber-900/60 text-amber-600 dark:text-amber-400 font-bold text-xs shadow-sm shrink-0">

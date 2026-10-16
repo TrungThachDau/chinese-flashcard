@@ -10,7 +10,11 @@ import {
   getStudyStats,
 } from '@/lib/db';
 import { ReviewRating } from '@/lib/types';
-import { getSupabaseCards, getSupabaseServerClient } from '@/lib/supabaseAppData';
+import {
+  getSupabaseCards,
+  getSupabaseServerClient,
+  loadSupabaseAppData,
+} from '@/lib/supabaseAppData';
 
 export async function GET(request: NextRequest) {
   await connection();
@@ -149,6 +153,13 @@ export async function POST(request: NextRequest) {
           },
           { onConflict: 'user_id,card_key,reviewed_at', ignoreDuplicates: true }
         );
+
+        const sbData = await loadSupabaseAppData();
+        return NextResponse.json({
+          ok: true,
+          card: updatedCard,
+          stats: sbData?.studyStats,
+        });
       }
     } catch (sbErr) {
       console.warn('Supabase post-review sync error:', sbErr);

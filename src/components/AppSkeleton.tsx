@@ -1,18 +1,15 @@
-import React from 'react';
+import React from "react";
 
 export function AppSkeleton() {
   return (
-    <div className="h-screen h-dvh overflow-hidden flex flex-col bg-gradient-to-br from-amber-50/50 via-rose-50/30 to-indigo-50/50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 text-slate-800 dark:text-slate-100">
+    <div className="h-screen overflow-hidden flex flex-col bg-linear-to-br from-amber-50/50 via-rose-50/30 to-indigo-50/50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 text-slate-800 dark:text-slate-100">
       {/* Navbar Skeleton */}
       <header className="sticky top-0 z-40 w-full bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl border-b border-slate-200/80 dark:border-slate-800 shrink-0">
         <div className="max-w-5xl mx-auto px-3 sm:px-4 h-13 sm:h-16 flex items-center justify-between">
           {/* Brand */}
           <div className="flex items-center gap-1.5 select-none">
-            <span className="font-extrabold text-base tracking-tight bg-gradient-to-r from-slate-900 via-indigo-900 to-slate-800 dark:from-white dark:via-indigo-200 dark:to-slate-200 bg-clip-text text-transparent">
+            <span className="font-extrabold text-base tracking-tight bg-linear-to-r from-slate-900 via-indigo-900 to-slate-800 dark:from-white dark:via-indigo-200 dark:to-slate-200 bg-clip-text text-transparent">
               Hán Ngữ
-            </span>
-            <span className="text-[10px] px-2 py-0.5 rounded-full bg-amber-100 dark:bg-amber-950/60 text-amber-700 dark:text-amber-300 font-bold border border-amber-300/40">
-              HSK 1
             </span>
           </div>
 
@@ -46,7 +43,7 @@ export function AppSkeleton() {
           {/* User Greeting & Daily Goal Skeleton */}
           <div className="shrink-0 w-full mx-auto px-2.5 py-1.5 sm:px-3.5 sm:py-2 rounded-2xl sm:rounded-3xl bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border border-slate-200/80 dark:border-slate-800 shadow-xs flex items-center justify-between gap-2.5">
             <div className="flex items-center gap-2 min-w-0">
-              <div className="w-7 h-7 sm:w-10 sm:h-10 rounded-xl sm:rounded-2xl bg-gradient-to-tr from-amber-400 via-rose-500 to-indigo-600 text-white flex items-center justify-center text-xs sm:text-base font-bold shadow-xs shadow-rose-500/20 shrink-0">
+              <div className="w-7 h-7 sm:w-10 sm:h-10 rounded-xl sm:rounded-2xl bg-linear-to-tr from-amber-400 via-rose-500 to-indigo-600 text-white flex items-center justify-center text-xs sm:text-base font-bold shadow-xs shadow-rose-500/20 shrink-0">
                 👋
               </div>
               <div className="min-w-0 space-y-1">
@@ -56,7 +53,7 @@ export function AppSkeleton() {
             </div>
             <div className="flex flex-col items-end shrink-0 space-y-1">
               <div className="w-16 sm:w-28 h-1.5 sm:h-2 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden border border-slate-200/60 dark:border-slate-700/60">
-                <div className="h-full w-1/3 bg-gradient-to-r from-amber-500 via-rose-500 to-emerald-500 rounded-full" />
+                <div className="h-full w-1/3 bg-linear-to-r from-amber-500 via-rose-500 to-emerald-500 rounded-full" />
               </div>
               <div className="h-2 w-12 bg-slate-100 dark:bg-slate-800/60 rounded-sm animate-pulse" />
             </div>
@@ -72,7 +69,7 @@ export function AppSkeleton() {
 
             {/* Progress bar placeholder */}
             <div className="w-full shrink-0 h-1 sm:h-1.5 rounded-full bg-slate-200 dark:bg-slate-800 mb-1.5 sm:mb-2 overflow-hidden">
-              <div className="h-full w-1/5 bg-gradient-to-r from-amber-400 via-rose-500 to-indigo-500 rounded-full" />
+              <div className="h-full w-1/5 bg-linear-to-r from-amber-400 via-rose-500 to-indigo-500 rounded-full" />
             </div>
 
             {/* Flashcard Box responsive height */}
@@ -85,7 +82,9 @@ export function AppSkeleton() {
               {/* Central Hanzi character placeholder */}
               <div className="flex-1 min-h-0 flex flex-col items-center justify-center my-auto space-y-2">
                 <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-3xl bg-amber-50 dark:bg-amber-950/30 border border-amber-200/60 dark:border-amber-900/40 flex items-center justify-center animate-pulse">
-                  <span className="text-3xl sm:text-4xl text-amber-500/40 font-black">中</span>
+                  <span className="text-3xl sm:text-4xl text-amber-500/40 font-black">
+                    中
+                  </span>
                 </div>
                 <div className="h-3 w-16 bg-slate-200 dark:bg-slate-800 rounded-md animate-pulse" />
               </div>
@@ -117,4 +116,3 @@ export function AppSkeleton() {
     </div>
   );
 }
-

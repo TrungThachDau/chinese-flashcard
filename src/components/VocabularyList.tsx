@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import {
   Search,
   Volume2,
@@ -16,10 +16,10 @@ import {
   BookOpen,
   BrainCircuit,
   Loader2,
-} from 'lucide-react';
-import { Card } from '@/lib/types';
-import { playChineseAudio } from '@/lib/tts';
-import { HanziText } from './HanziHover';
+} from "lucide-react";
+import { Card } from "@/lib/types";
+import { playChineseAudio } from "@/lib/tts";
+import { HanziText } from "./HanziHover";
 
 interface VocabularyListProps {
   cards?: Card[];
@@ -41,16 +41,20 @@ export const VocabularyList: React.FC<VocabularyListProps> = ({
   speechRate = 0.85,
 }) => {
   const seedCards = initialCards || propCards || [];
-  const seedTotal = initialTotal || totalCards || (seedCards.length > 0 ? seedCards.length : 500);
+  const seedTotal =
+    initialTotal ||
+    totalCards ||
+    (seedCards.length > 0 ? seedCards.length : 500);
 
   const [cards, setCards] = useState<Card[]>(seedCards);
   const [total, setTotal] = useState<number>(seedTotal);
-  const [searchTerm, setSearchTerm] = useState('');
-  const [debouncedSearch, setDebouncedSearch] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState('all');
-  const [selectedStatus, setSelectedStatus] = useState<string>('all');
-  const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
-  const [selectedCardForDetail, setSelectedCardForDetail] = useState<Card | null>(null);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [debouncedSearch, setDebouncedSearch] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("all");
+  const [selectedStatus, setSelectedStatus] = useState<string>("all");
+  const [viewMode, setViewMode] = useState<"grid" | "list">("grid");
+  const [selectedCardForDetail, setSelectedCardForDetail] =
+    useState<Card | null>(null);
   const [expandedCardId, setExpandedCardId] = useState<number | null>(null);
 
   const [isLoadingFilter, setIsLoadingFilter] = useState(false);
@@ -70,19 +74,37 @@ export const VocabularyList: React.FC<VocabularyListProps> = ({
 
   // Synchronize when parent passes new initial cards (e.g. from SSR)
   useEffect(() => {
-    if (seedCards.length > 0 && cards.length === 0 && !debouncedSearch && selectedCategory === 'all' && selectedStatus === 'all') {
+    if (
+      seedCards.length > 0 &&
+      cards.length === 0 &&
+      !debouncedSearch &&
+      selectedCategory === "all" &&
+      selectedStatus === "all"
+    ) {
       setCards(seedCards);
       setTotal(seedTotal);
       setHasMore(seedCards.length < seedTotal);
     }
-  }, [seedCards, seedTotal, cards.length, debouncedSearch, selectedCategory, selectedStatus]);
+  }, [
+    seedCards,
+    seedTotal,
+    cards.length,
+    debouncedSearch,
+    selectedCategory,
+    selectedStatus,
+  ]);
 
   // Fetch first batch when filters change
   useEffect(() => {
     // Skip extra fetch on first mount if we already have initial cards and default filters
     if (isFirstMountRef.current) {
       isFirstMountRef.current = false;
-      if (cards.length > 0 && !debouncedSearch && selectedCategory === 'all' && selectedStatus === 'all') {
+      if (
+        cards.length > 0 &&
+        !debouncedSearch &&
+        selectedCategory === "all" &&
+        selectedStatus === "all"
+      ) {
         return;
       }
     }
@@ -92,11 +114,11 @@ export const VocabularyList: React.FC<VocabularyListProps> = ({
 
     const params = new URLSearchParams({
       limit: PAGE_SIZE.toString(),
-      offset: '0',
+      offset: "0",
     });
-    if (selectedCategory !== 'all') params.set('category', selectedCategory);
-    if (selectedStatus !== 'all') params.set('status', selectedStatus);
-    if (debouncedSearch.trim()) params.set('search', debouncedSearch.trim());
+    if (selectedCategory !== "all") params.set("category", selectedCategory);
+    if (selectedStatus !== "all") params.set("status", selectedStatus);
+    if (debouncedSearch.trim()) params.set("search", debouncedSearch.trim());
 
     fetch(`/api/cards?${params.toString()}`)
       .then((res) => res.json())
@@ -104,11 +126,11 @@ export const VocabularyList: React.FC<VocabularyListProps> = ({
         if (!isMounted) return;
         if (data.ok && Array.isArray(data.cards)) {
           setCards(data.cards);
-          if (typeof data.total === 'number') setTotal(data.total);
+          if (typeof data.total === "number") setTotal(data.total);
           setHasMore(Boolean(data.hasMore));
         }
       })
-      .catch((err) => console.error('Error fetching filtered cards:', err))
+      .catch((err) => console.error("Error fetching filtered cards:", err))
       .finally(() => {
         if (isMounted) setIsLoadingFilter(false);
       });
@@ -128,9 +150,9 @@ export const VocabularyList: React.FC<VocabularyListProps> = ({
         limit: PAGE_SIZE.toString(),
         offset: cards.length.toString(),
       });
-      if (selectedCategory !== 'all') params.set('category', selectedCategory);
-      if (selectedStatus !== 'all') params.set('status', selectedStatus);
-      if (debouncedSearch.trim()) params.set('search', debouncedSearch.trim());
+      if (selectedCategory !== "all") params.set("category", selectedCategory);
+      if (selectedStatus !== "all") params.set("status", selectedStatus);
+      if (debouncedSearch.trim()) params.set("search", debouncedSearch.trim());
 
       const res = await fetch(`/api/cards?${params.toString()}`);
       const data = await res.json();
@@ -138,22 +160,32 @@ export const VocabularyList: React.FC<VocabularyListProps> = ({
       if (data.ok && Array.isArray(data.cards)) {
         setCards((prev) => {
           const existingIds = new Set(prev.map((c) => c.id));
-          const freshCards = data.cards.filter((c: Card) => !existingIds.has(c.id));
+          const freshCards = data.cards.filter(
+            (c: Card) => !existingIds.has(c.id),
+          );
           return [...prev, ...freshCards];
         });
         setHasMore(Boolean(data.hasMore));
-        if (typeof data.total === 'number') {
+        if (typeof data.total === "number") {
           setTotal(data.total);
         }
       } else {
         setHasMore(false);
       }
     } catch (err) {
-      console.error('Error loading more cards:', err);
+      console.error("Error loading more cards:", err);
     } finally {
       setIsLoadingMore(false);
     }
-  }, [cards.length, debouncedSearch, hasMore, isLoadingFilter, isLoadingMore, selectedCategory, selectedStatus]);
+  }, [
+    cards.length,
+    debouncedSearch,
+    hasMore,
+    isLoadingFilter,
+    isLoadingMore,
+    selectedCategory,
+    selectedStatus,
+  ]);
 
   // IntersectionObserver: auto-trigger loadMore when scrolling near the bottom sentinel
   useEffect(() => {
@@ -163,14 +195,19 @@ export const VocabularyList: React.FC<VocabularyListProps> = ({
     const observer = new IntersectionObserver(
       (entries) => {
         const first = entries[0];
-        if (first.isIntersecting && hasMore && !isLoadingMore && !isLoadingFilter) {
+        if (
+          first.isIntersecting &&
+          hasMore &&
+          !isLoadingMore &&
+          !isLoadingFilter
+        ) {
           loadMore();
         }
       },
       {
-        rootMargin: '350px', // Preload 350px ahead of reaching bottom
+        rootMargin: "350px", // Preload 350px ahead of reaching bottom
         threshold: 0,
-      }
+      },
     );
 
     observer.observe(target);
@@ -185,33 +222,34 @@ export const VocabularyList: React.FC<VocabularyListProps> = ({
       if (!hasMore || isLoadingMore || isLoadingFilter) return;
       const scrollHeight = document.documentElement.scrollHeight;
       const scrollTop = window.scrollY || document.documentElement.scrollTop;
-      const clientHeight = window.innerHeight || document.documentElement.clientHeight;
+      const clientHeight =
+        window.innerHeight || document.documentElement.clientHeight;
       if (scrollHeight - scrollTop - clientHeight < 400) {
         loadMore();
       }
     };
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
   }, [hasMore, isLoadingMore, isLoadingFilter, loadMore]);
 
   const getStatusBadge = (card: Card) => {
     const isDue = new Date(card.due_date) <= new Date();
-    if (card.status === 'mastered') {
+    if (card.status === "mastered") {
       return (
         <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300">
           Đã nhớ
         </span>
       );
     }
-    if (isDue || card.status === 'reviewing') {
+    if (isDue || card.status === "reviewing") {
       return (
         <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-rose-100 dark:bg-rose-950/60 text-rose-700 dark:text-rose-300">
           Cần ôn
         </span>
       );
     }
-    if (card.status === 'learning') {
+    if (card.status === "learning") {
       return (
         <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-amber-100 dark:bg-amber-950/60 text-amber-700 dark:text-amber-300">
           Đang học
@@ -279,11 +317,11 @@ export const VocabularyList: React.FC<VocabularyListProps> = ({
           <div className="flex items-center gap-1 bg-slate-100 dark:bg-slate-800 p-1 rounded-xl border border-slate-200/80 dark:border-slate-700/80">
             <button
               type="button"
-              onClick={() => setViewMode('grid')}
+              onClick={() => setViewMode("grid")}
               className={`flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
-                viewMode === 'grid'
-                  ? 'bg-white dark:bg-slate-900 text-indigo-600 dark:text-indigo-400 shadow-xs'
-                  : 'text-slate-500 hover:text-slate-700 dark:hover:text-slate-300'
+                viewMode === "grid"
+                  ? "bg-white dark:bg-slate-900 text-indigo-600 dark:text-indigo-400 shadow-xs"
+                  : "text-slate-500 hover:text-slate-700 dark:hover:text-slate-300"
               }`}
               title="Xem dạng khối ô vuông"
             >
@@ -292,11 +330,11 @@ export const VocabularyList: React.FC<VocabularyListProps> = ({
             </button>
             <button
               type="button"
-              onClick={() => setViewMode('list')}
+              onClick={() => setViewMode("list")}
               className={`flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
-                viewMode === 'list'
-                  ? 'bg-white dark:bg-slate-900 text-indigo-600 dark:text-indigo-400 shadow-xs'
-                  : 'text-slate-500 hover:text-slate-700 dark:hover:text-slate-300'
+                viewMode === "list"
+                  ? "bg-white dark:bg-slate-900 text-indigo-600 dark:text-indigo-400 shadow-xs"
+                  : "text-slate-500 hover:text-slate-700 dark:hover:text-slate-300"
               }`}
               title="Xem dạng danh sách"
             >
@@ -313,11 +351,6 @@ export const VocabularyList: React.FC<VocabularyListProps> = ({
           <span>
             Đang hiển thị <b>{cards.length}</b> / <b>{total}</b> từ vựng
           </span>
-          {hasMore && (
-            <span className="text-[10px] px-2 py-0.5 rounded-full bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400 font-semibold border border-indigo-200/60 dark:border-indigo-800/60">
-              Cuộn để tải tiếp
-            </span>
-          )}
         </div>
         <span className="text-amber-600 dark:text-amber-400 font-semibold text-[11px]">
           💡 Chạm vào ô để xem chi tiết & câu ví dụ
@@ -343,7 +376,7 @@ export const VocabularyList: React.FC<VocabularyListProps> = ({
         <div className="p-12 text-center text-slate-400 bg-white/60 dark:bg-slate-900/60 rounded-3xl border border-slate-200 dark:border-slate-800">
           Không tìm thấy từ vựng nào khớp với bộ lọc.
         </div>
-      ) : viewMode === 'grid' ? (
+      ) : viewMode === "grid" ? (
         /* GRID VIEW (Khối ô vuông đặt cạnh nhau) */
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2.5 sm:gap-3.5">
           {cards.map((card) => {
@@ -355,7 +388,7 @@ export const VocabularyList: React.FC<VocabularyListProps> = ({
               >
                 {/* Top: Category + Audio button */}
                 <div className="flex items-center justify-between gap-1 w-full shrink-0">
-                  <span className="text-[10px] font-medium text-slate-400 dark:text-slate-500 truncate max-w-[90px]">
+                  <span className="text-[10px] font-medium text-slate-400 dark:text-slate-500 truncate max-w-22.5">
                     {card.category_name}
                   </span>
                   <button
@@ -426,7 +459,9 @@ export const VocabularyList: React.FC<VocabularyListProps> = ({
                   <div className="flex items-center gap-3">
                     <button
                       type="button"
-                      onClick={() => playChineseAudio(card.hanzi, { rate: speechRate })}
+                      onClick={() =>
+                        playChineseAudio(card.hanzi, { rate: speechRate })
+                      }
                       className="p-2 rounded-xl bg-amber-500/10 text-amber-600 dark:text-amber-400 hover:bg-amber-500/20 transition-colors cursor-pointer"
                       title="Phát âm"
                     >
@@ -455,10 +490,16 @@ export const VocabularyList: React.FC<VocabularyListProps> = ({
                     {getStatusBadge(card)}
                     <button
                       type="button"
-                      onClick={() => setExpandedCardId(isExpanded ? null : card.id)}
+                      onClick={() =>
+                        setExpandedCardId(isExpanded ? null : card.id)
+                      }
                       className="p-1.5 rounded-lg text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer"
                     >
-                      {isExpanded ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+                      {isExpanded ? (
+                        <ChevronUp className="w-4 h-4" />
+                      ) : (
+                        <ChevronDown className="w-4 h-4" />
+                      )}
                     </button>
                   </div>
                 </div>
@@ -468,17 +509,42 @@ export const VocabularyList: React.FC<VocabularyListProps> = ({
                   <div className="mt-3 pt-3 border-t border-slate-100 dark:border-slate-800 space-y-2 text-xs animate-in fade-in">
                     {/* FSRS memory info */}
                     <div className="flex flex-wrap items-center gap-3 text-[11px] text-slate-500 dark:text-slate-400 bg-slate-50/70 dark:bg-slate-800/40 p-2 rounded-xl">
-                      <span>Lần ôn: <b className="text-slate-700 dark:text-slate-200">{card.repetition}</b></span>
-                      <span>Khoảng cách: <b className="text-slate-700 dark:text-slate-200">{card.interval} ngày</b></span>
+                      <span>
+                        Lần ôn:{" "}
+                        <b className="text-slate-700 dark:text-slate-200">
+                          {card.repetition}
+                        </b>
+                      </span>
+                      <span>
+                        Khoảng cách:{" "}
+                        <b className="text-slate-700 dark:text-slate-200">
+                          {card.interval} ngày
+                        </b>
+                      </span>
                       {card.stability ? (
                         <>
-                          <span title="Stability (Độ bền trí nhớ theo ngày)">Độ bền (S): <b className="text-indigo-600 dark:text-indigo-400">{card.stability}d</b></span>
-                          <span title="Difficulty (Độ khó từ 1 đến 10)">Độ khó (D): <b className="text-amber-600 dark:text-amber-400">{card.difficulty}/10</b></span>
+                          <span title="Stability (Độ bền trí nhớ theo ngày)">
+                            Độ bền (S):{" "}
+                            <b className="text-indigo-600 dark:text-indigo-400">
+                              {card.stability}d
+                            </b>
+                          </span>
+                          <span title="Difficulty (Độ khó từ 1 đến 10)">
+                            Độ khó (D):{" "}
+                            <b className="text-amber-600 dark:text-amber-400">
+                              {card.difficulty}/10
+                            </b>
+                          </span>
                         </>
                       ) : (
                         <span>Hệ số dễ: {card.ease_factor}</span>
                       )}
-                      <span>Chủ đề: <span className="font-medium text-slate-700 dark:text-slate-300">{card.category_name}</span></span>
+                      <span>
+                        Chủ đề:{" "}
+                        <span className="font-medium text-slate-700 dark:text-slate-300">
+                          {card.category_name}
+                        </span>
+                      </span>
                     </div>
 
                     {/* Example Sentence */}
@@ -497,7 +563,12 @@ export const VocabularyList: React.FC<VocabularyListProps> = ({
                         </div>
                         <button
                           type="button"
-                          onClick={() => card.example_sentence && playChineseAudio(card.example_sentence, { rate: speechRate })}
+                          onClick={() =>
+                            card.example_sentence &&
+                            playChineseAudio(card.example_sentence, {
+                              rate: speechRate,
+                            })
+                          }
                           className="p-1.5 rounded-lg text-slate-400 hover:text-amber-500 hover:bg-white dark:hover:bg-slate-700 shrink-0 cursor-pointer"
                           title="Nghe câu ví dụ"
                         >
@@ -514,7 +585,10 @@ export const VocabularyList: React.FC<VocabularyListProps> = ({
       )}
 
       {/* INFINITE SCROLL SENTINEL & LOADING MORE INDICATOR */}
-      <div ref={observerTargetRef} className="w-full py-4 flex flex-col items-center justify-center">
+      <div
+        ref={observerTargetRef}
+        className="w-full py-4 flex flex-col items-center justify-center"
+      >
         {isLoadingMore && (
           <div className="flex flex-col items-center gap-3 py-2 w-full animate-in fade-in">
             {/* Shimmer loading cards */}
@@ -532,7 +606,9 @@ export const VocabularyList: React.FC<VocabularyListProps> = ({
             </div>
             <div className="flex items-center gap-2 text-xs font-semibold text-indigo-600 dark:text-indigo-400 mt-2">
               <Loader2 className="w-4 h-4 animate-spin" />
-              <span>Đang tải thêm từ vựng ({cards.length} / {total})...</span>
+              <span>
+                Đang tải thêm từ vựng ({cards.length} / {total})...
+              </span>
             </div>
           </div>
         )}
@@ -559,7 +635,7 @@ export const VocabularyList: React.FC<VocabularyListProps> = ({
         <div
           role="dialog"
           aria-modal="true"
-          className="fixed inset-0 z-[999999] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-in fade-in duration-200"
+          className="fixed inset-0 z-999999 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-in fade-in duration-200"
           onClick={() => setSelectedCardForDetail(null)}
         >
           <div
@@ -584,7 +660,7 @@ export const VocabularyList: React.FC<VocabularyListProps> = ({
             </div>
 
             {/* Word Centerpiece */}
-            <div className="flex flex-col items-center justify-center text-center py-2 bg-gradient-to-b from-amber-50/50 to-transparent dark:from-amber-950/20 rounded-2xl">
+            <div className="flex flex-col items-center justify-center text-center py-2 bg-linear-to-b from-amber-50/50 to-transparent dark:from-amber-950/20 rounded-2xl">
               <div className="text-5xl sm:text-6xl font-black text-slate-900 dark:text-white tracking-wide">
                 <HanziText text={selectedCardForDetail.hanzi} />
               </div>
@@ -595,12 +671,19 @@ export const VocabularyList: React.FC<VocabularyListProps> = ({
                 {selectedCardForDetail.meaning}
               </div>
               <div className="text-xs text-slate-400 mt-0.5">
-                Âm Hán Việt: <b className="text-slate-600 dark:text-slate-300">{selectedCardForDetail.sino_vietnamese}</b>
+                Âm Hán Việt:{" "}
+                <b className="text-slate-600 dark:text-slate-300">
+                  {selectedCardForDetail.sino_vietnamese}
+                </b>
               </div>
 
               <button
                 type="button"
-                onClick={() => playChineseAudio(selectedCardForDetail.hanzi, { rate: speechRate })}
+                onClick={() =>
+                  playChineseAudio(selectedCardForDetail.hanzi, {
+                    rate: speechRate,
+                  })
+                }
                 className="mt-3 flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-amber-500 text-white font-bold text-xs shadow-md shadow-amber-500/20 hover:bg-amber-600 active:scale-95 transition-all cursor-pointer"
               >
                 <Volume2 className="w-4 h-4" />
@@ -618,7 +701,12 @@ export const VocabularyList: React.FC<VocabularyListProps> = ({
                   </span>
                   <button
                     type="button"
-                    onClick={() => selectedCardForDetail.example_sentence && playChineseAudio(selectedCardForDetail.example_sentence, { rate: speechRate })}
+                    onClick={() =>
+                      selectedCardForDetail.example_sentence &&
+                      playChineseAudio(selectedCardForDetail.example_sentence, {
+                        rate: speechRate,
+                      })
+                    }
                     className="p-1 rounded-lg text-slate-400 hover:text-amber-500 hover:bg-white dark:hover:bg-slate-700 cursor-pointer"
                     title="Nghe câu ví dụ"
                   >
@@ -645,22 +733,36 @@ export const VocabularyList: React.FC<VocabularyListProps> = ({
                   <span>Tiến độ ghi nhớ</span>
                 </span>
                 <span className="text-[10px] px-2 py-0.5 rounded-full bg-indigo-100 dark:bg-indigo-900/60 text-indigo-700 dark:text-indigo-300 font-semibold">
-                  {selectedCardForDetail.status === 'mastered'
-                    ? 'Đã thuộc'
-                    : selectedCardForDetail.status === 'reviewing'
-                    ? 'Cần ôn tập'
-                    : selectedCardForDetail.status === 'learning'
-                    ? 'Đang học'
-                    : 'Từ mới'}
+                  {selectedCardForDetail.status === "mastered"
+                    ? "Đã thuộc"
+                    : selectedCardForDetail.status === "reviewing"
+                      ? "Cần ôn tập"
+                      : selectedCardForDetail.status === "learning"
+                        ? "Đang học"
+                        : "Từ mới"}
                 </span>
               </div>
               <div className="grid grid-cols-2 gap-2 text-[11px] text-slate-600 dark:text-slate-300">
-                <div>Số lần ôn: <b>{selectedCardForDetail.repetition} lượt</b></div>
-                <div>Lần ôn tới sau: <b>{selectedCardForDetail.interval} ngày</b></div>
+                <div>
+                  Số lần ôn: <b>{selectedCardForDetail.repetition} lượt</b>
+                </div>
+                <div>
+                  Lần ôn tới sau: <b>{selectedCardForDetail.interval} ngày</b>
+                </div>
                 {selectedCardForDetail.stability ? (
                   <>
-                    <div>Độ nhớ lâu: <b className="text-indigo-600 dark:text-indigo-400">{selectedCardForDetail.stability} ngày</b></div>
-                    <div>Mức độ khó: <b className="text-amber-600 dark:text-amber-400">{selectedCardForDetail.difficulty}/10</b></div>
+                    <div>
+                      Độ nhớ lâu:{" "}
+                      <b className="text-indigo-600 dark:text-indigo-400">
+                        {selectedCardForDetail.stability} ngày
+                      </b>
+                    </div>
+                    <div>
+                      Mức độ khó:{" "}
+                      <b className="text-amber-600 dark:text-amber-400">
+                        {selectedCardForDetail.difficulty}/10
+                      </b>
+                    </div>
                   </>
                 ) : null}
               </div>

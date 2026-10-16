@@ -10,6 +10,7 @@ import {
   Clock,
   Layers,
   MessageSquareText,
+  LogOut,
 } from "lucide-react";
 import dynamic from "next/dynamic";
 import {
@@ -22,13 +23,20 @@ import {
 import { Navbar } from "./Navbar";
 import { BottomNav } from "./BottomNav";
 import { FlashcardView } from "./FlashcardView";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { calculateFSRS } from "@/lib/srs";
-import { makeCardKey, LocalReviewQueueItem, getLocalDb } from "@/lib/localDb";
+import {
+  makeCardKey,
+  LocalReviewQueueItem,
+  getLocalDb,
+  clearLocalDbForUserSwitch,
+  clearAllLocalData,
+} from "@/lib/localDb";
 import {
   enqueueReview,
   initSyncListeners,
   cacheCardsInLocalDb,
+  flushSyncQueue,
 } from "@/lib/syncManager";
 
 const LifeQuestionsView = dynamic(
@@ -39,7 +47,7 @@ const LifeQuestionsView = dynamic(
         Đang tải câu hỏi đời sống...
       </div>
     ),
-  }
+  },
 );
 
 const VocabularyList = dynamic(
@@ -50,7 +58,7 @@ const VocabularyList = dynamic(
         Đang tải kho từ vựng...
       </div>
     ),
-  }
+  },
 );
 
 const ProgressStats = dynamic(
@@ -61,22 +69,22 @@ const ProgressStats = dynamic(
         Đang tải thống kê tiến độ...
       </div>
     ),
-  }
+  },
 );
 
 const SettingsModal = dynamic(
   () => import("./SettingsModal").then((mod) => mod.SettingsModal),
-  { ssr: false }
+  { ssr: false },
 );
 
 const OnboardingModal = dynamic(
   () => import("./OnboardingModal").then((mod) => mod.OnboardingModal),
-  { ssr: false }
+  { ssr: false },
 );
 
 const GoalCompletionModal = dynamic(
   () => import("./GoalCompletionModal").then((mod) => mod.GoalCompletionModal),
-  { ssr: false }
+  { ssr: false },
 );
 
 export type AppTab = "flashcards" | "life_questions" | "vocab" | "stats";
@@ -154,7 +162,8 @@ export const MainClientApp: React.FC<MainClientAppProps> = ({
   const [dueCards, setDueCards] = useState<Card[]>(initialDueCards);
   const [allCards, setAllCards] = useState<Card[]>(initialAllCards);
   const [totalCards, setTotalCards] = useState<number>(
-    initialTotalCards || (initialAllCards.length > 0 ? initialAllCards.length : 500),
+    initialTotalCards ||
+      (initialAllCards.length > 0 ? initialAllCards.length : 500),
   );
   const [questions, setQuestions] = useState<LifeQuestion[]>(initialQuestions);
   const [stats, setStats] = useState<StudyStats>(initialStats);
@@ -183,7 +192,7 @@ export const MainClientApp: React.FC<MainClientAppProps> = ({
         .then((data) => {
           if (data.ok && data.cards) {
             setAllCards(data.cards);
-            if (typeof data.total === 'number') {
+            if (typeof data.total === "number") {
               setTotalCards(data.total);
             }
           }
@@ -237,6 +246,38 @@ export const MainClientApp: React.FC<MainClientAppProps> = ({
 
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   const [showGoalModal, setShowGoalModal] = useState(false);
+  const [authUser, setAuthUser] = useState<{
+    id: string;
+    username: string;
+    email?: string | null;
+  } | null>(null);
+  const router = useRouter();
+
+  // Check active authenticated Supabase user on mount
+  useEffect(() => {
+    fetch("/api/auth/me", { cache: "no-store" })
+      .then((res) => res.json())
+      .then(async (data) => {
+        if (data?.ok && data.user) {
+          await clearLocalDbForUserSwitch(data.user.id);
+          setAuthUser(data.user);
+        }
+      })
+      .catch(() => {});
+  }, []);
+
+  const handleLogout = async () => {
+    try {
+      await flushSyncQueue({ keepalive: true });
+      await fetch("/api/auth/logout", { method: "POST" });
+      await clearAllLocalData();
+      setAuthUser(null);
+      window.location.href = "/login";
+    } catch (err) {
+      console.error("Error signing out:", err);
+      window.location.href = "/login";
+    }
+  };
 
   // Sync state if initialSettings changes
   useEffect(() => {
@@ -279,11 +320,17 @@ export const MainClientApp: React.FC<MainClientAppProps> = ({
   useEffect(() => {
     if (initialSettings) {
       setSettings(initialSettings);
-      if (initialSettings.has_onboarded || (initialSettings.user_name && initialSettings.user_name !== "Học viên")) {
+      if (
+        initialSettings.has_onboarded ||
+        (initialSettings.user_name && initialSettings.user_name !== "Học viên")
+      ) {
         setHasOnboarded(true);
       }
       try {
-        localStorage.setItem("chinese_flashcard_settings", JSON.stringify(initialSettings));
+        localStorage.setItem(
+          "chinese_flashcard_settings",
+          JSON.stringify(initialSettings),
+        );
         if (initialSettings.has_onboarded) {
           localStorage.setItem("hsk_has_onboarded", "true");
         }
@@ -299,12 +346,17 @@ export const MainClientApp: React.FC<MainClientAppProps> = ({
     } else {
       // Fallback only if no server settings provided
       try {
-        const localSettingsStr = localStorage.getItem("chinese_flashcard_settings");
+        const localSettingsStr = localStorage.getItem(
+          "chinese_flashcard_settings",
+        );
         if (localSettingsStr) {
           const parsed = JSON.parse(localSettingsStr);
           if (parsed && typeof parsed === "object") {
             setSettings((prev) => ({ ...prev, ...parsed }));
-            if (parsed.has_onboarded || (parsed.user_name && parsed.user_name !== "Học viên")) {
+            if (
+              parsed.has_onboarded ||
+              (parsed.user_name && parsed.user_name !== "Học viên")
+            ) {
               setHasOnboarded(true);
             }
           }
@@ -317,7 +369,10 @@ export const MainClientApp: React.FC<MainClientAppProps> = ({
           if (data.ok && data.settings) {
             setSettings(data.settings);
             try {
-              localStorage.setItem("chinese_flashcard_settings", JSON.stringify(data.settings));
+              localStorage.setItem(
+                "chinese_flashcard_settings",
+                JSON.stringify(data.settings),
+              );
               if (data.settings.has_onboarded) {
                 localStorage.setItem("hsk_has_onboarded", "true");
                 setHasOnboarded(true);
@@ -346,7 +401,10 @@ export const MainClientApp: React.FC<MainClientAppProps> = ({
     if (typeof window !== "undefined") {
       try {
         localStorage.setItem("hsk_has_onboarded", "true");
-        localStorage.setItem("chinese_flashcard_settings", JSON.stringify(merged));
+        localStorage.setItem(
+          "chinese_flashcard_settings",
+          JSON.stringify(merged),
+        );
         const db = getLocalDb();
         if (db) {
           db.settings.put({
@@ -375,7 +433,10 @@ export const MainClientApp: React.FC<MainClientAppProps> = ({
         setSettings(data.settings);
         if (typeof window !== "undefined") {
           try {
-            localStorage.setItem("chinese_flashcard_settings", JSON.stringify(data.settings));
+            localStorage.setItem(
+              "chinese_flashcard_settings",
+              JSON.stringify(data.settings),
+            );
           } catch {}
         }
       }
@@ -425,7 +486,12 @@ export const MainClientApp: React.FC<MainClientAppProps> = ({
 
       const now = new Date();
       const targetRetention = settings.fsrs_retention ?? 0.9;
-      const srsResult = calculateFSRS(currentCard, rating, now, targetRetention);
+      const srsResult = calculateFSRS(
+        currentCard,
+        rating,
+        now,
+        targetRetention,
+      );
 
       const updatedCard: Card = {
         ...currentCard,
@@ -444,10 +510,10 @@ export const MainClientApp: React.FC<MainClientAppProps> = ({
 
       // 1. Optimistic UI update (0ms, instant feedback)
       setAllCards((prev) =>
-        prev.map((c) => (c.id === cardId ? updatedCard : c))
+        prev.map((c) => (c.id === cardId ? updatedCard : c)),
       );
       setDueCards((prev) =>
-        prev.map((c) => (c.id === cardId ? updatedCard : c))
+        prev.map((c) => (c.id === cardId ? updatedCard : c)),
       );
 
       // Optimistic stats update
@@ -595,6 +661,7 @@ export const MainClientApp: React.FC<MainClientAppProps> = ({
       const res = await fetch("/api/reset", { method: "POST" });
       const data = await res.json();
       if (data.ok) {
+        await clearAllLocalData();
         window.location.reload();
       }
     } catch (err) {
@@ -606,7 +673,7 @@ export const MainClientApp: React.FC<MainClientAppProps> = ({
     <div
       className={`flex flex-col bg-linear-to-br from-amber-50/50 via-rose-50/30 to-indigo-50/50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 text-slate-800 dark:text-slate-100 ${
         activeTab === "flashcards"
-          ? "h-screen h-dvh overflow-hidden max-h-screen max-h-dvh"
+          ? "h-screen overflow-hidden max-h-screen"
           : "min-h-screen"
       }`}
     >
@@ -614,7 +681,9 @@ export const MainClientApp: React.FC<MainClientAppProps> = ({
       <Navbar
         stats={stats}
         settings={settings}
+        authUser={authUser}
         onOpenSettings={() => setIsSettingsOpen(true)}
+        onLogout={handleLogout}
         activeTab={activeTab}
         setActiveTab={handleTabChange}
       />
@@ -654,7 +723,10 @@ export const MainClientApp: React.FC<MainClientAppProps> = ({
                 </div>
                 <div className="min-w-0">
                   <div className="text-xs sm:text-sm font-black text-slate-800 dark:text-slate-100 truncate flex items-center gap-1.5">
-                    <span>Chào {settings.user_name}!</span>
+                    <span>
+                      Chào{" "}
+                      {settings.user_name || authUser?.username || "Học viên"}!
+                    </span>
                     <span className="text-[9px] sm:text-[10px] px-1.5 py-0.2 rounded-full bg-amber-100 dark:bg-amber-950/60 text-amber-700 dark:text-amber-300 font-bold border border-amber-300/40">
                       HSK {settings.hsk_level || 1}
                     </span>
@@ -679,7 +751,7 @@ export const MainClientApp: React.FC<MainClientAppProps> = ({
               <div className="flex flex-col items-end shrink-0">
                 <div className="w-16 sm:w-28 h-1.5 sm:h-2 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden border border-slate-200/60 dark:border-slate-700/60 mb-0.5 sm:mb-1">
                   <div
-                    className="h-full bg-gradient-to-r from-amber-500 via-rose-500 to-emerald-500 rounded-full transition-all duration-500"
+                    className="h-full bg-linear-to-r from-amber-500 via-rose-500 to-emerald-500 rounded-full transition-all duration-500"
                     style={{
                       width: `${Math.min(100, Math.round(((stats.today_reviewed_count || 0) / Math.max(1, settings.daily_limit)) * 100))}%`,
                     }}
@@ -737,7 +809,7 @@ export const MainClientApp: React.FC<MainClientAppProps> = ({
         {activeTab === "life_questions" && (
           <div className="space-y-4">
             <div className="text-center max-w-md mx-auto mb-4">
-              <h2 className="text-2xl font-black tracking-tight bg-gradient-to-r from-rose-500 via-amber-500 to-indigo-600 bg-clip-text text-transparent">
+              <h2 className="text-2xl font-black tracking-tight bg-linear-to-r from-rose-500 via-amber-500 to-indigo-600 bg-clip-text text-transparent">
                 Hội Thoại Đời Sống HSK 1
               </h2>
               <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
@@ -758,7 +830,7 @@ export const MainClientApp: React.FC<MainClientAppProps> = ({
         {activeTab === "vocab" && (
           <div className="space-y-4">
             <div className="text-center max-w-md mx-auto mb-4">
-              <h2 className="text-2xl font-black tracking-tight bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">
+              <h2 className="text-2xl font-black tracking-tight bg-linear-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">
                 Kho Từ Vựng HSK 1 ({totalCards})
               </h2>
               <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
@@ -781,7 +853,7 @@ export const MainClientApp: React.FC<MainClientAppProps> = ({
         {activeTab === "stats" && (
           <div className="space-y-4">
             <div className="text-center max-w-md mx-auto mb-4">
-              <h2 className="text-2xl font-black tracking-tight bg-gradient-to-r from-emerald-500 via-teal-500 to-indigo-600 bg-clip-text text-transparent">
+              <h2 className="text-2xl font-black tracking-tight bg-linear-to-r from-emerald-500 via-teal-500 to-indigo-600 bg-clip-text text-transparent">
                 Thống Kê Tiến Độ
               </h2>
               <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
@@ -832,6 +904,8 @@ export const MainClientApp: React.FC<MainClientAppProps> = ({
           isOpen={true}
           onClose={() => setIsSettingsOpen(false)}
           settings={settings}
+          authUser={authUser}
+          onLogout={handleLogout}
           onUpdateSettings={handleUpdateSettings}
           onResetDatabase={handleResetDatabase}
         />
