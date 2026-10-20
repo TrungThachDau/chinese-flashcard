@@ -416,22 +416,28 @@ export const FlashcardView: React.FC<FlashcardViewProps> = ({
           >
             {/* Top utility row */}
             <div className="w-full shrink-0 flex justify-between items-center">
-              <button
-                type="button"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  setShowPinyinOnFront((prev) => !prev);
-                }}
-                className="p-1.5 sm:p-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white transition-colors flex items-center gap-1.5 text-xs font-medium"
-                title="Bật/Tắt Pinyin"
-              >
-                {showPinyinOnFront ? (
-                  <EyeOff className="w-3.5 h-3.5" />
-                ) : (
-                  <Eye className="w-3.5 h-3.5" />
-                )}
-                <span>{showPinyinOnFront ? "Ẩn bính âm" : "Xem bính âm"}</span>
-              </button>
+              <div className="flex items-center gap-1.5 sm:gap-2">
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setShowPinyinOnFront((prev) => !prev);
+                  }}
+                  className="p-1.5 sm:p-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white transition-colors flex items-center gap-1.5 text-xs font-medium"
+                  title="Bật/Tắt Pinyin"
+                >
+                  {showPinyinOnFront ? (
+                    <EyeOff className="w-3.5 h-3.5" />
+                  ) : (
+                    <Eye className="w-3.5 h-3.5" />
+                  )}
+                  <span>{showPinyinOnFront ? "Ẩn bính âm" : "Xem bính âm"}</span>
+                </button>
+
+                <span className="px-2 py-0.5 rounded-lg bg-amber-500/15 text-amber-700 dark:text-amber-300 border border-amber-500/25 text-[11px] font-extrabold uppercase tracking-wide">
+                  {currentCard.tags?.[0] || (currentCard.hsk ? `HSK ${currentCard.hsk}` : "HSK 1")}
+                </span>
+              </div>
 
               <button
                 type="button"
@@ -487,9 +493,14 @@ export const FlashcardView: React.FC<FlashcardViewProps> = ({
           >
             {/* Top row */}
             <div className="flex items-center justify-between shrink-0">
-              <span className="text-[11px] sm:text-xs font-semibold px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full bg-amber-100 dark:bg-amber-950/60 text-amber-700 dark:text-amber-300">
-                Âm Hán Việt: {currentCard.sino_vietnamese}
-              </span>
+              <div className="flex items-center gap-1.5 flex-wrap">
+                <span className="text-[11px] sm:text-xs font-extrabold px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full bg-amber-500/15 text-amber-700 dark:text-amber-300 border border-amber-500/25">
+                  {currentCard.tags?.[0] || (currentCard.hsk ? `HSK ${currentCard.hsk}` : "HSK 1")}
+                </span>
+                <span className="text-[11px] sm:text-xs font-semibold px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full bg-amber-100 dark:bg-amber-950/60 text-amber-700 dark:text-amber-300">
+                  Âm Hán Việt: {currentCard.sino_vietnamese}
+                </span>
+              </div>
               <button
                 type="button"
                 onClick={handlePlayAudio}

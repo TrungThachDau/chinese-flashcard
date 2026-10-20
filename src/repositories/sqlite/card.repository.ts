@@ -10,12 +10,41 @@ import {
 } from '@/models';
 import { getDatabase, getMemoryStore, toPlain } from './connection';
 
+function mapCardRow(row: any): Card {
+  if (!row) return row;
+  let tags = row.tags;
+  if (typeof tags === 'string') {
+    try {
+      tags = JSON.parse(tags);
+    } catch {
+      tags = tags ? [tags] : ['HSK 1'];
+    }
+  } else if (!tags) {
+    tags = row.hsk ? [`HSK ${row.hsk}`] : ['HSK 1'];
+  }
+  return {
+    ...row,
+    hsk: row.hsk ?? 1,
+    tags: Array.isArray(tags) ? tags : ['HSK 1'],
+  };
+}
+
 export function findAllCards(filters?: CardFilterOptions): Card[] {
   const db = getDatabase();
   if (db) {
     try {
       let query = 'SELECT * FROM cards WHERE 1=1';
       const params: (string | number | null)[] = [];
+
+      if (filters?.hsk && filters.hsk !== 'all') {
+        query += ' AND hsk = ?';
+        params.push(Number(filters.hsk));
+      }
+
+      if (filters?.tag && filters.tag !== 'all') {
+        query += ' AND tags LIKE ?';
+        params.push(`%"${filters.tag}"%`);
+      }
 
       if (filters?.category && filters.category !== 'all') {
         query += ' AND category = ?';
@@ -35,8 +64,8 @@ export function findAllCards(filters?: CardFilterOptions): Card[] {
 
       if (filters?.search && filters.search.trim()) {
         const term = `%${filters.search.trim()}%`;
-        query += ' AND (hanzi LIKE ? OR pinyin LIKE ? OR meaning LIKE ? OR sino_vietnamese LIKE ?)';
-        params.push(term, term, term, term);
+        query += ' AND (hanzi LIKE ? OR pinyin LIKE ? OR meaning LIKE ? OR sino_vietnamese LIKE ? OR tags LIKE ?)';
+        params.push(term, term, term, term, term);
       }
 
       query += ' ORDER BY id ASC';
@@ -51,7 +80,7 @@ export function findAllCards(filters?: CardFilterOptions): Card[] {
       }
 
       const rows = db.prepare(query).all(...params);
-      return toPlain(rows as unknown as Card[]);
+      return toPlain((rows as unknown as Card[]).map(mapCardRow));
     } catch (err) {
       console.warn('SQLite findAllCards error, falling back to memory store:', err);
     }
@@ -60,6 +89,14 @@ export function findAllCards(filters?: CardFilterOptions): Card[] {
   const store = getMemoryStore();
   const now = new Date().toISOString();
   let result = [...store.cards];
+
+  if (filters?.hsk && filters.hsk !== 'all') {
+    result = result.filter((c) => c.hsk === Number(filters.hsk));
+  }
+
+  if (filters?.tag && filters.tag !== 'all') {
+    result = result.filter((c) => c.tags?.includes(filters.tag as string));
+  }
 
   if (filters?.category && filters.category !== 'all') {
     result = result.filter((c) => c.category === filters.category);
@@ -80,7 +117,9 @@ export function findAllCards(filters?: CardFilterOptions): Card[] {
         c.hanzi.toLowerCase().includes(term) ||
         c.pinyin.toLowerCase().includes(term) ||
         c.meaning.toLowerCase().includes(term) ||
-        (c.sino_vietnamese?.toLowerCase().includes(term) ?? false)
+        (c.sino_vietnamese?.toLowerCase().includes(term) ?? false) ||
+        (c.tags?.some((t) => t.toLowerCase().includes(term)) ?? false) ||
+        (c.hsk ? `hsk ${c.hsk}`.toLowerCase().includes(term) : false)
     );
   }
 
@@ -101,6 +140,16 @@ export function countCards(filters?: CardFilterOptions): number {
       let query = 'SELECT COUNT(*) as count FROM cards WHERE 1=1';
       const params: (string | number | null)[] = [];
 
+      if (filters?.hsk && filters.hsk !== 'all') {
+        query += ' AND hsk = ?';
+        params.push(Number(filters.hsk));
+      }
+
+      if (filters?.tag && filters.tag !== 'all') {
+        query += ' AND tags LIKE ?';
+        params.push(`%"${filters.tag}"%`);
+      }
+
       if (filters?.category && filters.category !== 'all') {
         query += ' AND category = ?';
         params.push(filters.category);
@@ -119,8 +168,8 @@ export function countCards(filters?: CardFilterOptions): number {
 
       if (filters?.search && filters.search.trim()) {
         const term = `%${filters.search.trim()}%`;
-        query += ' AND (hanzi LIKE ? OR pinyin LIKE ? OR meaning LIKE ? OR sino_vietnamese LIKE ?)';
-        params.push(term, term, term, term);
+        query += ' AND (hanzi LIKE ? OR pinyin LIKE ? OR meaning LIKE ? OR sino_vietnamese LIKE ? OR tags LIKE ?)';
+        params.push(term, term, term, term, term);
       }
 
       const row = db.prepare(query).get(...params) as { count: number } | undefined;
@@ -133,6 +182,14 @@ export function countCards(filters?: CardFilterOptions): number {
   const store = getMemoryStore();
   const now = new Date().toISOString();
   let result = store.cards;
+
+  if (filters?.hsk && filters.hsk !== 'all') {
+    result = result.filter((c) => c.hsk === Number(filters.hsk));
+  }
+
+  if (filters?.tag && filters.tag !== 'all') {
+    result = result.filter((c) => c.tags?.includes(filters.tag as string));
+  }
 
   if (filters?.category && filters.category !== 'all') {
     result = result.filter((c) => c.category === filters.category);
@@ -153,7 +210,9 @@ export function countCards(filters?: CardFilterOptions): number {
         c.hanzi.toLowerCase().includes(term) ||
         c.pinyin.toLowerCase().includes(term) ||
         c.meaning.toLowerCase().includes(term) ||
-        (c.sino_vietnamese?.toLowerCase().includes(term) ?? false)
+        (c.sino_vietnamese?.toLowerCase().includes(term) ?? false) ||
+        (c.tags?.some((t) => t.toLowerCase().includes(term)) ?? false) ||
+        (c.hsk ? `hsk ${c.hsk}`.toLowerCase().includes(term) : false)
     );
   }
 
@@ -165,7 +224,7 @@ export function findCardById(id: number): Card | null {
   if (db) {
     try {
       const row = db.prepare('SELECT * FROM cards WHERE id = ?').get(id);
-      return row ? toPlain(row as unknown as Card) : null;
+      return row ? toPlain(mapCardRow(row)) : null;
     } catch (err) {
       console.warn('SQLite findCardById error, falling back to memory store:', err);
     }
@@ -186,7 +245,7 @@ export function findLearnedCards(limit: number = 20): Card[] {
         ORDER BY last_reviewed DESC, due_date ASC
         LIMIT ?
       `).all(limit);
-      return toPlain(rows as unknown as Card[]);
+      return toPlain((rows as unknown as Card[]).map(mapCardRow));
     } catch (err) {
       console.warn('SQLite findLearnedCards error, falling back to memory store:', err);
     }
@@ -213,7 +272,7 @@ export function findNewCards(limit: number = 5): Card[] {
         ORDER BY id ASC
         LIMIT ?
       `).all(limit);
-      return toPlain(rows as unknown as Card[]);
+      return toPlain((rows as unknown as Card[]).map(mapCardRow));
     } catch (err) {
       console.warn('SQLite findNewCards error, falling back to memory store:', err);
     }
@@ -244,7 +303,7 @@ export function findDueCards(maxLimit: number, allowNew: boolean = true): Card[]
               ELSE 4 
             END,
             due_date ASC 
-          LIMIT ?
+            LIMIT ?
         `;
         params.push(now, maxLimit);
       } else {
@@ -258,13 +317,13 @@ export function findDueCards(maxLimit: number, allowNew: boolean = true): Card[]
               ELSE 3 
             END,
             due_date ASC 
-          LIMIT ?
+            LIMIT ?
         `;
         params.push(now, maxLimit);
       }
 
       const rows = db.prepare(query).all(...params);
-      return toPlain(rows as unknown as Card[]);
+      return toPlain((rows as unknown as Card[]).map(mapCardRow));
     } catch (err) {
       console.warn('SQLite findDueCards error, falling back to memory store:', err);
     }

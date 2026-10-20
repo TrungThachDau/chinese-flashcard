@@ -729,7 +729,9 @@ for (const [hanzi, item] of mergedWordsMap.entries()) {
     category_name,
     example_sentence,
     example_pinyin,
-    example_meaning
+    example_meaning,
+    hsk: 1,
+    tags: ['HSK 1']
   });
 }
 

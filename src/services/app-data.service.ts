@@ -56,10 +56,15 @@ export async function loadSupabaseAppData(options: LoadServerAppDataOptions = {}
   const allCardsList: Card[] = HSK30_LEVEL1_CARDS.map((raw, idx) => {
     const key = `${raw.hanzi}|${raw.pinyin}`;
     const p = progressMap.get(key);
+    const cardBase = {
+      ...raw,
+      id: idx + 1,
+      hsk: raw.hsk ?? 1,
+      tags: raw.tags ?? ['HSK 1'],
+    };
     if (p) {
       return {
-        ...raw,
-        id: idx + 1,
+        ...cardBase,
         repetition: p.repetition ?? 0,
         interval: p.interval ?? 0,
         ease_factor: p.ease_factor ?? 2.5,
@@ -73,8 +78,7 @@ export async function loadSupabaseAppData(options: LoadServerAppDataOptions = {}
       };
     }
     return {
-      ...raw,
-      id: idx + 1,
+      ...cardBase,
       repetition: 0,
       interval: 0,
       ease_factor: 2.5,

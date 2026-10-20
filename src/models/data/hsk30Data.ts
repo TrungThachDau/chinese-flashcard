@@ -12,7 +12,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Động từ thông dụng",
     "example_sentence": "我喜欢爱。",
     "example_pinyin": "Wǒ xǐhuan ài.",
-    "example_meaning": "Tôi thích yêu, thích."
+    "example_meaning": "Tôi thích yêu, thích.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "2",
@@ -24,7 +28,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很爱好。",
     "example_pinyin": "Zhè ge hěn ài hào.",
-    "example_meaning": "Cái này rất sở thích, đam mê."
+    "example_meaning": "Cái này rất sở thích, đam mê.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "3",
@@ -36,7 +44,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Số đếm & Thời gian",
     "example_sentence": "八见！",
     "example_pinyin": "bā jiàn!",
-    "example_meaning": "Hẹn gặp lại vào số 8 (tám)!"
+    "example_meaning": "Hẹn gặp lại vào số 8 (tám)!",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "4",
@@ -48,7 +60,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Đại từ & Xưng hô",
     "example_sentence": "那是我的爸。",
     "example_pinyin": "Nà shì wǒ de bà.",
-    "example_meaning": "Đó là bố, ba của tôi."
+    "example_meaning": "Đó là bố, ba của tôi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "5",
@@ -60,7 +76,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Đại từ & Xưng hô",
     "example_sentence": "那是我的爸爸。",
     "example_pinyin": "Nà shì wǒ de bà ba.",
-    "example_meaning": "Đó là bố, cha của tôi."
+    "example_meaning": "Đó là bố, cha của tôi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "6",
@@ -72,7 +92,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Chào hỏi & Xã giao",
     "example_sentence": "吧。",
     "example_pinyin": "bā.",
-    "example_meaning": "nhé, nha, đi (trợ từ ngữ khí)."
+    "example_meaning": "nhé, nha, đi (trợ từ ngữ khí).",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "7",
@@ -84,7 +108,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很白。",
     "example_pinyin": "Zhè ge hěn bái.",
-    "example_meaning": "Cái này rất màu trắng, trong sạch."
+    "example_meaning": "Cái này rất màu trắng, trong sạch.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "8",
@@ -96,7 +124,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Số đếm & Thời gian",
     "example_sentence": "白天见！",
     "example_pinyin": "bái tiān jiàn!",
-    "example_meaning": "Hẹn gặp lại vào ban ngày!"
+    "example_meaning": "Hẹn gặp lại vào ban ngày!",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "9",
@@ -108,7 +140,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Số đếm & Thời gian",
     "example_sentence": "百见！",
     "example_pinyin": "bǎi jiàn!",
-    "example_meaning": "Hẹn gặp lại vào trăm (100)!"
+    "example_meaning": "Hẹn gặp lại vào trăm (100)!",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "10",
@@ -120,7 +156,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很班。",
     "example_pinyin": "Zhè ge hěn bān.",
-    "example_meaning": "Cái này rất lớp học, ca làm việc."
+    "example_meaning": "Cái này rất lớp học, ca làm việc.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "11",
@@ -132,7 +172,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Số đếm & Thời gian",
     "example_sentence": "半见！",
     "example_pinyin": "bàn jiàn!",
-    "example_meaning": "Hẹn gặp lại vào nửa, rưỡi (1/2)!"
+    "example_meaning": "Hẹn gặp lại vào nửa, rưỡi (1/2)!",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "12",
@@ -144,7 +188,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Số đếm & Thời gian",
     "example_sentence": "半年见！",
     "example_pinyin": "bàn nián jiàn!",
-    "example_meaning": "Hẹn gặp lại vào nửa năm!"
+    "example_meaning": "Hẹn gặp lại vào nửa năm!",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "13",
@@ -156,7 +204,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Số đếm & Thời gian",
     "example_sentence": "半天见！",
     "example_pinyin": "bàn tiān jiàn!",
-    "example_meaning": "Hẹn gặp lại vào nửa ngày, hồi lâu!"
+    "example_meaning": "Hẹn gặp lại vào nửa ngày, hồi lâu!",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "14",
@@ -168,7 +220,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Động từ thông dụng",
     "example_sentence": "我喜欢帮。",
     "example_pinyin": "Wǒ xǐhuan bāng.",
-    "example_meaning": "Tôi thích giúp, hỗ trợ."
+    "example_meaning": "Tôi thích giúp, hỗ trợ.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "15",
@@ -180,7 +236,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Động từ thông dụng",
     "example_sentence": "我喜欢帮忙。",
     "example_pinyin": "Wǒ xǐhuan bāng máng.",
-    "example_meaning": "Tôi thích giúp đỡ, tương trợ."
+    "example_meaning": "Tôi thích giúp đỡ, tương trợ.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "16",
@@ -192,7 +252,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Đồ vật & Đời sống",
     "example_sentence": "这是我的包。",
     "example_pinyin": "Zhè shì wǒ de bāo.",
-    "example_meaning": "Đây là túi, gói, bao của tôi."
+    "example_meaning": "Đây là túi, gói, bao của tôi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "17",
@@ -204,7 +268,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Ăn uống & Ẩm thực",
     "example_sentence": "我想吃包子。",
     "example_pinyin": "Wǒ xiǎng chī bāo zi.",
-    "example_meaning": "Tôi muốn ăn/uống bánh bao."
+    "example_meaning": "Tôi muốn ăn/uống bánh bao.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "18",
@@ -216,7 +284,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Đồ vật & Đời sống",
     "example_sentence": "这是我的杯。",
     "example_pinyin": "Zhè shì wǒ de bēi.",
-    "example_meaning": "Đây là ly, tách, cốc của tôi."
+    "example_meaning": "Đây là ly, tách, cốc của tôi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "19",
@@ -228,7 +300,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Đồ vật & Đời sống",
     "example_sentence": "这是我的杯子。",
     "example_pinyin": "Zhè shì wǒ de bēi zi.",
-    "example_meaning": "Đây là cái ly, cốc nước của tôi."
+    "example_meaning": "Đây là cái ly, cốc nước của tôi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "20",
@@ -240,7 +316,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Địa điểm & Đi lại",
     "example_sentence": "他在北。",
     "example_pinyin": "Tā zài běi.",
-    "example_meaning": "Anh ấy đang ở phía bắc, hướng bắc."
+    "example_meaning": "Anh ấy đang ở phía bắc, hướng bắc.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "21",
@@ -252,7 +332,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Địa điểm & Đi lại",
     "example_sentence": "他在北边。",
     "example_pinyin": "Tā zài běi biān.",
-    "example_meaning": "Anh ấy đang ở phía bắc, đằng bắc."
+    "example_meaning": "Anh ấy đang ở phía bắc, đằng bắc.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "22",
@@ -264,7 +348,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Địa điểm & Đi lại",
     "example_sentence": "他在北京。",
     "example_pinyin": "Tā zài Běi jīng.",
-    "example_meaning": "Anh ấy đang ở Bắc Kinh (thủ đô TQ)."
+    "example_meaning": "Anh ấy đang ở Bắc Kinh (thủ đô TQ).",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "23",
@@ -276,7 +364,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Đồ vật & Đời sống",
     "example_sentence": "这是我的本。",
     "example_pinyin": "Zhè shì wǒ de běn.",
-    "example_meaning": "Đây là cuốn, quyển (lượng từ) của tôi."
+    "example_meaning": "Đây là cuốn, quyển (lượng từ) của tôi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "24",
@@ -288,7 +380,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Đồ vật & Đời sống",
     "example_sentence": "这是我的本子。",
     "example_pinyin": "Zhè shì wǒ de běn zi.",
-    "example_meaning": "Đây là cuốn sổ, quyển vở của tôi."
+    "example_meaning": "Đây là cuốn sổ, quyển vở của tôi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "25",
@@ -300,7 +396,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很比。",
     "example_pinyin": "Zhè ge hěn Bǐ.",
-    "example_meaning": "Cái này rất so với, so sánh."
+    "example_meaning": "Cái này rất so với, so sánh.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "26",
@@ -312,7 +412,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很别。",
     "example_pinyin": "Zhè ge hěn bié.",
-    "example_meaning": "Cái này rất đừng, chớ / khác."
+    "example_meaning": "Cái này rất đừng, chớ / khác.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "27",
@@ -324,7 +428,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很别的。",
     "example_pinyin": "Zhè ge hěn bié de.",
-    "example_meaning": "Cái này rất cái khác, người khác."
+    "example_meaning": "Cái này rất cái khác, người khác.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "28",
@@ -336,7 +444,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Đại từ & Xưng hô",
     "example_sentence": "那是我的别人。",
     "example_pinyin": "Nà shì wǒ de bié ren.",
-    "example_meaning": "Đó là người khác, người ta của tôi."
+    "example_meaning": "Đó là người khác, người ta của tôi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "29",
@@ -348,7 +460,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很病。",
     "example_pinyin": "Zhè ge hěn bìng.",
-    "example_meaning": "Cái này rất bệnh, ốm đau."
+    "example_meaning": "Cái này rất bệnh, ốm đau.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "30",
@@ -360,7 +476,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很病人。",
     "example_pinyin": "Zhè ge hěn bìng rén.",
-    "example_meaning": "Cái này rất người bệnh, bệnh nhân."
+    "example_meaning": "Cái này rất người bệnh, bệnh nhân.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "31",
@@ -372,7 +492,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很不。",
     "example_pinyin": "Zhè ge hěn bù.",
-    "example_meaning": "Cái này rất không, chẳng (phủ định)."
+    "example_meaning": "Cái này rất không, chẳng (phủ định).",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "32",
@@ -384,7 +508,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很不大。",
     "example_pinyin": "Zhè ge hěn bù dà.",
-    "example_meaning": "Cái này rất không lớn lắm."
+    "example_meaning": "Cái này rất không lớn lắm.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "33",
@@ -396,7 +524,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很不对。",
     "example_pinyin": "Zhè ge hěn bù duì.",
-    "example_meaning": "Cái này rất không đúng, sai rồi."
+    "example_meaning": "Cái này rất không đúng, sai rồi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "34",
@@ -408,7 +540,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Chào hỏi & Xã giao",
     "example_sentence": "不客气。",
     "example_pinyin": "bù kè qi.",
-    "example_meaning": "không có chi, đừng khách sáo."
+    "example_meaning": "không có chi, đừng khách sáo.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "35",
@@ -420,7 +556,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Chào hỏi & Xã giao",
     "example_sentence": "不用。",
     "example_pinyin": "bù yòng.",
-    "example_meaning": "không cần, khỏi cần."
+    "example_meaning": "không cần, khỏi cần.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "36",
@@ -432,7 +572,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Ăn uống & Ẩm thực",
     "example_sentence": "我想吃菜。",
     "example_pinyin": "Wǒ xiǎng chī cài.",
-    "example_meaning": "Tôi muốn ăn/uống món ăn, rau củ."
+    "example_meaning": "Tôi muốn ăn/uống món ăn, rau củ.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "37",
@@ -444,7 +588,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Ăn uống & Ẩm thực",
     "example_sentence": "我想吃茶。",
     "example_pinyin": "Wǒ xiǎng chī chá.",
-    "example_meaning": "Tôi muốn ăn/uống trà, nước chè."
+    "example_meaning": "Tôi muốn ăn/uống trà, nước chè.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "38",
@@ -456,7 +604,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很差。",
     "example_pinyin": "Zhè ge hěn chā.",
-    "example_meaning": "Cái này rất kém, thiếu, tệ."
+    "example_meaning": "Cái này rất kém, thiếu, tệ.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "39",
@@ -468,7 +620,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很常。",
     "example_pinyin": "Zhè ge hěn cháng.",
-    "example_meaning": "Cái này rất thường, hay."
+    "example_meaning": "Cái này rất thường, hay.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "40",
@@ -480,7 +636,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很常常。",
     "example_pinyin": "Zhè ge hěn cháng cháng.",
-    "example_meaning": "Cái này rất thường xuyên, hay."
+    "example_meaning": "Cái này rất thường xuyên, hay.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "41",
@@ -492,7 +652,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Động từ thông dụng",
     "example_sentence": "我喜欢唱。",
     "example_pinyin": "Wǒ xǐhuan chàng.",
-    "example_meaning": "Tôi thích hát."
+    "example_meaning": "Tôi thích hát.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "42",
@@ -504,7 +668,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Động từ thông dụng",
     "example_sentence": "我喜欢唱歌。",
     "example_pinyin": "Wǒ xǐhuan chàng gē.",
-    "example_meaning": "Tôi thích hát, ca hát."
+    "example_meaning": "Tôi thích hát, ca hát.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "43",
@@ -516,7 +684,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Địa điểm & Đi lại",
     "example_sentence": "他在车。",
     "example_pinyin": "Tā zài chē.",
-    "example_meaning": "Anh ấy đang ở xe cộ, ô tô."
+    "example_meaning": "Anh ấy đang ở xe cộ, ô tô.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "44",
@@ -528,7 +700,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Địa điểm & Đi lại",
     "example_sentence": "他在车票。",
     "example_pinyin": "Tā zài chē piào.",
-    "example_meaning": "Anh ấy đang ở vé xe, vé tàu."
+    "example_meaning": "Anh ấy đang ở vé xe, vé tàu.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "45",
@@ -540,7 +716,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很车上。",
     "example_pinyin": "Zhè ge hěn chē shàng.",
-    "example_meaning": "Cái này rất trên xe."
+    "example_meaning": "Cái này rất trên xe.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "46",
@@ -552,7 +732,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Địa điểm & Đi lại",
     "example_sentence": "他在车站。",
     "example_pinyin": "Tā zài chē zhàn.",
-    "example_meaning": "Anh ấy đang ở trạm xe, bến xe, ga tàu."
+    "example_meaning": "Anh ấy đang ở trạm xe, bến xe, ga tàu.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "47",
@@ -564,7 +748,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Ăn uống & Ẩm thực",
     "example_sentence": "我想吃吃。",
     "example_pinyin": "Wǒ xiǎng chī chī.",
-    "example_meaning": "Tôi muốn ăn/uống ăn."
+    "example_meaning": "Tôi muốn ăn/uống ăn.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "48",
@@ -576,7 +764,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Ăn uống & Ẩm thực",
     "example_sentence": "我想吃吃饭。",
     "example_pinyin": "Wǒ xiǎng chī chī fàn.",
-    "example_meaning": "Tôi muốn ăn/uống ăn cơm, dùng bữa."
+    "example_meaning": "Tôi muốn ăn/uống ăn cơm, dùng bữa.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "49",
@@ -588,7 +780,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Động từ thông dụng",
     "example_sentence": "我喜欢出。",
     "example_pinyin": "Wǒ xǐhuan chū.",
-    "example_meaning": "Tôi thích ra, ra ngoài, xuất hiện."
+    "example_meaning": "Tôi thích ra, ra ngoài, xuất hiện.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "50",
@@ -600,7 +796,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Động từ thông dụng",
     "example_sentence": "我喜欢出来。",
     "example_pinyin": "Wǒ xǐhuan chū lái.",
-    "example_meaning": "Tôi thích đi ra, xuất hiện."
+    "example_meaning": "Tôi thích đi ra, xuất hiện.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "51",
@@ -612,7 +812,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Động từ thông dụng",
     "example_sentence": "我喜欢出去。",
     "example_pinyin": "Wǒ xǐhuan chū qù.",
-    "example_meaning": "Tôi thích đi ra ngoài."
+    "example_meaning": "Tôi thích đi ra ngoài.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "52",
@@ -624,7 +828,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Động từ thông dụng",
     "example_sentence": "我喜欢穿。",
     "example_pinyin": "Wǒ xǐhuan chuān.",
-    "example_meaning": "Tôi thích mặc (quần áo), xỏ (giày)."
+    "example_meaning": "Tôi thích mặc (quần áo), xỏ (giày).",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "53",
@@ -636,7 +844,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Đồ vật & Đời sống",
     "example_sentence": "这是我的床。",
     "example_pinyin": "Zhè shì wǒ de chuáng.",
-    "example_meaning": "Đây là cái giường của tôi."
+    "example_meaning": "Đây là cái giường của tôi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "54",
@@ -648,7 +860,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很次。",
     "example_pinyin": "Zhè ge hěn cì.",
-    "example_meaning": "Cái này rất lần, lượt."
+    "example_meaning": "Cái này rất lần, lượt.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "55",
@@ -660,7 +876,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很从。",
     "example_pinyin": "Zhè ge hěn cóng.",
-    "example_meaning": "Cái này rất từ (nơi chốn, thời gian)."
+    "example_meaning": "Cái này rất từ (nơi chốn, thời gian).",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "56",
@@ -672,7 +892,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很错。",
     "example_pinyin": "Zhè ge hěn cuò.",
-    "example_meaning": "Cái này rất sai, nhầm lẫn."
+    "example_meaning": "Cái này rất sai, nhầm lẫn.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "57",
@@ -684,7 +908,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很打。",
     "example_pinyin": "Zhè ge hěn dá.",
-    "example_meaning": "Cái này rất đánh, đập, gọi (điện thoại)."
+    "example_meaning": "Cái này rất đánh, đập, gọi (điện thoại).",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "58",
@@ -696,7 +924,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Địa điểm & Đi lại",
     "example_sentence": "他在打车。",
     "example_pinyin": "Tā zài dǎ chē.",
-    "example_meaning": "Anh ấy đang ở bắt xe taxi."
+    "example_meaning": "Anh ấy đang ở bắt xe taxi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "59",
@@ -708,7 +940,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Động từ thông dụng",
     "example_sentence": "我喜欢打电话。",
     "example_pinyin": "Wǒ xǐhuan dǎ diàn huà.",
-    "example_meaning": "Tôi thích gọi điện thoại."
+    "example_meaning": "Tôi thích gọi điện thoại.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "60",
@@ -720,7 +956,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Động từ thông dụng",
     "example_sentence": "我喜欢打开。",
     "example_pinyin": "Wǒ xǐhuan dǎ kāi.",
-    "example_meaning": "Tôi thích mở ra, bật lên."
+    "example_meaning": "Tôi thích mở ra, bật lên.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "61",
@@ -732,7 +972,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Động từ thông dụng",
     "example_sentence": "我喜欢打球。",
     "example_pinyin": "Wǒ xǐhuan dǎ qiú.",
-    "example_meaning": "Tôi thích chơi bóng, đánh bóng."
+    "example_meaning": "Tôi thích chơi bóng, đánh bóng.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "62",
@@ -744,7 +988,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很大。",
     "example_pinyin": "Zhè ge hěn dà.",
-    "example_meaning": "Cái này rất to, lớn."
+    "example_meaning": "Cái này rất to, lớn.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "63",
@@ -756,7 +1004,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Địa điểm & Đi lại",
     "example_sentence": "他在大学。",
     "example_pinyin": "Tā zài Dà xué.",
-    "example_meaning": "Anh ấy đang ở trường đại học."
+    "example_meaning": "Anh ấy đang ở trường đại học.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "64",
@@ -768,7 +1020,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Đại từ & Xưng hô",
     "example_sentence": "那是我的大学生。",
     "example_pinyin": "Nà shì wǒ de dà xué shēng.",
-    "example_meaning": "Đó là sinh viên đại học của tôi."
+    "example_meaning": "Đó là sinh viên đại học của tôi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "65",
@@ -780,7 +1036,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Địa điểm & Đi lại",
     "example_sentence": "他在到。",
     "example_pinyin": "Tā zài dào.",
-    "example_meaning": "Anh ấy đang ở đến, tới."
+    "example_meaning": "Anh ấy đang ở đến, tới.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "66",
@@ -792,7 +1052,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很地。",
     "example_pinyin": "Zhè ge hěn de.",
-    "example_meaning": "Cái này rất đất, mặt đất / trợ từ (một cách)."
+    "example_meaning": "Cái này rất đất, mặt đất / trợ từ (một cách).",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "67",
@@ -804,7 +1068,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Địa điểm & Đi lại",
     "example_sentence": "他在地点。",
     "example_pinyin": "Tā zài dì diǎn.",
-    "example_meaning": "Anh ấy đang ở địa điểm, vị trí."
+    "example_meaning": "Anh ấy đang ở địa điểm, vị trí.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "68",
@@ -816,7 +1084,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Địa điểm & Đi lại",
     "example_sentence": "他在地方。",
     "example_pinyin": "Tā zài dì fāng.",
-    "example_meaning": "Anh ấy đang ở nơi chốn, địa phương."
+    "example_meaning": "Anh ấy đang ở nơi chốn, địa phương.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "69",
@@ -828,7 +1100,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Địa điểm & Đi lại",
     "example_sentence": "他在地上。",
     "example_pinyin": "Tā zài dì shang.",
-    "example_meaning": "Anh ấy đang ở trên mặt đất, trên sàn."
+    "example_meaning": "Anh ấy đang ở trên mặt đất, trên sàn.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "70",
@@ -840,7 +1116,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Đồ vật & Đời sống",
     "example_sentence": "这是我的地图。",
     "example_pinyin": "Zhè shì wǒ de dì tú.",
-    "example_meaning": "Đây là bản đồ của tôi."
+    "example_meaning": "Đây là bản đồ của tôi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "71",
@@ -852,7 +1132,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Chào hỏi & Xã giao",
     "example_sentence": "的。",
     "example_pinyin": "de.",
-    "example_meaning": "của, mà (trợ từ sở hữu)."
+    "example_meaning": "của, mà (trợ từ sở hữu).",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "72",
@@ -864,7 +1148,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很得到。",
     "example_pinyin": "Zhè ge hěn dé dào.",
-    "example_meaning": "Cái này rất nhận được, đạt được."
+    "example_meaning": "Cái này rất nhận được, đạt được.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "73",
@@ -876,7 +1164,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Động từ thông dụng",
     "example_sentence": "我喜欢等。",
     "example_pinyin": "Wǒ xǐhuan děng.",
-    "example_meaning": "Tôi thích đợi, chờ / vân vân."
+    "example_meaning": "Tôi thích đợi, chờ / vân vân.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "74",
@@ -888,7 +1180,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Đại từ & Xưng hô",
     "example_sentence": "那是我的弟。",
     "example_pinyin": "Nà shì wǒ de dì.",
-    "example_meaning": "Đó là em trai của tôi."
+    "example_meaning": "Đó là em trai của tôi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "75",
@@ -900,7 +1196,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Đại từ & Xưng hô",
     "example_sentence": "那是我的弟弟。",
     "example_pinyin": "Nà shì wǒ de dì di.",
-    "example_meaning": "Đó là em trai của tôi."
+    "example_meaning": "Đó là em trai của tôi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "76",
@@ -912,7 +1212,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Số đếm & Thời gian",
     "example_sentence": "第见！",
     "example_pinyin": "dì jiàn!",
-    "example_meaning": "Hẹn gặp lại vào thứ (số thứ tự)!"
+    "example_meaning": "Hẹn gặp lại vào thứ (số thứ tự)!",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "77",
@@ -924,7 +1228,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Số đếm & Thời gian",
     "example_sentence": "第二见！",
     "example_pinyin": "dì èr jiàn!",
-    "example_meaning": "Hẹn gặp lại vào thứ hai (số thứ tự)!"
+    "example_meaning": "Hẹn gặp lại vào thứ hai (số thứ tự)!",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "78",
@@ -936,7 +1244,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Số đếm & Thời gian",
     "example_sentence": "点见！",
     "example_pinyin": "diǎn jiàn!",
-    "example_meaning": "Hẹn gặp lại vào giờ, điểm, chấm / một chút!"
+    "example_meaning": "Hẹn gặp lại vào giờ, điểm, chấm / một chút!",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "79",
@@ -948,7 +1260,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很电。",
     "example_pinyin": "Zhè ge hěn diàn.",
-    "example_meaning": "Cái này rất điện."
+    "example_meaning": "Cái này rất điện.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "80",
@@ -960,7 +1276,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Đồ vật & Đời sống",
     "example_sentence": "这是我的电话。",
     "example_pinyin": "Zhè shì wǒ de diàn huà.",
-    "example_meaning": "Đây là điện thoại của tôi."
+    "example_meaning": "Đây là điện thoại của tôi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "81",
@@ -972,7 +1292,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Đồ vật & Đời sống",
     "example_sentence": "这是我的电脑。",
     "example_pinyin": "Zhè shì wǒ de diàn nǎo.",
-    "example_meaning": "Đây là máy vi tính của tôi."
+    "example_meaning": "Đây là máy vi tính của tôi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "82",
@@ -984,7 +1308,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Đồ vật & Đời sống",
     "example_sentence": "这是我的电视。",
     "example_pinyin": "Zhè shì wǒ de diàn shì.",
-    "example_meaning": "Đây là truyền hình, TV của tôi."
+    "example_meaning": "Đây là truyền hình, TV của tôi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "83",
@@ -996,7 +1324,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Đồ vật & Đời sống",
     "example_sentence": "这是我的电视机。",
     "example_pinyin": "Zhè shì wǒ de diàn shì jī.",
-    "example_meaning": "Đây là chiếc tivi của tôi."
+    "example_meaning": "Đây là chiếc tivi của tôi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "84",
@@ -1008,7 +1340,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Đồ vật & Đời sống",
     "example_sentence": "这是我的电影。",
     "example_pinyin": "Zhè shì wǒ de diàn yǐng.",
-    "example_meaning": "Đây là phim điện ảnh của tôi."
+    "example_meaning": "Đây là phim điện ảnh của tôi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "85",
@@ -1020,7 +1356,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Địa điểm & Đi lại",
     "example_sentence": "他在电影院。",
     "example_pinyin": "Tā zài diàn yǐng yuàn.",
-    "example_meaning": "Anh ấy đang ở rạp chiếu phim."
+    "example_meaning": "Anh ấy đang ở rạp chiếu phim.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "86",
@@ -1032,7 +1372,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Địa điểm & Đi lại",
     "example_sentence": "他在东。",
     "example_pinyin": "Tā zài dōng.",
-    "example_meaning": "Anh ấy đang ở phía đông, hướng đông."
+    "example_meaning": "Anh ấy đang ở phía đông, hướng đông.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "87",
@@ -1044,7 +1388,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Địa điểm & Đi lại",
     "example_sentence": "他在东边。",
     "example_pinyin": "Tā zài dōng bian.",
-    "example_meaning": "Anh ấy đang ở phía đông."
+    "example_meaning": "Anh ấy đang ở phía đông.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "88",
@@ -1056,7 +1404,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Đồ vật & Đời sống",
     "example_sentence": "这是我的东西。",
     "example_pinyin": "Zhè shì wǒ de dōng xī.",
-    "example_meaning": "Đây là đồ đạc, vật dụng / đông tây của tôi."
+    "example_meaning": "Đây là đồ đạc, vật dụng / đông tây của tôi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "89",
@@ -1068,7 +1420,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很动。",
     "example_pinyin": "Zhè ge hěn dòng.",
-    "example_meaning": "Cái này rất cử động, chuyển động."
+    "example_meaning": "Cái này rất cử động, chuyển động.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "90",
@@ -1080,7 +1436,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很动作。",
     "example_pinyin": "Zhè ge hěn dòng zuò.",
-    "example_meaning": "Cái này rất động tác, hành động."
+    "example_meaning": "Cái này rất động tác, hành động.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "91",
@@ -1092,7 +1452,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很都。",
     "example_pinyin": "Zhè ge hěn dōu.",
-    "example_meaning": "Cái này rất đều, tất cả."
+    "example_meaning": "Cái này rất đều, tất cả.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "92",
@@ -1104,7 +1468,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Động từ thông dụng",
     "example_sentence": "我喜欢读。",
     "example_pinyin": "Wǒ xǐhuan dòu.",
-    "example_meaning": "Tôi thích đọc, học."
+    "example_meaning": "Tôi thích đọc, học.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "93",
@@ -1116,7 +1484,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很读书。",
     "example_pinyin": "Zhè ge hěn dú shū.",
-    "example_meaning": "Cái này rất đọc sách, đi học."
+    "example_meaning": "Cái này rất đọc sách, đi học.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "94",
@@ -1128,7 +1500,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很对。",
     "example_pinyin": "Zhè ge hěn duì.",
-    "example_meaning": "Cái này rất đúng, chính xác / đối với."
+    "example_meaning": "Cái này rất đúng, chính xác / đối với.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "95",
@@ -1140,7 +1516,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Chào hỏi & Xã giao",
     "example_sentence": "对不起。",
     "example_pinyin": "duì bu qǐ.",
-    "example_meaning": "xin lỗi."
+    "example_meaning": "xin lỗi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "96",
@@ -1152,7 +1532,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很多。",
     "example_pinyin": "Zhè ge hěn duō.",
-    "example_meaning": "Cái này rất nhiều / bao nhiêu."
+    "example_meaning": "Cái này rất nhiều / bao nhiêu.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "97",
@@ -1164,7 +1548,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很多少。",
     "example_pinyin": "Zhè ge hěn duō shǎo.",
-    "example_meaning": "Cái này rất bao nhiêu."
+    "example_meaning": "Cái này rất bao nhiêu.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "98",
@@ -1176,7 +1564,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Ăn uống & Ẩm thực",
     "example_sentence": "我想吃饿。",
     "example_pinyin": "Wǒ xiǎng chī è.",
-    "example_meaning": "Tôi muốn ăn/uống đói bụng."
+    "example_meaning": "Tôi muốn ăn/uống đói bụng.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "99",
@@ -1188,7 +1580,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Đại từ & Xưng hô",
     "example_sentence": "那是我的儿子。",
     "example_pinyin": "Nà shì wǒ de ér zi.",
-    "example_meaning": "Đó là con trai của tôi."
+    "example_meaning": "Đó là con trai của tôi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "100",
@@ -1200,7 +1596,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Số đếm & Thời gian",
     "example_sentence": "二见！",
     "example_pinyin": "èr jiàn!",
-    "example_meaning": "Hẹn gặp lại vào số 2 (hai)!"
+    "example_meaning": "Hẹn gặp lại vào số 2 (hai)!",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "101",
@@ -1212,7 +1612,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Ăn uống & Ẩm thực",
     "example_sentence": "我想吃饭。",
     "example_pinyin": "Wǒ xiǎng chī fàn.",
-    "example_meaning": "Tôi muốn ăn/uống cơm, bữa ăn."
+    "example_meaning": "Tôi muốn ăn/uống cơm, bữa ăn.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "102",
@@ -1224,7 +1628,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Địa điểm & Đi lại",
     "example_sentence": "他在饭店。",
     "example_pinyin": "Tā zài fàn diàn.",
-    "example_meaning": "Anh ấy đang ở nhà hàng, khách sạn."
+    "example_meaning": "Anh ấy đang ở nhà hàng, khách sạn.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "103",
@@ -1236,7 +1644,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Địa điểm & Đi lại",
     "example_sentence": "他在房间。",
     "example_pinyin": "Tā zài fáng jiān.",
-    "example_meaning": "Anh ấy đang ở căn phòng."
+    "example_meaning": "Anh ấy đang ở căn phòng.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "104",
@@ -1248,7 +1660,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Địa điểm & Đi lại",
     "example_sentence": "他在房子。",
     "example_pinyin": "Tā zài fáng zi.",
-    "example_meaning": "Anh ấy đang ở ngôi nhà, căn nhà."
+    "example_meaning": "Anh ấy đang ở ngôi nhà, căn nhà.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "105",
@@ -1260,7 +1676,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很放。",
     "example_pinyin": "Zhè ge hěn fàng.",
-    "example_meaning": "Cái này rất thả, đặt để / nghỉ (học, làm)."
+    "example_meaning": "Cái này rất thả, đặt để / nghỉ (học, làm).",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "106",
@@ -1272,7 +1692,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Động từ thông dụng",
     "example_sentence": "我喜欢放假。",
     "example_pinyin": "Wǒ xǐhuan fàng jià.",
-    "example_meaning": "Tôi thích nghỉ lễ, nghỉ phép."
+    "example_meaning": "Tôi thích nghỉ lễ, nghỉ phép.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "107",
@@ -1284,7 +1708,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Động từ thông dụng",
     "example_sentence": "我喜欢放学。",
     "example_pinyin": "Wǒ xǐhuan fàng xué.",
-    "example_meaning": "Tôi thích tan học, tan trường."
+    "example_meaning": "Tôi thích tan học, tan trường.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "108",
@@ -1296,7 +1724,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Địa điểm & Đi lại",
     "example_sentence": "他在飞。",
     "example_pinyin": "Tā zài fēi.",
-    "example_meaning": "Anh ấy đang ở bay."
+    "example_meaning": "Anh ấy đang ở bay.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "109",
@@ -1308,7 +1740,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Địa điểm & Đi lại",
     "example_sentence": "他在飞机。",
     "example_pinyin": "Tā zài fēi jī.",
-    "example_meaning": "Anh ấy đang ở máy bay."
+    "example_meaning": "Anh ấy đang ở máy bay.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "110",
@@ -1320,7 +1756,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很非常。",
     "example_pinyin": "Zhè ge hěn fēi cháng.",
-    "example_meaning": "Cái này rất vô cùng, rất, đặc biệt."
+    "example_meaning": "Cái này rất vô cùng, rất, đặc biệt.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "111",
@@ -1332,7 +1772,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Số đếm & Thời gian",
     "example_sentence": "分见！",
     "example_pinyin": "fēn jiàn!",
-    "example_meaning": "Hẹn gặp lại vào phút / điểm số / chia!"
+    "example_meaning": "Hẹn gặp lại vào phút / điểm số / chia!",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "112",
@@ -1344,7 +1788,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Đồ vật & Đời sống",
     "example_sentence": "这是我的风。",
     "example_pinyin": "Zhè shì wǒ de fēng.",
-    "example_meaning": "Đây là gió của tôi."
+    "example_meaning": "Đây là gió của tôi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "113",
@@ -1356,7 +1804,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很干。",
     "example_pinyin": "Zhè ge hěn gān.",
-    "example_meaning": "Cái này rất làm, làm việc."
+    "example_meaning": "Cái này rất làm, làm việc.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "114",
@@ -1368,7 +1820,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很干净。",
     "example_pinyin": "Zhè ge hěn gān jìng.",
-    "example_meaning": "Cái này rất sạch sẽ."
+    "example_meaning": "Cái này rất sạch sẽ.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "115",
@@ -1380,7 +1836,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很干什么。",
     "example_pinyin": "Zhè ge hěn gàn shén me.",
-    "example_meaning": "Cái này rất làm cái gì, sao thế."
+    "example_meaning": "Cái này rất làm cái gì, sao thế.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "116",
@@ -1392,7 +1852,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很高。",
     "example_pinyin": "Zhè ge hěn gāo.",
-    "example_meaning": "Cái này rất cao."
+    "example_meaning": "Cái này rất cao.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "117",
@@ -1404,7 +1868,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很高兴。",
     "example_pinyin": "Zhè ge hěn gāo xìng.",
-    "example_meaning": "Cái này rất vui vẻ, phấn khởi."
+    "example_meaning": "Cái này rất vui vẻ, phấn khởi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "118",
@@ -1416,7 +1884,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Động từ thông dụng",
     "example_sentence": "我喜欢告诉。",
     "example_pinyin": "Wǒ xǐhuan gào sù.",
-    "example_meaning": "Tôi thích nói cho biết, bảo."
+    "example_meaning": "Tôi thích nói cho biết, bảo.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "119",
@@ -1428,7 +1900,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Đại từ & Xưng hô",
     "example_sentence": "那是我的哥。",
     "example_pinyin": "Nà shì wǒ de gē.",
-    "example_meaning": "Đó là anh trai của tôi."
+    "example_meaning": "Đó là anh trai của tôi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "120",
@@ -1440,7 +1916,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Đại từ & Xưng hô",
     "example_sentence": "那是我的哥哥。",
     "example_pinyin": "Nà shì wǒ de gē ge.",
-    "example_meaning": "Đó là anh trai của tôi."
+    "example_meaning": "Đó là anh trai của tôi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "121",
@@ -1452,7 +1932,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很歌。",
     "example_pinyin": "Zhè ge hěn gē.",
-    "example_meaning": "Cái này rất bài hát, ca khúc."
+    "example_meaning": "Cái này rất bài hát, ca khúc.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "122",
@@ -1464,7 +1948,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很个。",
     "example_pinyin": "Zhè ge hěn gě.",
-    "example_meaning": "Cái này rất cái, chiếc (lượng từ chung)."
+    "example_meaning": "Cái này rất cái, chiếc (lượng từ chung).",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "123",
@@ -1476,7 +1964,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Động từ thông dụng",
     "example_sentence": "我喜欢给。",
     "example_pinyin": "Wǒ xǐhuan gěi.",
-    "example_meaning": "Tôi thích cho, đưa cho, tặng."
+    "example_meaning": "Tôi thích cho, đưa cho, tặng.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "124",
@@ -1488,7 +1980,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很跟。",
     "example_pinyin": "Zhè ge hěn gēn.",
-    "example_meaning": "Cái này rất cùng, với / theo sau."
+    "example_meaning": "Cái này rất cùng, với / theo sau.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "125",
@@ -1500,7 +1996,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Đại từ & Xưng hô",
     "example_sentence": "那是我的工人。",
     "example_pinyin": "Nà shì wǒ de gōng rén.",
-    "example_meaning": "Đó là công nhân, người lao động của tôi."
+    "example_meaning": "Đó là công nhân, người lao động của tôi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "126",
@@ -1512,7 +2012,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Động từ thông dụng",
     "example_sentence": "我喜欢工作。",
     "example_pinyin": "Wǒ xǐhuan gōng zuò.",
-    "example_meaning": "Tôi thích làm việc, công việc."
+    "example_meaning": "Tôi thích làm việc, công việc.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "127",
@@ -1524,7 +2028,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Động từ thông dụng",
     "example_sentence": "我喜欢关。",
     "example_pinyin": "Wǒ xǐhuan guān.",
-    "example_meaning": "Tôi thích đóng, tắt (đèn, máy)."
+    "example_meaning": "Tôi thích đóng, tắt (đèn, máy).",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "128",
@@ -1536,7 +2044,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Động từ thông dụng",
     "example_sentence": "我喜欢关上。",
     "example_pinyin": "Wǒ xǐhuan guān shàng.",
-    "example_meaning": "Tôi thích đóng lại, tắt đi."
+    "example_meaning": "Tôi thích đóng lại, tắt đi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "129",
@@ -1548,7 +2060,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很贵。",
     "example_pinyin": "Zhè ge hěn guì.",
-    "example_meaning": "Cái này rất đắt, quý giá / họ của bạn."
+    "example_meaning": "Cái này rất đắt, quý giá / họ của bạn.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "130",
@@ -1560,7 +2076,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很国。",
     "example_pinyin": "Zhè ge hěn guó.",
-    "example_meaning": "Cái này rất nước, quốc gia."
+    "example_meaning": "Cái này rất nước, quốc gia.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "131",
@@ -1572,7 +2092,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Địa điểm & Đi lại",
     "example_sentence": "他在国家。",
     "example_pinyin": "Tā zài guó jiā.",
-    "example_meaning": "Anh ấy đang ở quốc gia, đất nước."
+    "example_meaning": "Anh ấy đang ở quốc gia, đất nước.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "132",
@@ -1584,7 +2108,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很国外。",
     "example_pinyin": "Zhè ge hěn guó wài.",
-    "example_meaning": "Cái này rất nước ngoài."
+    "example_meaning": "Cái này rất nước ngoài.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "133",
@@ -1596,7 +2124,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Chào hỏi & Xã giao",
     "example_sentence": "过。",
     "example_pinyin": "guò.",
-    "example_meaning": "qua, qua lại / đã từng (trợ từ)."
+    "example_meaning": "qua, qua lại / đã từng (trợ từ).",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "134",
@@ -1608,7 +2140,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很还。",
     "example_pinyin": "Zhè ge hěn hái.",
-    "example_meaning": "Cái này rất còn, vẫn còn / trả lại."
+    "example_meaning": "Cái này rất còn, vẫn còn / trả lại.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "135",
@@ -1620,7 +2156,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很还是。",
     "example_pinyin": "Zhè ge hěn hái shi.",
-    "example_meaning": "Cái này rất hay là, vẫn cứ."
+    "example_meaning": "Cái này rất hay là, vẫn cứ.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "136",
@@ -1632,7 +2172,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很还有。",
     "example_pinyin": "Zhè ge hěn hái yǒu.",
-    "example_meaning": "Cái này rất còn có, ngoài ra."
+    "example_meaning": "Cái này rất còn có, ngoài ra.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "137",
@@ -1644,7 +2188,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Đại từ & Xưng hô",
     "example_sentence": "那是我的孩子。",
     "example_pinyin": "Nà shì wǒ de hái zi.",
-    "example_meaning": "Đó là đứa trẻ, con cái của tôi."
+    "example_meaning": "Đó là đứa trẻ, con cái của tôi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "138",
@@ -1656,7 +2204,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很汉语。",
     "example_pinyin": "Zhè ge hěn Hàn yǔ.",
-    "example_meaning": "Cái này rất tiếng Hán, tiếng Trung."
+    "example_meaning": "Cái này rất tiếng Hán, tiếng Trung.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "139",
@@ -1668,7 +2220,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Đồ vật & Đời sống",
     "example_sentence": "这是我的汉字。",
     "example_pinyin": "Zhè shì wǒ de hàn zì.",
-    "example_meaning": "Đây là chữ Hán của tôi."
+    "example_meaning": "Đây là chữ Hán của tôi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "140",
@@ -1680,7 +2236,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很好。",
     "example_pinyin": "Zhè ge hěn hǎo.",
-    "example_meaning": "Cái này rất tốt, đẹp, hay, được."
+    "example_meaning": "Cái này rất tốt, đẹp, hay, được.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "141",
@@ -1692,7 +2252,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Ăn uống & Ẩm thực",
     "example_sentence": "我想吃好吃。",
     "example_pinyin": "Wǒ xiǎng chī hǎo chī.",
-    "example_meaning": "Tôi muốn ăn/uống ngon miệng (đồ ăn)."
+    "example_meaning": "Tôi muốn ăn/uống ngon miệng (đồ ăn).",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "142",
@@ -1704,7 +2268,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很好看。",
     "example_pinyin": "Zhè ge hěn hǎo kàn.",
-    "example_meaning": "Cái này rất đẹp mắt, xem hay."
+    "example_meaning": "Cái này rất đẹp mắt, xem hay.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "143",
@@ -1716,7 +2284,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很好听。",
     "example_pinyin": "Zhè ge hěn hǎo tīng.",
-    "example_meaning": "Cái này rất nghe hay, êm tai."
+    "example_meaning": "Cái này rất nghe hay, êm tai.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "144",
@@ -1728,7 +2300,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很好玩儿。",
     "example_pinyin": "Zhè ge hěn hǎo wán r.",
-    "example_meaning": "Cái này rất vui nhộn, thú vị."
+    "example_meaning": "Cái này rất vui nhộn, thú vị.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "145",
@@ -1740,7 +2316,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Số đếm & Thời gian",
     "example_sentence": "号见！",
     "example_pinyin": "háo jiàn!",
-    "example_meaning": "Hẹn gặp lại vào số, ngày (trong tháng)!"
+    "example_meaning": "Hẹn gặp lại vào số, ngày (trong tháng)!",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "146",
@@ -1752,7 +2332,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Ăn uống & Ẩm thực",
     "example_sentence": "我想吃喝。",
     "example_pinyin": "Wǒ xiǎng chī hē.",
-    "example_meaning": "Tôi muốn ăn/uống uống."
+    "example_meaning": "Tôi muốn ăn/uống uống.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "147",
@@ -1764,7 +2348,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很和。",
     "example_pinyin": "Zhè ge hěn hé.",
-    "example_meaning": "Cái này rất và, với, cùng."
+    "example_meaning": "Cái này rất và, với, cùng.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "148",
@@ -1776,7 +2364,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很很。",
     "example_pinyin": "Zhè ge hěn hěn.",
-    "example_meaning": "Cái này rất rất, quá."
+    "example_meaning": "Cái này rất rất, quá.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "149",
@@ -1788,7 +2380,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很后。",
     "example_pinyin": "Zhè ge hěn hòu.",
-    "example_meaning": "Cái này rất sau, phía sau."
+    "example_meaning": "Cái này rất sau, phía sau.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "150",
@@ -1800,7 +2396,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Địa điểm & Đi lại",
     "example_sentence": "他在后边。",
     "example_pinyin": "Tā zài hòu bian.",
-    "example_meaning": "Anh ấy đang ở phía sau, đằng sau."
+    "example_meaning": "Anh ấy đang ở phía sau, đằng sau.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "151",
@@ -1812,7 +2412,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Số đếm & Thời gian",
     "example_sentence": "后天见！",
     "example_pinyin": "hòu tiān jiàn!",
-    "example_meaning": "Hẹn gặp lại vào ngày mốt, ngày kia!"
+    "example_meaning": "Hẹn gặp lại vào ngày mốt, ngày kia!",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "152",
@@ -1824,7 +2428,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Đồ vật & Đời sống",
     "example_sentence": "这是我的花。",
     "example_pinyin": "Zhè shì wǒ de huā.",
-    "example_meaning": "Đây là hoa, bông hoa / tiêu (tiền) của tôi."
+    "example_meaning": "Đây là hoa, bông hoa / tiêu (tiền) của tôi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "153",
@@ -1836,7 +2444,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很话。",
     "example_pinyin": "Zhè ge hěn huà.",
-    "example_meaning": "Cái này rất lời nói, câu chuyện."
+    "example_meaning": "Cái này rất lời nói, câu chuyện.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "154",
@@ -1848,7 +2460,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很坏。",
     "example_pinyin": "Zhè ge hěn huài.",
-    "example_meaning": "Cái này rất hỏng, xấu, tệ."
+    "example_meaning": "Cái này rất hỏng, xấu, tệ.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "155",
@@ -1860,7 +2476,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Địa điểm & Đi lại",
     "example_sentence": "他在回。",
     "example_pinyin": "Tā zài huí.",
-    "example_meaning": "Anh ấy đang ở về, quay lại."
+    "example_meaning": "Anh ấy đang ở về, quay lại.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "156",
@@ -1872,7 +2492,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Động từ thông dụng",
     "example_sentence": "我喜欢回答。",
     "example_pinyin": "Wǒ xǐhuan huí dá.",
-    "example_meaning": "Tôi thích trả lời, giải đáp."
+    "example_meaning": "Tôi thích trả lời, giải đáp.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "157",
@@ -1884,7 +2508,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Địa điểm & Đi lại",
     "example_sentence": "他在回到。",
     "example_pinyin": "Tā zài huí dào.",
-    "example_meaning": "Anh ấy đang ở quay trở về."
+    "example_meaning": "Anh ấy đang ở quay trở về.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "158",
@@ -1896,7 +2524,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Địa điểm & Đi lại",
     "example_sentence": "他在回家。",
     "example_pinyin": "Tā zài huí jiā.",
-    "example_meaning": "Anh ấy đang ở về nhà."
+    "example_meaning": "Anh ấy đang ở về nhà.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "159",
@@ -1908,7 +2540,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很回来。",
     "example_pinyin": "Zhè ge hěn huí lai.",
-    "example_meaning": "Cái này rất trở về, quay lại."
+    "example_meaning": "Cái này rất trở về, quay lại.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "160",
@@ -1920,7 +2556,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很回去。",
     "example_pinyin": "Zhè ge hěn huí qu.",
-    "example_meaning": "Cái này rất đi về, trở về."
+    "example_meaning": "Cái này rất đi về, trở về.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "161",
@@ -1932,7 +2572,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很会。",
     "example_pinyin": "Zhè ge hěn huì.",
-    "example_meaning": "Cái này rất biết (qua học tập) / sẽ / cuộc họp."
+    "example_meaning": "Cái này rất biết (qua học tập) / sẽ / cuộc họp.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "162",
@@ -1944,7 +2588,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Địa điểm & Đi lại",
     "example_sentence": "他在火车。",
     "example_pinyin": "Tā zài huǒ chē.",
-    "example_meaning": "Anh ấy đang ở tàu hỏa, xe lửa."
+    "example_meaning": "Anh ấy đang ở tàu hỏa, xe lửa.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "163",
@@ -1956,7 +2604,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Địa điểm & Đi lại",
     "example_sentence": "他在机场。",
     "example_pinyin": "Tā zài jī chǎng.",
-    "example_meaning": "Anh ấy đang ở sân bay, phi trường."
+    "example_meaning": "Anh ấy đang ở sân bay, phi trường.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "164",
@@ -1968,7 +2620,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Địa điểm & Đi lại",
     "example_sentence": "他在机票。",
     "example_pinyin": "Tā zài jī piào.",
-    "example_meaning": "Anh ấy đang ở vé máy bay."
+    "example_meaning": "Anh ấy đang ở vé máy bay.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "165",
@@ -1980,7 +2636,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Ăn uống & Ẩm thực",
     "example_sentence": "我想吃鸡蛋。",
     "example_pinyin": "Wǒ xiǎng chī jī dàn.",
-    "example_meaning": "Tôi muốn ăn/uống trứng gà."
+    "example_meaning": "Tôi muốn ăn/uống trứng gà.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "166",
@@ -1992,7 +2652,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很几。",
     "example_pinyin": "Zhè ge hěn jī.",
-    "example_meaning": "Cái này rất mấy, vài (dưới 10)."
+    "example_meaning": "Cái này rất mấy, vài (dưới 10).",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "167",
@@ -2004,7 +2668,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很记。",
     "example_pinyin": "Zhè ge hěn jì.",
-    "example_meaning": "Cái này rất nhớ, ghi nhớ, ghi chép."
+    "example_meaning": "Cái này rất nhớ, ghi nhớ, ghi chép.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "168",
@@ -2016,7 +2684,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Động từ thông dụng",
     "example_sentence": "我喜欢记得。",
     "example_pinyin": "Wǒ xǐhuan jì de.",
-    "example_meaning": "Tôi thích nhớ, còn nhớ."
+    "example_meaning": "Tôi thích nhớ, còn nhớ.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "169",
@@ -2028,7 +2700,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Động từ thông dụng",
     "example_sentence": "我喜欢记住。",
     "example_pinyin": "Wǒ xǐhuan jì zhu.",
-    "example_meaning": "Tôi thích ghi nhớ, nhớ kỹ."
+    "example_meaning": "Tôi thích ghi nhớ, nhớ kỹ.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "170",
@@ -2040,7 +2716,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Địa điểm & Đi lại",
     "example_sentence": "他在家。",
     "example_pinyin": "Tā zài jiā.",
-    "example_meaning": "Anh ấy đang ở nhà, gia đình."
+    "example_meaning": "Anh ấy đang ở nhà, gia đình.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "171",
@@ -2052,7 +2732,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Địa điểm & Đi lại",
     "example_sentence": "他在家里。",
     "example_pinyin": "Tā zài jiā lǐ.",
-    "example_meaning": "Anh ấy đang ở trong nhà, ở nhà."
+    "example_meaning": "Anh ấy đang ở trong nhà, ở nhà.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "172",
@@ -2064,7 +2748,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Đại từ & Xưng hô",
     "example_sentence": "那是我的家人。",
     "example_pinyin": "Nà shì wǒ de jiā rén.",
-    "example_meaning": "Đó là người nhà, người thân của tôi."
+    "example_meaning": "Đó là người nhà, người thân của tôi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "173",
@@ -2076,7 +2764,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很间。",
     "example_pinyin": "Zhè ge hěn jiān.",
-    "example_meaning": "Cái này rất gian, phòng (lượng từ phòng)."
+    "example_meaning": "Cái này rất gian, phòng (lượng từ phòng).",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "174",
@@ -2088,7 +2780,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很见。",
     "example_pinyin": "Zhè ge hěn jiàn.",
-    "example_meaning": "Cái này rất gặp, nhìn thấy."
+    "example_meaning": "Cái này rất gặp, nhìn thấy.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "175",
@@ -2100,7 +2796,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很见面。",
     "example_pinyin": "Zhè ge hěn jiàn miàn.",
-    "example_meaning": "Cái này rất gặp mặt, tiếp xúc."
+    "example_meaning": "Cái này rất gặp mặt, tiếp xúc.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "176",
@@ -2112,7 +2812,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很叫。",
     "example_pinyin": "Zhè ge hěn jiào.",
-    "example_meaning": "Cái này rất tên là, gọi, kêu."
+    "example_meaning": "Cái này rất tên là, gọi, kêu.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "177",
@@ -2124,7 +2828,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Động từ thông dụng",
     "example_sentence": "我喜欢教。",
     "example_pinyin": "Wǒ xǐhuan jiāo.",
-    "example_meaning": "Tôi thích dạy, giảng dạy."
+    "example_meaning": "Tôi thích dạy, giảng dạy.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "178",
@@ -2136,7 +2844,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Địa điểm & Đi lại",
     "example_sentence": "他在教学楼。",
     "example_pinyin": "Tā zài jiào xué lóu.",
-    "example_meaning": "Anh ấy đang ở tòa nhà giảng dạy, khu học xá."
+    "example_meaning": "Anh ấy đang ở tòa nhà giảng dạy, khu học xá.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "179",
@@ -2148,7 +2860,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Động từ thông dụng",
     "example_sentence": "我喜欢介绍。",
     "example_pinyin": "Wǒ xǐhuan jiè shào.",
-    "example_meaning": "Tôi thích giới thiệu."
+    "example_meaning": "Tôi thích giới thiệu.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "180",
@@ -2160,7 +2876,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Đại từ & Xưng hô",
     "example_sentence": "那是我的姐。",
     "example_pinyin": "Nà shì wǒ de jiě.",
-    "example_meaning": "Đó là chị gái của tôi."
+    "example_meaning": "Đó là chị gái của tôi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "181",
@@ -2172,7 +2892,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Đại từ & Xưng hô",
     "example_sentence": "那是我的姐姐。",
     "example_pinyin": "Nà shì wǒ de jiě jie.",
-    "example_meaning": "Đó là chị gái của tôi."
+    "example_meaning": "Đó là chị gái của tôi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "182",
@@ -2184,7 +2908,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Số đếm & Thời gian",
     "example_sentence": "今年见！",
     "example_pinyin": "jīn nián jiàn!",
-    "example_meaning": "Hẹn gặp lại vào năm nay!"
+    "example_meaning": "Hẹn gặp lại vào năm nay!",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "183",
@@ -2196,7 +2924,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Số đếm & Thời gian",
     "example_sentence": "今天见！",
     "example_pinyin": "jīn tiān jiàn!",
-    "example_meaning": "Hẹn gặp lại vào hôm nay!"
+    "example_meaning": "Hẹn gặp lại vào hôm nay!",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "184",
@@ -2208,7 +2940,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Động từ thông dụng",
     "example_sentence": "我喜欢进。",
     "example_pinyin": "Wǒ xǐhuan jìn.",
-    "example_meaning": "Tôi thích vào, tiến vào."
+    "example_meaning": "Tôi thích vào, tiến vào.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "185",
@@ -2220,7 +2956,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Động từ thông dụng",
     "example_sentence": "我喜欢进来。",
     "example_pinyin": "Wǒ xǐhuan jìn lái.",
-    "example_meaning": "Tôi thích vào đây, bước vào."
+    "example_meaning": "Tôi thích vào đây, bước vào.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "186",
@@ -2232,7 +2972,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Động từ thông dụng",
     "example_sentence": "我喜欢进去。",
     "example_pinyin": "Wǒ xǐhuan jìn qù.",
-    "example_meaning": "Tôi thích đi vào trong."
+    "example_meaning": "Tôi thích đi vào trong.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "187",
@@ -2244,7 +2988,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Số đếm & Thời gian",
     "example_sentence": "九见！",
     "example_pinyin": "jiǔ jiàn!",
-    "example_meaning": "Hẹn gặp lại vào số 9 (chín)!"
+    "example_meaning": "Hẹn gặp lại vào số 9 (chín)!",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "188",
@@ -2256,7 +3004,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很就。",
     "example_pinyin": "Zhè ge hěn jiù.",
-    "example_meaning": "Cái này rất thì, ngay, chính là."
+    "example_meaning": "Cái này rất thì, ngay, chính là.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "189",
@@ -2268,7 +3020,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Động từ thông dụng",
     "example_sentence": "我喜欢觉得。",
     "example_pinyin": "Wǒ xǐhuan jué de.",
-    "example_meaning": "Tôi thích cảm thấy, cho rằng."
+    "example_meaning": "Tôi thích cảm thấy, cho rằng.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "190",
@@ -2280,7 +3036,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Động từ thông dụng",
     "example_sentence": "我喜欢开。",
     "example_pinyin": "Wǒ xǐhuan kāi.",
-    "example_meaning": "Tôi thích mở, bật, lái (xe)."
+    "example_meaning": "Tôi thích mở, bật, lái (xe).",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "191",
@@ -2292,7 +3052,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Địa điểm & Đi lại",
     "example_sentence": "他在开车。",
     "example_pinyin": "Tā zài kāi chē.",
-    "example_meaning": "Anh ấy đang ở lái xe, điều khiển ô tô."
+    "example_meaning": "Anh ấy đang ở lái xe, điều khiển ô tô.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "192",
@@ -2304,7 +3068,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Động từ thông dụng",
     "example_sentence": "我喜欢开会。",
     "example_pinyin": "Wǒ xǐhuan kāi huì.",
-    "example_meaning": "Tôi thích họp, mở cuộc họp."
+    "example_meaning": "Tôi thích họp, mở cuộc họp.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "193",
@@ -2316,7 +3084,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Động từ thông dụng",
     "example_sentence": "我喜欢开玩笑。",
     "example_pinyin": "Wǒ xǐhuan kāi wán xiào.",
-    "example_meaning": "Tôi thích nói đùa, trêu chọc."
+    "example_meaning": "Tôi thích nói đùa, trêu chọc.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "194",
@@ -2328,7 +3100,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Động từ thông dụng",
     "example_sentence": "我喜欢看。",
     "example_pinyin": "Wǒ xǐhuan kān.",
-    "example_meaning": "Tôi thích nhìn, xem, thăm."
+    "example_meaning": "Tôi thích nhìn, xem, thăm.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "195",
@@ -2340,7 +3116,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Động từ thông dụng",
     "example_sentence": "我喜欢看病。",
     "example_pinyin": "Wǒ xǐhuan kàn bìng.",
-    "example_meaning": "Tôi thích khám bệnh, chữa bệnh."
+    "example_meaning": "Tôi thích khám bệnh, chữa bệnh.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "196",
@@ -2352,7 +3132,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很看到。",
     "example_pinyin": "Zhè ge hěn kàn dào.",
-    "example_meaning": "Cái này rất nhìn thấy, thấy được."
+    "example_meaning": "Cái này rất nhìn thấy, thấy được.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "197",
@@ -2364,7 +3148,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很看见。",
     "example_pinyin": "Zhè ge hěn kàn jiàn.",
-    "example_meaning": "Cái này rất nhìn thấy, trông thấy."
+    "example_meaning": "Cái này rất nhìn thấy, trông thấy.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "198",
@@ -2376,7 +3164,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Động từ thông dụng",
     "example_sentence": "我喜欢考。",
     "example_pinyin": "Wǒ xǐhuan kǎo.",
-    "example_meaning": "Tôi thích thi, kiểm tra."
+    "example_meaning": "Tôi thích thi, kiểm tra.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "199",
@@ -2388,7 +3180,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Động từ thông dụng",
     "example_sentence": "我喜欢考试。",
     "example_pinyin": "Wǒ xǐhuan kǎo shì.",
-    "example_meaning": "Tôi thích kỳ thi, bài kiểm tra."
+    "example_meaning": "Tôi thích kỳ thi, bài kiểm tra.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "200",
@@ -2400,7 +3196,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Ăn uống & Ẩm thực",
     "example_sentence": "我想吃渴。",
     "example_pinyin": "Wǒ xiǎng chī kě.",
-    "example_meaning": "Tôi muốn ăn/uống khát nước."
+    "example_meaning": "Tôi muốn ăn/uống khát nước.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "201",
@@ -2412,7 +3212,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很课。",
     "example_pinyin": "Zhè ge hěn kè.",
-    "example_meaning": "Cái này rất bài học, tiết học, môn học."
+    "example_meaning": "Cái này rất bài học, tiết học, môn học.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "202",
@@ -2424,7 +3228,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Đồ vật & Đời sống",
     "example_sentence": "这是我的课本。",
     "example_pinyin": "Zhè shì wǒ de kè běn.",
-    "example_meaning": "Đây là sách giáo khoa của tôi."
+    "example_meaning": "Đây là sách giáo khoa của tôi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "203",
@@ -2436,7 +3244,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很课文。",
     "example_pinyin": "Zhè ge hěn kè wén.",
-    "example_meaning": "Cái này rất bài khóa, bài đọc."
+    "example_meaning": "Cái này rất bài khóa, bài đọc.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "204",
@@ -2448,7 +3260,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Đồ vật & Đời sống",
     "example_sentence": "这是我的口。",
     "example_pinyin": "Zhè shì wǒ de kǒu.",
-    "example_meaning": "Đây là miệng, mồm / lượng từ nhân khẩu của tôi."
+    "example_meaning": "Đây là miệng, mồm / lượng từ nhân khẩu của tôi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "205",
@@ -2460,7 +3276,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Đồ vật & Đời sống",
     "example_sentence": "这是我的块。",
     "example_pinyin": "Zhè shì wǒ de kuài.",
-    "example_meaning": "Đây là đồng (tiền), miếng, tảng của tôi."
+    "example_meaning": "Đây là đồng (tiền), miếng, tảng của tôi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "206",
@@ -2472,7 +3292,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很快。",
     "example_pinyin": "Zhè ge hěn kuài.",
-    "example_meaning": "Cái này rất nhanh, mau chóng / sắp sửa."
+    "example_meaning": "Cái này rất nhanh, mau chóng / sắp sửa.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "207",
@@ -2484,7 +3308,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Địa điểm & Đi lại",
     "example_sentence": "他在来。",
     "example_pinyin": "Tā zài lái.",
-    "example_meaning": "Anh ấy đang ở đến, tới."
+    "example_meaning": "Anh ấy đang ở đến, tới.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "208",
@@ -2496,7 +3324,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Động từ thông dụng",
     "example_sentence": "我喜欢来到。",
     "example_pinyin": "Wǒ xǐhuan lái dào.",
-    "example_meaning": "Tôi thích đến nơi, tới."
+    "example_meaning": "Tôi thích đến nơi, tới.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "209",
@@ -2508,7 +3340,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很老。",
     "example_pinyin": "Zhè ge hěn lǎo.",
-    "example_meaning": "Cái này rất già, cũ, lâu năm."
+    "example_meaning": "Cái này rất già, cũ, lâu năm.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "210",
@@ -2520,7 +3356,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Đại từ & Xưng hô",
     "example_sentence": "那是我的老人。",
     "example_pinyin": "Nà shì wǒ de lǎo rén.",
-    "example_meaning": "Đó là người già, người cao tuổi của tôi."
+    "example_meaning": "Đó là người già, người cao tuổi của tôi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "211",
@@ -2532,7 +3372,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Đại từ & Xưng hô",
     "example_sentence": "那是我的老师。",
     "example_pinyin": "Nà shì wǒ de lǎo shī.",
-    "example_meaning": "Đó là thầy cô giáo, giáo viên của tôi."
+    "example_meaning": "Đó là thầy cô giáo, giáo viên của tôi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "212",
@@ -2544,7 +3388,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Chào hỏi & Xã giao",
     "example_sentence": "了。",
     "example_pinyin": "le.",
-    "example_meaning": "rồi (trợ từ biến đổi trạng thái)."
+    "example_meaning": "rồi (trợ từ biến đổi trạng thái).",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "213",
@@ -2556,7 +3404,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很累。",
     "example_pinyin": "Zhè ge hěn lěi.",
-    "example_meaning": "Cái này rất mệt, mệt mỏi."
+    "example_meaning": "Cái này rất mệt, mệt mỏi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "214",
@@ -2568,7 +3420,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很冷。",
     "example_pinyin": "Zhè ge hěn lěng.",
-    "example_meaning": "Cái này rất lạnh, rét."
+    "example_meaning": "Cái này rất lạnh, rét.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "215",
@@ -2580,7 +3436,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很里。",
     "example_pinyin": "Zhè ge hěn lǐ.",
-    "example_meaning": "Cái này rất trong, bên trong."
+    "example_meaning": "Cái này rất trong, bên trong.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "216",
@@ -2592,7 +3452,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Địa điểm & Đi lại",
     "example_sentence": "他在里边。",
     "example_pinyin": "Tā zài lǐ bian.",
-    "example_meaning": "Anh ấy đang ở bên trong, phía trong."
+    "example_meaning": "Anh ấy đang ở bên trong, phía trong.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "217",
@@ -2604,7 +3468,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Số đếm & Thời gian",
     "example_sentence": "两见！",
     "example_pinyin": "liǎng jiàn!",
-    "example_meaning": "Hẹn gặp lại vào hai (dùng trước lượng từ)!"
+    "example_meaning": "Hẹn gặp lại vào hai (dùng trước lượng từ)!",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "218",
@@ -2616,7 +3484,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Số đếm & Thời gian",
     "example_sentence": "零见！",
     "example_pinyin": "líng jiàn!",
-    "example_meaning": "Hẹn gặp lại vào số 0 (không)!"
+    "example_meaning": "Hẹn gặp lại vào số 0 (không)!",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "219",
@@ -2628,7 +3500,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Số đếm & Thời gian",
     "example_sentence": "六见！",
     "example_pinyin": "liù jiàn!",
-    "example_meaning": "Hẹn gặp lại vào số 6 (sáu)!"
+    "example_meaning": "Hẹn gặp lại vào số 6 (sáu)!",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "220",
@@ -2640,7 +3516,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Địa điểm & Đi lại",
     "example_sentence": "他在楼。",
     "example_pinyin": "Tā zài lóu.",
-    "example_meaning": "Anh ấy đang ở tầng, lầu, tòa nhà."
+    "example_meaning": "Anh ấy đang ở tầng, lầu, tòa nhà.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "221",
@@ -2652,7 +3532,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Địa điểm & Đi lại",
     "example_sentence": "他在楼上。",
     "example_pinyin": "Tā zài lóu shàng.",
-    "example_meaning": "Anh ấy đang ở trên lầu, tầng trên."
+    "example_meaning": "Anh ấy đang ở trên lầu, tầng trên.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "222",
@@ -2664,7 +3548,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Địa điểm & Đi lại",
     "example_sentence": "他在楼下。",
     "example_pinyin": "Tā zài lóu xià.",
-    "example_meaning": "Anh ấy đang ở dưới lầu, tầng dưới."
+    "example_meaning": "Anh ấy đang ở dưới lầu, tầng dưới.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "223",
@@ -2676,7 +3564,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Địa điểm & Đi lại",
     "example_sentence": "他在路。",
     "example_pinyin": "Tā zài lù.",
-    "example_meaning": "Anh ấy đang ở đường đi, tuyến đường."
+    "example_meaning": "Anh ấy đang ở đường đi, tuyến đường.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "224",
@@ -2688,7 +3580,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Địa điểm & Đi lại",
     "example_sentence": "他在路口。",
     "example_pinyin": "Tā zài lù kǒu.",
-    "example_meaning": "Anh ấy đang ở ngã tư, giao lộ."
+    "example_meaning": "Anh ấy đang ở ngã tư, giao lộ.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "225",
@@ -2700,7 +3596,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很路上。",
     "example_pinyin": "Zhè ge hěn lù shang.",
-    "example_meaning": "Cái này rất trên đường."
+    "example_meaning": "Cái này rất trên đường.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "226",
@@ -2712,7 +3612,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Đại từ & Xưng hô",
     "example_sentence": "那是我的妈。",
     "example_pinyin": "Nà shì wǒ de mā.",
-    "example_meaning": "Đó là mẹ, má của tôi."
+    "example_meaning": "Đó là mẹ, má của tôi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "227",
@@ -2724,7 +3628,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Đại từ & Xưng hô",
     "example_sentence": "那是我的妈妈。",
     "example_pinyin": "Nà shì wǒ de mā ma.",
-    "example_meaning": "Đó là mẹ, má của tôi."
+    "example_meaning": "Đó là mẹ, má của tôi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "228",
@@ -2736,7 +3644,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Địa điểm & Đi lại",
     "example_sentence": "他在马路。",
     "example_pinyin": "Tā zài mǎ lù.",
-    "example_meaning": "Anh ấy đang ở đường cái, đường lớn."
+    "example_meaning": "Anh ấy đang ở đường cái, đường lớn.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "229",
@@ -2748,7 +3660,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很马上。",
     "example_pinyin": "Zhè ge hěn mǎ shàng.",
-    "example_meaning": "Cái này rất ngay lập tức, tức khắc."
+    "example_meaning": "Cái này rất ngay lập tức, tức khắc.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "230",
@@ -2760,7 +3676,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Chào hỏi & Xã giao",
     "example_sentence": "吗。",
     "example_pinyin": "má.",
-    "example_meaning": "không, chăng (trợ từ nghi vấn)."
+    "example_meaning": "không, chăng (trợ từ nghi vấn).",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "231",
@@ -2772,7 +3692,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Động từ thông dụng",
     "example_sentence": "我喜欢买。",
     "example_pinyin": "Wǒ xǐhuan mǎi.",
-    "example_meaning": "Tôi thích mua."
+    "example_meaning": "Tôi thích mua.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "232",
@@ -2784,7 +3708,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很慢。",
     "example_pinyin": "Zhè ge hěn màn.",
-    "example_meaning": "Cái này rất chậm, từ từ."
+    "example_meaning": "Cái này rất chậm, từ từ.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "233",
@@ -2796,7 +3724,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很忙。",
     "example_pinyin": "Zhè ge hěn máng.",
-    "example_meaning": "Cái này rất bận, bận rộn."
+    "example_meaning": "Cái này rất bận, bận rộn.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "234",
@@ -2808,7 +3740,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Đồ vật & Đời sống",
     "example_sentence": "这是我的毛。",
     "example_pinyin": "Zhè shì wǒ de máo.",
-    "example_meaning": "Đây là hào (tiền) / lông của tôi."
+    "example_meaning": "Đây là hào (tiền) / lông của tôi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "235",
@@ -2820,7 +3756,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很没。",
     "example_pinyin": "Zhè ge hěn méi.",
-    "example_meaning": "Cái này rất không, chưa."
+    "example_meaning": "Cái này rất không, chưa.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "236",
@@ -2832,7 +3772,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Chào hỏi & Xã giao",
     "example_sentence": "没关系。",
     "example_pinyin": "méi guān xi.",
-    "example_meaning": "không sao, không có chi."
+    "example_meaning": "không sao, không có chi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "237",
@@ -2844,7 +3788,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Chào hỏi & Xã giao",
     "example_sentence": "没什么。",
     "example_pinyin": "méi shén me.",
-    "example_meaning": "không có gì, chẳng sao cả."
+    "example_meaning": "không có gì, chẳng sao cả.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "238",
@@ -2856,7 +3804,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Chào hỏi & Xã giao",
     "example_sentence": "没事儿。",
     "example_pinyin": "méi shì r.",
-    "example_meaning": "không việc gì, không sao đâu."
+    "example_meaning": "không việc gì, không sao đâu.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "239",
@@ -2868,7 +3820,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很没有。",
     "example_pinyin": "Zhè ge hěn méi yǒu.",
-    "example_meaning": "Cái này rất không có, chưa từng."
+    "example_meaning": "Cái này rất không có, chưa từng.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "240",
@@ -2880,7 +3836,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Đại từ & Xưng hô",
     "example_sentence": "那是我的妹。",
     "example_pinyin": "Nà shì wǒ de mèi.",
-    "example_meaning": "Đó là em gái của tôi."
+    "example_meaning": "Đó là em gái của tôi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "241",
@@ -2892,7 +3852,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Đại từ & Xưng hô",
     "example_sentence": "那是我的妹妹。",
     "example_pinyin": "Nà shì wǒ de mèi mei.",
-    "example_meaning": "Đó là em gái của tôi."
+    "example_meaning": "Đó là em gái của tôi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "242",
@@ -2904,7 +3868,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Đồ vật & Đời sống",
     "example_sentence": "这是我的门。",
     "example_pinyin": "Zhè shì wǒ de mén.",
-    "example_meaning": "Đây là cửa, cổng / lượng từ môn học của tôi."
+    "example_meaning": "Đây là cửa, cổng / lượng từ môn học của tôi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "243",
@@ -2916,7 +3884,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Đồ vật & Đời sống",
     "example_sentence": "这是我的门口。",
     "example_pinyin": "Zhè shì wǒ de mén kǒu.",
-    "example_meaning": "Đây là cửa ra vào, cổng của tôi."
+    "example_meaning": "Đây là cửa ra vào, cổng của tôi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "244",
@@ -2928,7 +3900,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Đồ vật & Đời sống",
     "example_sentence": "这是我的门票。",
     "example_pinyin": "Zhè shì wǒ de mén piào.",
-    "example_meaning": "Đây là vé vào cửa, vé tham quan của tôi."
+    "example_meaning": "Đây là vé vào cửa, vé tham quan của tôi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "245",
@@ -2940,7 +3916,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很们。",
     "example_pinyin": "Zhè ge hěn men.",
-    "example_meaning": "Cái này rất các, chúng (hậu tố số nhiều)."
+    "example_meaning": "Cái này rất các, chúng (hậu tố số nhiều).",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "246",
@@ -2952,7 +3932,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Ăn uống & Ẩm thực",
     "example_sentence": "我想吃米饭。",
     "example_pinyin": "Wǒ xiǎng chī mǐ fàn.",
-    "example_meaning": "Tôi muốn ăn/uống cơm trắng."
+    "example_meaning": "Tôi muốn ăn/uống cơm trắng.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "247",
@@ -2964,7 +3948,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Ăn uống & Ẩm thực",
     "example_sentence": "我想吃面包。",
     "example_pinyin": "Wǒ xiǎng chī miàn bāo.",
-    "example_meaning": "Tôi muốn ăn/uống bánh mì."
+    "example_meaning": "Tôi muốn ăn/uống bánh mì.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "248",
@@ -2976,7 +3964,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Ăn uống & Ẩm thực",
     "example_sentence": "我想吃面条儿。",
     "example_pinyin": "Wǒ xiǎng chī miàn tiáo r.",
-    "example_meaning": "Tôi muốn ăn/uống mì sợi, tô mì."
+    "example_meaning": "Tôi muốn ăn/uống mì sợi, tô mì.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "249",
@@ -2988,7 +3980,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很名字。",
     "example_pinyin": "Zhè ge hěn míng zi.",
-    "example_meaning": "Cái này rất tên, danh tính."
+    "example_meaning": "Cái này rất tên, danh tính.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "250",
@@ -3000,7 +3996,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Động từ thông dụng",
     "example_sentence": "我喜欢明白。",
     "example_pinyin": "Wǒ xǐhuan míng bai.",
-    "example_meaning": "Tôi thích hiểu rõ, rõ ràng."
+    "example_meaning": "Tôi thích hiểu rõ, rõ ràng.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "251",
@@ -3012,7 +4012,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Số đếm & Thời gian",
     "example_sentence": "明年见！",
     "example_pinyin": "míng nián jiàn!",
-    "example_meaning": "Hẹn gặp lại vào năm sau, sang năm!"
+    "example_meaning": "Hẹn gặp lại vào năm sau, sang năm!",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "252",
@@ -3024,7 +4028,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Số đếm & Thời gian",
     "example_sentence": "明天见！",
     "example_pinyin": "míng tiān jiàn!",
-    "example_meaning": "Hẹn gặp lại vào ngày mai!"
+    "example_meaning": "Hẹn gặp lại vào ngày mai!",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "253",
@@ -3036,7 +4044,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Động từ thông dụng",
     "example_sentence": "我喜欢拿。",
     "example_pinyin": "Wǒ xǐhuan ná.",
-    "example_meaning": "Tôi thích cầm, nắm, lấy."
+    "example_meaning": "Tôi thích cầm, nắm, lấy.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "254",
@@ -3048,7 +4060,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很哪。",
     "example_pinyin": "Zhè ge hěn nǎ.",
-    "example_meaning": "Cái này rất nào (nghi vấn)."
+    "example_meaning": "Cái này rất nào (nghi vấn).",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "255",
@@ -3060,7 +4076,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Địa điểm & Đi lại",
     "example_sentence": "他在哪儿。",
     "example_pinyin": "Tā zài nǎ r.",
-    "example_meaning": "Anh ấy đang ở ở đâu, đâu."
+    "example_meaning": "Anh ấy đang ở ở đâu, đâu.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "256",
@@ -3072,7 +4092,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Địa điểm & Đi lại",
     "example_sentence": "他在哪里。",
     "example_pinyin": "Tā zài nǎ lǐ.",
-    "example_meaning": "Anh ấy đang ở ở đâu / đâu có (khiêm tốn)."
+    "example_meaning": "Anh ấy đang ở ở đâu / đâu có (khiêm tốn).",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "257",
@@ -3084,7 +4108,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Đồ vật & Đời sống",
     "example_sentence": "这是我的哪些。",
     "example_pinyin": "Zhè shì wǒ de nǎ xiē.",
-    "example_meaning": "Đây là những cái nào, những người nào của tôi."
+    "example_meaning": "Đây là những cái nào, những người nào của tôi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "258",
@@ -3096,7 +4124,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很那。",
     "example_pinyin": "Zhè ge hěn nǎ.",
-    "example_meaning": "Cái này rất kia, đó."
+    "example_meaning": "Cái này rất kia, đó.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "259",
@@ -3108,7 +4140,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Địa điểm & Đi lại",
     "example_sentence": "他在那边。",
     "example_pinyin": "Tā zài nà bian.",
-    "example_meaning": "Anh ấy đang ở phía bên kia, đằng kia."
+    "example_meaning": "Anh ấy đang ở phía bên kia, đằng kia.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "260",
@@ -3120,7 +4156,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Địa điểm & Đi lại",
     "example_sentence": "他在那儿。",
     "example_pinyin": "Tā zài nà r.",
-    "example_meaning": "Anh ấy đang ở ở đó, đằng kia."
+    "example_meaning": "Anh ấy đang ở ở đó, đằng kia.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "261",
@@ -3132,7 +4172,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Địa điểm & Đi lại",
     "example_sentence": "他在那里。",
     "example_pinyin": "Tā zài nà li.",
-    "example_meaning": "Anh ấy đang ở ở nơi đó, chỗ đó."
+    "example_meaning": "Anh ấy đang ở ở nơi đó, chỗ đó.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "262",
@@ -3144,7 +4188,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Đồ vật & Đời sống",
     "example_sentence": "这是我的那些。",
     "example_pinyin": "Zhè shì wǒ de nà xiē.",
-    "example_meaning": "Đây là những cái đó, những thứ kia của tôi."
+    "example_meaning": "Đây là những cái đó, những thứ kia của tôi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "263",
@@ -3156,7 +4204,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很奶。",
     "example_pinyin": "Zhè ge hěn nǎi.",
-    "example_meaning": "Cái này rất sữa / bà nội."
+    "example_meaning": "Cái này rất sữa / bà nội.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "264",
@@ -3168,7 +4220,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Đại từ & Xưng hô",
     "example_sentence": "那是我的奶奶。",
     "example_pinyin": "Nà shì wǒ de nǎi nai.",
-    "example_meaning": "Đó là bà nội của tôi."
+    "example_meaning": "Đó là bà nội của tôi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "265",
@@ -3180,7 +4236,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很男。",
     "example_pinyin": "Zhè ge hěn nán.",
-    "example_meaning": "Cái này rất nam, đàn ông, con trai."
+    "example_meaning": "Cái này rất nam, đàn ông, con trai.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "266",
@@ -3192,7 +4252,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Đại từ & Xưng hô",
     "example_sentence": "那是我的男孩儿。",
     "example_pinyin": "Nà shì wǒ de nán hái r.",
-    "example_meaning": "Đó là cậu bé, bé trai của tôi."
+    "example_meaning": "Đó là cậu bé, bé trai của tôi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "267",
@@ -3204,7 +4268,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Đại từ & Xưng hô",
     "example_sentence": "那是我的男朋友。",
     "example_pinyin": "Nà shì wǒ de nán péng you.",
-    "example_meaning": "Đó là bạn trai, người yêu của tôi."
+    "example_meaning": "Đó là bạn trai, người yêu của tôi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "268",
@@ -3216,7 +4284,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Đại từ & Xưng hô",
     "example_sentence": "那是我的男人。",
     "example_pinyin": "Nà shì wǒ de nán rén.",
-    "example_meaning": "Đó là đàn ông, người nam của tôi."
+    "example_meaning": "Đó là đàn ông, người nam của tôi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "269",
@@ -3228,7 +4300,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Đại từ & Xưng hô",
     "example_sentence": "那是我的男生。",
     "example_pinyin": "Nà shì wǒ de nán shēng.",
-    "example_meaning": "Đó là nam sinh, học sinh nam của tôi."
+    "example_meaning": "Đó là nam sinh, học sinh nam của tôi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "270",
@@ -3240,7 +4316,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Địa điểm & Đi lại",
     "example_sentence": "他在南。",
     "example_pinyin": "Tā zài nán.",
-    "example_meaning": "Anh ấy đang ở phía nam, hướng nam."
+    "example_meaning": "Anh ấy đang ở phía nam, hướng nam.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "271",
@@ -3252,7 +4332,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Địa điểm & Đi lại",
     "example_sentence": "他在南边。",
     "example_pinyin": "Tā zài nán bian.",
-    "example_meaning": "Anh ấy đang ở phía nam, đằng nam."
+    "example_meaning": "Anh ấy đang ở phía nam, đằng nam.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "272",
@@ -3264,7 +4348,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很难。",
     "example_pinyin": "Zhè ge hěn nán.",
-    "example_meaning": "Cái này rất khó, khó khăn."
+    "example_meaning": "Cái này rất khó, khó khăn.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "273",
@@ -3276,7 +4364,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Chào hỏi & Xã giao",
     "example_sentence": "呢。",
     "example_pinyin": "ne.",
-    "example_meaning": "đâu, nhỉ, vậy (trợ từ hỏi ngược)."
+    "example_meaning": "đâu, nhỉ, vậy (trợ từ hỏi ngược).",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "274",
@@ -3288,7 +4380,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很能。",
     "example_pinyin": "Zhè ge hěn néng.",
-    "example_meaning": "Cái này rất có thể, có khả năng."
+    "example_meaning": "Cái này rất có thể, có khả năng.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "275",
@@ -3300,7 +4396,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Đại từ & Xưng hô",
     "example_sentence": "那是我的你。",
     "example_pinyin": "Nà shì wǒ de nǐ.",
-    "example_meaning": "Đó là bạn, cậu, anh, chị (ngôi 2) của tôi."
+    "example_meaning": "Đó là bạn, cậu, anh, chị (ngôi 2) của tôi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "276",
@@ -3312,7 +4412,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Đại từ & Xưng hô",
     "example_sentence": "那是我的你们。",
     "example_pinyin": "Nà shì wǒ de nǐ men.",
-    "example_meaning": "Đó là các bạn, các anh, các chị của tôi."
+    "example_meaning": "Đó là các bạn, các anh, các chị của tôi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "277",
@@ -3324,7 +4428,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Số đếm & Thời gian",
     "example_sentence": "年见！",
     "example_pinyin": "nián jiàn!",
-    "example_meaning": "Hẹn gặp lại vào năm, tuổi!"
+    "example_meaning": "Hẹn gặp lại vào năm, tuổi!",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "278",
@@ -3336,7 +4444,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Đại từ & Xưng hô",
     "example_sentence": "那是我的您。",
     "example_pinyin": "Nà shì wǒ de nín.",
-    "example_meaning": "Đó là ngài, bác, ông (kính ngữ của 你) của tôi."
+    "example_meaning": "Đó là ngài, bác, ông (kính ngữ của 你) của tôi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "279",
@@ -3348,7 +4460,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Ăn uống & Ẩm thực",
     "example_sentence": "我想吃牛奶。",
     "example_pinyin": "Wǒ xiǎng chī niú nǎi.",
-    "example_meaning": "Tôi muốn ăn/uống sữa bò."
+    "example_meaning": "Tôi muốn ăn/uống sữa bò.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "280",
@@ -3360,7 +4476,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很女。",
     "example_pinyin": "Zhè ge hěn nǚ.",
-    "example_meaning": "Cái này rất nữ, phụ nữ, con gái."
+    "example_meaning": "Cái này rất nữ, phụ nữ, con gái.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "281",
@@ -3372,7 +4492,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Đại từ & Xưng hô",
     "example_sentence": "那是我的女儿。",
     "example_pinyin": "Nà shì wǒ de nǚ ér.",
-    "example_meaning": "Đó là con gái (của bố mẹ) của tôi."
+    "example_meaning": "Đó là con gái (của bố mẹ) của tôi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "282",
@@ -3384,7 +4508,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Đại từ & Xưng hô",
     "example_sentence": "那是我的女孩儿。",
     "example_pinyin": "Nà shì wǒ de nǚ hái r.",
-    "example_meaning": "Đó là cô bé, bé gái của tôi."
+    "example_meaning": "Đó là cô bé, bé gái của tôi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "283",
@@ -3396,7 +4524,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Đại từ & Xưng hô",
     "example_sentence": "那是我的女朋友。",
     "example_pinyin": "Nà shì wǒ de nǚ péng you.",
-    "example_meaning": "Đó là bạn gái, người yêu của tôi."
+    "example_meaning": "Đó là bạn gái, người yêu của tôi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "284",
@@ -3408,7 +4540,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Đại từ & Xưng hô",
     "example_sentence": "那是我的女人。",
     "example_pinyin": "Nà shì wǒ de nǚ rén.",
-    "example_meaning": "Đó là phụ nữ, đàn bà của tôi."
+    "example_meaning": "Đó là phụ nữ, đàn bà của tôi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "285",
@@ -3420,7 +4556,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Đại từ & Xưng hô",
     "example_sentence": "那是我的女生。",
     "example_pinyin": "Nà shì wǒ de nǚ shēng.",
-    "example_meaning": "Đó là nữ sinh, học sinh nữ của tôi."
+    "example_meaning": "Đó là nữ sinh, học sinh nữ của tôi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "286",
@@ -3432,7 +4572,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Địa điểm & Đi lại",
     "example_sentence": "他在旁边。",
     "example_pinyin": "Tā zài páng biān.",
-    "example_meaning": "Anh ấy đang ở bên cạnh, cạnh bên."
+    "example_meaning": "Anh ấy đang ở bên cạnh, cạnh bên.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "287",
@@ -3444,7 +4588,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Địa điểm & Đi lại",
     "example_sentence": "他在跑。",
     "example_pinyin": "Tā zài páo.",
-    "example_meaning": "Anh ấy đang ở chạy."
+    "example_meaning": "Anh ấy đang ở chạy.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "288",
@@ -3456,7 +4604,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Đại từ & Xưng hô",
     "example_sentence": "那是我的朋友。",
     "example_pinyin": "Nà shì wǒ de péng you.",
-    "example_meaning": "Đó là bạn bè, bạn của tôi."
+    "example_meaning": "Đó là bạn bè, bạn của tôi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "289",
@@ -3468,7 +4620,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Đồ vật & Đời sống",
     "example_sentence": "这是我的票。",
     "example_pinyin": "Zhè shì wǒ de piào.",
-    "example_meaning": "Đây là vé, phiếu của tôi."
+    "example_meaning": "Đây là vé, phiếu của tôi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "290",
@@ -3480,7 +4636,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Số đếm & Thời gian",
     "example_sentence": "七见！",
     "example_pinyin": "qī jiàn!",
-    "example_meaning": "Hẹn gặp lại vào số 7 (bảy)!"
+    "example_meaning": "Hẹn gặp lại vào số 7 (bảy)!",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "291",
@@ -3492,7 +4652,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Động từ thông dụng",
     "example_sentence": "我喜欢起。",
     "example_pinyin": "Wǒ xǐhuan qǐ.",
-    "example_meaning": "Tôi thích dậy, khởi / nổi lên."
+    "example_meaning": "Tôi thích dậy, khởi / nổi lên.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "292",
@@ -3504,7 +4668,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Động từ thông dụng",
     "example_sentence": "我喜欢起床。",
     "example_pinyin": "Wǒ xǐhuan qǐ chuáng.",
-    "example_meaning": "Tôi thích thức dậy, rời giường."
+    "example_meaning": "Tôi thích thức dậy, rời giường.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "293",
@@ -3516,7 +4684,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Động từ thông dụng",
     "example_sentence": "我喜欢起来。",
     "example_pinyin": "Wǒ xǐhuan qǐ lai.",
-    "example_meaning": "Tôi thích ngồi dậy, đứng dậy / bắt đầu."
+    "example_meaning": "Tôi thích ngồi dậy, đứng dậy / bắt đầu.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "294",
@@ -3528,7 +4700,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Địa điểm & Đi lại",
     "example_sentence": "他在汽车。",
     "example_pinyin": "Tā zài qì chē.",
-    "example_meaning": "Anh ấy đang ở xe hơi, xe ô tô."
+    "example_meaning": "Anh ấy đang ở xe hơi, xe ô tô.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "295",
@@ -3540,7 +4716,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很前。",
     "example_pinyin": "Zhè ge hěn qián.",
-    "example_meaning": "Cái này rất trước, phía trước."
+    "example_meaning": "Cái này rất trước, phía trước.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "296",
@@ -3552,7 +4732,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Địa điểm & Đi lại",
     "example_sentence": "他在前边。",
     "example_pinyin": "Tā zài qián bian.",
-    "example_meaning": "Anh ấy đang ở phía trước, đằng trước."
+    "example_meaning": "Anh ấy đang ở phía trước, đằng trước.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "297",
@@ -3564,7 +4748,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Số đếm & Thời gian",
     "example_sentence": "前天见！",
     "example_pinyin": "qián tiān jiàn!",
-    "example_meaning": "Hẹn gặp lại vào hôm kia, hôm trước!"
+    "example_meaning": "Hẹn gặp lại vào hôm kia, hôm trước!",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "298",
@@ -3576,7 +4764,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Đồ vật & Đời sống",
     "example_sentence": "这是我的钱。",
     "example_pinyin": "Zhè shì wǒ de qián.",
-    "example_meaning": "Đây là tiền, tiền bạc của tôi."
+    "example_meaning": "Đây là tiền, tiền bạc của tôi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "299",
@@ -3588,7 +4780,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Đồ vật & Đời sống",
     "example_sentence": "这是我的钱包。",
     "example_pinyin": "Zhè shì wǒ de qián bāo.",
-    "example_meaning": "Đây là ví tiền, bóp tiền của tôi."
+    "example_meaning": "Đây là ví tiền, bóp tiền của tôi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "300",
@@ -3600,7 +4796,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Chào hỏi & Xã giao",
     "example_sentence": "请。",
     "example_pinyin": "qǐng.",
-    "example_meaning": "mời, xin, làm ơn."
+    "example_meaning": "mời, xin, làm ơn.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "301",
@@ -3612,7 +4812,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Chào hỏi & Xã giao",
     "example_sentence": "请假。",
     "example_pinyin": "qǐng jià.",
-    "example_meaning": "xin nghỉ phép, xin nghỉ học."
+    "example_meaning": "xin nghỉ phép, xin nghỉ học.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "302",
@@ -3624,7 +4828,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Chào hỏi & Xã giao",
     "example_sentence": "请进。",
     "example_pinyin": "qǐng jìn.",
-    "example_meaning": "xin mời vào."
+    "example_meaning": "xin mời vào.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "303",
@@ -3636,7 +4844,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Chào hỏi & Xã giao",
     "example_sentence": "请问。",
     "example_pinyin": "qǐng wèn.",
-    "example_meaning": "xin hỏi, làm phiền cho hỏi."
+    "example_meaning": "xin hỏi, làm phiền cho hỏi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "304",
@@ -3648,7 +4860,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Chào hỏi & Xã giao",
     "example_sentence": "请坐。",
     "example_pinyin": "qǐng zuò.",
-    "example_meaning": "xin mời ngồi."
+    "example_meaning": "xin mời ngồi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "305",
@@ -3660,7 +4876,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Đồ vật & Đời sống",
     "example_sentence": "这是我的球。",
     "example_pinyin": "Zhè shì wǒ de qiú.",
-    "example_meaning": "Đây là quả bóng, trái cầu của tôi."
+    "example_meaning": "Đây là quả bóng, trái cầu của tôi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "306",
@@ -3672,7 +4892,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Địa điểm & Đi lại",
     "example_sentence": "他在去。",
     "example_pinyin": "Tā zài qù.",
-    "example_meaning": "Anh ấy đang ở đi, tới."
+    "example_meaning": "Anh ấy đang ở đi, tới.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "307",
@@ -3684,7 +4908,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Số đếm & Thời gian",
     "example_sentence": "去年见！",
     "example_pinyin": "qù nián jiàn!",
-    "example_meaning": "Hẹn gặp lại vào năm ngoái!"
+    "example_meaning": "Hẹn gặp lại vào năm ngoái!",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "308",
@@ -3696,7 +4924,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很热。",
     "example_pinyin": "Zhè ge hěn rè.",
-    "example_meaning": "Cái này rất nóng, nhiệt tình."
+    "example_meaning": "Cái này rất nóng, nhiệt tình.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "309",
@@ -3708,7 +4940,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很人。",
     "example_pinyin": "Zhè ge hěn rén.",
-    "example_meaning": "Cái này rất người, con người."
+    "example_meaning": "Cái này rất người, con người.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "310",
@@ -3720,7 +4956,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Động từ thông dụng",
     "example_sentence": "我喜欢认识。",
     "example_pinyin": "Wǒ xǐhuan rèn shi.",
-    "example_meaning": "Tôi thích quen biết, nhận biết."
+    "example_meaning": "Tôi thích quen biết, nhận biết.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "311",
@@ -3732,7 +4972,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很认真。",
     "example_pinyin": "Zhè ge hěn rèn zhēn.",
-    "example_meaning": "Cái này rất chăm chỉ, nghiêm túc."
+    "example_meaning": "Cái này rất chăm chỉ, nghiêm túc.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "312",
@@ -3744,7 +4988,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Số đếm & Thời gian",
     "example_sentence": "日见！",
     "example_pinyin": "Rì jiàn!",
-    "example_meaning": "Hẹn gặp lại vào ngày, mặt trời!"
+    "example_meaning": "Hẹn gặp lại vào ngày, mặt trời!",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "313",
@@ -3756,7 +5004,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Số đếm & Thời gian",
     "example_sentence": "日期见！",
     "example_pinyin": "rì qī jiàn!",
-    "example_meaning": "Hẹn gặp lại vào ngày tháng, thời hạn!"
+    "example_meaning": "Hẹn gặp lại vào ngày tháng, thời hạn!",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "314",
@@ -3768,7 +5020,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Ăn uống & Ẩm thực",
     "example_sentence": "我想吃肉。",
     "example_pinyin": "Wǒ xiǎng chī ròu.",
-    "example_meaning": "Tôi muốn ăn/uống thịt."
+    "example_meaning": "Tôi muốn ăn/uống thịt.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "315",
@@ -3780,7 +5036,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Số đếm & Thời gian",
     "example_sentence": "三见！",
     "example_pinyin": "sān jiàn!",
-    "example_meaning": "Hẹn gặp lại vào số 3 (ba)!"
+    "example_meaning": "Hẹn gặp lại vào số 3 (ba)!",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "316",
@@ -3792,7 +5052,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Địa điểm & Đi lại",
     "example_sentence": "他在山。",
     "example_pinyin": "Tā zài shān.",
-    "example_meaning": "Anh ấy đang ở núi, ngọn núi."
+    "example_meaning": "Anh ấy đang ở núi, ngọn núi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "317",
@@ -3804,7 +5068,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Địa điểm & Đi lại",
     "example_sentence": "他在商场。",
     "example_pinyin": "Tā zài shāng chǎng.",
-    "example_meaning": "Anh ấy đang ở trung tâm thương mại."
+    "example_meaning": "Anh ấy đang ở trung tâm thương mại.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "318",
@@ -3816,7 +5084,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Địa điểm & Đi lại",
     "example_sentence": "他在商店。",
     "example_pinyin": "Tā zài shāng diàn.",
-    "example_meaning": "Anh ấy đang ở cửa hàng, tiệm buôn."
+    "example_meaning": "Anh ấy đang ở cửa hàng, tiệm buôn.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "319",
@@ -3828,7 +5100,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很上。",
     "example_pinyin": "Zhè ge hěn shǎng.",
-    "example_meaning": "Cái này rất lên, trên, trước."
+    "example_meaning": "Cái này rất lên, trên, trước.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "320",
@@ -3840,7 +5116,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Động từ thông dụng",
     "example_sentence": "我喜欢上班。",
     "example_pinyin": "Wǒ xǐhuan shàng bān.",
-    "example_meaning": "Tôi thích đi làm, vào ca làm việc."
+    "example_meaning": "Tôi thích đi làm, vào ca làm việc.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "321",
@@ -3852,7 +5132,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Địa điểm & Đi lại",
     "example_sentence": "他在上边。",
     "example_pinyin": "Tā zài shàng bian.",
-    "example_meaning": "Anh ấy đang ở phía trên, bên trên."
+    "example_meaning": "Anh ấy đang ở phía trên, bên trên.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "322",
@@ -3864,7 +5148,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Địa điểm & Đi lại",
     "example_sentence": "他在上车。",
     "example_pinyin": "Tā zài shàng chē.",
-    "example_meaning": "Anh ấy đang ở lên xe, lên tàu."
+    "example_meaning": "Anh ấy đang ở lên xe, lên tàu.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "323",
@@ -3876,7 +5164,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很上次。",
     "example_pinyin": "Zhè ge hěn shàng cì.",
-    "example_meaning": "Cái này rất lần trước, chuyến trước."
+    "example_meaning": "Cái này rất lần trước, chuyến trước.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "324",
@@ -3888,7 +5180,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很上课。",
     "example_pinyin": "Zhè ge hěn shàng kè.",
-    "example_meaning": "Cái này rất vào học, lên lớp."
+    "example_meaning": "Cái này rất vào học, lên lớp.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "325",
@@ -3900,7 +5196,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Động từ thông dụng",
     "example_sentence": "我喜欢上网。",
     "example_pinyin": "Wǒ xǐhuan shàng wǎng.",
-    "example_meaning": "Tôi thích lên mạng, truy cập internet."
+    "example_meaning": "Tôi thích lên mạng, truy cập internet.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "326",
@@ -3912,7 +5212,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Số đếm & Thời gian",
     "example_sentence": "上午见！",
     "example_pinyin": "shàng wǔ jiàn!",
-    "example_meaning": "Hẹn gặp lại vào buổi sáng (trước 12h)!"
+    "example_meaning": "Hẹn gặp lại vào buổi sáng (trước 12h)!",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "327",
@@ -3924,7 +5228,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很上学。",
     "example_pinyin": "Zhè ge hěn shàng xué.",
-    "example_meaning": "Cái này rất đi học, đến trường."
+    "example_meaning": "Cái này rất đi học, đến trường.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "328",
@@ -3936,7 +5244,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很少。",
     "example_pinyin": "Zhè ge hěn shǎo.",
-    "example_meaning": "Cái này rất ít, thiếu."
+    "example_meaning": "Cái này rất ít, thiếu.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "329",
@@ -3948,7 +5260,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很身上。",
     "example_pinyin": "Zhè ge hěn shēn shang.",
-    "example_meaning": "Cái này rất trên người, trên cơ thể."
+    "example_meaning": "Cái này rất trên người, trên cơ thể.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "330",
@@ -3960,7 +5276,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很身体。",
     "example_pinyin": "Zhè ge hěn shēn tǐ.",
-    "example_meaning": "Cái này rất thân thể, sức khỏe."
+    "example_meaning": "Cái này rất thân thể, sức khỏe.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "331",
@@ -3972,7 +5292,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很什么。",
     "example_pinyin": "Zhè ge hěn shén me.",
-    "example_meaning": "Cái này rất cái gì, gì."
+    "example_meaning": "Cái này rất cái gì, gì.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "332",
@@ -3984,7 +5308,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Động từ thông dụng",
     "example_sentence": "我喜欢生病。",
     "example_pinyin": "Wǒ xǐhuan shēng bìng.",
-    "example_meaning": "Tôi thích bị bệnh, ốm."
+    "example_meaning": "Tôi thích bị bệnh, ốm.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "333",
@@ -3996,7 +5324,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Động từ thông dụng",
     "example_sentence": "我喜欢生气。",
     "example_pinyin": "Wǒ xǐhuan shēng qì.",
-    "example_meaning": "Tôi thích tức giận, giận hờn."
+    "example_meaning": "Tôi thích tức giận, giận hờn.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "334",
@@ -4008,7 +5340,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很生日。",
     "example_pinyin": "Zhè ge hěn shēng rì.",
-    "example_meaning": "Cái này rất sinh nhật, ngày sinh."
+    "example_meaning": "Cái này rất sinh nhật, ngày sinh.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "335",
@@ -4020,7 +5356,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Số đếm & Thời gian",
     "example_sentence": "十见！",
     "example_pinyin": "shí jiàn!",
-    "example_meaning": "Hẹn gặp lại vào số 10 (mười)!"
+    "example_meaning": "Hẹn gặp lại vào số 10 (mười)!",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "336",
@@ -4032,7 +5372,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Số đếm & Thời gian",
     "example_sentence": "时候见！",
     "example_pinyin": "shí hou jiàn!",
-    "example_meaning": "Hẹn gặp lại vào lúc, khi, thời khắc!"
+    "example_meaning": "Hẹn gặp lại vào lúc, khi, thời khắc!",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "337",
@@ -4044,7 +5388,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Số đếm & Thời gian",
     "example_sentence": "时间见！",
     "example_pinyin": "shí jiān jiàn!",
-    "example_meaning": "Hẹn gặp lại vào thời gian!"
+    "example_meaning": "Hẹn gặp lại vào thời gian!",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "338",
@@ -4056,7 +5404,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很事。",
     "example_pinyin": "Zhè ge hěn shì.",
-    "example_meaning": "Cái này rất sự việc, công việc, chuyện."
+    "example_meaning": "Cái này rất sự việc, công việc, chuyện.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "339",
@@ -4068,7 +5420,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Động từ thông dụng",
     "example_sentence": "我喜欢试。",
     "example_pinyin": "Wǒ xǐhuan shì.",
-    "example_meaning": "Tôi thích thử, thi thử."
+    "example_meaning": "Tôi thích thử, thi thử.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "340",
@@ -4080,7 +5436,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很是。",
     "example_pinyin": "Zhè ge hěn shì.",
-    "example_meaning": "Cái này rất là, phải, đúng."
+    "example_meaning": "Cái này rất là, phải, đúng.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "341",
@@ -4092,7 +5452,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很是不是。",
     "example_pinyin": "Zhè ge hěn shì bù shì.",
-    "example_meaning": "Cái này rất có phải không, đúng không."
+    "example_meaning": "Cái này rất có phải không, đúng không.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "342",
@@ -4104,7 +5468,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很手。",
     "example_pinyin": "Zhè ge hěn shǒu.",
-    "example_meaning": "Cái này rất bàn tay, tay."
+    "example_meaning": "Cái này rất bàn tay, tay.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "343",
@@ -4116,7 +5484,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Đồ vật & Đời sống",
     "example_sentence": "这是我的手机。",
     "example_pinyin": "Zhè shì wǒ de shǒu jī.",
-    "example_meaning": "Đây là điện thoại di động của tôi."
+    "example_meaning": "Đây là điện thoại di động của tôi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "344",
@@ -4128,7 +5500,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Đồ vật & Đời sống",
     "example_sentence": "这是我的书。",
     "example_pinyin": "Zhè shì wǒ de Shū.",
-    "example_meaning": "Đây là sách, cuốn sách của tôi."
+    "example_meaning": "Đây là sách, cuốn sách của tôi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "345",
@@ -4140,7 +5516,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Đồ vật & Đời sống",
     "example_sentence": "这是我的书包。",
     "example_pinyin": "Zhè shì wǒ de shū bāo.",
-    "example_meaning": "Đây là cặp sách, ba lô đi học của tôi."
+    "example_meaning": "Đây là cặp sách, ba lô đi học của tôi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "346",
@@ -4152,7 +5532,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Địa điểm & Đi lại",
     "example_sentence": "他在书店。",
     "example_pinyin": "Tā zài shū diàn.",
-    "example_meaning": "Anh ấy đang ở hiệu sách, tiệm sách."
+    "example_meaning": "Anh ấy đang ở hiệu sách, tiệm sách.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "347",
@@ -4164,7 +5548,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Đồ vật & Đời sống",
     "example_sentence": "这是我的树。",
     "example_pinyin": "Zhè shì wǒ de shù.",
-    "example_meaning": "Đây là cây cối, cái cây của tôi."
+    "example_meaning": "Đây là cây cối, cái cây của tôi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "348",
@@ -4176,7 +5564,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Đại từ & Xưng hô",
     "example_sentence": "那是我的谁。",
     "example_pinyin": "Nà shì wǒ de shéi.",
-    "example_meaning": "Đó là ai (nghi vấn đại từ) của tôi."
+    "example_meaning": "Đó là ai (nghi vấn đại từ) của tôi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "349",
@@ -4188,7 +5580,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Ăn uống & Ẩm thực",
     "example_sentence": "我想吃水。",
     "example_pinyin": "Wǒ xiǎng chī shuǐ.",
-    "example_meaning": "Tôi muốn ăn/uống nước."
+    "example_meaning": "Tôi muốn ăn/uống nước.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "350",
@@ -4200,7 +5596,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Ăn uống & Ẩm thực",
     "example_sentence": "我想吃水果。",
     "example_pinyin": "Wǒ xiǎng chī shuǐ guǒ.",
-    "example_meaning": "Tôi muốn ăn/uống hoa quả, trái cây."
+    "example_meaning": "Tôi muốn ăn/uống hoa quả, trái cây.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "351",
@@ -4212,7 +5612,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Động từ thông dụng",
     "example_sentence": "我喜欢睡。",
     "example_pinyin": "Wǒ xǐhuan shuì.",
-    "example_meaning": "Tôi thích ngủ."
+    "example_meaning": "Tôi thích ngủ.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "352",
@@ -4224,7 +5628,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Động từ thông dụng",
     "example_sentence": "我喜欢睡觉。",
     "example_pinyin": "Wǒ xǐhuan shuì jiào.",
-    "example_meaning": "Tôi thích đi ngủ, giấc ngủ."
+    "example_meaning": "Tôi thích đi ngủ, giấc ngủ.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "353",
@@ -4236,7 +5644,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Động từ thông dụng",
     "example_sentence": "我喜欢说。",
     "example_pinyin": "Wǒ xǐhuan shuì.",
-    "example_meaning": "Tôi thích nói, bảo."
+    "example_meaning": "Tôi thích nói, bảo.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "354",
@@ -4248,7 +5660,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很说话。",
     "example_pinyin": "Zhè ge hěn shuō huà.",
-    "example_meaning": "Cái này rất nói chuyện, trò chuyện."
+    "example_meaning": "Cái này rất nói chuyện, trò chuyện.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "355",
@@ -4260,7 +5676,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Số đếm & Thời gian",
     "example_sentence": "四见！",
     "example_pinyin": "sì jiàn!",
-    "example_meaning": "Hẹn gặp lại vào số 4 (bốn)!"
+    "example_meaning": "Hẹn gặp lại vào số 4 (bốn)!",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "356",
@@ -4272,7 +5692,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Động từ thông dụng",
     "example_sentence": "我喜欢送。",
     "example_pinyin": "Wǒ xǐhuan sòng.",
-    "example_meaning": "Tôi thích tặng, tiễn, đưa đi."
+    "example_meaning": "Tôi thích tặng, tiễn, đưa đi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "357",
@@ -4284,7 +5708,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很岁。",
     "example_pinyin": "Zhè ge hěn suì.",
-    "example_meaning": "Cái này rất tuổi (chỉ tuổi tác)."
+    "example_meaning": "Cái này rất tuổi (chỉ tuổi tác).",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "358",
@@ -4296,7 +5724,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Đại từ & Xưng hô",
     "example_sentence": "那是我的他。",
     "example_pinyin": "Nà shì wǒ de tā.",
-    "example_meaning": "Đó là anh ấy, ông ấy, cậu ấy (ngôi 3 nam) của tôi."
+    "example_meaning": "Đó là anh ấy, ông ấy, cậu ấy (ngôi 3 nam) của tôi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "359",
@@ -4308,7 +5740,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Đại từ & Xưng hô",
     "example_sentence": "那是我的他们。",
     "example_pinyin": "Nà shì wǒ de tā men.",
-    "example_meaning": "Đó là họ, bọn họ, các anh ấy của tôi."
+    "example_meaning": "Đó là họ, bọn họ, các anh ấy của tôi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "360",
@@ -4320,7 +5756,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Đại từ & Xưng hô",
     "example_sentence": "那是我的她。",
     "example_pinyin": "Nà shì wǒ de tā.",
-    "example_meaning": "Đó là cô ấy, bà ấy, chị ấy (ngôi 3 nữ) của tôi."
+    "example_meaning": "Đó là cô ấy, bà ấy, chị ấy (ngôi 3 nữ) của tôi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "361",
@@ -4332,7 +5772,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Đại từ & Xưng hô",
     "example_sentence": "那是我的她们。",
     "example_pinyin": "Nà shì wǒ de tā men.",
-    "example_meaning": "Đó là họ, các cô ấy (nhóm toàn nữ) của tôi."
+    "example_meaning": "Đó là họ, các cô ấy (nhóm toàn nữ) của tôi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "362",
@@ -4344,7 +5788,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很太。",
     "example_pinyin": "Zhè ge hěn tài.",
-    "example_meaning": "Cái này rất quá, lắm, thái (thái quá)."
+    "example_meaning": "Cái này rất quá, lắm, thái (thái quá).",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "363",
@@ -4356,7 +5804,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Số đếm & Thời gian",
     "example_sentence": "天见！",
     "example_pinyin": "tiān jiàn!",
-    "example_meaning": "Hẹn gặp lại vào ngày, trời, bầu trời!"
+    "example_meaning": "Hẹn gặp lại vào ngày, trời, bầu trời!",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "364",
@@ -4368,7 +5820,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Đồ vật & Đời sống",
     "example_sentence": "这是我的天气。",
     "example_pinyin": "Zhè shì wǒ de tiān qì.",
-    "example_meaning": "Đây là thời tiết, khí hậu của tôi."
+    "example_meaning": "Đây là thời tiết, khí hậu của tôi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "365",
@@ -4380,7 +5836,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Động từ thông dụng",
     "example_sentence": "我喜欢听。",
     "example_pinyin": "Wǒ xǐhuan yǐn.",
-    "example_meaning": "Tôi thích nghe."
+    "example_meaning": "Tôi thích nghe.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "366",
@@ -4392,7 +5852,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很听到。",
     "example_pinyin": "Zhè ge hěn tīng dào.",
-    "example_meaning": "Cái này rất nghe thấy, lắng nghe được."
+    "example_meaning": "Cái này rất nghe thấy, lắng nghe được.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "367",
@@ -4404,7 +5868,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很听见。",
     "example_pinyin": "Zhè ge hěn tīng jiàn.",
-    "example_meaning": "Cái này rất nghe thấy, nghe được."
+    "example_meaning": "Cái này rất nghe thấy, nghe được.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "368",
@@ -4416,7 +5884,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很听写。",
     "example_pinyin": "Zhè ge hěn tīng xiě.",
-    "example_meaning": "Cái này rất nghe viết, chính tả."
+    "example_meaning": "Cái này rất nghe viết, chính tả.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "369",
@@ -4428,7 +5900,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Đại từ & Xưng hô",
     "example_sentence": "那是我的同学。",
     "example_pinyin": "Nà shì wǒ de tóng xué.",
-    "example_meaning": "Đó là bạn cùng lớp, bạn học của tôi."
+    "example_meaning": "Đó là bạn cùng lớp, bạn học của tôi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "370",
@@ -4440,7 +5916,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Địa điểm & Đi lại",
     "example_sentence": "他在图书馆。",
     "example_pinyin": "Tā zài tú shū guǎn.",
-    "example_meaning": "Anh ấy đang ở thư viện."
+    "example_meaning": "Anh ấy đang ở thư viện.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "371",
@@ -4452,7 +5932,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很外。",
     "example_pinyin": "Zhè ge hěn wài.",
-    "example_meaning": "Cái này rất ngoài, bên ngoài."
+    "example_meaning": "Cái này rất ngoài, bên ngoài.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "372",
@@ -4464,7 +5948,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Địa điểm & Đi lại",
     "example_sentence": "他在外边。",
     "example_pinyin": "Tā zài wài bian.",
-    "example_meaning": "Anh ấy đang ở phía ngoài, bên ngoài."
+    "example_meaning": "Anh ấy đang ở phía ngoài, bên ngoài.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "373",
@@ -4476,7 +5964,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Địa điểm & Đi lại",
     "example_sentence": "他在外国。",
     "example_pinyin": "Tā zài wài guó.",
-    "example_meaning": "Anh ấy đang ở nước ngoài."
+    "example_meaning": "Anh ấy đang ở nước ngoài.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "374",
@@ -4488,7 +5980,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很外语。",
     "example_pinyin": "Zhè ge hěn wài yǔ.",
-    "example_meaning": "Cái này rất ngoại ngữ."
+    "example_meaning": "Cái này rất ngoại ngữ.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "375",
@@ -4500,7 +5996,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Động từ thông dụng",
     "example_sentence": "我喜欢玩儿。",
     "example_pinyin": "Wǒ xǐhuan wán r.",
-    "example_meaning": "Tôi thích chơi, vui chơi."
+    "example_meaning": "Tôi thích chơi, vui chơi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "376",
@@ -4512,7 +6012,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Số đếm & Thời gian",
     "example_sentence": "晚见！",
     "example_pinyin": "wǎn jiàn!",
-    "example_meaning": "Hẹn gặp lại vào muộn, tối!"
+    "example_meaning": "Hẹn gặp lại vào muộn, tối!",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "377",
@@ -4524,7 +6028,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Ăn uống & Ẩm thực",
     "example_sentence": "我想吃晚饭。",
     "example_pinyin": "Wǒ xiǎng chī wǎn fàn.",
-    "example_meaning": "Tôi muốn ăn/uống bữa tối, cơm tối."
+    "example_meaning": "Tôi muốn ăn/uống bữa tối, cơm tối.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "378",
@@ -4536,7 +6044,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Số đếm & Thời gian",
     "example_sentence": "晚上见！",
     "example_pinyin": "wǎn shang jiàn!",
-    "example_meaning": "Hẹn gặp lại vào buổi tối, ban đêm!"
+    "example_meaning": "Hẹn gặp lại vào buổi tối, ban đêm!",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "379",
@@ -4548,7 +6060,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很网上。",
     "example_pinyin": "Zhè ge hěn wǎng shàng.",
-    "example_meaning": "Cái này rất trên mạng, online."
+    "example_meaning": "Cái này rất trên mạng, online.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "380",
@@ -4560,7 +6076,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Đại từ & Xưng hô",
     "example_sentence": "那是我的网友。",
     "example_pinyin": "Nà shì wǒ de wǎng yǒu.",
-    "example_meaning": "Đó là bạn trên mạng, cư dân mạng của tôi."
+    "example_meaning": "Đó là bạn trên mạng, cư dân mạng của tôi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "381",
@@ -4572,7 +6092,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Động từ thông dụng",
     "example_sentence": "我喜欢忘。",
     "example_pinyin": "Wǒ xǐhuan wàng.",
-    "example_meaning": "Tôi thích quên."
+    "example_meaning": "Tôi thích quên.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "382",
@@ -4584,7 +6108,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Động từ thông dụng",
     "example_sentence": "我喜欢忘记。",
     "example_pinyin": "Wǒ xǐhuan wàng jì.",
-    "example_meaning": "Tôi thích quên, quên mất."
+    "example_meaning": "Tôi thích quên, quên mất.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "383",
@@ -4596,7 +6124,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Động từ thông dụng",
     "example_sentence": "我喜欢问。",
     "example_pinyin": "Wǒ xǐhuan wèn.",
-    "example_meaning": "Tôi thích hỏi, thăm hỏi."
+    "example_meaning": "Tôi thích hỏi, thăm hỏi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "384",
@@ -4608,7 +6140,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Đại từ & Xưng hô",
     "example_sentence": "那是我的我。",
     "example_pinyin": "Nà shì wǒ de wǒ.",
-    "example_meaning": "Đó là tôi, mình, tớ (ngôi 1) của tôi."
+    "example_meaning": "Đó là tôi, mình, tớ (ngôi 1) của tôi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "385",
@@ -4620,7 +6156,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Đại từ & Xưng hô",
     "example_sentence": "那是我的我们。",
     "example_pinyin": "Nà shì wǒ de wǒ men.",
-    "example_meaning": "Đó là chúng tôi, chúng ta của tôi."
+    "example_meaning": "Đó là chúng tôi, chúng ta của tôi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "386",
@@ -4632,7 +6172,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Số đếm & Thời gian",
     "example_sentence": "五见！",
     "example_pinyin": "wǔ jiàn!",
-    "example_meaning": "Hẹn gặp lại vào số 5 (năm)!"
+    "example_meaning": "Hẹn gặp lại vào số 5 (năm)!",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "387",
@@ -4644,7 +6188,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Ăn uống & Ẩm thực",
     "example_sentence": "我想吃午饭。",
     "example_pinyin": "Wǒ xiǎng chī wǔ fàn.",
-    "example_meaning": "Tôi muốn ăn/uống bữa trưa, cơm trưa."
+    "example_meaning": "Tôi muốn ăn/uống bữa trưa, cơm trưa.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "388",
@@ -4656,7 +6204,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Động từ thông dụng",
     "example_sentence": "我喜欢洗。",
     "example_pinyin": "Wǒ xǐhuan xǐ.",
-    "example_meaning": "Tôi thích rửa, giặt, gội."
+    "example_meaning": "Tôi thích rửa, giặt, gội.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "389",
@@ -4668,7 +6220,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Địa điểm & Đi lại",
     "example_sentence": "他在洗手间。",
     "example_pinyin": "Tā zài xǐ shǒu jiān.",
-    "example_meaning": "Anh ấy đang ở nhà vệ sinh, phòng rửa tay."
+    "example_meaning": "Anh ấy đang ở nhà vệ sinh, phòng rửa tay.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "390",
@@ -4680,7 +6236,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Động từ thông dụng",
     "example_sentence": "我喜欢喜欢。",
     "example_pinyin": "Wǒ xǐhuan xǐ huan.",
-    "example_meaning": "Tôi thích thích, yêu thích."
+    "example_meaning": "Tôi thích thích, yêu thích.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "391",
@@ -4692,7 +6252,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Địa điểm & Đi lại",
     "example_sentence": "他在西。",
     "example_pinyin": "Tā zài Xī.",
-    "example_meaning": "Anh ấy đang ở phía tây, hướng tây."
+    "example_meaning": "Anh ấy đang ở phía tây, hướng tây.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "392",
@@ -4704,7 +6268,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Địa điểm & Đi lại",
     "example_sentence": "他在西边。",
     "example_pinyin": "Tā zài xī biān.",
-    "example_meaning": "Anh ấy đang ở phía tây."
+    "example_meaning": "Anh ấy đang ở phía tây.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "393",
@@ -4716,7 +6284,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很下。",
     "example_pinyin": "Zhè ge hěn xià.",
-    "example_meaning": "Cái này rất dưới, xuống / tiếp theo."
+    "example_meaning": "Cái này rất dưới, xuống / tiếp theo.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "394",
@@ -4728,7 +6300,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Động từ thông dụng",
     "example_sentence": "我喜欢下班。",
     "example_pinyin": "Wǒ xǐhuan xià bān.",
-    "example_meaning": "Tôi thích tan sở, tan ca làm."
+    "example_meaning": "Tôi thích tan sở, tan ca làm.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "395",
@@ -4740,7 +6316,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Địa điểm & Đi lại",
     "example_sentence": "他在下边。",
     "example_pinyin": "Tā zài xià bian.",
-    "example_meaning": "Anh ấy đang ở phía dưới, bên dưới."
+    "example_meaning": "Anh ấy đang ở phía dưới, bên dưới.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "396",
@@ -4752,7 +6332,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Địa điểm & Đi lại",
     "example_sentence": "他在下车。",
     "example_pinyin": "Tā zài xià chē.",
-    "example_meaning": "Anh ấy đang ở xuống xe, xuống tàu."
+    "example_meaning": "Anh ấy đang ở xuống xe, xuống tàu.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "397",
@@ -4764,7 +6348,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很下次。",
     "example_pinyin": "Zhè ge hěn xià cì.",
-    "example_meaning": "Cái này rất lần sau, chuyến sau."
+    "example_meaning": "Cái này rất lần sau, chuyến sau.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "398",
@@ -4776,7 +6364,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很下课。",
     "example_pinyin": "Zhè ge hěn xià kè.",
-    "example_meaning": "Cái này rất tan học, tan tiết."
+    "example_meaning": "Cái này rất tan học, tan tiết.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "399",
@@ -4788,7 +6380,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Số đếm & Thời gian",
     "example_sentence": "下午见！",
     "example_pinyin": "xià wǔ jiàn!",
-    "example_meaning": "Hẹn gặp lại vào buổi chiều (sau 12h)!"
+    "example_meaning": "Hẹn gặp lại vào buổi chiều (sau 12h)!",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "400",
@@ -4800,7 +6396,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很下雨。",
     "example_pinyin": "Zhè ge hěn xià yǔ.",
-    "example_meaning": "Cái này rất trời mưa, đổ mưa."
+    "example_meaning": "Cái này rất trời mưa, đổ mưa.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "401",
@@ -4812,7 +6412,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很先。",
     "example_pinyin": "Zhè ge hěn xiān.",
-    "example_meaning": "Cái này rất trước, tiên phong."
+    "example_meaning": "Cái này rất trước, tiên phong.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "402",
@@ -4824,7 +6428,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Đại từ & Xưng hô",
     "example_sentence": "那是我的先生。",
     "example_pinyin": "Nà shì wǒ de xiān sheng.",
-    "example_meaning": "Đó là ông, ngài, thầy, chồng của tôi."
+    "example_meaning": "Đó là ông, ngài, thầy, chồng của tôi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "403",
@@ -4836,7 +6444,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Số đếm & Thời gian",
     "example_sentence": "现在见！",
     "example_pinyin": "xiàn zài jiàn!",
-    "example_meaning": "Hẹn gặp lại vào bây giờ, hiện tại!"
+    "example_meaning": "Hẹn gặp lại vào bây giờ, hiện tại!",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "404",
@@ -4848,7 +6460,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Động từ thông dụng",
     "example_sentence": "我喜欢想。",
     "example_pinyin": "Wǒ xǐhuan xiǎng.",
-    "example_meaning": "Tôi thích nghĩ, nhớ, muốn."
+    "example_meaning": "Tôi thích nghĩ, nhớ, muốn.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "405",
@@ -4860,7 +6476,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很小。",
     "example_pinyin": "Zhè ge hěn xiǎo.",
-    "example_meaning": "Cái này rất nhỏ, bé, ít."
+    "example_meaning": "Cái này rất nhỏ, bé, ít.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "406",
@@ -4872,7 +6492,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Đại từ & Xưng hô",
     "example_sentence": "那是我的小孩儿。",
     "example_pinyin": "Nà shì wǒ de xiǎo hái r.",
-    "example_meaning": "Đó là trẻ con, đứa trẻ của tôi."
+    "example_meaning": "Đó là trẻ con, đứa trẻ của tôi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "407",
@@ -4884,7 +6508,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Đại từ & Xưng hô",
     "example_sentence": "那是我的小姐。",
     "example_pinyin": "Nà shì wǒ de xiǎo jie.",
-    "example_meaning": "Đó là cô gái, tiểu thư của tôi."
+    "example_meaning": "Đó là cô gái, tiểu thư của tôi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "408",
@@ -4896,7 +6524,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Đại từ & Xưng hô",
     "example_sentence": "那是我的小朋友。",
     "example_pinyin": "Nà shì wǒ de xiǎo péng yǒu.",
-    "example_meaning": "Đó là bạn nhỏ, em nhỏ của tôi."
+    "example_meaning": "Đó là bạn nhỏ, em nhỏ của tôi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "409",
@@ -4908,7 +6540,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Số đếm & Thời gian",
     "example_sentence": "小时见！",
     "example_pinyin": "xiǎo shí jiàn!",
-    "example_meaning": "Hẹn gặp lại vào giờ đồng hồ, tiếng đồng hồ!"
+    "example_meaning": "Hẹn gặp lại vào giờ đồng hồ, tiếng đồng hồ!",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "410",
@@ -4920,7 +6556,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Địa điểm & Đi lại",
     "example_sentence": "他在小学。",
     "example_pinyin": "Tā zài xiǎo xué.",
-    "example_meaning": "Anh ấy đang ở trường tiểu học."
+    "example_meaning": "Anh ấy đang ở trường tiểu học.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "411",
@@ -4932,7 +6572,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Đại từ & Xưng hô",
     "example_sentence": "那是我的小学生。",
     "example_pinyin": "Nà shì wǒ de xiǎo xué shēng.",
-    "example_meaning": "Đó là học sinh tiểu học của tôi."
+    "example_meaning": "Đó là học sinh tiểu học của tôi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "412",
@@ -4944,7 +6588,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Động từ thông dụng",
     "example_sentence": "我喜欢笑。",
     "example_pinyin": "Wǒ xǐhuan xiào.",
-    "example_meaning": "Tôi thích cười."
+    "example_meaning": "Tôi thích cười.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "413",
@@ -4956,7 +6604,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Động từ thông dụng",
     "example_sentence": "我喜欢写。",
     "example_pinyin": "Wǒ xǐhuan xiě.",
-    "example_meaning": "Tôi thích viết."
+    "example_meaning": "Tôi thích viết.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "414",
@@ -4968,7 +6620,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Chào hỏi & Xã giao",
     "example_sentence": "谢谢。",
     "example_pinyin": "xiè xie.",
-    "example_meaning": "cảm ơn."
+    "example_meaning": "cảm ơn.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "415",
@@ -4980,7 +6636,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很新。",
     "example_pinyin": "Zhè ge hěn Xīn.",
-    "example_meaning": "Cái này rất mới, tươi mới."
+    "example_meaning": "Cái này rất mới, tươi mới.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "416",
@@ -4992,7 +6652,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Số đếm & Thời gian",
     "example_sentence": "新年见！",
     "example_pinyin": "xīn nián jiàn!",
-    "example_meaning": "Hẹn gặp lại vào năm mới, tết!"
+    "example_meaning": "Hẹn gặp lại vào năm mới, tết!",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "417",
@@ -5004,7 +6668,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Số đếm & Thời gian",
     "example_sentence": "星期见！",
     "example_pinyin": "xīng qī jiàn!",
-    "example_meaning": "Hẹn gặp lại vào tuần, thứ trong tuần!"
+    "example_meaning": "Hẹn gặp lại vào tuần, thứ trong tuần!",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "418",
@@ -5016,7 +6684,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Số đếm & Thời gian",
     "example_sentence": "星期日见！",
     "example_pinyin": "Xīng qī rì jiàn!",
-    "example_meaning": "Hẹn gặp lại vào chủ nhật!"
+    "example_meaning": "Hẹn gặp lại vào chủ nhật!",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "419",
@@ -5028,7 +6700,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Số đếm & Thời gian",
     "example_sentence": "星期天见！",
     "example_pinyin": "Xīng qī tiān jiàn!",
-    "example_meaning": "Hẹn gặp lại vào chủ nhật!"
+    "example_meaning": "Hẹn gặp lại vào chủ nhật!",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "420",
@@ -5040,7 +6716,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很行。",
     "example_pinyin": "Zhè ge hěn háng.",
-    "example_meaning": "Cái này rất được, ổn / đi."
+    "example_meaning": "Cái này rất được, ổn / đi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "421",
@@ -5052,7 +6732,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Động từ thông dụng",
     "example_sentence": "我喜欢休息。",
     "example_pinyin": "Wǒ xǐhuan xiū xi.",
-    "example_meaning": "Tôi thích nghỉ ngơi."
+    "example_meaning": "Tôi thích nghỉ ngơi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "422",
@@ -5064,7 +6748,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Động từ thông dụng",
     "example_sentence": "我喜欢学。",
     "example_pinyin": "Wǒ xǐhuan xué.",
-    "example_meaning": "Tôi thích học, bắt chước."
+    "example_meaning": "Tôi thích học, bắt chước.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "423",
@@ -5076,7 +6764,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Đại từ & Xưng hô",
     "example_sentence": "那是我的学生。",
     "example_pinyin": "Nà shì wǒ de xué sheng.",
-    "example_meaning": "Đó là học sinh, sinh viên của tôi."
+    "example_meaning": "Đó là học sinh, sinh viên của tôi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "424",
@@ -5088,7 +6780,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Động từ thông dụng",
     "example_sentence": "我喜欢学习。",
     "example_pinyin": "Wǒ xǐhuan xué xí.",
-    "example_meaning": "Tôi thích học tập, rèn luyện."
+    "example_meaning": "Tôi thích học tập, rèn luyện.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "425",
@@ -5100,7 +6796,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Địa điểm & Đi lại",
     "example_sentence": "他在学校。",
     "example_pinyin": "Tā zài xué xiào.",
-    "example_meaning": "Anh ấy đang ở trường học."
+    "example_meaning": "Anh ấy đang ở trường học.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "426",
@@ -5112,7 +6812,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Địa điểm & Đi lại",
     "example_sentence": "他在学院。",
     "example_pinyin": "Tā zài xué yuàn.",
-    "example_meaning": "Anh ấy đang ở học viện, trường cao đẳng."
+    "example_meaning": "Anh ấy đang ở học viện, trường cao đẳng.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "427",
@@ -5124,7 +6828,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Động từ thông dụng",
     "example_sentence": "我喜欢要。",
     "example_pinyin": "Wǒ xǐhuan yāo.",
-    "example_meaning": "Tôi thích muốn, cần, phải / sắp."
+    "example_meaning": "Tôi thích muốn, cần, phải / sắp.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "428",
@@ -5136,7 +6844,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很也。",
     "example_pinyin": "Zhè ge hěn yě.",
-    "example_meaning": "Cái này rất cũng, cũng vậy."
+    "example_meaning": "Cái này rất cũng, cũng vậy.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "429",
@@ -5148,7 +6860,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Đồ vật & Đời sống",
     "example_sentence": "这是我的页。",
     "example_pinyin": "Zhè shì wǒ de xié.",
-    "example_meaning": "Đây là trang (sách) của tôi."
+    "example_meaning": "Đây là trang (sách) của tôi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "430",
@@ -5160,7 +6876,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Đại từ & Xưng hô",
     "example_sentence": "那是我的爷爷。",
     "example_pinyin": "Nà shì wǒ de yé ye.",
-    "example_meaning": "Đó là ông nội của tôi."
+    "example_meaning": "Đó là ông nội của tôi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "431",
@@ -5172,7 +6892,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Số đếm & Thời gian",
     "example_sentence": "一见！",
     "example_pinyin": "yī jiàn!",
-    "example_meaning": "Hẹn gặp lại vào số 1 (một)!"
+    "example_meaning": "Hẹn gặp lại vào số 1 (một)!",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "432",
@@ -5184,7 +6908,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很一半。",
     "example_pinyin": "Zhè ge hěn yī bàn.",
-    "example_meaning": "Cái này rất một nửa."
+    "example_meaning": "Cái này rất một nửa.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "433",
@@ -5196,7 +6924,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很一边。",
     "example_pinyin": "Zhè ge hěn yī biān.",
-    "example_meaning": "Cái này rất một bên / vừa... vừa...."
+    "example_meaning": "Cái này rất một bên / vừa... vừa....",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "434",
@@ -5208,7 +6940,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Đồ vật & Đời sống",
     "example_sentence": "这是我的一点儿。",
     "example_pinyin": "Zhè shì wǒ de yī diǎn r.",
-    "example_meaning": "Đây là một chút, một ít của tôi."
+    "example_meaning": "Đây là một chút, một ít của tôi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "435",
@@ -5220,7 +6956,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很一会儿。",
     "example_pinyin": "Zhè ge hěn yī huì r.",
-    "example_meaning": "Cái này rất một lát, một chốc."
+    "example_meaning": "Cái này rất một lát, một chốc.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "436",
@@ -5232,7 +6972,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很一块儿。",
     "example_pinyin": "Zhè ge hěn yī kuài r.",
-    "example_meaning": "Cái này rất cùng nhau, chung một chỗ."
+    "example_meaning": "Cái này rất cùng nhau, chung một chỗ.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "437",
@@ -5244,7 +6988,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很一起。",
     "example_pinyin": "Zhè ge hěn yī qǐ.",
-    "example_meaning": "Cái này rất cùng nhau, đồng thời."
+    "example_meaning": "Cái này rất cùng nhau, đồng thời.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "438",
@@ -5256,7 +7004,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很一下儿。",
     "example_pinyin": "Zhè ge hěn yī xià r.",
-    "example_meaning": "Cái này rất một chút, một thoáng."
+    "example_meaning": "Cái này rất một chút, một thoáng.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "439",
@@ -5268,7 +7020,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Đồ vật & Đời sống",
     "example_sentence": "这是我的一些。",
     "example_pinyin": "Zhè shì wǒ de yī xiē.",
-    "example_meaning": "Đây là một vài, một số của tôi."
+    "example_meaning": "Đây là một vài, một số của tôi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "440",
@@ -5280,7 +7036,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很一样。",
     "example_pinyin": "Zhè ge hěn yī yàng.",
-    "example_meaning": "Cái này rất giống nhau, như nhau."
+    "example_meaning": "Cái này rất giống nhau, như nhau.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "441",
@@ -5292,7 +7052,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Đồ vật & Đời sống",
     "example_sentence": "这是我的衣服。",
     "example_pinyin": "Zhè shì wǒ de yī fu.",
-    "example_meaning": "Đây là quần áo, trang phục của tôi."
+    "example_meaning": "Đây là quần áo, trang phục của tôi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "442",
@@ -5304,7 +7068,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Đại từ & Xưng hô",
     "example_sentence": "那是我的医生。",
     "example_pinyin": "Nà shì wǒ de yī shēng.",
-    "example_meaning": "Đó là bác sĩ, thầy thuốc của tôi."
+    "example_meaning": "Đó là bác sĩ, thầy thuốc của tôi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "443",
@@ -5316,7 +7084,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Địa điểm & Đi lại",
     "example_sentence": "他在医院。",
     "example_pinyin": "Tā zài yī yuàn.",
-    "example_meaning": "Anh ấy đang ở bệnh viện."
+    "example_meaning": "Anh ấy đang ở bệnh viện.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "444",
@@ -5328,7 +7100,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Động từ thông dụng",
     "example_sentence": "我喜欢用。",
     "example_pinyin": "Wǒ xǐhuan yòng.",
-    "example_meaning": "Tôi thích dùng, sử dụng."
+    "example_meaning": "Tôi thích dùng, sử dụng.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "445",
@@ -5340,7 +7116,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很有。",
     "example_pinyin": "Zhè ge hěn yǒu.",
-    "example_meaning": "Cái này rất có, sở hữu."
+    "example_meaning": "Cái này rất có, sở hữu.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "446",
@@ -5352,7 +7132,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Đại từ & Xưng hô",
     "example_sentence": "那是我的有的。",
     "example_pinyin": "Nà shì wǒ de yǒu de.",
-    "example_meaning": "Đó là có cái, có người của tôi."
+    "example_meaning": "Đó là có cái, có người của tôi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "447",
@@ -5364,7 +7148,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很有名。",
     "example_pinyin": "Zhè ge hěn yǒu míng.",
-    "example_meaning": "Cái này rất nổi tiếng."
+    "example_meaning": "Cái này rất nổi tiếng.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "448",
@@ -5376,7 +7164,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很有时。",
     "example_pinyin": "Zhè ge hěn yǒu shí.",
-    "example_meaning": "Cái này rất có lúc, đôi khi."
+    "example_meaning": "Cái này rất có lúc, đôi khi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "449",
@@ -5388,7 +7180,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很有时候。",
     "example_pinyin": "Zhè ge hěn yǒu shí hou.",
-    "example_meaning": "Cái này rất thỉnh thoảng, đôi khi."
+    "example_meaning": "Cái này rất thỉnh thoảng, đôi khi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "450",
@@ -5400,7 +7196,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很有些。",
     "example_pinyin": "Zhè ge hěn yǒu xiē.",
-    "example_meaning": "Cái này rất có một số, hơi một chút."
+    "example_meaning": "Cái này rất có một số, hơi một chút.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "451",
@@ -5412,7 +7212,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很有一些。",
     "example_pinyin": "Zhè ge hěn yǒu yī xiē.",
-    "example_meaning": "Cái này rất có một ít, có vài."
+    "example_meaning": "Cái này rất có một ít, có vài.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "452",
@@ -5424,7 +7228,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很有用。",
     "example_pinyin": "Zhè ge hěn yǒu yòng.",
-    "example_meaning": "Cái này rất có ích, hữu dụng."
+    "example_meaning": "Cái này rất có ích, hữu dụng.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "453",
@@ -5436,7 +7244,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很右。",
     "example_pinyin": "Zhè ge hěn yòu.",
-    "example_meaning": "Cái này rất bên phải, hướng phải."
+    "example_meaning": "Cái này rất bên phải, hướng phải.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "454",
@@ -5448,7 +7260,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Địa điểm & Đi lại",
     "example_sentence": "他在右边。",
     "example_pinyin": "Tā zài yòu bian.",
-    "example_meaning": "Anh ấy đang ở bên phải, phía bên phải."
+    "example_meaning": "Anh ấy đang ở bên phải, phía bên phải.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "455",
@@ -5460,7 +7276,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Đồ vật & Đời sống",
     "example_sentence": "这是我的雨。",
     "example_pinyin": "Zhè shì wǒ de yǔ.",
-    "example_meaning": "Đây là mưa, cơn mưa của tôi."
+    "example_meaning": "Đây là mưa, cơn mưa của tôi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "456",
@@ -5472,7 +7292,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Đồ vật & Đời sống",
     "example_sentence": "这是我的元。",
     "example_pinyin": "Zhè shì wǒ de yuán.",
-    "example_meaning": "Đây là đồng tệ (đơn vị tiền TQ) của tôi."
+    "example_meaning": "Đây là đồng tệ (đơn vị tiền TQ) của tôi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "457",
@@ -5484,7 +7308,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很远。",
     "example_pinyin": "Zhè ge hěn yuǎn.",
-    "example_meaning": "Cái này rất xa, xa xôi."
+    "example_meaning": "Cái này rất xa, xa xôi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "458",
@@ -5496,7 +7324,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Số đếm & Thời gian",
     "example_sentence": "月见！",
     "example_pinyin": "yuè jiàn!",
-    "example_meaning": "Hẹn gặp lại vào tháng, mặt trăng!"
+    "example_meaning": "Hẹn gặp lại vào tháng, mặt trăng!",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "459",
@@ -5508,7 +7340,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很再。",
     "example_pinyin": "Zhè ge hěn zài.",
-    "example_meaning": "Cái này rất lại, nữa / rồi hãy."
+    "example_meaning": "Cái này rất lại, nữa / rồi hãy.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "460",
@@ -5520,7 +7356,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Chào hỏi & Xã giao",
     "example_sentence": "再见。",
     "example_pinyin": "zài jiàn.",
-    "example_meaning": "tạm biệt, hẹn gặp lại."
+    "example_meaning": "tạm biệt, hẹn gặp lại.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "461",
@@ -5532,7 +7372,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很在。",
     "example_pinyin": "Zhè ge hěn zài.",
-    "example_meaning": "Cái này rất ở, tại / đang (làm gì)."
+    "example_meaning": "Cái này rất ở, tại / đang (làm gì).",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "462",
@@ -5544,7 +7388,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很在家。",
     "example_pinyin": "Zhè ge hěn zài jiā.",
-    "example_meaning": "Cái này rất ở nhà."
+    "example_meaning": "Cái này rất ở nhà.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "463",
@@ -5556,7 +7404,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Số đếm & Thời gian",
     "example_sentence": "早见！",
     "example_pinyin": "zǎo jiàn!",
-    "example_meaning": "Hẹn gặp lại vào sớm, buổi sáng!"
+    "example_meaning": "Hẹn gặp lại vào sớm, buổi sáng!",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "464",
@@ -5568,7 +7420,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Ăn uống & Ẩm thực",
     "example_sentence": "我想吃早饭。",
     "example_pinyin": "Wǒ xiǎng chī zǎo fàn.",
-    "example_meaning": "Tôi muốn ăn/uống bữa sáng, điểm tâm."
+    "example_meaning": "Tôi muốn ăn/uống bữa sáng, điểm tâm.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "465",
@@ -5580,7 +7436,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Số đếm & Thời gian",
     "example_sentence": "早上见！",
     "example_pinyin": "zǎo shang jiàn!",
-    "example_meaning": "Hẹn gặp lại vào buổi sáng sớm!"
+    "example_meaning": "Hẹn gặp lại vào buổi sáng sớm!",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "466",
@@ -5592,7 +7452,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很怎么。",
     "example_pinyin": "Zhè ge hěn zěn me.",
-    "example_meaning": "Cái này rất thế nào, làm sao, sao lại."
+    "example_meaning": "Cái này rất thế nào, làm sao, sao lại.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "467",
@@ -5604,7 +7468,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Động từ thông dụng",
     "example_sentence": "我喜欢站。",
     "example_pinyin": "Wǒ xǐhuan zhàn.",
-    "example_meaning": "Tôi thích đứng / trạm dừng, nhà ga."
+    "example_meaning": "Tôi thích đứng / trạm dừng, nhà ga.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "468",
@@ -5616,7 +7484,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Động từ thông dụng",
     "example_sentence": "我喜欢找。",
     "example_pinyin": "Wǒ xǐhuan zhǎo.",
-    "example_meaning": "Tôi thích tìm kiếm / thối lại tiền."
+    "example_meaning": "Tôi thích tìm kiếm / thối lại tiền.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "469",
@@ -5628,7 +7500,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Động từ thông dụng",
     "example_sentence": "我喜欢找到。",
     "example_pinyin": "Wǒ xǐhuan zhǎo dào.",
-    "example_meaning": "Tôi thích tìm thấy, kiếm được."
+    "example_meaning": "Tôi thích tìm thấy, kiếm được.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "470",
@@ -5640,7 +7516,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很这。",
     "example_pinyin": "Zhè ge hěn zhè.",
-    "example_meaning": "Cái này rất đây, này."
+    "example_meaning": "Cái này rất đây, này.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "471",
@@ -5652,7 +7532,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Địa điểm & Đi lại",
     "example_sentence": "他在这边。",
     "example_pinyin": "Tā zài zhè biān.",
-    "example_meaning": "Anh ấy đang ở bên này, phía này."
+    "example_meaning": "Anh ấy đang ở bên này, phía này.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "472",
@@ -5664,7 +7548,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Địa điểm & Đi lại",
     "example_sentence": "他在这儿。",
     "example_pinyin": "Tā zài zhè r.",
-    "example_meaning": "Anh ấy đang ở ở đây, chỗ này."
+    "example_meaning": "Anh ấy đang ở ở đây, chỗ này.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "473",
@@ -5676,7 +7564,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Địa điểm & Đi lại",
     "example_sentence": "他在这里。",
     "example_pinyin": "Tā zài zhè lǐ.",
-    "example_meaning": "Anh ấy đang ở ở nơi này, chỗ này."
+    "example_meaning": "Anh ấy đang ở ở nơi này, chỗ này.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "474",
@@ -5688,7 +7580,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Đồ vật & Đời sống",
     "example_sentence": "这是我的这些。",
     "example_pinyin": "Zhè shì wǒ de zhè xiē.",
-    "example_meaning": "Đây là những cái này, số này của tôi."
+    "example_meaning": "Đây là những cái này, số này của tôi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "475",
@@ -5700,7 +7596,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Chào hỏi & Xã giao",
     "example_sentence": "着。",
     "example_pinyin": "zhāo.",
-    "example_meaning": "đang (trợ từ tiếp diễn)."
+    "example_meaning": "đang (trợ từ tiếp diễn).",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "476",
@@ -5712,7 +7612,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很真。",
     "example_pinyin": "Zhè ge hěn zhēn.",
-    "example_meaning": "Cái này rất thật, quả thật, đúng là."
+    "example_meaning": "Cái này rất thật, quả thật, đúng là.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "477",
@@ -5724,7 +7628,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很真的。",
     "example_pinyin": "Zhè ge hěn zhēn de.",
-    "example_meaning": "Cái này rất thật sự, thật đấy."
+    "example_meaning": "Cái này rất thật sự, thật đấy.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "478",
@@ -5736,7 +7644,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很正。",
     "example_pinyin": "Zhè ge hěn zhēng.",
-    "example_meaning": "Cái này rất đang / chính, đúng."
+    "example_meaning": "Cái này rất đang / chính, đúng.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "479",
@@ -5748,7 +7660,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很正在。",
     "example_pinyin": "Zhè ge hěn zhèng zài.",
-    "example_meaning": "Cái này rất đang (trong quá trình làm gì)."
+    "example_meaning": "Cái này rất đang (trong quá trình làm gì).",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "480",
@@ -5760,7 +7676,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Động từ thông dụng",
     "example_sentence": "我喜欢知道。",
     "example_pinyin": "Wǒ xǐhuan zhī dào.",
-    "example_meaning": "Tôi thích biết, hiểu."
+    "example_meaning": "Tôi thích biết, hiểu.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "481",
@@ -5772,7 +7692,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很知识。",
     "example_pinyin": "Zhè ge hěn zhī shi.",
-    "example_meaning": "Cái này rất tri thức, kiến thức."
+    "example_meaning": "Cái này rất tri thức, kiến thức.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "482",
@@ -5784,7 +7708,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很中。",
     "example_pinyin": "Zhè ge hěn Zhōng.",
-    "example_meaning": "Cái này rất giữa, trung tâm / Trung Quốc."
+    "example_meaning": "Cái này rất giữa, trung tâm / Trung Quốc.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "483",
@@ -5796,7 +7724,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Địa điểm & Đi lại",
     "example_sentence": "他在中国。",
     "example_pinyin": "Tā zài Zhōng guó.",
-    "example_meaning": "Anh ấy đang ở Trung Quốc."
+    "example_meaning": "Anh ấy đang ở Trung Quốc.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "484",
@@ -5808,7 +7740,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Địa điểm & Đi lại",
     "example_sentence": "他在中间。",
     "example_pinyin": "Tā zài zhōng jiān.",
-    "example_meaning": "Anh ấy đang ở ở giữa, khoảng giữa."
+    "example_meaning": "Anh ấy đang ở ở giữa, khoảng giữa.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "485",
@@ -5820,7 +7756,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很中文。",
     "example_pinyin": "Zhè ge hěn Zhōng wén.",
-    "example_meaning": "Cái này rất tiếng Trung, văn tự Hán."
+    "example_meaning": "Cái này rất tiếng Trung, văn tự Hán.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "486",
@@ -5832,7 +7772,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Số đếm & Thời gian",
     "example_sentence": "中午见！",
     "example_pinyin": "zhōng wǔ jiàn!",
-    "example_meaning": "Hẹn gặp lại vào buổi trưa (khoảng 12h)!"
+    "example_meaning": "Hẹn gặp lại vào buổi trưa (khoảng 12h)!",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "487",
@@ -5844,7 +7788,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Địa điểm & Đi lại",
     "example_sentence": "他在中学。",
     "example_pinyin": "Tā zài zhōng xué.",
-    "example_meaning": "Anh ấy đang ở trường trung học (cấp 2, 3)."
+    "example_meaning": "Anh ấy đang ở trường trung học (cấp 2, 3).",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "488",
@@ -5856,7 +7804,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Đại từ & Xưng hô",
     "example_sentence": "那是我的中学生。",
     "example_pinyin": "Nà shì wǒ de zhōng xué shēng.",
-    "example_meaning": "Đó là học sinh trung học của tôi."
+    "example_meaning": "Đó là học sinh trung học của tôi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "489",
@@ -5868,7 +7820,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很重。",
     "example_pinyin": "Zhè ge hěn chóng.",
-    "example_meaning": "Cái này rất nặng, quan trọng."
+    "example_meaning": "Cái này rất nặng, quan trọng.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "490",
@@ -5880,7 +7836,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很重要。",
     "example_pinyin": "Zhè ge hěn zhòng yào.",
-    "example_meaning": "Cái này rất quan trọng, hệ trọng."
+    "example_meaning": "Cái này rất quan trọng, hệ trọng.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "491",
@@ -5892,7 +7852,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Động từ thông dụng",
     "example_sentence": "我喜欢住。",
     "example_pinyin": "Wǒ xǐhuan zhù.",
-    "example_meaning": "Tôi thích sống, ở, cư trú."
+    "example_meaning": "Tôi thích sống, ở, cư trú.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "492",
@@ -5904,7 +7868,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Động từ thông dụng",
     "example_sentence": "我喜欢准备。",
     "example_pinyin": "Wǒ xǐhuan zhǔn bèi.",
-    "example_meaning": "Tôi thích chuẩn bị, dự định."
+    "example_meaning": "Tôi thích chuẩn bị, dự định.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "493",
@@ -5916,7 +7884,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Đồ vật & Đời sống",
     "example_sentence": "这是我的桌子。",
     "example_pinyin": "Zhè shì wǒ de zhuō zi.",
-    "example_meaning": "Đây là cái bàn của tôi."
+    "example_meaning": "Đây là cái bàn của tôi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "494",
@@ -5928,7 +7900,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Đồ vật & Đời sống",
     "example_sentence": "这是我的字。",
     "example_pinyin": "Zhè shì wǒ de zì.",
-    "example_meaning": "Đây là chữ, chữ Hán của tôi."
+    "example_meaning": "Đây là chữ, chữ Hán của tôi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "495",
@@ -5940,7 +7916,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很子。",
     "example_pinyin": "Zhè ge hěn zǐ.",
-    "example_meaning": "Cái này rất con, cái (hậu tố)."
+    "example_meaning": "Cái này rất con, cái (hậu tố).",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "496",
@@ -5952,7 +7932,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Địa điểm & Đi lại",
     "example_sentence": "他在走。",
     "example_pinyin": "Tā zài zǒu.",
-    "example_meaning": "Anh ấy đang ở đi, bước đi, rời đi."
+    "example_meaning": "Anh ấy đang ở đi, bước đi, rời đi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "497",
@@ -5964,7 +7948,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Địa điểm & Đi lại",
     "example_sentence": "他在走路。",
     "example_pinyin": "Tā zài zǒu lù.",
-    "example_meaning": "Anh ấy đang ở đi bộ."
+    "example_meaning": "Anh ấy đang ở đi bộ.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "498",
@@ -5976,7 +7964,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很最。",
     "example_pinyin": "Zhè ge hěn zuì.",
-    "example_meaning": "Cái này rất nhất (so sánh nhất)."
+    "example_meaning": "Cái này rất nhất (so sánh nhất).",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "499",
@@ -5988,7 +7980,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很最好。",
     "example_pinyin": "Zhè ge hěn zuì hǎo.",
-    "example_meaning": "Cái này rất tốt nhất, hay nhất."
+    "example_meaning": "Cái này rất tốt nhất, hay nhất.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "500",
@@ -6000,7 +7996,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很最后。",
     "example_pinyin": "Zhè ge hěn zuì hòu.",
-    "example_meaning": "Cái này rất cuối cùng, sau cùng."
+    "example_meaning": "Cái này rất cuối cùng, sau cùng.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "501",
@@ -6012,7 +8012,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Số đếm & Thời gian",
     "example_sentence": "昨天见！",
     "example_pinyin": "zuó tiān jiàn!",
-    "example_meaning": "Hẹn gặp lại vào hôm qua!"
+    "example_meaning": "Hẹn gặp lại vào hôm qua!",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "502",
@@ -6024,7 +8028,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很左。",
     "example_pinyin": "Zhè ge hěn zuǒ.",
-    "example_meaning": "Cái này rất bên trái, hướng trái."
+    "example_meaning": "Cái này rất bên trái, hướng trái.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "503",
@@ -6036,7 +8044,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Địa điểm & Đi lại",
     "example_sentence": "他在左边。",
     "example_pinyin": "Tā zài zuǒ bian.",
-    "example_meaning": "Anh ấy đang ở bên trái, phía bên trái."
+    "example_meaning": "Anh ấy đang ở bên trái, phía bên trái.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "504",
@@ -6048,7 +8060,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Động từ thông dụng",
     "example_sentence": "我喜欢坐。",
     "example_pinyin": "Wǒ xǐhuan zuò.",
-    "example_meaning": "Tôi thích ngồi, đi (tàu, xe, máy bay)."
+    "example_meaning": "Tôi thích ngồi, đi (tàu, xe, máy bay).",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "505",
@@ -6060,7 +8076,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Động từ thông dụng",
     "example_sentence": "我喜欢坐下。",
     "example_pinyin": "Wǒ xǐhuan zuò xia.",
-    "example_meaning": "Tôi thích ngồi xuống."
+    "example_meaning": "Tôi thích ngồi xuống.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "506",
@@ -6072,7 +8092,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Động từ thông dụng",
     "example_sentence": "我喜欢做。",
     "example_pinyin": "Wǒ xǐhuan zuò.",
-    "example_meaning": "Tôi thích làm, chế tạo, nấu."
+    "example_meaning": "Tôi thích làm, chế tạo, nấu.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "507",
@@ -6084,7 +8108,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很边。",
     "example_pinyin": "Zhè ge hěn biān.",
-    "example_meaning": "Cái này rất bên, mép, cạnh."
+    "example_meaning": "Cái này rất bên, mép, cạnh.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "508",
@@ -6096,7 +8124,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很便宜。",
     "example_pinyin": "Zhè ge hěn biàn yí.",
-    "example_meaning": "Cái này rất rẻ, giá rẻ."
+    "example_meaning": "Cái này rất rẻ, giá rẻ.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "509",
@@ -6108,7 +8140,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Chào hỏi & Xã giao",
     "example_sentence": "不要。",
     "example_pinyin": "bù yào.",
-    "example_meaning": "đừng, không muốn."
+    "example_meaning": "đừng, không muốn.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "510",
@@ -6120,7 +8156,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Địa điểm & Đi lại",
     "example_sentence": "他在超市。",
     "example_pinyin": "Tā zài chāo shì.",
-    "example_meaning": "Anh ấy đang ở siêu thị."
+    "example_meaning": "Anh ấy đang ở siêu thị.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "511",
@@ -6132,7 +8172,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Địa điểm & Đi lại",
     "example_sentence": "他在出租车。",
     "example_pinyin": "Tā zài chū zū chē.",
-    "example_meaning": "Anh ấy đang ở xe taxi."
+    "example_meaning": "Anh ấy đang ở xe taxi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "512",
@@ -6144,7 +8188,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Đại từ & Xưng hô",
     "example_sentence": "那是我的大家。",
     "example_pinyin": "Nà shì wǒ de dà jiā.",
-    "example_meaning": "Đó là mọi người, cả nhà của tôi."
+    "example_meaning": "Đó là mọi người, cả nhà của tôi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "513",
@@ -6156,7 +8204,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很店。",
     "example_pinyin": "Zhè ge hěn diàn.",
-    "example_meaning": "Cái này rất tiệm, cửa hàng."
+    "example_meaning": "Cái này rất tiệm, cửa hàng.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "514",
@@ -6168,7 +8220,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Số đếm & Thời gian",
     "example_sentence": "分钟见！",
     "example_pinyin": "fēn zhōng jiàn!",
-    "example_meaning": "Hẹn gặp lại vào phút (khoảng thời gian)!"
+    "example_meaning": "Hẹn gặp lại vào phút (khoảng thời gian)!",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "515",
@@ -6180,7 +8236,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很公司。",
     "example_pinyin": "Zhè ge hěn gōng sī.",
-    "example_meaning": "Cái này rất công ty."
+    "example_meaning": "Cái này rất công ty.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "516",
@@ -6192,7 +8252,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Đồ vật & Đời sống",
     "example_sentence": "这是我的狗。",
     "example_pinyin": "Zhè shì wǒ de gǒu.",
-    "example_meaning": "Đây là chó, chú chó của tôi."
+    "example_meaning": "Đây là chó, chú chó của tôi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "517",
@@ -6204,7 +8268,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Đồ vật & Đời sống",
     "example_sentence": "这是我的件。",
     "example_pinyin": "Zhè shì wǒ de jiàn.",
-    "example_meaning": "Đây là chiếc, cái, kiện (áo, việc) của tôi."
+    "example_meaning": "Đây là chiếc, cái, kiện (áo, việc) của tôi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "518",
@@ -6216,7 +8284,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Ăn uống & Ẩm thực",
     "example_sentence": "我想吃饺子。",
     "example_pinyin": "Wǒ xiǎng chī jiǎo zi.",
-    "example_meaning": "Tôi muốn ăn/uống sủi cảo, bánh chẻo."
+    "example_meaning": "Tôi muốn ăn/uống sủi cảo, bánh chẻo.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "519",
@@ -6228,7 +8300,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很可以。",
     "example_pinyin": "Zhè ge hěn kě yǐ.",
-    "example_meaning": "Cái này rất có thể, được phép."
+    "example_meaning": "Cái này rất có thể, được phép.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "520",
@@ -6240,7 +8316,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Động từ thông dụng",
     "example_sentence": "我喜欢卖。",
     "example_pinyin": "Wǒ xǐhuan mài.",
-    "example_meaning": "Tôi thích bán."
+    "example_meaning": "Tôi thích bán.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "521",
@@ -6252,7 +8332,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Đồ vật & Đời sống",
     "example_sentence": "这是我的猫。",
     "example_pinyin": "Zhè shì wǒ de māo.",
-    "example_meaning": "Đây là mèo, chú mèo của tôi."
+    "example_meaning": "Đây là mèo, chú mèo của tôi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "522",
@@ -6264,7 +8348,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Đại từ & Xưng hô",
     "example_sentence": "那是我的女士。",
     "example_pinyin": "Nà shì wǒ de nǚ shì.",
-    "example_meaning": "Đó là quý cô, quý bà của tôi."
+    "example_meaning": "Đó là quý cô, quý bà của tôi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "523",
@@ -6276,7 +8364,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很漂亮。",
     "example_pinyin": "Zhè ge hěn piào liang.",
-    "example_meaning": "Cái này rất xinh đẹp, đẹp đẽ."
+    "example_meaning": "Cái này rất xinh đẹp, đẹp đẽ.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "524",
@@ -6288,7 +8380,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Ăn uống & Ẩm thực",
     "example_sentence": "我想吃苹果。",
     "example_pinyin": "Wǒ xiǎng chī píng guǒ.",
-    "example_meaning": "Tôi muốn ăn/uống quả táo."
+    "example_meaning": "Tôi muốn ăn/uống quả táo.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "525",
@@ -6300,7 +8396,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Số đếm & Thời gian",
     "example_sentence": "千见！",
     "example_pinyin": "qiān jiàn!",
-    "example_meaning": "Hẹn gặp lại vào nghìn (1.000)!"
+    "example_meaning": "Hẹn gặp lại vào nghìn (1.000)!",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "526",
@@ -6312,7 +8412,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Đại từ & Xưng hô",
     "example_sentence": "那是我的它。",
     "example_pinyin": "Nà shì wǒ de tā.",
-    "example_meaning": "Đó là nó (con vật, đồ vật) của tôi."
+    "example_meaning": "Đó là nó (con vật, đồ vật) của tôi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "527",
@@ -6324,7 +8428,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Đại từ & Xưng hô",
     "example_sentence": "那是我的它们。",
     "example_pinyin": "Nà shì wǒ de tā men.",
-    "example_meaning": "Đó là chúng nó, bọn chúng của tôi."
+    "example_meaning": "Đó là chúng nó, bọn chúng của tôi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "528",
@@ -6336,7 +8444,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Động từ thông dụng",
     "example_sentence": "我喜欢玩。",
     "example_pinyin": "Wǒ xǐhuan wán.",
-    "example_meaning": "Tôi thích chơi, vui chơi."
+    "example_meaning": "Tôi thích chơi, vui chơi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "529",
@@ -6348,7 +8460,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Chào hỏi & Xã giao",
     "example_sentence": "喂。",
     "example_pinyin": "wéi.",
-    "example_meaning": "alo (nghe điện thoại) / cho ăn."
+    "example_meaning": "alo (nghe điện thoại) / cho ăn.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "530",
@@ -6360,7 +8476,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很问题。",
     "example_pinyin": "Zhè ge hěn wèn tí.",
-    "example_meaning": "Cái này rất câu hỏi, vấn đề."
+    "example_meaning": "Cái này rất câu hỏi, vấn đề.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "531",
@@ -6372,7 +8492,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Đồ vật & Đời sống",
     "example_sentence": "这是我的些。",
     "example_pinyin": "Zhè shì wǒ de xiē.",
-    "example_meaning": "Đây là vài, một ít của tôi."
+    "example_meaning": "Đây là vài, một ít của tôi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "532",
@@ -6384,7 +8508,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Đồ vật & Đời sống",
     "example_sentence": "这是我的雪。",
     "example_pinyin": "Zhè shì wǒ de xuě.",
-    "example_meaning": "Đây là tuyết của tôi."
+    "example_meaning": "Đây là tuyết của tôi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "533",
@@ -6396,7 +8524,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Đồ vật & Đời sống",
     "example_sentence": "这是我的椅子。",
     "example_pinyin": "Zhè shì wǒ de yǐ zi.",
-    "example_meaning": "Đây là cái ghế của tôi."
+    "example_meaning": "Đây là cái ghế của tôi.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "534",
@@ -6408,7 +8540,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很有点儿。",
     "example_pinyin": "Zhè ge hěn yǒu diǎn r.",
-    "example_meaning": "Cái này rất hơi, có một chút (tiêu cực)."
+    "example_meaning": "Cái này rất hơi, có một chút (tiêu cực).",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "535",
@@ -6420,7 +8556,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很怎么样。",
     "example_pinyin": "Zhè ge hěn zěn me yàng.",
-    "example_meaning": "Cái này rất thế nào, ra sao."
+    "example_meaning": "Cái này rất thế nào, ra sao.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "536",
@@ -6432,7 +8572,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Tính từ & Cảm xúc",
     "example_sentence": "这个很只。",
     "example_pinyin": "Zhè ge hěn zhǐ.",
-    "example_meaning": "Cái này rất chỉ / con (lượng từ động vật)."
+    "example_meaning": "Cái này rất chỉ / con (lượng từ động vật).",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   },
   {
     "id": "537",
@@ -6444,7 +8588,11 @@ export const HSK30_LEVEL1_CARDS: Word[] = [
     "category_name": "Ăn uống & Ẩm thực",
     "example_sentence": "我想吃做饭。",
     "example_pinyin": "Wǒ xiǎng chī zuò fàn.",
-    "example_meaning": "Tôi muốn ăn/uống nấu cơm, nấu ăn."
+    "example_meaning": "Tôi muốn ăn/uống nấu cơm, nấu ăn.",
+    "hsk": 1,
+    "tags": [
+      "HSK 1"
+    ]
   }
 ];
 export const HSK30_LEVEL1_WORDS: Word[] = HSK30_LEVEL1_CARDS;

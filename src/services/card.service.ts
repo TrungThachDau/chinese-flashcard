@@ -116,6 +116,14 @@ export async function getSupabaseCards(options: CardFilterOptions = {}) {
     return { cards: due.slice(0, limit), total: due.length, hasMore: false };
   }
 
+  if (options.hsk && options.hsk !== 'all') {
+    cards = cards.filter((c) => c.hsk === Number(options.hsk));
+  }
+
+  if (options.tag && options.tag !== 'all') {
+    cards = cards.filter((c) => c.tags?.includes(options.tag!));
+  }
+
   if (options.category && options.category !== 'all') {
     cards = cards.filter((c) => c.category === options.category);
   }
@@ -131,7 +139,9 @@ export async function getSupabaseCards(options: CardFilterOptions = {}) {
         c.hanzi.toLowerCase().includes(q) ||
         c.pinyin.toLowerCase().includes(q) ||
         c.meaning.toLowerCase().includes(q) ||
-        (c.sino_vietnamese && c.sino_vietnamese.toLowerCase().includes(q))
+        (c.sino_vietnamese && c.sino_vietnamese.toLowerCase().includes(q)) ||
+        (c.tags && c.tags.some((t) => t.toLowerCase().includes(q))) ||
+        (c.hsk && `hsk ${c.hsk}`.toLowerCase().includes(q))
     );
   }
 

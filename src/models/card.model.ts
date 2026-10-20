@@ -13,6 +13,8 @@ export interface Word {
   example_sentence?: string;
   example_pinyin?: string;
   example_meaning?: string;
+  hsk?: number;
+  tags?: string[];
 }
 
 export type RawCardData = Word;
@@ -40,6 +42,8 @@ export interface Card {
   retrievability?: number;
   lapses?: number;
   state?: number;
+  hsk?: number;
+  tags?: string[];
 }
 
 export interface ReviewLog {
@@ -74,6 +78,8 @@ export interface CardFilterOptions {
   mode?: string;
   dueOnly?: boolean;
   allowNew?: boolean;
+  hsk?: number | string;
+  tag?: string;
 }
 
 export function makeCardKey(card: { hanzi: string; pinyin: string }): string {

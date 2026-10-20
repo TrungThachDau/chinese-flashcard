@@ -130,12 +130,8 @@ function LoginFormContent() {
             />
           </div>
           <h1 className="text-2xl sm:text-3xl font-black tracking-tight bg-linear-to-r from-slate-900 via-indigo-900 to-slate-800 dark:from-white dark:via-indigo-200 dark:to-slate-200 bg-clip-text text-transparent">
-            Hán Ngữ HSK 3.0
+            Hán Ngữ
           </h1>
-          <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400">
-            Mỗi tài khoản lưu trữ tiến độ học &amp; thẻ ghi nhớ riêng biệt trên
-            đám mây
-          </p>
         </div>
 
         {/* Auth Card */}
@@ -319,10 +315,8 @@ function LoginFormContent() {
           <div className="pt-3 border-t border-slate-100 dark:border-slate-800/80 flex items-center justify-between text-[11px] text-slate-400 dark:text-slate-500">
             <span className="flex items-center gap-1">
               <BookOpen className="w-3.5 h-3.5 text-indigo-400" />
-              <span>Chuẩn HSK 3.0</span>
+              <span>HSK 3.0</span>
             </span>
-            <span>•</span>
-            <span>Đồng bộ Supabase đa thiết bị</span>
           </div>
         </div>
       </div>

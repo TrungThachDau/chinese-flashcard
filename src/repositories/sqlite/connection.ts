@@ -70,6 +70,8 @@ export function initMemoryStore(): MemoryStore {
     difficulty: 0,
     lapses: 0,
     state: 0,
+    hsk: card.hsk ?? 1,
+    tags: card.tags ?? ['HSK 1'],
   }));
 
   const charDetails = new Map<string, CharDetail>();
@@ -180,7 +182,9 @@ export function initDatabase(db: any) {
       stability REAL DEFAULT 0,
       difficulty REAL DEFAULT 0,
       lapses INTEGER DEFAULT 0,
-      state INTEGER DEFAULT 0
+      state INTEGER DEFAULT 0,
+      hsk INTEGER DEFAULT 1,
+      tags TEXT DEFAULT '["HSK 1"]'
     );
   `);
 
@@ -189,6 +193,8 @@ export function initDatabase(db: any) {
     'ALTER TABLE cards ADD COLUMN difficulty REAL DEFAULT 0',
     'ALTER TABLE cards ADD COLUMN lapses INTEGER DEFAULT 0',
     'ALTER TABLE cards ADD COLUMN state INTEGER DEFAULT 0',
+    'ALTER TABLE cards ADD COLUMN hsk INTEGER DEFAULT 1',
+    'ALTER TABLE cards ADD COLUMN tags TEXT DEFAULT \'["HSK 1"]\'',
   ];
   for (const sql of cardMigrations) {
     try {
@@ -196,6 +202,13 @@ export function initDatabase(db: any) {
     } catch {
       // Column likely already exists
     }
+  }
+
+  try {
+    db.exec(`UPDATE cards SET hsk = 1 WHERE hsk IS NULL OR hsk = 0`);
+    db.exec(`UPDATE cards SET tags = '["HSK 1"]' WHERE tags IS NULL OR tags = ''`);
+  } catch {
+    // Columns might not exist yet or update failed silently
   }
 
   db.exec(`
@@ -292,8 +305,8 @@ export function seedDatabase(db: any = getDatabase()) {
     INSERT INTO cards (
       hanzi, pinyin, meaning, sino_vietnamese, category, category_name,
       example_sentence, example_pinyin, example_meaning, repetition,
-      interval, ease_factor, due_date, last_reviewed, status
-    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+      interval, ease_factor, due_date, last_reviewed, status, hsk, tags
+    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
   `);
 
   for (const card of HSK30_LEVEL1_CARDS) {
@@ -312,7 +325,9 @@ export function seedDatabase(db: any = getDatabase()) {
       2.5,
       now,
       null,
-      'new'
+      'new',
+      card.hsk ?? 1,
+      JSON.stringify(card.tags || ['HSK 1'])
     );
   }
 

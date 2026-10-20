@@ -10,6 +10,8 @@ export async function GET(request: NextRequest) {
     const category = searchParams.get('category') || undefined;
     const status = searchParams.get('status') || undefined;
     const search = searchParams.get('search') || undefined;
+    const hsk = searchParams.get('hsk') || undefined;
+    const tag = searchParams.get('tag') || undefined;
     const mode = searchParams.get('mode') || undefined;
     const dueOnly = searchParams.get('dueOnly') === 'true';
     const limitParam = searchParams.get('limit');
@@ -23,6 +25,8 @@ export async function GET(request: NextRequest) {
       category,
       status,
       search,
+      hsk: hsk && hsk !== 'all' ? parseInt(hsk, 10) : undefined,
+      tag: tag && tag !== 'all' ? tag : undefined,
       mode,
       dueOnly,
       limit,

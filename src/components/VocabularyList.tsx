@@ -52,6 +52,7 @@ export const VocabularyList: React.FC<VocabularyListProps> = ({
   const [debouncedSearch, setDebouncedSearch] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [selectedStatus, setSelectedStatus] = useState<string>("all");
+  const [selectedHsk, setSelectedHsk] = useState<string>("all");
   const [viewMode, setViewMode] = useState<"grid" | "list">("grid");
   const [selectedCardForDetail, setSelectedCardForDetail] =
     useState<Card | null>(null);
@@ -79,7 +80,8 @@ export const VocabularyList: React.FC<VocabularyListProps> = ({
       cards.length === 0 &&
       !debouncedSearch &&
       selectedCategory === "all" &&
-      selectedStatus === "all"
+      selectedStatus === "all" &&
+      selectedHsk === "all"
     ) {
       setCards(seedCards);
       setTotal(seedTotal);
@@ -92,6 +94,7 @@ export const VocabularyList: React.FC<VocabularyListProps> = ({
     debouncedSearch,
     selectedCategory,
     selectedStatus,
+    selectedHsk,
   ]);
 
   // Fetch first batch when filters change
@@ -103,7 +106,8 @@ export const VocabularyList: React.FC<VocabularyListProps> = ({
         cards.length > 0 &&
         !debouncedSearch &&
         selectedCategory === "all" &&
-        selectedStatus === "all"
+        selectedStatus === "all" &&
+        selectedHsk === "all"
       ) {
         return;
       }
@@ -118,6 +122,7 @@ export const VocabularyList: React.FC<VocabularyListProps> = ({
     });
     if (selectedCategory !== "all") params.set("category", selectedCategory);
     if (selectedStatus !== "all") params.set("status", selectedStatus);
+    if (selectedHsk !== "all") params.set("hsk", selectedHsk);
     if (debouncedSearch.trim()) params.set("search", debouncedSearch.trim());
 
     fetch(`/api/cards?${params.toString()}`)
@@ -138,7 +143,7 @@ export const VocabularyList: React.FC<VocabularyListProps> = ({
     return () => {
       isMounted = false;
     };
-  }, [debouncedSearch, selectedCategory, selectedStatus]);
+  }, [debouncedSearch, selectedCategory, selectedStatus, selectedHsk]);
 
   // Load next batch (Cuộn tới đâu tải tới đó)
   const loadMore = useCallback(async () => {
@@ -152,6 +157,7 @@ export const VocabularyList: React.FC<VocabularyListProps> = ({
       });
       if (selectedCategory !== "all") params.set("category", selectedCategory);
       if (selectedStatus !== "all") params.set("status", selectedStatus);
+      if (selectedHsk !== "all") params.set("hsk", selectedHsk);
       if (debouncedSearch.trim()) params.set("search", debouncedSearch.trim());
 
       const res = await fetch(`/api/cards?${params.toString()}`);
@@ -185,6 +191,7 @@ export const VocabularyList: React.FC<VocabularyListProps> = ({
     isLoadingMore,
     selectedCategory,
     selectedStatus,
+    selectedHsk,
   ]);
 
   // IntersectionObserver: auto-trigger loadMore when scrolling near the bottom sentinel
@@ -285,6 +292,18 @@ export const VocabularyList: React.FC<VocabularyListProps> = ({
         {/* Filter selectors + View Mode Toggle */}
         <div className="flex flex-wrap items-center justify-between gap-2 text-xs">
           <div className="flex flex-wrap items-center gap-2">
+            {/* HSK Level Dropdown */}
+            <select
+              value={selectedHsk}
+              onChange={(e) => setSelectedHsk(e.target.value)}
+              className="px-3 py-1.5 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 font-medium focus:outline-none cursor-pointer"
+            >
+              <option value="all">🏷️ Tất cả HSK</option>
+              <option value="1">HSK 1</option>
+              <option value="2" disabled>HSK 2 (Sắp có)</option>
+              <option value="3" disabled>HSK 3 (Sắp có)</option>
+            </select>
+
             {/* Category Dropdown */}
             <select
               value={selectedCategory}
@@ -386,18 +405,23 @@ export const VocabularyList: React.FC<VocabularyListProps> = ({
                 onClick={() => setSelectedCardForDetail(card)}
                 className="group relative flex flex-col justify-between p-3 sm:p-4 rounded-2xl sm:rounded-3xl bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border border-slate-200/90 dark:border-slate-800 shadow-xs hover:shadow-lg hover:border-amber-400/50 dark:hover:border-amber-500/40 transition-all duration-200 cursor-pointer hover:-translate-y-0.5 select-none"
               >
-                {/* Top: Category + Audio button */}
+                {/* Top: HSK Tag + Category + Audio button */}
                 <div className="flex items-center justify-between gap-1 w-full shrink-0">
-                  <span className="text-[10px] font-medium text-slate-400 dark:text-slate-500 truncate max-w-22.5">
-                    {card.category_name}
-                  </span>
+                  <div className="flex items-center gap-1.5 min-w-0 overflow-hidden">
+                    <span className="shrink-0 px-1.5 py-0.5 rounded-md text-[9px] font-extrabold uppercase bg-amber-500/15 text-amber-700 dark:text-amber-300 border border-amber-500/25">
+                      {card.tags?.[0] || (card.hsk ? `HSK ${card.hsk}` : "HSK 1")}
+                    </span>
+                    <span className="text-[10px] font-medium text-slate-400 dark:text-slate-500 truncate max-w-20">
+                      {card.category_name}
+                    </span>
+                  </div>
                   <button
                     type="button"
                     onClick={(e) => {
                       e.stopPropagation();
                       playChineseAudio(card.hanzi, { rate: speechRate });
                     }}
-                    className="p-1.5 rounded-lg text-slate-400 hover:text-amber-600 dark:hover:text-amber-400 hover:bg-amber-50 dark:hover:bg-amber-950/40 transition-colors"
+                    className="p-1.5 rounded-lg text-slate-400 hover:text-amber-600 dark:hover:text-amber-400 hover:bg-amber-50 dark:hover:bg-amber-950/40 transition-colors shrink-0"
                     title="Phát âm từ"
                   >
                     <Volume2 className="w-3.5 h-3.5" />
@@ -468,10 +492,13 @@ export const VocabularyList: React.FC<VocabularyListProps> = ({
                       <Volume2 className="w-4 h-4" />
                     </button>
                     <div>
-                      <div className="text-xl font-bold text-slate-800 dark:text-slate-100 flex items-center gap-2">
+                      <div className="text-xl font-bold text-slate-800 dark:text-slate-100 flex items-center gap-2 flex-wrap">
                         <HanziText text={card.hanzi} />
                         <span className="text-xs font-semibold text-amber-600 dark:text-amber-400 font-sans">
                           {card.pinyin}
+                        </span>
+                        <span className="px-1.5 py-0.5 rounded-md text-[10px] font-extrabold bg-amber-500/15 text-amber-700 dark:text-amber-300 border border-amber-500/25">
+                          {card.tags?.[0] || (card.hsk ? `HSK ${card.hsk}` : "HSK 1")}
                         </span>
                       </div>
                       <div className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
@@ -539,6 +566,12 @@ export const VocabularyList: React.FC<VocabularyListProps> = ({
                       ) : (
                         <span>Hệ số dễ: {card.ease_factor}</span>
                       )}
+                      <span>
+                        Cấp độ:{" "}
+                        <b className="text-amber-600 dark:text-amber-400 font-bold">
+                          {card.tags?.[0] || (card.hsk ? `HSK ${card.hsk}` : "HSK 1")}
+                        </b>
+                      </span>
                       <span>
                         Chủ đề:{" "}
                         <span className="font-medium text-slate-700 dark:text-slate-300">
@@ -644,7 +677,10 @@ export const VocabularyList: React.FC<VocabularyListProps> = ({
           >
             {/* Header */}
             <div className="flex items-center justify-between pb-2 border-b border-slate-100 dark:border-slate-800">
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2 flex-wrap">
+                <span className="text-xs font-extrabold px-2.5 py-1 rounded-full bg-amber-500/15 text-amber-700 dark:text-amber-300 border border-amber-500/25">
+                  {selectedCardForDetail.tags?.[0] || (selectedCardForDetail.hsk ? `HSK ${selectedCardForDetail.hsk}` : "HSK 1")}
+                </span>
                 <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">
                   {selectedCardForDetail.category_name}
                 </span>
