@@ -4,9 +4,12 @@ import {
   fetchCurrentUserSettings,
   saveCurrentUserSettings,
 } from '@/services/settings.service';
+import { rejectGuest } from '@/services/guest-guard';
 
 export async function GET() {
   await connection();
+  const blocked = await rejectGuest();
+  if (blocked) return blocked;
   try {
     const settings = await fetchCurrentUserSettings();
     return NextResponse.json(
@@ -21,6 +24,8 @@ export async function GET() {
 
 export async function POST(request: NextRequest) {
   await connection();
+  const blocked = await rejectGuest();
+  if (blocked) return blocked;
   try {
     const body = await request.json();
     const settings = await saveCurrentUserSettings(body);

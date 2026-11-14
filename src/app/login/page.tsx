@@ -17,13 +17,16 @@ import {
 } from "lucide-react";
 import { clearLocalDbForUserSwitch } from "@/repositories/local/indexeddb.repository";
 import { createBrowserSupabaseClient } from "@/repositories/supabase/browser.client";
+import { importGuestDataToAccount } from "@/services/guest.service";
 
 function LoginFormContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const nextPath = searchParams.get("next") || "/";
 
-  const [mode, setMode] = useState<"login" | "register">("login");
+  const [mode, setMode] = useState<"login" | "register">(() =>
+    searchParams.get("mode") === "register" ? "register" : "login",
+  );
   const [username, setUsername] = useState("");
   const [displayName, setDisplayName] = useState("");
   const [password, setPassword] = useState("");
@@ -99,6 +102,16 @@ function LoginFormContent() {
       // Clear local IndexedDB cache if switching to a different user
       if (data.user?.id) {
         await clearLocalDbForUserSwitch(data.user.id);
+      }
+
+      // Move progress studied as a guest into this account
+      const imported = await importGuestDataToAccount();
+      if (typeof window !== "undefined") {
+        if (imported) {
+          window.sessionStorage.removeItem("guest-import-pending");
+        } else {
+          window.sessionStorage.setItem("guest-import-pending", "true");
+        }
       }
 
       setSuccessMsg(
@@ -317,6 +330,12 @@ function LoginFormContent() {
               <BookOpen className="w-3.5 h-3.5 text-indigo-400" />
               <span>HSK 3.0</span>
             </span>
+            <a
+              href="/"
+              className="font-bold text-indigo-500 hover:text-indigo-600 dark:text-indigo-400"
+            >
+              Học ngay không cần đăng nhập →
+            </a>
           </div>
         </div>
       </div>

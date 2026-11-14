@@ -25,7 +25,7 @@ import {
 import { Navbar } from "./Navbar";
 import { BottomNav } from "./BottomNav";
 import { FlashcardView } from "./FlashcardView";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { calculateFSRS } from "@/services/srs.service";
 import {
   getLocalDb,
@@ -39,6 +39,26 @@ import {
   flushSyncQueue,
 } from "@/services/sync.service";
 import { createBrowserSupabaseClient } from "@/repositories/supabase/browser.client";
+import { AppSkeleton } from "./AppSkeleton";
+import {
+  setGuestMode,
+  fetchCardsApi,
+  fetchStatsApi,
+  fetchQuestionsApi,
+  completeQuestionApi,
+  saveSettingsApi,
+  resetDataApi,
+} from "@/services/client-api";
+import {
+  getGuestSettings,
+  saveGuestSettings,
+  getGuestDueCards,
+  getGuestStats,
+  getGuestQuestions,
+  queryGuestCards,
+  recordGuestReview,
+  importGuestDataToAccount,
+} from "@/services/guest.service";
 
 const LifeQuestionsView = dynamic(
   () => import("./LifeQuestionsView").then((mod) => mod.LifeQuestionsView),
@@ -119,6 +139,7 @@ interface MainClientAppProps {
   initialStats: StudyStats;
   initialSettings?: UserSettings;
   initialTab?: AppTab;
+  isGuest?: boolean;
 }
 
 export const MainClientApp: React.FC<MainClientAppProps> = ({
@@ -129,8 +150,11 @@ export const MainClientApp: React.FC<MainClientAppProps> = ({
   initialStats,
   initialSettings,
   initialTab,
+  isGuest = false,
 }) => {
   const pathname = usePathname();
+  setGuestMode(isGuest);
+  const [guestReady, setGuestReady] = useState(!isGuest);
 
   const [activeTab, setActiveTab] = useState<AppTab>(() => {
     if (initialTab) return initialTab;
@@ -188,8 +212,7 @@ export const MainClientApp: React.FC<MainClientAppProps> = ({
       !isLoadingAllCards
     ) {
       setIsLoadingAllCards(true);
-      fetch("/api/cards?limit=30&offset=0")
-        .then((res) => res.json())
+      fetchCardsApi("limit=30&offset=0")
         .then((data) => {
           if (data.ok && data.cards) {
             setAllCards(data.cards);
@@ -212,8 +235,7 @@ export const MainClientApp: React.FC<MainClientAppProps> = ({
       !isLoadingQuestions
     ) {
       setIsLoadingQuestions(true);
-      fetch("/api/life-questions")
-        .then((res) => res.json())
+      fetchQuestionsApi()
         .then((data) => {
           if (data.ok && data.questions) {
             setQuestions(data.questions);
@@ -252,8 +274,45 @@ export const MainClientApp: React.FC<MainClientAppProps> = ({
     username: string;
     email?: string | null;
   } | null>(null);
-  const router = useRouter();
+  const [guestImportFailed, setGuestImportFailed] = useState(false);
+  const [isRetryingGuestImport, setIsRetryingGuestImport] = useState(false);
 
+  // Guest mode: load progress, settings and stats from this browser's IndexedDB
+  useEffect(() => {
+    if (!isGuest) return;
+    let cancelled = false;
+    (async () => {
+      try {
+        const guestSettings = await getGuestSettings();
+        const [due, guestStats, all, guestQuestions] = await Promise.all([
+          getGuestDueCards(guestSettings.daily_limit),
+          getGuestStats(),
+          initialAllCards.length > 0
+            ? queryGuestCards(new URLSearchParams({ limit: "30", offset: "0" }))
+            : Promise.resolve(null),
+          initialQuestions.length > 0 ? getGuestQuestions() : Promise.resolve(null),
+        ]);
+        if (cancelled) return;
+        setSettings(guestSettings);
+        setHasOnboarded(Boolean(guestSettings.has_onboarded));
+        setDueCards(due);
+        setStats(guestStats);
+        if (all) {
+          setAllCards(all.cards);
+          setTotalCards(all.total);
+        }
+        if (guestQuestions) setQuestions(guestQuestions);
+      } catch (err) {
+        console.error("Error loading guest data:", err);
+      } finally {
+        if (!cancelled) setGuestReady(true);
+      }
+    })();
+    return () => {
+      cancelled = true;
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isGuest]);
   // Check active authenticated Supabase user on mount & keep session token auto-refreshed on client
   useEffect(() => {
     const supabase = createBrowserSupabaseClient();
@@ -300,6 +359,41 @@ export const MainClientApp: React.FC<MainClientAppProps> = ({
     };
   }, []);
 
+  useEffect(() => {
+    if (isGuest || !authUser || window.sessionStorage.getItem("guest-import-pending") !== "true") {
+      return;
+    }
+
+    let cancelled = false;
+    void importGuestDataToAccount().then((imported) => {
+      if (cancelled) return;
+      if (imported) {
+        window.sessionStorage.removeItem("guest-import-pending");
+      } else {
+        setGuestImportFailed(true);
+      }
+    });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [authUser, isGuest]);
+
+  const retryGuestImport = async () => {
+    setIsRetryingGuestImport(true);
+    try {
+      const imported = await importGuestDataToAccount();
+      if (imported) {
+        window.sessionStorage.removeItem("guest-import-pending");
+        window.location.reload();
+      } else {
+        setGuestImportFailed(true);
+      }
+    } finally {
+      setIsRetryingGuestImport(false);
+    }
+  };
+
   const handleLogout = async () => {
     try {
       await flushSyncQueue({ keepalive: true });
@@ -311,20 +405,21 @@ export const MainClientApp: React.FC<MainClientAppProps> = ({
       await fetch("/api/auth/logout", { method: "POST" });
       await clearAllLocalData();
       setAuthUser(null);
-      window.location.href = "/login";
+      window.location.href = "/";
     } catch (err) {
       console.error("Error signing out:", err);
-      window.location.href = "/login";
+      window.location.href = "/";
     }
   };
 
   // Sync state if initialSettings changes
   useEffect(() => {
+    if (isGuest) return;
     if (initialSettings) {
       setSettings((prev) => ({ ...prev, ...initialSettings }));
       if (initialSettings.has_onboarded) setHasOnboarded(true);
     }
-  }, [initialSettings]);
+  }, [initialSettings, isGuest]);
 
   // Sync dueCards when server props change (ensures reload always shows fresh cards)
   useEffect(() => {
@@ -342,6 +437,7 @@ export const MainClientApp: React.FC<MainClientAppProps> = ({
 
   // Initialize Dexie background sync listeners (startup flush, exit sync on pagehide/visibilitychange)
   useEffect(() => {
+    if (isGuest) return;
     const cleanupSync = initSyncListeners((freshStats) => {
       if (freshStats) setStats(freshStats);
     });
@@ -353,10 +449,11 @@ export const MainClientApp: React.FC<MainClientAppProps> = ({
     return () => {
       cleanupSync();
     };
-  }, [initialDueCards]);
+  }, [initialDueCards, isGuest]);
 
   // Sync settings: Server (Supabase/SSR) settings are authoritative
   useEffect(() => {
+    if (isGuest) return;
     if (initialSettings) {
       setSettings(initialSettings);
       if (
@@ -423,7 +520,7 @@ export const MainClientApp: React.FC<MainClientAppProps> = ({
           console.warn("Could not fetch fresh settings on mount:", err);
         });
     }
-  }, [initialSettings]);
+  }, [initialSettings, isGuest]);
 
   const handleUpdateSettings = async (newSettings: Partial<UserSettings>) => {
     const payload: Partial<UserSettings> = {
@@ -436,6 +533,19 @@ export const MainClientApp: React.FC<MainClientAppProps> = ({
     // 1. Optimistic UI update immediately (0ms)
     const merged = { ...settings, ...newSettings, has_onboarded: true };
     setSettings(merged);
+
+    if (isGuest) {
+      try {
+        const saved = await saveGuestSettings(payload);
+        setSettings(saved);
+        if (newSettings.daily_limit !== undefined) {
+          await handleRefreshDue(newSettings.daily_limit);
+        }
+      } catch (err) {
+        console.error("Error saving guest settings:", err);
+      }
+      return;
+    }
 
     if (typeof window !== "undefined") {
       try {
@@ -459,16 +569,10 @@ export const MainClientApp: React.FC<MainClientAppProps> = ({
       handleRefreshDue(newSettings.daily_limit);
     }
 
-    // 2. Sync to Supabase IMMEDIATELY (with keepalive: true so browser delivers even if user navigates)
+    // Sync account settings without delaying the optimistic update.
     try {
-      const res = await fetch("/api/settings", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-        keepalive: true,
-      });
-      const data = await res.json();
-      if (data.ok && data.settings) {
+      const data = await saveSettingsApi(payload);
+      if (data.settings) {
         setSettings(data.settings);
         if (typeof window !== "undefined") {
           try {
@@ -487,8 +591,7 @@ export const MainClientApp: React.FC<MainClientAppProps> = ({
   // Handle Learn More (load next new cards)
   const handleLearnMore = async (count: number = 5) => {
     try {
-      const res = await fetch(`/api/cards?mode=learn_more&limit=${count}`);
-      const data = await res.json();
+      const data = await fetchCardsApi(`mode=learn_more&limit=${count}`);
       if (data.ok && data.cards && data.cards.length > 0) {
         setDueCards(data.cards);
       } else {
@@ -502,8 +605,7 @@ export const MainClientApp: React.FC<MainClientAppProps> = ({
   // Handle Review Learned (load previously learned cards)
   const handleReviewLearned = async (count: number = 10) => {
     try {
-      const res = await fetch(`/api/cards?mode=review_learned&limit=${count}`);
-      const data = await res.json();
+      const data = await fetchCardsApi(`mode=review_learned&limit=${count}`);
       if (data.ok && data.cards && data.cards.length > 0) {
         setDueCards(data.cards);
       } else {
@@ -597,9 +699,14 @@ export const MainClientApp: React.FC<MainClientAppProps> = ({
         state: srsResult.state,
       };
 
-      await enqueueReview(queueItem, (freshStats) => {
-        if (freshStats) setStats(freshStats);
-      });
+      if (isGuest) {
+        await recordGuestReview(queueItem);
+        setStats(await getGuestStats());
+      } else {
+        await enqueueReview(queueItem, (freshStats) => {
+          if (freshStats) setStats(freshStats);
+        });
+      }
     } catch (err) {
       console.error("Error reviewing card:", err);
     }
@@ -608,13 +715,7 @@ export const MainClientApp: React.FC<MainClientAppProps> = ({
   // Fetch fresh progress stats (always bypass caches, use the learner's timezone)
   const refreshStats = useCallback(async () => {
     try {
-      const res = await fetch(
-        `/api/stats?tz=${new Date().getTimezoneOffset()}`,
-        {
-          cache: "no-store",
-        },
-      );
-      const data = await res.json();
+      const data = await fetchStatsApi();
       if (data.ok && data.stats) {
         setStats(data.stats);
       }
@@ -642,13 +743,12 @@ export const MainClientApp: React.FC<MainClientAppProps> = ({
   const handleRefreshDue = async (customLimit?: number) => {
     try {
       const limit = customLimit ?? settings.daily_limit;
-      const url =
+      const query =
         selectedReviewCategory === "all"
-          ? `/api/cards?dueOnly=true&limit=${limit}`
-          : `/api/cards?category=${selectedReviewCategory}`;
+          ? `dueOnly=true&limit=${limit}`
+          : `category=${selectedReviewCategory}`;
 
-      const res = await fetch(url);
-      const data = await res.json();
+      const data = await fetchCardsApi(query);
       if (data.ok && data.cards) {
         setDueCards(data.cards);
       }
@@ -664,12 +764,11 @@ export const MainClientApp: React.FC<MainClientAppProps> = ({
   const handleSelectReviewCategory = async (catId: string) => {
     setSelectedReviewCategory(catId);
     try {
-      const url =
+      const query =
         catId === "all"
-          ? `/api/cards?dueOnly=true&limit=${settings.daily_limit}`
-          : `/api/cards?category=${catId}`;
-      const res = await fetch(url);
-      const data = await res.json();
+          ? `dueOnly=true&limit=${settings.daily_limit}`
+          : `category=${catId}`;
+      const data = await fetchCardsApi(query);
       if (data.ok && data.cards) {
         setDueCards(data.cards);
       }
@@ -681,11 +780,7 @@ export const MainClientApp: React.FC<MainClientAppProps> = ({
   // Complete a life question
   const handleCompleteQuestion = async (questionId: number) => {
     try {
-      await fetch("/api/life-questions", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ questionId }),
-      });
+      await completeQuestionApi(questionId);
       setQuestions((prev) =>
         prev.map((q) => (q.id === questionId ? { ...q, completed: true } : q)),
       );
@@ -697,16 +792,17 @@ export const MainClientApp: React.FC<MainClientAppProps> = ({
   // Reset database handler
   const handleResetDatabase = async () => {
     try {
-      const res = await fetch("/api/reset", { method: "POST" });
-      const data = await res.json();
-      if (data.ok) {
+      await resetDataApi();
+      if (!isGuest) {
         await clearAllLocalData();
-        window.location.reload();
       }
+      window.location.reload();
     } catch (err) {
       console.error("Error resetting database:", err);
     }
   };
+
+  if (isGuest && !guestReady) return <AppSkeleton />;
 
   return (
     <div
@@ -726,6 +822,22 @@ export const MainClientApp: React.FC<MainClientAppProps> = ({
         activeTab={activeTab}
         setActiveTab={handleTabChange}
       />
+      {guestImportFailed && (
+        <div
+          role="alert"
+          className="mx-auto mt-3 flex max-w-5xl items-center justify-between gap-3 px-4 text-sm text-rose-700 dark:text-rose-300"
+        >
+          <span>Chưa đồng bộ được dữ liệu học khách; dữ liệu vẫn được giữ trên thiết bị.</span>
+          <button
+            type="button"
+            onClick={retryGuestImport}
+            disabled={isRetryingGuestImport}
+            className="shrink-0 font-bold underline disabled:opacity-60"
+          >
+            {isRetryingGuestImport ? "Đang thử..." : "Thử lại"}
+          </button>
+        </div>
+      )}
 
       {/* Main Container */}
       <main
@@ -944,7 +1056,7 @@ export const MainClientApp: React.FC<MainClientAppProps> = ({
           onClose={() => setIsSettingsOpen(false)}
           settings={settings}
           authUser={authUser}
-          onLogout={handleLogout}
+          onLogout={authUser ? handleLogout : undefined}
           onUpdateSettings={handleUpdateSettings}
           onResetDatabase={handleResetDatabase}
         />

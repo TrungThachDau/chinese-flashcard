@@ -22,6 +22,7 @@ async function SsrVocabLoader() {
       initialQuestions={data.lifeQuestions}
       initialStats={data.studyStats}
       initialSettings={data.userSettings}
+      isGuest={data.isGuest}
       initialTab="vocab"
     />
   );

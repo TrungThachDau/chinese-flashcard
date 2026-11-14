@@ -1,10 +1,13 @@
 import { NextResponse } from 'next/server';
 import { connection } from 'next/server';
 import { exportProgress } from '@/services/backup.service';
+import { rejectGuest } from '@/services/guest-guard';
 
 /** Download all learner progress as a portable JSON backup (also the Supabase migration source). */
 export async function GET() {
   await connection();
+  const blocked = await rejectGuest();
+  if (blocked) return blocked;
   try {
     const backup = exportProgress();
     const stamp = backup.exported_at.substring(0, 10);

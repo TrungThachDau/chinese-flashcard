@@ -19,6 +19,7 @@ import {
 } from "lucide-react";
 import { Card } from "@/models";
 import { playChineseAudio } from "@/services/tts.service";
+import { fetchCardsApi } from "@/services/client-api";
 import { HanziText } from "./HanziHover";
 
 interface VocabularyListProps {
@@ -125,8 +126,7 @@ export const VocabularyList: React.FC<VocabularyListProps> = ({
     if (selectedHsk !== "all") params.set("hsk", selectedHsk);
     if (debouncedSearch.trim()) params.set("search", debouncedSearch.trim());
 
-    fetch(`/api/cards?${params.toString()}`)
-      .then((res) => res.json())
+    fetchCardsApi(params)
       .then((data) => {
         if (!isMounted) return;
         if (data.ok && Array.isArray(data.cards)) {
@@ -160,8 +160,7 @@ export const VocabularyList: React.FC<VocabularyListProps> = ({
       if (selectedHsk !== "all") params.set("hsk", selectedHsk);
       if (debouncedSearch.trim()) params.set("search", debouncedSearch.trim());
 
-      const res = await fetch(`/api/cards?${params.toString()}`);
-      const data = await res.json();
+      const data = await fetchCardsApi(params);
 
       if (data.ok && Array.isArray(data.cards)) {
         setCards((prev) => {

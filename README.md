@@ -15,6 +15,13 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
+## Tài khoản (tùy chọn)
+
+Bạn có thể học mà không cần đăng nhập. Khi chưa đăng nhập, thanh điều hướng luôn có hai nút **Đăng nhập** và **Đăng ký**, cả khi chạy với SQLite cục bộ.
+
+- **Đăng nhập** mở `/login`; **Đăng ký** mở thẳng tab tạo tài khoản tại `/login?mode=register`.
+- Sau khi xác thực tài khoản Supabase, tiến độ học khách trên thiết bị được import vào tài khoản. Nếu import thất bại, dữ liệu cục bộ vẫn được giữ để thử lại.
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:

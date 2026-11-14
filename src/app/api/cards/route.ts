@@ -2,9 +2,12 @@ import { NextRequest, NextResponse } from 'next/server';
 import { connection } from 'next/server';
 import { ReviewRating } from '@/models';
 import { queryCards, submitCardReview } from '@/services/card.service';
+import { rejectGuest } from '@/services/guest-guard';
 
 export async function GET(request: NextRequest) {
   await connection();
+  const blocked = await rejectGuest();
+  if (blocked) return blocked;
   try {
     const { searchParams } = new URL(request.url);
     const category = searchParams.get('category') || undefined;
@@ -46,6 +49,8 @@ export async function GET(request: NextRequest) {
 
 export async function POST(request: NextRequest) {
   await connection();
+  const blocked = await rejectGuest();
+  if (blocked) return blocked;
   try {
     const body = await request.json();
     const { cardId, rating, tz } = body;

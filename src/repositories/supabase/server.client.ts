@@ -137,3 +137,23 @@ export const getSupabaseServerClient = cache(async () => {
   return null;
 });
 
+export const getAuthenticatedSupabaseServerClient = cache(async () => {
+  if (!supabaseUrl || !supabaseKey) return null;
+
+  const cookieStore = await cookies();
+  const client = createServerSupabaseClient(cookieStore, { allowCookieDelete: false });
+  const {
+    data: { user },
+    error,
+  } = await client.auth.getUser();
+
+  if (error || !user) return null;
+
+  const username = extractUsername(user);
+  return {
+    client,
+    userId: user.id,
+    username,
+    displayName: user.user_metadata?.display_name || username,
+  };
+});

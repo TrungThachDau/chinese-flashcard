@@ -6,6 +6,15 @@ import {
   makeCardKey,
 } from '@/models';
 
+export interface GuestReviewLog {
+  id?: number;
+  card_key: string;
+  rating: number;
+  reviewed_at: string;
+  interval: number;
+  ease_factor: number;
+}
+
 export { makeCardKey };
 export type { LocalCardProgress, LocalReviewQueueItem, LocalSettings };
 
@@ -13,6 +22,9 @@ export class ChineseFlashcardDB extends Dexie {
   card_progress!: EntityTable<LocalCardProgress, 'card_key'>;
   sync_queue!: EntityTable<LocalReviewQueueItem, 'id'>;
   settings!: EntityTable<LocalSettings, 'key'>;
+  guest_progress!: EntityTable<LocalCardProgress, 'card_key'>;
+  guest_logs!: EntityTable<GuestReviewLog, 'id'>;
+  guest_meta!: EntityTable<LocalSettings, 'key'>;
 
   constructor() {
     super('ChineseFlashcardDB');
@@ -20,6 +32,16 @@ export class ChineseFlashcardDB extends Dexie {
       card_progress: 'card_key, card_id, status, due_date',
       sync_queue: '++id, card_key, reviewed_at',
       settings: 'key',
+    });
+    // Guest (not logged in) learning data lives in its own tables so it never mixes
+    // with the cache of an authenticated account.
+    this.version(2).stores({
+      card_progress: 'card_key, card_id, status, due_date',
+      sync_queue: '++id, card_key, reviewed_at',
+      settings: 'key',
+      guest_progress: 'card_key',
+      guest_logs: '++id, reviewed_at',
+      guest_meta: 'key',
     });
   }
 }

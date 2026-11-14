@@ -22,10 +22,22 @@ export interface LoadServerAppDataOptions {
   cardsLimit?: number;
 }
 
-export async function loadSupabaseAppData(options: LoadServerAppDataOptions = {}) {
+export async function loadSupabaseAppData(
+  options: LoadServerAppDataOptions = {},
+  allowGuest: boolean = false
+) {
   const { includeAllCards = false, includeQuestions = false, cardsLimit = 30 } = options;
-  const rawData = await fetchSupabaseAppRawData(includeQuestions);
-  if (!rawData) return null;
+  const fetched = await fetchSupabaseAppRawData(includeQuestions);
+  if (!fetched && !allowGuest) return null;
+  const isGuest = !fetched;
+  const rawData = fetched ?? {
+    username: null as string | null,
+    displayName: null as string | null,
+    savedSettings: undefined as Partial<UserSettings> | undefined,
+    cardProgressRows: [] as any[],
+    reviewLogRows: [] as any[],
+    questionProgressRows: [] as any[],
+  };
 
   const { username, displayName, savedSettings, cardProgressRows, reviewLogRows, questionProgressRows } =
     rawData;
@@ -194,6 +206,7 @@ export async function loadSupabaseAppData(options: LoadServerAppDataOptions = {}
     totalCards,
     lifeQuestions,
     studyStats,
+    isGuest,
   };
 }
 
@@ -208,7 +221,7 @@ export async function loadServerAppData(options: LoadServerAppDataOptions = {}) 
 
   if (isSupabaseConfigured()) {
     try {
-      const supabaseData = await loadSupabaseAppData(options);
+      const supabaseData = await loadSupabaseAppData(options, true);
       if (supabaseData) {
         return supabaseData;
       }
@@ -232,6 +245,7 @@ export async function loadServerAppData(options: LoadServerAppDataOptions = {}) 
       totalCards,
       lifeQuestions,
       studyStats,
+      isGuest: false,
     };
   } catch (error) {
     console.error('loadServerAppData error:', error);
@@ -249,6 +263,7 @@ export async function loadServerAppData(options: LoadServerAppDataOptions = {}) 
       totalCards: defaultTotal,
       lifeQuestions: defaultQuestions,
       studyStats: defaultStats,
+      isGuest: false,
     };
   }
 }

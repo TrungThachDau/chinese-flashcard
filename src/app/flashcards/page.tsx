@@ -21,6 +21,7 @@ async function SsrFlashcardsLoader() {
       initialQuestions={data.lifeQuestions}
       initialStats={data.studyStats}
       initialSettings={data.userSettings}
+      isGuest={data.isGuest}
       initialTab="flashcards"
     />
   );

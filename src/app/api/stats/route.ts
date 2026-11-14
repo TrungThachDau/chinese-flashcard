@@ -1,9 +1,12 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { connection } from 'next/server';
 import { fetchStudyStats } from '@/services/stats.service';
+import { rejectGuest } from '@/services/guest-guard';
 
 export async function GET(request: NextRequest) {
   await connection();
+  const blocked = await rejectGuest();
+  if (blocked) return blocked;
   try {
     const tzParam = new URL(request.url).searchParams.get('tz');
     const tz = tzParam !== null && Number.isFinite(Number(tzParam)) ? Number(tzParam) : undefined;

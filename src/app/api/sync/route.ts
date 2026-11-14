@@ -1,7 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { syncReviewsBatch } from '@/services/card.service';
+import { rejectGuest } from '@/services/guest-guard';
 
 export async function POST(request: NextRequest) {
+  const blocked = await rejectGuest();
+  if (blocked) return blocked;
   try {
     let body: any;
     const contentType = request.headers.get('content-type') || '';
