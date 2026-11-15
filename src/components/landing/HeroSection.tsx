@@ -1,24 +1,19 @@
 "use client";
 
 import React, { useState } from "react";
-import Link from "next/link";
 import { Volume2, Sparkles, Flame, CheckCircle2, ArrowRight, Star, Heart, Award } from "lucide-react";
 import { playChineseAudio } from "@/services/tts.service";
+import { useLandingEnroll } from "./LandingEnrollProvider";
 
-interface HeroSectionProps {
-  onOpenEnroll: () => void;
-  onScrollToDemo: () => void;
-  onScrollToCourses: () => void;
-}
-
-export const HeroSection: React.FC<HeroSectionProps> = ({
-  onOpenEnroll,
-  onScrollToDemo,
-  onScrollToCourses,
-}) => {
+export const HeroSection: React.FC = () => {
   const [isPlayingAudio, setIsPlayingAudio] = useState(false);
   const [previewRating, setPreviewRating] = useState<string | null>(null);
   const [xpPop, setXpPop] = useState(false);
+  const { openEnroll } = useLandingEnroll();
+
+  const scrollToDemo = () => {
+    document.getElementById("progress-demo")?.scrollIntoView({ behavior: "smooth" });
+  };
 
   const handlePlayVoice = async (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -89,7 +84,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3.5 pt-2">
             <button
-              onClick={onOpenEnroll}
+              onClick={() => openEnroll()}
               className="w-full sm:w-auto clay-btn-coral px-7 py-4 text-base font-black shadow-lg shadow-orange-400/30 gap-2.5 group cursor-pointer"
             >
               <span>🚀 Bắt Đầu Miễn Phí Ngay</span>
@@ -97,7 +92,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             </button>
 
             <button
-              onClick={onScrollToDemo}
+              onClick={scrollToDemo}
               className="w-full sm:w-auto clay-btn-white px-6 py-4 text-sm font-black text-[#43281c] gap-2 border border-orange-200/80 shadow-sm cursor-pointer"
             >
               <span>🎮 Thử Học Thẻ Ngay</span>

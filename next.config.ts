@@ -3,18 +3,24 @@ import { execSync } from "child_process";
 import packageJson from "./package.json";
 
 function getCommitHash(): string {
+  const configuredHash = process.env.NEXT_PUBLIC_GIT_COMMIT_HASH;
+  if (configuredHash) return configuredHash;
+
+  const vercelHash = process.env.VERCEL_GIT_COMMIT_SHA;
+  if (vercelHash) return vercelHash.slice(0, 7);
+
   try {
     return execSync("git rev-parse --short HEAD").toString().trim();
   } catch {
-    return (
-      process.env.NEXT_PUBLIC_GIT_COMMIT_HASH ||
-      process.env.VERCEL_GIT_COMMIT_SHA?.slice(0, 7) ||
-      "dev"
-    );
+    return "dev";
   }
 }
 
 function getCommitDate(): string {
+  if (process.env.NEXT_PUBLIC_GIT_COMMIT_HASH || process.env.VERCEL_GIT_COMMIT_SHA) {
+    return "";
+  }
+
   try {
     return execSync("git log -1 --format=%cs").toString().trim();
   } catch {
@@ -34,13 +40,14 @@ const nextConfig: NextConfig = {
   /* config options here */
   cacheComponents: true,
   partialPrefetching: true,
-  turbopack: {
-    rules: {
-      "*.css": {
-        loaders: ["@tailwindcss/turbopack"],
-        as: "*.css",
+  async redirects() {
+    return [
+      {
+        source: "/cards",
+        destination: "/",
+        permanent: false,
       },
-    },
+    ];
   },
 };
 

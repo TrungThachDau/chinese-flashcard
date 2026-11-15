@@ -1,12 +1,5 @@
-"use client";
-
-import React, { useState } from "react";
-import { ChevronDown, HelpCircle, Sparkles } from "lucide-react";
-
-interface FaqItem {
-  question: string;
-  answer: string;
-}
+import { HelpCircle } from "lucide-react";
+import { FaqAccordion, type FaqItem } from "./FaqAccordion";
 
 const FAQS: FaqItem[] = [
   {
@@ -36,13 +29,7 @@ const FAQS: FaqItem[] = [
   },
 ];
 
-export const FaqSection: React.FC = () => {
-  const [openIdx, setOpenIdx] = useState<number | null>(0);
-
-  const toggle = (idx: number) => {
-    setOpenIdx(openIdx === idx ? null : idx);
-  };
-
+export const FaqSection = () => {
   return (
     <section id="faq" className="py-16 sm:py-24 px-4 sm:px-6 relative">
       <div className="max-w-4xl mx-auto space-y-10">
@@ -60,40 +47,7 @@ export const FaqSection: React.FC = () => {
           </p>
         </div>
 
-        {/* Accordion List */}
-        <div className="space-y-4">
-          {FAQS.map((faq, idx) => (
-            <div
-              key={idx}
-              className="clay-card bg-white p-5 sm:p-6 transition-all border border-orange-100"
-            >
-              <button
-                onClick={() => toggle(idx)}
-                className="w-full flex items-center justify-between text-left gap-4"
-              >
-                <span className="text-sm sm:text-base font-black text-[#2d1b13] flex items-center gap-2.5">
-                  <span className="w-6 h-6 rounded-full bg-orange-100 text-orange-800 text-xs flex items-center justify-center shrink-0 font-bold">
-                    Q
-                  </span>
-                  {faq.question}
-                </span>
-                <div
-                  className={`p-1.5 rounded-full bg-orange-50 text-orange-600 shrink-0 transition-transform duration-200 ${
-                    openIdx === idx ? "rotate-180 bg-orange-200" : ""
-                  }`}
-                >
-                  <ChevronDown className="w-4 h-4" />
-                </div>
-              </button>
-
-              {openIdx === idx && (
-                <div className="pt-4 mt-3 border-t border-orange-100 text-xs sm:text-sm text-[#5c3a25] leading-relaxed animate-in fade-in slide-in-from-top-1">
-                  {faq.answer}
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
+        <FaqAccordion faqs={FAQS} />
       </div>
     </section>
   );

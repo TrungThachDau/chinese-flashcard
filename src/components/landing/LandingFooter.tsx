@@ -1,30 +1,9 @@
-"use client";
-
-import React, { useState } from "react";
 import Link from "next/link";
-import { Volume2, Heart, Sparkles, Send, Check } from "lucide-react";
-import { playChineseAudio } from "@/services/tts.service";
+import { Heart } from "lucide-react";
+import { FooterNewsletter } from "./FooterNewsletter";
+import { FooterWordOfDay } from "./FooterWordOfDay";
 
-export const LandingFooter: React.FC = () => {
-  const [email, setEmail] = useState("");
-  const [subscribed, setSubscribed] = useState(false);
-  const [isPlayingWord, setIsPlayingWord] = useState(false);
-
-  const handleSubscribe = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!email.trim()) return;
-    setSubscribed(true);
-  };
-
-  const handlePlayWord = async () => {
-    setIsPlayingWord(true);
-    try {
-      await playChineseAudio("快乐 kuàilè", { rate: 0.85 });
-    } finally {
-      setTimeout(() => setIsPlayingWord(false), 900);
-    }
-  };
-
+export const LandingFooter = () => {
   return (
     <footer className="pt-16 pb-12 px-4 sm:px-6 bg-[#fff2e4] border-t border-orange-200/80 relative overflow-hidden">
       {/* Decorative gradient */}
@@ -51,30 +30,7 @@ export const LandingFooter: React.FC = () => {
               chuẩn bản xứ để giúp việc học tiếng Trung trở nên dễ dàng, thú vị và tự nhiên.
             </p>
 
-            {/* Sticker "Chữ Hán Của Ngày" */}
-            <div className="clay-card bg-white p-3.5 max-w-xs flex items-center justify-between border border-orange-200/80">
-              <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-2xl bg-orange-100 flex items-center justify-center font-black text-2xl text-orange-800">
-                  乐
-                </div>
-                <div>
-                  <div className="text-[10px] font-extrabold text-orange-600 uppercase">
-                    Chữ Hán Hôm Nay
-                  </div>
-                  <div className="text-xs font-black text-[#2d1b13]">快乐 (kuàilè)</div>
-                  <div className="text-[11px] text-slate-500">Ý nghĩa: Niềm vui, vui vẻ</div>
-                </div>
-              </div>
-              <button
-                onClick={handlePlayWord}
-                title="Nghe phát âm"
-                className={`p-2 rounded-xl bg-orange-50 text-orange-600 hover:scale-110 transition-transform ${
-                  isPlayingWord ? "ring-2 ring-orange-400" : ""
-                }`}
-              >
-                <Volume2 className="w-4 h-4" />
-              </button>
-            </div>
+            <FooterWordOfDay />
           </div>
 
           {/* Col 2: Navigation Links */}
@@ -121,29 +77,7 @@ export const LandingFooter: React.FC = () => {
               và 3 từ vựng ứng dụng thực tế.
             </p>
 
-            {subscribed ? (
-              <div className="p-3 rounded-2xl bg-emerald-100 text-emerald-800 text-xs font-bold flex items-center gap-2">
-                <Check className="w-4 h-4 text-emerald-600" />
-                <span>Cảm ơn bạn! Bản tin mẹo học sẽ gửi tới bạn mỗi sáng.</span>
-              </div>
-            ) : (
-              <form onSubmit={handleSubscribe} className="flex gap-2">
-                <input
-                  type="email"
-                  required
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="nhapemail@gmail.com"
-                  className="w-full px-3.5 py-2.5 rounded-2xl bg-white border border-orange-200 text-xs text-[#2d1b13] focus:outline-none focus:ring-2 focus:ring-orange-400"
-                />
-                <button
-                  type="submit"
-                  className="clay-btn-coral px-4 py-2.5 text-xs font-black shrink-0"
-                >
-                  <Send className="w-3.5 h-3.5" />
-                </button>
-              </form>
-            )}
+            <FooterNewsletter />
           </div>
         </div>
 

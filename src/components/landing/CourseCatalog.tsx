@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { BookOpen, Clock, Users, Star, ArrowRight, Check, Volume2, X, Sparkles } from "lucide-react";
 import { playChineseAudio } from "@/services/tts.service";
+import { useLandingEnroll } from "./LandingEnrollProvider";
 
 interface Course {
   id: string;
@@ -225,14 +226,11 @@ const COURSES: Course[] = [
   },
 ];
 
-interface CourseCatalogProps {
-  onOpenEnroll: (courseTitle?: string) => void;
-}
-
-export const CourseCatalog: React.FC<CourseCatalogProps> = ({ onOpenEnroll }) => {
+export const CourseCatalog: React.FC = () => {
   const [activeTab, setActiveTab] = useState<"all" | "beginner" | "intermediate" | "hanzi" | "practical">("all");
   const [selectedCourse, setSelectedCourse] = useState<Course | null>(null);
   const [playingAudio, setPlayingAudio] = useState<string | null>(null);
+  const { openEnroll } = useLandingEnroll();
 
   const filteredCourses =
     activeTab === "all"
@@ -388,7 +386,7 @@ export const CourseCatalog: React.FC<CourseCatalogProps> = ({ onOpenEnroll }) =>
                     Xem Đề Cương
                   </button>
                   <button
-                    onClick={() => onOpenEnroll(course.titleVi)}
+                    onClick={() => openEnroll(course.titleVi)}
                     className="clay-btn-coral py-2.5 text-xs font-black shadow-sm"
                   >
                     Đăng Ký Học
@@ -457,7 +455,7 @@ export const CourseCatalog: React.FC<CourseCatalogProps> = ({ onOpenEnroll }) =>
                 onClick={() => {
                   const title = selectedCourse.titleVi;
                   setSelectedCourse(null);
-                  onOpenEnroll(title);
+                  openEnroll(title);
                 }}
                 className="clay-btn-coral px-5 py-3 text-xs sm:text-sm font-black shrink-0"
               >

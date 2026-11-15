@@ -3,13 +3,11 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { Sparkles, BookOpen, Flame, MessageCircle, Menu, X, ArrowRight } from "lucide-react";
+import { useLandingEnroll } from "./LandingEnrollProvider";
 
-interface LandingNavbarProps {
-  onOpenEnroll: () => void;
-}
-
-export const LandingNavbar: React.FC<LandingNavbarProps> = ({ onOpenEnroll }) => {
+export const LandingNavbar: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { openEnroll } = useLandingEnroll();
 
   return (
     <header className="sticky top-0 z-50 w-full px-3 sm:px-6 pt-3 pb-2 backdrop-blur-md bg-[#fff8f0]/85 transition-all border-b border-orange-100/60">
@@ -85,7 +83,7 @@ export const LandingNavbar: React.FC<LandingNavbarProps> = ({ onOpenEnroll }) =>
             Mở Ứng Dụng Học Thẻ
           </Link>
           <button
-            onClick={onOpenEnroll}
+            onClick={() => openEnroll()}
             className="clay-btn-coral px-4 sm:px-5 py-2 sm:py-2.5 text-xs sm:text-sm font-extrabold shadow-md flex items-center gap-1.5"
           >
             <span>Học Thử 7 Ngày</span>
@@ -155,7 +153,7 @@ export const LandingNavbar: React.FC<LandingNavbarProps> = ({ onOpenEnroll }) =>
             <button
               onClick={() => {
                 setMobileMenuOpen(false);
-                onOpenEnroll();
+                openEnroll();
               }}
               className="clay-btn-coral py-2.5 text-center text-xs font-extrabold"
             >

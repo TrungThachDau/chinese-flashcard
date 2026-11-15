@@ -4,18 +4,16 @@ import React, { useState } from "react";
 import Link from "next/link";
 import confetti from "canvas-confetti";
 import { Sparkles, ArrowRight, CheckCircle2, ShieldCheck, HeartHandshake, Zap } from "lucide-react";
+import { useLandingEnroll } from "./LandingEnrollProvider";
 
-interface EnrollmentCTAProps {
-  initialCourse?: string;
-}
-
-export const EnrollmentCTA: React.FC<EnrollmentCTAProps> = ({ initialCourse }) => {
+export const EnrollmentCTA: React.FC = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [targetGoal, setTargetGoal] = useState("hsk");
   const [currentLevel, setCurrentLevel] = useState("zero");
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const { selectedCourseTitle } = useLandingEnroll();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -136,7 +134,9 @@ export const EnrollmentCTA: React.FC<EnrollmentCTAProps> = ({ initialCourse }) =
                   <div className="text-center pb-2 border-b border-orange-100">
                     <h3 className="text-lg font-black text-[#2d1b13]">Đăng Ký Học Thử Miễn Phí</h3>
                     <p className="text-xs text-[#7c4d35]">
-                      Điền thông tin để nhận tài khoản trải nghiệm 7 ngày
+                      {selectedCourseTitle
+                        ? `Đăng ký khóa học: ${selectedCourseTitle}`
+                        : "Điền thông tin để nhận tài khoản trải nghiệm 7 ngày"}
                     </p>
                   </div>
 
