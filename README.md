@@ -22,6 +22,17 @@ Bạn có thể học mà không cần đăng nhập. Khi chưa đăng nhập, t
 - **Đăng nhập** mở `/login`; **Đăng ký** mở thẳng tab tạo tài khoản tại `/login?mode=register`.
 - Sau khi xác thực tài khoản Supabase, tiến độ học khách trên thiết bị được import vào tài khoản. Nếu import thất bại, dữ liệu cục bộ vẫn được giữ để thử lại.
 
+## Kiểm thử (Vitest)
+
+Chạy test một lần hoặc ở chế độ theo dõi thay đổi:
+
+```bash
+bun run test:run
+bun run test
+```
+
+Đặt test cạnh mã nguồn trong `src/` với hậu tố `.test.ts`, `.test.tsx`, `.spec.ts` hoặc `.spec.tsx`. Test cần môi trường Node có thể khai báo `// @vitest-environment node` ở đầu file. Lưu ý `bun test` chạy test runner tích hợp của Bun, không phải Vitest. Vitest 5 và jsdom 31 yêu cầu Node.js 22.22.2 trở lên, 24.15 trở lên hoặc phiên bản 26 trở lên.
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
